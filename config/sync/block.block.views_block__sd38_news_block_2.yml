@@ -1,0 +1,30 @@
+uuid: b9f53dd3-9346-4ac8-945b-739a8cf04284
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.sd38_news
+  module:
+    - system
+    - views
+  theme:
+    - bootstrap_barrio
+id: views_block__sd38_news_block_2
+theme: bootstrap_barrio
+region: featured_top
+weight: -5
+provider: null
+plugin: 'views_block:sd38_news-block_2'
+settings:
+  id: 'views_block:sd38_news-block_2'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

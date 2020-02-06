@@ -1,0 +1,323 @@
+<?php
+
+/**
+ * @file
+ * Field hooks for a field that stores a start and end date as timestamps.
+ */
+
+use Drupal\Component\Render\FormattableMarkup;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+use Drupal\smart_date_recur\Entity\SmartDateRule;
+
+/**
+ * Implements hook_help().
+ */
+function smart_date_recur_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.smart_date_recur':
+      if (\Drupal::moduleHandler()->moduleExists('field_ui')) {
+        $field_ui_link = \Drupal::url('help.page', ['name' => 'field_ui']);
+      }
+      else {
+        $field_ui_link = '#';
+      }
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The Smart Date Recur module adds recurring date functionality to Smart Date fields. For more information, see the <a href=":datetime_do">online documentation for the Smart Date module</a>.', [
+        ':field' => Drupal::url('help.page', ['name' => 'field']),
+        ':field_ui' => $field_ui_link,
+        ':datetime_do' => 'https://www.drupal.org/documentation/modules/smart_date',
+      ]) . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Helper function to add extra fields to Smart Date widgets.
+ */
+function smart_date_recur_widget_extra_fields(&$element, $item) {
+  $default_repeat = '';
+  $default_end_count = '';
+  $default_end_date = '';
+  $limit_type = '';
+  // Get current user.
+  $user = \Drupal::currentUser();
+  // Check for permission.
+  $recur_permitted = $user->hasPermission('make smart dates recur');
+
+  if ($item->rrule) {
+    $rrule = SmartDateRule::load($item->rrule);
+    if ($rrule) {
+      $default_repeat = $rrule->get('freq')->getString();
+      if ($rrule->get('limit')->getString()) {
+        list($limit_type, $limit_value) = explode('=', $rrule->get('limit')->getString());
+        if ($limit_type == 'COUNT') {
+          $default_end_count = $limit_value;
+        }
+        elseif ($limit_type == 'UNTIL') {
+          $default_end_date = $limit_value;
+        }
+      }
+    }
+    $element['rrule'] = [
+      '#type' => 'hidden',
+      '#title' => t('Existing Rule ID'),
+      '#value' => $item->rrule,
+    ];
+
+    if (!$recur_permitted) {
+      $element['repeat'] = [
+        '#type' => 'hidden',
+        '#title' => t('Existing repeat frequency'),
+        '#value' => $default_repeat,
+      ];
+      $element['repeat-end'] = [
+        '#type' => 'hidden',
+        '#title' => t('Existing repeat limit type'),
+        '#value' => $limit_type,
+      ];
+      $element['repeat-end-count'] = [
+        '#type' => 'hidden',
+        '#title' => t('Existing maximum instances'),
+        '#value' => $default_end_count,
+      ];
+      $element['repeat-end-date'] = [
+        '#type' => 'hidden',
+        '#title' => t('Existing last instance date'),
+        '#value' => $default_end_date,
+      ];
+      if ($rule_text = $rrule->getTextRule()) {
+        $element['repeat-text'] = [
+          '#markup' => '<span class="clearfix"></span>
+            <h4 class="label">' . t('Repeats') . '</h4>
+            <p class="repeat-text"> ' . $rule_text . '</p>',
+        ];
+      }
+      return;
+    }
+
+    // Also insert a link to the interface for managing interfaces.
+    $url = Url::fromRoute('smart_date_recur.instances', ['rrule' => $item->rrule]);
+    $instances_link = Link::fromTextAndUrl(t('Manage Instances'), $url);
+    $instances_link = $instances_link->toRenderable();
+    // Add some classes.
+    $instances_link['#attributes'] = [
+      'class' => [
+        'button',
+        'button--small',
+        'manage-instances',
+      ],
+    ];
+
+    $instances_link['#weight'] = 100;
+    $element['manage-instances'] = $instances_link;
+  }
+  elseif (!$recur_permitted) {
+    return;
+  }
+
+  $element['repeat'] = [
+    '#type' => 'select',
+    '#title' => t('Repeats'),
+    '#prefix' => '<div class="clearfix"></div>',
+    '#options' => [
+      '' => 'None',
+      'DAILY' => t('Daily'),
+      'WEEKLY' => t('Weekly'),
+      'MONTHLY' => t('Monthly'),
+      'YEARLY' => t('Annually'),
+    ],
+    '#default_value' => $default_repeat,
+  ];
+  $element['repeat-end'] = [
+    '#type' => 'select',
+    '#title' => t('Ends'),
+    '#label_attributes' => ['class' => 'pad-left'],
+    '#options' => [
+      '' => 'Never',
+      'COUNT' => t('After'),
+      'UNTIL' => t('On Date'),
+    ],
+    '#states' => [
+      // Show this textarea only if the 'repeat' select has a value.
+      'invisible' => [
+        'select[name$="[' . $element['#delta'] . '][repeat]"]' => ['value' => ''],
+      ],
+    ],
+    '#default_value' => $limit_type,
+  ];
+  $element['repeat-end-count'] = [
+    '#type' => 'number',
+    '#title' => t('Ends after'),
+    '#title_display' => t('invisible'),
+    '#min' => 2,
+    '#step' => 1,
+    '#field_suffix' => 'times',
+    '#placeholder' => '# of',
+    '#states' => [
+      // Show this textarea only if the 'repeat' select has a value.
+      'invisible' => [
+        ['select[name$="[' . $element['#delta'] . '][repeat]"]' => ['value' => '']],
+        ['select[name$="[' . $element['#delta'] . '][repeat-end]"]' => ['value' => 'UNTIL']],
+        ['select[name$="[' . $element['#delta'] . '][repeat-end]"]' => ['value' => '']],
+      ],
+    ],
+    '#default_value' => $default_end_count,
+  ];
+  $element['repeat-end-date'] = [
+    '#type' => 'date',
+    '#title' => t('Ends on date'),
+    '#title_display' => t('invisible'),
+    '#states' => [
+      // Show this textarea only if the 'repeat' select has a value.
+      'invisible' => [
+        ['select[name$="[' . $element['#delta'] . '][repeat]"]' => ['value' => '']],
+        ['select[name$="[' . $element['#delta'] . '][repeat-end]"]' => ['value' => 'COUNT']],
+        ['select[name$="[' . $element['#delta'] . '][repeat-end]"]' => ['value' => '']],
+      ],
+    ],
+    '#default_value' => $default_end_date,
+    '#attributes' => [
+      'class' => ['repeat-end-date'],
+    ],
+  ];
+}
+
+/**
+ * Add configuration elements for Smart Date fields.
+ */
+function smart_date_recur_form_field_config_edit_form_alter(&$form, FormStateInterface $form_state) {
+  // Only try to add our option to Smart Date fields.
+  $field = $form_state->getFormObject()->getEntity();
+  if ($field->getType() != 'smartdate') {
+    return;
+  }
+
+  // Only provide the recurring option if unlimited values are allowed.
+  $cardinality = $field->getFieldStorageDefinition()->getCardinality();
+  if ($cardinality != -1) {
+    $messenger = \Drupal::messenger();
+    $messenger->addMessage(t('Recurring values can only be used on Smart Date fields that allow unlimited values.'), 'warning');
+    return;
+  }
+
+  $entity = $form_state->getFormObject()->getEntity();
+
+  $form['third_party_settings']['smart_date_recur'] = [
+    '#type' => 'fieldgroup',
+    '#title' => t('Recurring Dates'),
+  ];
+  $form['third_party_settings']['smart_date_recur']['allow_recurring'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Allow recurring date values'),
+    '#default_value' => $entity->getThirdPartySetting('smart_date_recur', 'allow_recurring'),
+  ];
+  $months = $entity->getThirdPartySetting('smart_date_recur', 'month_limit');
+  $form['third_party_settings']['smart_date_recur']['month_limit'] = [
+    '#type' => 'number',
+    '#title' => t('Months to Extend'),
+    '#description' => t('For recurring dates without a specified end, how many months out should instances be generated?'),
+    '#states' => [
+      // Show this textarea only if the 'repeat' select has a value.
+      'visible' => [
+        'input[name="third_party_settings[smart_date_recur][allow_recurring]"]' => ['checked' => TRUE],
+      ],
+    ],
+    '#default_value' => $months ? $months : 12,
+  ];
+}
+
+/**
+ * Helper function to generate additional field deltas based on user inputs.
+ */
+function smart_date_recur_generate_rows(&$values, $entity_type, $bundle, $field_name, $month_limit) {
+  $for_cloning = [];
+  foreach ($values as $index => &$item) {
+    // Skip empty rows.
+    if (empty($item['value'])) {
+      continue;
+    }
+    if (empty($item['repeat'])) {
+      if (!empty($item['rrule'])) {
+        // Removed an existing reoccurrence, so delete.
+        $rrule = SmartDateRule::load($item['rrule']);
+        $rrule->delete();
+        $item['rrule'] = NULL;
+      }
+      continue;
+    }
+
+    // Format provided values to be rrule-compatible.
+    $rrule_values = [
+      'freq'        => $item['repeat'],
+      'start'       => $item['value'],
+      'end'         => $item['end_value'],
+      'entity_type' => $entity_type,
+      'bundle'      => $bundle,
+      'field_name'  => $field_name,
+      'parameters'  => NULL,
+    ];
+    $limit = '';
+    if ($item['repeat-end'] == 'COUNT') {
+      $limit = $item['repeat-end-count'];
+    }
+    elseif ($item['repeat-end'] == 'UNTIL') {
+      $limit = $item['repeat-end-date'];
+    }
+    if ($item['repeat-end'] && $limit) {
+      $limit_safe = new FormattableMarkup(':type=:limit', [':type' => $item['repeat-end'], ':limit' => $limit]);
+      $rrule_values['limit'] = $limit_safe->__toString();
+      $rrule_values['unlimited'] = FALSE;
+      $before = NULL;
+    }
+    else {
+      $rrule_values['limit'] = '';
+      $rrule_values['unlimited'] = TRUE;
+      $before = strtotime('+' . (int) $month_limit . ' months');
+    }
+
+    if (!empty($item['rrule'])) {
+      // Existing rrule, so retrieve and update values.
+      $rrule = SmartDateRule::load($item['rrule']);
+
+      $rrule->set('freq', $rrule_values['freq']);
+      $rrule->set('limit', $rrule_values['limit']);
+      $rrule->set('unlimited', $rrule_values['unlimited']);
+      $rrule->set('start', $rrule_values['start']);
+      $rrule->set('end', $rrule_values['end']);
+      $rrule->set('parameters', $rrule_values['parameters']);
+    }
+    else {
+      // New rrule, so construct object.
+      $rrule = SmartDateRule::create($rrule_values);
+    }
+    // Generate instances.
+    $instances = $rrule->getRuleInstances($before);
+    $rrule->set('instances', ['data' => $instances]);
+
+    // TODO: store unaltered instances instead?
+    $rrule->save();
+    $item['rrule'] = $rrule->id();
+    // Make additional field deltas for the generated instances.
+    $for_cloning[$index] = $instances;
+  }
+  // Now process field values that should be cloned.
+  foreach ($for_cloning as $index => $instances) {
+    // Now process the generated instances.
+    $first = array_shift($instances);
+    $new_item = $values[$index];
+
+    foreach ($instances as $instance) {
+      $new_item['value'] = $instance['value'];
+      $new_item['end_value'] = $instance['end_value'];
+      $new_item['duration'] = ($instance['end_value'] - $instance['value']) / 60;
+      $values[] = $new_item;
+    }
+
+  }
+
+  return $values;
+}

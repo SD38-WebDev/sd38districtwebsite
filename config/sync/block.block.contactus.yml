@@ -1,0 +1,25 @@
+uuid: 114bcd49-e0d7-4bec-a77a-e9f47f91d39a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:819046e7-6cab-4f0f-b463-022bbb56c5c9'
+  module:
+    - block_content
+  theme:
+    - rsd_district
+id: contactus
+theme: rsd_district
+region: footer_first
+weight: -8
+provider: null
+plugin: 'block_content:819046e7-6cab-4f0f-b463-022bbb56c5c9'
+settings:
+  id: 'block_content:819046e7-6cab-4f0f-b463-022bbb56c5c9'
+  label: 'Contact Us'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

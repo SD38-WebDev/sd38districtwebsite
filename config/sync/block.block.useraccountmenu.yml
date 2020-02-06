@@ -1,0 +1,25 @@
+uuid: 11ee3820-6a0d-4abb-8b55-2bb006f4b88b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - rsd_district
+id: useraccountmenu
+theme: rsd_district
+region: footer_second
+weight: -8
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

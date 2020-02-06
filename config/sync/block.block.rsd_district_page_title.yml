@@ -1,0 +1,27 @@
+uuid: 3599c750-1774-42cd-84a3-34b948641763
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - rsd_district
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: rsd_district_page_title
+theme: rsd_district
+region: content
+weight: -6
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+    context_mapping: {  }

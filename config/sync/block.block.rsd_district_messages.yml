@@ -1,0 +1,22 @@
+uuid: db9a98c2-0421-4b15-acaf-77c8ced73e3f
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - rsd_district
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: rsd_district_messages
+theme: rsd_district
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

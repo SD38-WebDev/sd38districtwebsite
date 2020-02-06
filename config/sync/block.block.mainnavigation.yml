@@ -1,0 +1,33 @@
+uuid: f4fd783e-0b4e-4637-aa2f-22967eaf35b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - menu_block
+    - system
+  theme:
+    - rsd_district
+id: mainnavigation
+theme: rsd_district
+region: content
+weight: 0
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'Main navigation'
+  provider: menu_block
+  label_display: '0'
+  level: 2
+  depth: 1
+  expand: 0
+  parent: 'main:'
+  suggestion: subpages
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+    context_mapping: {  }

@@ -1,0 +1,22 @@
+uuid: c1b82c53-799b-43b1-9e53-faa2e6db42e9
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - rsd_district
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: rsd_district_content
+theme: rsd_district
+region: content
+weight: -2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }
