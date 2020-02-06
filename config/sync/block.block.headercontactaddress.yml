@@ -5,13 +5,20 @@ dependencies:
   content:
     - 'block_content:basic:008b865f-19e7-4b88-86c5-20951ac84494'
   module:
+    - block_class
+    - block_class_select
     - block_content
   theme:
     - rsd_district
+third_party_settings:
+  block_class:
+    classes: 'd-none d-xl-block  '
+  block_class_select:
+    selected_classes: ''
 id: headercontactaddress
 theme: rsd_district
 region: top_header
-weight: 0
+weight: -15
 provider: null
 plugin: 'block_content:008b865f-19e7-4b88-86c5-20951ac84494'
 settings:

@@ -6,6 +6,14 @@ dependencies:
     - filter.format.full_html
   module:
     - ckeditor
+    - editor_file
+third_party_settings:
+  editor_file:
+    status: true
+    scheme: public
+    directory: inline-files
+    extensions: txt
+    max_size: ''
 _core:
   default_config_hash: 967ijj7p6i7rwrYl7r08WQFeCY_c23YAh0h8u-w_CXM
 format: full_html
@@ -23,6 +31,12 @@ settings:
             - Superscript
             - Subscript
             - '-'
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyRight
+            - JustifyBlock
+            - Outdent
+            - Indent
             - RemoveFormat
         -
           name: Linking
@@ -39,7 +53,7 @@ settings:
           items:
             - Blockquote
             - DrupalImage
-            - Table
+            - media_assets
             - HorizontalRule
         -
           name: 'Block Formatting'
@@ -50,14 +64,29 @@ settings:
           items:
             - ShowBlocks
             - Source
+            - Table
   plugins:
     stylescombo:
       styles: ''
+    drupallink:
+      linkit_enabled: true
+      linkit_profile: default
+    language:
+      language_list: un
+    wordcount:
+      enable: 1
+      show_paragraphs: 1
+      show_word_count: 1
+      show_char_count: 0
+      count_spaces: 0
+      count_html: 0
+      max_words: '-1'
+      max_chars: '-1'
 image_upload:
   status: true
   scheme: public
   directory: inline-images
   max_size: ''
   max_dimensions:
-    width: 0
-    height: 0
+    width: null
+    height: null

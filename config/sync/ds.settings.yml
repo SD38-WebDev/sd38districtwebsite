@@ -3,9 +3,7 @@ field_template: true
 ft-default: default
 ft-show-colon: false
 classes:
-  region:
-    - card-title
-    - card-body
+  region: {  }
   field: {  }
 use_field_names: true
 _core:

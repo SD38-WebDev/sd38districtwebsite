@@ -13,7 +13,7 @@ id: node.article.field_image
 field_name: field_image
 entity_type: node
 bundle: article
-label: Image
+label: 'Feature Image'
 description: ''
 required: false
 translatable: true
@@ -26,15 +26,15 @@ settings:
   max_resolution: ''
   min_resolution: ''
   alt_field: true
-  title_field: false
   alt_field_required: true
+  title_field: false
   title_field_required: false
   default_image:
-    uuid: null
-    alt: ''
-    title: ''
-    width: null
-    height: null
+    uuid: 0955bd6a-c9e7-40b2-9b98-cb140c62d998
+    alt: 'School District No. 38 (Richmond)'
+    title: 'School District No. 38 (Richmond)'
+    width: 600
+    height: 400
   handler: 'default:file'
   handler_settings: {  }
 field_type: image

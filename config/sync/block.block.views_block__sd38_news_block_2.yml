@@ -1,4 +1,4 @@
-uuid: b9f53dd3-9346-4ac8-945b-739a8cf04284
+uuid: da550b7c-fc02-4a8b-964b-eb7c559ca54e
 langcode: en
 status: true
 dependencies:
@@ -8,11 +8,11 @@ dependencies:
     - system
     - views
   theme:
-    - bootstrap_barrio
+    - rsd_district
 id: views_block__sd38_news_block_2
-theme: bootstrap_barrio
-region: featured_top
-weight: -5
+theme: rsd_district
+region: content
+weight: -10
 provider: null
 plugin: 'views_block:sd38_news-block_2'
 settings:

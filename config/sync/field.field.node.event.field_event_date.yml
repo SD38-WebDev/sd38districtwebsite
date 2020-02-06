@@ -1,4 +1,4 @@
-uuid: 650ae9f6-0639-422f-9f4e-9137b727df86
+uuid: 4e2f8ec6-8f6a-41d2-979d-96e38eb5414f
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - field.storage.node.field_event_date
     - node.type.event
   module:
-    - datetime
+    - smart_date
 id: node.event.field_event_date
 field_name: field_event_date
 entity_type: node
@@ -15,7 +15,12 @@ label: 'Event Date'
 description: ''
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    default_date_type: next_hour
+    default_date: ''
+    default_duration_increments: "30\r\n60|1 hour\r\n90\r\n120|2 hours\r\ncustom"
+    default_duration: 60
 default_value_callback: ''
 settings: {  }
-field_type: datetime
+field_type: smartdate

@@ -1,0 +1,35 @@
+uuid: 545275ef-7cab-49df-a721-c4b518e4795c
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - block_class_select
+    - menu_block
+  theme:
+    - rsd_district
+third_party_settings:
+  block_class_select:
+    selected_classes: ''
+id: mainnavigation_6
+theme: rsd_district
+region: footer_third
+weight: 0
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'Services Menu Block'
+  provider: menu_block
+  label_display: visible
+  follow: false
+  follow_parent: child
+  level: 1
+  depth: 1
+  expand: false
+  parent: 'main:menu_link_content:96252998-fe8d-4942-9cbf-4b58dadf03d1'
+  suggestion: main
+  label_type: fixed_parent
+  label_link: 1
+visibility: {  }

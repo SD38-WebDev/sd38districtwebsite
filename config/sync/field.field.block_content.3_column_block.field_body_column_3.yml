@@ -1,0 +1,21 @@
+uuid: fe7c6dfe-cadf-4356-adda-75eec3ed7b8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.3_column_block
+    - field.storage.block_content.field_body_column_3
+  module:
+    - text
+id: block_content.3_column_block.field_body_column_3
+field_name: field_body_column_3
+entity_type: block_content
+bundle: 3_column_block
+label: 'Body - Column 3'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

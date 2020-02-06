@@ -5,13 +5,17 @@ dependencies:
   config:
     - system.menu.account
   module:
+    - block_class_select
     - system
   theme:
     - rsd_district
+third_party_settings:
+  block_class_select:
+    selected_classes: ''
 id: useraccountmenu
 theme: rsd_district
-region: footer_second
-weight: -8
+region: footer_fourth
+weight: -12
 provider: null
 plugin: 'system_menu_block:account'
 settings:

@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.article.body
-    - field.field.node.article.comment
+    - field.field.node.article.field_carousel_content_link
     - field.field.node.article.field_carousel_image
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
@@ -12,10 +12,30 @@ dependencies:
     - image.style.thumbnail
     - node.type.article
   module:
-    - comment
+    - field_group
     - image
+    - link
     - path
     - text
+third_party_settings:
+  field_group:
+    group_home_page_carousel:
+      children:
+        - field_to_home_page_carousel
+        - field_carousel_image
+        - field_carousel_content_link
+      parent_name: ''
+      weight: 5
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+        open: false
+        required_fields: true
+        weight: 0
+      label: 'Home Page Carousel'
 _core:
   default_config_hash: vPb_yvhA-xuNoV_yOmOwYxGuHNRIH1CoMK2qi7BSga0
 id: node.article.default
@@ -31,21 +51,32 @@ content:
       rows: 9
       summary_rows: 3
       placeholder: ''
+      show_summary: false
     third_party_settings: {  }
-  comment:
-    type: comment_default
-    weight: 9
+  body_class:
+    type: string_textfield
+    weight: 14
     region: content
-    settings: {  }
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_carousel_content_link:
+    weight: 7
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
   field_carousel_image:
-    weight: 4
+    weight: 6
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -68,9 +99,10 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     third_party_settings: {  }
   field_to_home_page_carousel:
-    weight: 12
+    weight: 5
     settings:
       display_label: true
     third_party_settings: {  }
@@ -78,7 +110,7 @@ content:
     region: content
   path:
     type: path
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -86,21 +118,28 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 8
     region: content
+    third_party_settings: {  }
+  specific_node_class:
+    type: boolean_checkbox
+    weight: 15
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 11
+    weight: 12
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 9
     region: content
     third_party_settings: {  }
   title:
@@ -113,11 +152,12 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     third_party_settings: {  }
 hidden: {  }

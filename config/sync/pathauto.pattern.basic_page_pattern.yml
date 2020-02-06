@@ -5,18 +5,19 @@ dependencies:
   module:
     - node
 id: basic_page_pattern
-label: 'Basic Page Pattern'
+label: 'Menu Hierarchy Pattern'
 type: 'canonical_entities:node'
-pattern: '[node:menu-link:parents]/[node:title]'
+pattern: '[node:menu-link:parents:join-path]/[node:title]'
 selection_criteria:
-  d8aeb14e-c576-4377-9fda-fae586a017c5:
+  a5a16f1a-1bc0-4b55-af58-29b997b2b924:
     id: node_type
     bundles:
       page: page
+      staff_member: staff_member
     negate: false
     context_mapping:
       node: node
-    uuid: d8aeb14e-c576-4377-9fda-fae586a017c5
+    uuid: a5a16f1a-1bc0-4b55-af58-29b997b2b924
 selection_logic: and
 weight: -5
 relationships: {  }

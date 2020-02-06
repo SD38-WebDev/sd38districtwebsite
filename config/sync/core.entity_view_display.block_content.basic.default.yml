@@ -6,7 +6,32 @@ dependencies:
     - block_content.type.basic
     - field.field.block_content.basic.body
   module:
+    - ds
     - text
+third_party_settings:
+  ds:
+    layout:
+      id: bs_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          main:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      main:
+        - body
 _core:
   default_config_hash: orJpHUlAc_wiQLMUjIgEJXGeiqylGHMPcmNRjGtct-M
 id: block_content.basic.default
@@ -18,7 +43,7 @@ content:
     label: hidden
     type: text_default
     weight: 0
-    region: content
+    region: main
     settings: {  }
     third_party_settings: {  }
 hidden: {  }

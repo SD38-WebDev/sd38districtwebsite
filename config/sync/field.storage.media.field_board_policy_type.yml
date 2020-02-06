@@ -1,0 +1,27 @@
+uuid: 8ed6df3e-40c9-4d7a-b635-7e4a1583cae2
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - options
+id: media.field_board_policy_type
+field_name: field_board_policy_type
+entity_type: media
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Policies and Regulations'
+      label: 'Policies and Regulations'
+    -
+      value: Guidelines
+      label: Guidelines
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

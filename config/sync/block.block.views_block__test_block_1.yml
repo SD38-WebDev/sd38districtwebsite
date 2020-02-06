@@ -1,0 +1,34 @@
+uuid: f7b7a9e2-f940-49bc-8920-1f83c149b5a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.test
+  module:
+    - block_class_select
+    - system
+    - views
+  theme:
+    - rsd_district
+third_party_settings:
+  block_class_select:
+    selected_classes: ''
+id: views_block__test_block_1
+theme: rsd_district
+region: content
+weight: -12
+provider: null
+plugin: 'views_block:test-block_1'
+settings:
+  id: 'views_block:test-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

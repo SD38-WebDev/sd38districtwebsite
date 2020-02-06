@@ -8,8 +8,16 @@ effects:
   45a28d3c-26cc-4a93-89c9-9b128cd36d35:
     uuid: 45a28d3c-26cc-4a93-89c9-9b128cd36d35
     id: image_scale_and_crop
-    weight: 1
+    weight: -9
     data:
-      width: 420
-      height: 270
+      width: 700
+      height: 378
       anchor: center-center
+  49b010c4-9bc0-4b14-a38c-c98ecfb728ff:
+    uuid: 49b010c4-9bc0-4b14-a38c-c98ecfb728ff
+    id: image_scale
+    weight: -10
+    data:
+      width: 700
+      height: null
+      upscale: true
