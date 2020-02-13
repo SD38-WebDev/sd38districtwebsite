@@ -19,6 +19,8 @@ regions:
   page_top: 'Page top'
   page_bottom: 'Page bottom'
   highlighted: Highlighted
+  section_left: 'Section Branding Left'
+  section_right: 'Section Branding Right'
   featured_top: 'Featured top'
   breadcrumb: Breadcrumb
   content: Content

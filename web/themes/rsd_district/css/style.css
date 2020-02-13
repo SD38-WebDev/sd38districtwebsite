@@ -18,11 +18,8 @@ body {
 	font-family: Lato, sans-serif;
 }
 
-#block-rsd-district-content {
-	font-size: 1.35rem;
-}
-
-.breadcrumb {
+#page-wrapper .breadcrumb {
+	font-size: 1.15rem;
 	background-color: white !important;
 	border: 1px solid rgba(0,0,0,0.1);
 }
@@ -37,19 +34,72 @@ img {
 }
 
 #page-wrapper h2 {
-	margin-bottom: 1.25rem;
+	font-size: 1.7rem;
+	margin-top: 1rem;
+	margin-bottom: 0.5rem;
+}
+
+#page-wrapper .home-events-grid h2 {
+	font-size: 1.35rem;
+}
+
+#page-wrapper footer h2 {
+	font-size: 1.2rem;
+/* 	margin-bottom: 1.25rem; */
+}
+
+#page-wrapper .accordion h2 {
+	margin: 0;
+}
+
+#page-wrapper .accordion h2 a {
+	font-size: 1.35rem;
 }
 
 #page-wrapper h3 {
+	font-size: 1.6rem;
 	margin-bottom: 0.75rem;
 }
 
 #page-wrapper h4 {
-/* 	margin-bottom: 2rem !important; */
+	font-size: 1.5rem;
 }
 
 #page-wrapper h5 {
-/* 	margin-bottom: 2rem !important; */
+	font-size: 1.4rem;
+}
+
+#page-wrapper h6 {
+	font-size: 1.35rem;
+}
+
+#page-wrapper p,
+/* body #block-rsd-district-content, */
+body .site-section-branding,
+#page-wrapper .main-content ul li,
+#page-wrapper .main-content ol li {
+	font-size: 1.35rem;
+}
+
+#page-wrapper p.small-text {
+	font-size: 1.1rem;
+}
+
+#page-wrapper .home-news-grid p {
+	font-size: 1rem;
+}
+
+#page-wrapper .navbar-subpages a {
+	font-size: 1.35rem;
+}
+
+#page-wrapper ul.pagination li {
+	font-weight: 400;
+	font-size: 1rem;
+}
+
+#page-wrapper .block-views .file a {
+	font-size: 1.15rem;
 }
 
 .sd38-home-carousel .slide__media img {
@@ -87,9 +137,6 @@ img {
 
 .sd38-home-carousel .slide__caption {
 	top: 0;
-}
-
-@media (min-width: 576px) {
 }
 
 @media (max-width: 1023px) {
@@ -166,6 +213,10 @@ img {
 .block-views,
 .block-layout-builder {
 	margin: 0 0 0rem 0;
+}
+
+.views-view-grid {
+	width: 100%;
 }
 
 .view-sd38-feature-pages .card .card-link-text {
@@ -287,9 +338,15 @@ img {
 
 /** Typography **/
 
-h3 {
-	font-size: 1rem !important;
-	margin-bottom: 0.5rem !important;
+#content blockquote {
+    position: relative;
+    font-style: italic;
+    text-align: center;
+    padding: 1rem 1.2rem;
+    color: #4a4a4a;
+    margin: 1rem auto 2rem;
+    background: rgba(230, 230, 230, 0.65);
+    border-radius: 0.625rem;
 }
 
 .block-social-media-links .platforms .fa {
@@ -306,7 +363,7 @@ h3 {
 }
 */
 
-#page-wrapper .block-page-title-block h1 {
+body #page-wrapper .block-page-title-block h1 {
 	position: relative;
 	bottom: -2.5rem;
 	background: #d0e4f3;
@@ -314,6 +371,18 @@ h3 {
 	border-radius: 0.625rem;
 	padding: 1rem 2.25rem;
 	margin: 0rem -1.5rem 4rem -1.5rem;
+	clear: both;
+}
+
+body.our-district-story #page-wrapper .block-page-title-block h1 {
+	position: relative;
+	bottom: 0;
+	background: #d0e4f3;
+	color: rgba(37, 63, 143, 1);;
+	border-radius: 0.625rem;
+	padding: 1rem 2.25rem;
+	margin: 0rem -1.5rem;
+	clear: both;
 }
 
 .view-content .text-white a {
@@ -340,12 +409,7 @@ h3 {
 #page-wrapper .main-content p,
 #page-wrapper .main-content div {
 	font-weight: 300;
-	line-height: 1.6;
-}
-
-#page-wrapper p.hero-text {
-	font-weight: 300;
-	font-size: 1.5rem;
+	line-height: 1.65;
 }
 
 .view-sd38-feature-pages {
@@ -412,6 +476,11 @@ h3 {
 
 #navbar-main {
 	padding: 0.2rem 1rem;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.path-frontpage #navbar-main {
+	border-bottom: 0px;
 }
 
 #navbar-main .active.dropdown-toggle {
@@ -447,6 +516,11 @@ h3 {
 
 .menu-footer nav h2 {
 	margin: 0 !important;
+}
+
+.menu-footer .nav-link {
+	padding-top: 0.35rem;
+	padding-bottom: 0.35rem;
 }
 
 .copyright-footer,
@@ -498,6 +572,9 @@ h3 {
 
 /* Our District Story */
 
+body.our-district-story .featured-top {
+}
+
 .our-district-story #main-wrapper blockquote {
 	padding: 2rem 2rem;
 	margin-top: 2rem;
@@ -510,12 +587,19 @@ h3 {
 .our-district-story.our-story .main-content h3,
 .our-district-story.our-story .main-content h4,
 .our-district-story.our-story .main-content a,
-.our-district-story.our-story .main-content blockquote {
+.our-district-story.our-story .site-section-branding a.is-active,
+.our-district-story .site-section-branding .active a,
+.our-district-story #page-wrapper .block-page-title-block h1,
+.our-district-story.our-story #content blockquote {
 	color: #367ebd;
 }
 
-.our-district-story.our-story .main-content blockquote,
+.our-district-story.our-story #content blockquote,
 .our-district-story.our-story .nav-pills .nav-link.active, 
+.our-district-story.our-story .nav-pills .nav-link.is-active,
+.our-district-story .nav-pills .nav-link.active, 
+.our-district-story .nav-pills .nav-link.is-active,
+.our-district-story #page-wrapper .block-page-title-block h1,
 .our-district-story.our-story .nav-pills .show>.nav-link {
 	background-color: rgba(55, 127, 189, 0.1);
 }
@@ -525,12 +609,16 @@ h3 {
 .our-district-story.our-focus .main-content h3,
 .our-district-story.our-focus .main-content h4,
 .our-district-story.our-focus .main-content a,
-.our-district-story.our-focus .main-content blockquote {
+.our-district-story.our-focus .site-section-branding .active a,
+.our-district-story.our-focus #page-wrapper .block-page-title-block h1,
+.our-district-story.our-focus #content blockquote {
 	color: #619820;
 }
 
-.our-district-story.our-focus .main-content blockquote,
-.our-district-story.our-focus .nav-pills .nav-link.active, 
+.our-district-story.our-focus #content blockquote,
+.our-district-story.our-focus .nav-pills .nav-link.active,
+.our-district-story.our-focus .nav-pills .nav-link.is-active,
+.our-district-story.our-focus #page-wrapper .block-page-title-block h1,
 .our-district-story.our-focus .nav-pills .show>.nav-link {
 	background-color: rgba(97, 153, 32, 0.1);
 }
@@ -540,22 +628,31 @@ h3 {
 .our-district-story.our-learning .main-content h3,
 .our-district-story.our-learning .main-content h4,
 .our-district-story.our-learning .main-content a,
-.our-district-story.our-learning .main-content blockquote {
+.our-district-story.our-learning .site-section-branding .active a,
+.our-district-story.our-learning #page-wrapper .block-page-title-block h1,
+.our-district-story.our-learning #content blockquote {
 	color: #ec8c0f;
 }
 
-.our-district-story.our-learning .main-content blockquote,
-.our-district-story.our-learning .nav-pills .nav-link.active, 
+.our-district-story.our-learning #content blockquote,
+.our-district-story.our-learning .nav-pills .nav-link.active,
+.our-district-story.our-learning .nav-pills .nav-link.is-active,
+.our-district-story.our-learning #page-wrapper .block-page-title-block h1,
 .our-district-story.our-learning .nav-pills .show>.nav-link {
 	background-color: rgba(238, 142, 15, 0.1);
 }
 
 
-.featured-top {
+body .featured-top {
 	background: url('../images/PageBanner-opaque.png');
-	background-size: cover;
+	background-size: cover !important;
 	background-position: center center;
 	padding: 6.5rem 0 0 0;
+}
+
+body.our-district-story .featured-top {
+	background: unset;
+	padding: 0;
 }
 
 .featured-bottom {
@@ -565,6 +662,10 @@ h3 {
 .ods-header-row {
 	align-items: center;
 	justify-content: center;
+}
+
+.site-section-branding {
+	margin: 1.5rem auto;
 }
 
 .node__content > .row,

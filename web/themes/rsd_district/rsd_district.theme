@@ -33,3 +33,57 @@ function rsd_district_form_system_theme_settings_alter(&$form, FormStateInterfac
       'bg-transparent' => t('Transparent'),
   );
 }
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ * Page template for content type page--contettype.html.twig
+ * For "page" content type we refine it further by adding page--alias--"the-alias"
+ * example: page content type wit alias "about/us"  => "page--alias--about-us" template file
+ */
+ function rsd_district_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+
+   // Response codes for Access Denied and Page Not Found. 
+   $system_codes = [403, 404];
+   if (Drupal::request()->attributes->get('exception') && 
+        $status_code = Drupal::request()->attributes->get('exception')->getStatusCode()) {
+     // Add Basic Page suggestion if one of above response codes.
+     if (in_array($status_code, $system_codes)) {
+       $suggestions[] = 'page';
+     }
+   }
+
+    if ($node = Drupal::routeMatch()->getParameter('node')) {
+      $content_type = $node->bundle();
+      $suggestions[] = 'page__'.$content_type;
+
+        // for "page" content type only
+        // if ($content_type == 'page'){
+
+          if (in_array($content_type, array('webform','page'))) {
+
+          $current_path = Drupal::service('path.current')->getPath();
+          $alias = Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+
+          if ($alias != '')  {
+
+            // break up the alias "/about/us"  => "", "about", "" ,"us"
+            $parts = explode('/', $alias);
+
+            // we only start suggestion with one "-" because first "/" will become extra "-"
+            $suggestion = 'page__alias';
+
+            foreach ($parts as $part) {
+                // subsequent suggestions get appended
+                $suggestion .= "_" . "$part";
+            }
+
+            // turn "-" in "_"
+            $suggestion = str_replace("-", "_", $suggestion);
+            $suggestions[] = $suggestion;
+
+          }
+        }
+
+    }
+
+  }
