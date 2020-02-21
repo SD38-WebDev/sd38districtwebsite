@@ -29,6 +29,10 @@ img {
 	height: auto;
 }
 
+.btn {
+	white-space: normal !important;
+}
+
 #page-wrapper h1 {
 	margin-bottom: 2rem;
 }
@@ -492,6 +496,13 @@ body.path-frontpage #navbar-main {
 	text-decoration: none;
 }
 
+#navbar-main .dropdown-item.active {
+}
+
+#navbar-main .dropdown-item:active {
+	background-color: #d0e4f3;
+}
+
 #navbar-main .dropdown-menu a.active {
 	color: white;
 }
@@ -644,7 +655,7 @@ body.our-district-story .featured-top {
 
 
 body .featured-top {
-	background: url('../images/PageBanner-opaque.png');
+	background: url('../images/PageBanner-opaque1.png');
 	background-size: cover !important;
 	background-position: center center;
 	padding: 6.5rem 0 0 0;
