@@ -38,7 +38,7 @@ img {
 }
 
 #page-wrapper h2 {
-	font-size: 1.7rem;
+	font-size: 1.75rem;
 	margin-top: 1rem;
 	margin-bottom: 0.5rem;
 }
@@ -52,29 +52,36 @@ img {
 /* 	margin-bottom: 1.25rem; */
 }
 
-#page-wrapper .accordion h2 {
+#page-wrapper .accordion h2,
+#page-wrapper .accordion h3 {
 	margin: 0;
 }
 
-#page-wrapper .accordion h2 a {
+#page-wrapper .accordion h2 a,
+#page-wrapper .accordion h3 a {
 	font-size: 1.35rem;
 }
 
+body.staff-directory #page-wrapper .accordion h2 a,
+body.staff-directory #page-wrapper .accordion h3 a {
+	font-size: 1.1rem;
+}
+
 #page-wrapper h3 {
-	font-size: 1.6rem;
+	font-size: 1.45rem;
 	margin-bottom: 0.75rem;
 }
 
 #page-wrapper h4 {
-	font-size: 1.5rem;
+	font-size: 1.35rem;
 }
 
 #page-wrapper h5 {
-	font-size: 1.4rem;
+	font-size: 1.3rem;
 }
 
 #page-wrapper h6 {
-	font-size: 1.35rem;
+	font-size: 1.25rem;
 }
 
 #page-wrapper p,
@@ -206,11 +213,40 @@ body .site-section-branding,
 	max-width: 250px;
 }
 
-/** Enable Navbar dropdowns on hover  - See Javascript as well **/
+button.navbar-toggler {
+	background: rgb(37,63,142);
+}
+
+.navbar-toggler-icon {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+/** Enable Navbar dropdowns on hover for desktop view - See Javascript as well **/
 @media screen and (min-width:768px) {
 	.navbar-nav .dropdown:hover>.dropdown-menu {
 		display:block;
 		margin:0
+	}
+}
+
+/** More CSS for mobile friendly dropdown menus **/
+@media screen and (max-width:767px) {
+	.menu--main .dropdown > a.nav-link {
+		
+	}
+	.menu--main .dropdown > .menu-toggle {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		border: 1px solid rgba(37, 63, 143, 0.1);
+		border-radius: 4px;
+		padding: 0.25rem 1.2rem;
+		background-color: rgba(37, 63, 143, 0.05);
+		color: rgb(37,63,142);
+	}
+	.menu--main .dropdown > .dropdown-menu {
+		border: none;
+		box-shadow: none;
 	}
 }
 
@@ -567,7 +603,7 @@ body.path-frontpage #navbar-main {
 	background-position: 0px;
 	padding: 0.25rem 0 0.25rem 2rem;
 	background-size: 1.5rem;
-	background-image: url(/sd38site/web/themes/bootstrap_barrio/images/icons/application-pdf.png);
+	background-image: url('../images/icons/application-pdf.png');
 	background-repeat: no-repeat;
 }
 
@@ -734,7 +770,12 @@ section.section > .block-views {
 	width: 100%;
 }
 
-.accordion h2 {
+body.staff-directory .accordion .card-header {
+	padding: 0.1rem 0.3rem;
+}
+
+.accordion h2,
+.accordion h3 {
 	display: inline-block;
 	float: left;
 }
