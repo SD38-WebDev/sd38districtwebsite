@@ -92,6 +92,11 @@ body .site-section-branding,
 	font-size: 1.35rem;
 }
 
+#page-wrapper nav.tabs .nav-item a,
+#page-wrapper nav.tabs .nav-item .nav-link {
+	font-size: 1rem;
+}
+
 #page-wrapper p.small-text {
 	font-size: 1.1rem;
 }
@@ -201,8 +206,7 @@ body .site-section-branding,
 }
 
 #navbar-top .container > .row {
-	margin-left: 0;
-	margin-right: 0;
+
 }
 
 .navbar-brand {
@@ -286,6 +290,12 @@ button.navbar-toggler {
 .card-deck .col, .card-deck .col-1, .card-deck .col-10, .card-deck .col-11, .card-deck .col-12, .card-deck .col-2, .card-deck .col-3, .card-deck .col-4, .card-deck .col-5, .card-deck .col-6, .card-deck .col-7, .card-deck .col-8, .card-deck .col-9, .card-deck .col-auto, .card-deck .col-lg, .card-deck .col-lg-1, .card-deck .col-lg-10, .card-deck .col-lg-11, .card-deck .col-lg-12, .card-deck .col-lg-2, .card-deck .col-lg-3, .card-deck .col-lg-4, .card-deck .col-lg-5, .card-deck .col-lg-6, .card-deck .col-lg-7, .card-deck .col-lg-8, .card-deck .col-lg-9, .card-deck .col-lg-auto, .card-deck .col-md, .card-deck .col-md-1, .card-deck .col-md-10, .card-deck .col-md-11, .card-deck .col-md-12, .card-deck .col-md-2, .card-deck .col-md-3, .card-deck .col-md-4, .card-deck .col-md-5, .card-deck .col-md-6, .card-deck .col-md-7, .card-deck .col-md-8, .card-deck .col-md-9, .card-deck .col-md-auto, .card-deck .col-sm, .card-deck .col-sm-1, .card-deck .col-sm-10, .card-deck .col-sm-11, .card-deck .col-sm-12, .card-deck .col-sm-2, .card-deck .col-sm-3, .card-deck .col-sm-4, .card-deck .col-sm-5, .card-deck .col-sm-6, .card-deck .col-sm-7, .card-deck .col-sm-8, .card-deck .col-sm-9, .card-deck .col-sm-auto, .card-deck .col-xl, .card-deck .col-xl-1, .card-deck .col-xl-10, .card-deck .col-xl-11, .card-deck .col-xl-12, .card-deck .col-xl-2, .card-deck .col-xl-3, .card-deck .col-xl-4, .card-deck .col-xl-5, .card-deck .col-xl-6, .card-deck .col-xl-7, .card-deck .col-xl-8, .card-deck .col-xl-9, .card-deck .col-xl-auto {
 	padding-left: 0px !important;
 	padding-right: 0px !important;
+}
+
+@media screen and (max-width:767px) {
+	.flex-grid .card {
+		margin-bottom: 15px;
+	}
 }
 
 .view-sd38-events .card {
@@ -512,6 +522,23 @@ body.our-district-story #page-wrapper .block-page-title-block h1 {
 
 #navbar-top .form-group {
 	margin-bottom: 0;
+}
+
+@media screen and (max-width:767px) {
+	#navbar-top #search-block-form {
+		padding: 5px 0px;
+	}
+	
+	#navbar-top .gtranslate select {
+		width: 85%;
+	}
+	
+	#navbar-top .gtranslate {
+		margin: 3px 0px;
+	}
+	.navbar-brand img {
+		max-width: 200px;
+	}
 }
 
 #navbar-main {
