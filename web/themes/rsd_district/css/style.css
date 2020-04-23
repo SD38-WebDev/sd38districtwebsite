@@ -991,6 +991,10 @@ body.path-frontpage .sd38-news-alerts .sd38-alert {
 }
 
 .ops-links .dropbutton-widget {
+	min-width: 8rem;
+}
+
+.ops-links .dropbutton-widget {
 	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
 }
 
