@@ -1,0 +1,35 @@
+uuid: 2f64b3b2-3f89-4dc3-b480-cdd63739677f
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - block_class_select
+    - menu_block
+  theme:
+    - rsd_district
+third_party_settings:
+  block_class_select:
+    selected_classes: ''
+id: mainnavigation_5
+theme: rsd_district
+region: footer_second
+weight: 0
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'Programs Menu Block'
+  provider: menu_block
+  label_display: visible
+  follow: false
+  follow_parent: child
+  level: 1
+  depth: 1
+  expand: false
+  parent: 'main:menu_link_content:b904b8ab-63bf-47b2-8076-40324492fb59'
+  suggestion: main
+  label_type: fixed_parent
+  label_link: 1
+visibility: {  }

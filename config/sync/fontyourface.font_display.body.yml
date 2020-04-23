@@ -1,0 +1,10 @@
+uuid: 791d508f-4040-4805-8fe0-425dee7b57fc
+langcode: en
+status: true
+dependencies: {  }
+id: body
+label: Body
+font_url: 'https://www.google.com/webfonts/family?family=Lato&subset=latin#300'
+fallback: 'Helvetica, sans-serif'
+selectors: '#page-wrapper p, #page-wrapper div'
+theme: rsd_district

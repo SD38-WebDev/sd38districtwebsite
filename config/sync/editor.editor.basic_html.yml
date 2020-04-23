@@ -1,0 +1,90 @@
+uuid: 5b49731e-1a3b-49ad-aa26-741550821822
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+  module:
+    - ckeditor
+    - editor_file
+third_party_settings:
+  editor_file:
+    status: true
+    scheme: public
+    directory: inline-files
+    extensions: 'txt pdf zip doc docx xls xlsx'
+    max_size: '20 MB'
+_core:
+  default_config_hash: AqlPmO16LvJI4D0Ih6u4GFQIzqr5OnLgAUSjcUGWk2g
+format: basic_html
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Bold
+            - Italic
+            - Strike
+            - Styles
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyRight
+            - JustifyBlock
+            - Outdent
+            - Indent
+            - RemoveFormat
+        -
+          name: Linking
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Media
+          items:
+            - Blockquote
+            - DrupalImage
+            - DrupalFile
+            - media_assets
+        -
+          name: 'Block Formatting'
+          items:
+            - Format
+        -
+          name: Tools
+          items:
+            - Source
+            - ShowBlocks
+            - Table
+  plugins:
+    stylescombo:
+      styles: "p|Plain text\r\np.small-text|Small text"
+    drupallink:
+      linkit_enabled: true
+      linkit_profile: default
+    language:
+      language_list: un
+    wordcount:
+      enable: 1
+      show_paragraphs: 1
+      show_word_count: 1
+      show_char_count: 0
+      count_spaces: 0
+      count_html: 0
+      max_words: '-1'
+      max_chars: '-1'
+image_upload:
+  status: true
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

@@ -1,0 +1,38 @@
+uuid: 9b11b12f-8a1c-49a2-bc21-a97829085618
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.secondary-navigation
+  module:
+    - block_class
+    - block_class_select
+    - menu_block
+  theme:
+    - rsd_district
+third_party_settings:
+  block_class:
+    classes: 'd-none d-sm-block  '
+  block_class_select:
+    selected_classes: ''
+id: secondarynavigation
+theme: rsd_district
+region: top_header
+weight: -12
+provider: null
+plugin: 'menu_block:secondary-navigation'
+settings:
+  id: 'menu_block:secondary-navigation'
+  label: 'Secondary Navigation'
+  provider: menu_block
+  label_display: '0'
+  follow: false
+  follow_parent: child
+  level: 1
+  depth: 0
+  expand: false
+  parent: 'secondary-navigation:'
+  suggestion: secondary_navigation
+  label_type: block
+  label_link: 0
+visibility: {  }

@@ -1,0 +1,738 @@
+uuid: dafa37c4-376a-49cf-8a17-6eb115a869f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.file
+    - taxonomy.vocabulary.tags
+  content:
+    - 'taxonomy_term:tags:2f31cee3-1383-4ff0-93e8-981b98ce0059'
+    - 'taxonomy_term:tags:63b51bbd-2306-4ef6-ada5-3917d48cfd68'
+    - 'taxonomy_term:tags:8c71e76a-7a97-43c4-af82-a0f977693f23'
+    - 'taxonomy_term:tags:95ab9fd7-6ca7-40dd-bb95-efe17be9d8dd'
+  module:
+    - media
+    - taxonomy
+    - user
+id: file_list_view
+label: 'Board Files List View'
+module: views
+description: ''
+tag: ''
+base_table: media_field_data
+base_field: mid
+display:
+  default:
+    display_plugin: default
+    id: default
+    display_title: Master
+    position: 0
+    display_options:
+      access:
+        type: perm
+        options:
+          perm: 'view media'
+      cache:
+        type: tag
+        options: {  }
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_comment: ''
+          query_tags: {  }
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        type: full
+        options:
+          items_per_page: 25
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      style:
+        type: html_list
+        options:
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+          type: ul
+          wrapper_class: item-list
+          class: list-unstyled
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      fields:
+        name:
+          id: name
+          table: media_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: media
+          entity_field: media
+          plugin_id: field
+      filters:
+        status:
+          value: '1'
+          table: media_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: media
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        bundle:
+          id: bundle
+          table: media_field_data
+          field: bundle
+          value:
+            file: file
+          entity_type: media
+          entity_field: bundle
+          plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+        field_tags_target_id:
+          id: field_tags_target_id
+          table: media__field_tags
+          field: field_tags_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: and
+          value:
+            - 37
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: tags
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        name:
+          id: name
+          table: media_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: word
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: name_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: name_op
+            identifier: name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            placeholder: Search
+            operator_limit_selection: false
+            operator_list: {  }
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: media
+          entity_field: name
+          plugin_id: string
+      sorts: {  }
+      title: 'Policies & Regulations'
+      header: {  }
+      footer: {  }
+      empty: {  }
+      relationships: {  }
+      arguments: {  }
+      display_extenders: {  }
+      use_ajax: true
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - user.permissions
+      tags: {  }
+  block_1:
+    display_plugin: block
+    id: block_1
+    display_title: '800 Policies & Regulations'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      block_description: '800 Policies & Regulations - Block'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - user.permissions
+      tags: {  }
+  block_2:
+    display_plugin: block
+    id: block_2
+    display_title: '800 Guidelines'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      block_description: '800 Guidelines - Block'
+      defaults:
+        filters: false
+        filter_groups: false
+        title: false
+      filters:
+        status:
+          value: '1'
+          table: media_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: media
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        bundle:
+          id: bundle
+          table: media_field_data
+          field: bundle
+          value:
+            file: file
+          entity_type: media
+          entity_field: bundle
+          plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+        field_tags_target_id:
+          id: field_tags_target_id
+          table: media__field_tags
+          field: field_tags_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: and
+          value:
+            - 36
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: tags
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        name:
+          id: name
+          table: media_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: word
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: name_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: name_op
+            identifier: name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            placeholder: Search
+            operator_limit_selection: false
+            operator_list: {  }
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: media
+          entity_field: name
+          plugin_id: string
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      title: Guidelines
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - user.permissions
+      tags: {  }
+  block_3:
+    display_plugin: block
+    id: block_3
+    display_title: '700 Policies & Regulations'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      block_description: '700 Policies & Regulations - Block'
+      defaults:
+        filters: false
+        filter_groups: false
+      filters:
+        status:
+          value: '1'
+          table: media_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: media
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        bundle:
+          id: bundle
+          table: media_field_data
+          field: bundle
+          value:
+            file: file
+          entity_type: media
+          entity_field: bundle
+          plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+        field_tags_target_id:
+          id: field_tags_target_id
+          table: media__field_tags
+          field: field_tags_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: and
+          value:
+            - 39
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: tags
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        name:
+          id: name
+          table: media_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: word
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: name_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: name_op
+            identifier: name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            placeholder: Search
+            operator_limit_selection: false
+            operator_list: {  }
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: media
+          entity_field: name
+          plugin_id: string
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - user.permissions
+      tags: {  }
+  block_4:
+    display_plugin: block
+    id: block_4
+    display_title: '700 Guidelines'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      block_description: '700 Guidelines - Block'
+      defaults:
+        filters: false
+        filter_groups: false
+        title: false
+      filters:
+        status:
+          value: '1'
+          table: media_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: media
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        bundle:
+          id: bundle
+          table: media_field_data
+          field: bundle
+          value:
+            file: file
+          entity_type: media
+          entity_field: bundle
+          plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+        field_tags_target_id:
+          id: field_tags_target_id
+          table: media__field_tags
+          field: field_tags_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: and
+          value:
+            - 38
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: tags
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        name:
+          id: name
+          table: media_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: word
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: name_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: name_op
+            identifier: name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            placeholder: Search
+            operator_limit_selection: false
+            operator_list: {  }
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: media
+          entity_field: name
+          plugin_id: string
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      title: Guidelines
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - user.permissions
+      tags: {  }

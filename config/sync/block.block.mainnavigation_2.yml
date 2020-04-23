@@ -1,0 +1,35 @@
+uuid: 111ac147-a595-40e8-a0b0-fab910fe4761
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - block_class_select
+    - menu_block
+  theme:
+    - rsd_district
+third_party_settings:
+  block_class_select:
+    selected_classes: ''
+id: mainnavigation_2
+theme: rsd_district
+region: footer_first
+weight: -11
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'Board of Education Menu Block'
+  provider: menu_block
+  label_display: visible
+  follow: false
+  follow_parent: child
+  level: 1
+  depth: 1
+  expand: false
+  parent: 'main:menu_link_content:d42e2c60-155e-4f91-8257-e7d41cb77b33'
+  suggestion: main
+  label_type: fixed_parent
+  label_link: 1
+visibility: {  }

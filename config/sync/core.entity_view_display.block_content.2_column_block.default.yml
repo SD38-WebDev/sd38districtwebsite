@@ -1,0 +1,63 @@
+uuid: c0bced77-ac9a-447d-b718-1aa7fb298189
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.2_column_block
+    - field.field.block_content.2_column_block.field_body_column_1
+    - field.field.block_content.2_column_block.field_body_column_2
+  module:
+    - ds
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: bs_2col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          left:
+            wrapper: div
+            classes:
+              col-sm-6: col-sm-6
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-6: col-sm-6
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      left:
+        - field_body_column_1
+      right:
+        - field_body_column_2
+id: block_content.2_column_block.default
+targetEntityType: block_content
+bundle: 2_column_block
+mode: default
+content:
+  field_body_column_1:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: left
+  field_body_column_2:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: right
+hidden: {  }

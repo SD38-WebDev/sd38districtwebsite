@@ -1,0 +1,34 @@
+uuid: c48856f2-fc69-4560-a13d-972e3fdfc25e
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - block_class_select
+    - system
+  theme:
+    - rsd_district
+third_party_settings:
+  block_class:
+    classes: 'my-2 '
+  block_class_select:
+    selected_classes: ''
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: rsd_district_breadcrumbs
+theme: rsd_district
+region: breadcrumb
+weight: -17
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+    context_mapping: {  }

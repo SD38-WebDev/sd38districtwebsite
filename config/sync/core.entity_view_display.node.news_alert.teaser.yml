@@ -1,0 +1,32 @@
+uuid: 22e6806a-137a-473b-b27d-404f4b9cf45e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.news_alert.body
+    - field.field.node.news_alert.field_alert_type
+    - node.type.news_alert
+  module:
+    - text
+    - user
+id: node.news_alert.teaser
+targetEntityType: node
+bundle: news_alert
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_alert_type: true
