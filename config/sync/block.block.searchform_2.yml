@@ -3,11 +3,14 @@ langcode: en
 status: true
 dependencies:
   module:
+    - block_class
     - block_class_select
     - search
   theme:
     - rsd_district
 third_party_settings:
+  block_class:
+    classes: 'd-none d-sm-block  '
   block_class_select:
     selected_classes: ''
 id: searchform_2

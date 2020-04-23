@@ -10,9 +10,9 @@ palette:
   titleslogan: '#fffeff'
   text: '#3b3b3b'
   link: '#253f8e'
-logo: 'public://color/rsd_district-c39b7d20/logo.svg'
+logo: 'public://color/rsd_district-24024f44/logo.svg'
 stylesheets:
-  - 'public://color/rsd_district-c39b7d20/colors.css'
+  - 'public://color/rsd_district-24024f44/colors.css'
 files:
-  - 'public://color/rsd_district-c39b7d20/logo.svg'
-  - 'public://color/rsd_district-c39b7d20/colors.css'
+  - 'public://color/rsd_district-24024f44/logo.svg'
+  - 'public://color/rsd_district-24024f44/colors.css'

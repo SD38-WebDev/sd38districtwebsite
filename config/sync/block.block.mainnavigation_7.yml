@@ -1,4 +1,4 @@
-uuid: 131ff427-44fd-42a9-ac9b-e8be0ff2f2e2
+uuid: e4c09e97-fe75-45dc-9328-f1c7bc910363
 langcode: en
 status: true
 dependencies:
@@ -20,7 +20,7 @@ provider: null
 plugin: 'menu_block:main'
 settings:
   id: 'menu_block:main'
-  label: 'Main navigation'
+  label: 'Student Registration Menu Block'
   provider: menu_block
   label_display: visible
   follow: false
@@ -28,7 +28,7 @@ settings:
   level: 1
   depth: 1
   expand: false
-  parent: 'main:menu_link_content:fb5d324d-0b68-44be-a286-6d8e26df254e'
+  parent: 'main:menu_link_content:258705e7-21da-4101-885a-80816a55798d'
   suggestion: main
   label_type: fixed_parent
   label_link: 1

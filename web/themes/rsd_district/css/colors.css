@@ -34,6 +34,10 @@ a,
     color: #0071b3;
 }
 
+.main-content .content a span {
+    color: #0071b3 !important;
+}
+
 a:hover,
 a:focus,
 .link:hover,

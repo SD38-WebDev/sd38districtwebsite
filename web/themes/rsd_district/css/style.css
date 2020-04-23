@@ -3,6 +3,10 @@
  * Subtheme specific CSS.
  */
  
+/************/
+/** Layout **/
+/************/
+ 
 .bs-region .block {
 	margin-bottom: 2rem;
 }
@@ -13,6 +17,10 @@
     }
 }
 
+
+/****************/
+/** Typography **/
+/****************/
 
 body {
 	font-family: Lato, sans-serif;
@@ -89,7 +97,7 @@ body.staff-directory #page-wrapper .accordion h3 a {
 body .site-section-branding,
 #page-wrapper .main-content ul li,
 #page-wrapper .main-content ol li {
-	font-size: 1.35rem;
+	font-size: 1.2rem;
 }
 
 #page-wrapper nav.tabs .nav-item a,
@@ -117,6 +125,155 @@ body .site-section-branding,
 #page-wrapper .block-views .file a {
 	font-size: 1.15rem;
 }
+
+/** Typography **/
+
+#content blockquote {
+    position: relative;
+    font-style: italic;
+    text-align: center;
+    padding: 1rem 1.2rem;
+    color: #4a4a4a;
+    margin: 1rem auto 2rem;
+    background: rgba(230, 230, 230, 0.65);
+    border-radius: 0.625rem;
+}
+
+.block-social-media-links .platforms .fa {
+	color: #253f8e;
+}
+
+.main-content .content .nav-item {
+	line-height: 1.65rem;
+}
+
+/*
+.main-content a:hover {
+	font-weight: bold;
+}
+*/
+
+body #page-wrapper .block-page-title-block h1 {
+	position: relative;
+	bottom: -2.5rem;
+	background: #d0e4f3;
+	color: rgba(37, 63, 143, 1);;
+	border-radius: 0.625rem;
+	padding: 1rem 2.25rem;
+	margin: 0rem -1.5rem 4rem -1.5rem;
+	clear: both;
+}
+
+body.our-district-story #page-wrapper .block-page-title-block h1 {
+	position: relative;
+	bottom: 0;
+	background: #d0e4f3;
+	color: rgba(37, 63, 143, 1);;
+	border-radius: 0.625rem;
+	padding: 1rem 2.25rem;
+	margin: 0rem -1.5rem;
+	clear: both;
+}
+
+.view-content .text-white a {
+	color: white !important;
+}
+
+.flex-grid .card .card-link-text {
+	font-size: 1.5rem;
+	color: white;
+}
+
+.flex-grid .card .card-link-text a,
+.flex-grid .card .card-link-text a:hover {
+	font-weight: 700;
+	color: white;
+	text-decoration: none;
+}
+
+#page-wrapper p, 
+#page-wrapper .block-menu .nav {
+	font-weight: 400;
+}
+
+#page-wrapper .main-content p,
+#page-wrapper .main-content div {
+	font-weight: 300;
+	line-height: 1.65;
+}
+
+@media (max-width: 1023px) {
+	.sd38-home-carousel .slide__caption {
+        position: relative;
+        left: 4%;
+        width: 92%;
+        padding: 0px 40px;
+    }
+    
+    .sd38-home-carousel .slide__link {
+		margin: 10px auto;
+	}
+    
+    #page-wrapper .slide__caption p {
+        font-size: 1rem;
+        line-height: 1.3;
+    }
+}
+
+@media (min-width: 1024px) {
+	.sd38-home-carousel .slide__caption {
+        position: absolute;
+        top: 0;
+        padding: 0px 60px;
+    }
+    
+    .sd38-home-carousel .slide__link {
+		margin: 15px auto;
+	}
+    
+    #page-wrapper .slide__caption p {
+        font-size: 1.15rem;
+        line-height: 1.4;
+    }
+    
+    .sd38-home-carousel .slide__title a {
+	    font-size: 2rem;
+    }
+    
+    .sd38-home-carousel .slide__description {
+		font-size: 1rem;
+	}
+}
+
+@media (min-width: 1200px) {
+	.sd38-home-carousel .slide__caption {
+        position: absolute;
+        padding: 30px 60px;
+    }
+    
+    .sd38-home-carousel .slide__link {
+		margin: 30px auto;
+	}
+	
+	#page-wrapper .slide__caption p {
+        font-size: 1.15rem;
+        line-height: 1.6;
+    }
+    
+    .sd38-home-carousel .slide__title a {
+	    font-size: 2.75rem;
+    }
+    
+    .sd38-home-carousel .slide__description {
+		font-size: 1.25rem;
+	}
+}
+
+
+
+/*******************************/
+/** Home Page Carousel Styles **/
+/*******************************/
 
 .sd38-home-carousel .slide__media img {
 	overflow: hidden;
@@ -155,45 +312,11 @@ body .site-section-branding,
 	top: 0;
 }
 
-@media (max-width: 1023px) {
-	.sd38-home-carousel .slide__caption {
-        position: relative;
-        left: 4%;
-        width: 92%;
-        padding: 0px 40px;
-    }
-}
 
-@media (min-width: 1024px) {
-	.sd38-home-carousel .slide__caption {
-        position: absolute;
-        top: 0;
-        padding: 0px 60px;
-    }
-    
-    .sd38-home-carousel .slide__title a {
-	    font-size: 2rem;
-    }
-    
-    .sd38-home-carousel .slide__description {
-		font-size: 1rem;
-	}
-}
 
-@media (min-width: 1200px) {
-	.sd38-home-carousel .slide__caption {
-        position: absolute;
-        padding: 30px 60px;
-    }
-    
-    .sd38-home-carousel .slide__title a {
-	    font-size: 2.5rem;
-    }
-    
-    .sd38-home-carousel .slide__description {
-		font-size: 1.25rem;
-	}
-}
+/******************************/
+/** Main Site Navigation Bar **/
+/******************************/
 
 #navbar-top {
 	padding: .2rem 1rem;
@@ -254,6 +377,10 @@ button.navbar-toggler {
 	}
 }
 
+/********************************/
+/** Card / Content Grid Styles **/
+/********************************/
+
 .block-views,
 .block-layout-builder {
 	margin: 0 0 0rem 0;
@@ -298,17 +425,21 @@ button.navbar-toggler {
 	}
 }
 
+/*****************************/
+/** Calendar / Event Styles **/
+/*****************************/
+
 .view-sd38-events .card {
 	background: rgb(37,63,142);
 	background: linear-gradient(45deg, rgba(37,63,142,1) 0%, rgba(55,168,154,1) 100%);
 	margin-bottom: 1rem;
 }
 
-.view-sd38-events .card a {
+.view-sd38-events .card a.card-body {
 	color: rgba(255, 255, 255, 0.89);
 }
 
-.view-sd38-events .card:hover a {
+.view-sd38-events .card:hover a.card-body {
 	color: rgba(255, 255, 255, 1);
 }
 
@@ -334,7 +465,7 @@ button.navbar-toggler {
 	border: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
-@media (min-width: 576px) {
+@media (max-width: 767px) {
 	.flex-grid .card {
 		width: 100%;
 	}
@@ -372,11 +503,6 @@ button.navbar-toggler {
 	}
 }
 
-/** Misc **/
-
-
-/** Calendar **/
-
 .fc-today {
 	background: #d0e4f3 !important;
 }
@@ -385,82 +511,9 @@ button.navbar-toggler {
 	background: rgba(0,0,0,0.02);
 }
 
-
-/** Typography **/
-
-#content blockquote {
-    position: relative;
-    font-style: italic;
-    text-align: center;
-    padding: 1rem 1.2rem;
-    color: #4a4a4a;
-    margin: 1rem auto 2rem;
-    background: rgba(230, 230, 230, 0.65);
-    border-radius: 0.625rem;
-}
-
-.block-social-media-links .platforms .fa {
-	color: #253f8e;
-}
-
-/*
-.main-content a {
-	text-decoration: underline;
-}
-
-.main-content a:hover {
-	font-weight: bold;
-}
-*/
-
-body #page-wrapper .block-page-title-block h1 {
-	position: relative;
-	bottom: -2.5rem;
-	background: #d0e4f3;
-	color: rgba(37, 63, 143, 1);;
-	border-radius: 0.625rem;
-	padding: 1rem 2.25rem;
-	margin: 0rem -1.5rem 4rem -1.5rem;
-	clear: both;
-}
-
-body.our-district-story #page-wrapper .block-page-title-block h1 {
-	position: relative;
-	bottom: 0;
-	background: #d0e4f3;
-	color: rgba(37, 63, 143, 1);;
-	border-radius: 0.625rem;
-	padding: 1rem 2.25rem;
-	margin: 0rem -1.5rem;
-	clear: both;
-}
-
-.view-content .text-white a {
-	color: white !important;
-}
-
-.flex-grid .card .card-link-text {
-	font-size: 1.5rem;
-	color: white;
-}
-
-.flex-grid .card .card-link-text a,
-.flex-grid .card .card-link-text a:hover {
-	font-weight: 700;
-	color: white;
-	text-decoration: none;
-}
-
-#page-wrapper p, 
-#page-wrapper .block-menu .nav {
-	font-weight: 400;
-}
-
-#page-wrapper .main-content p,
-#page-wrapper .main-content div {
-	font-weight: 300;
-	line-height: 1.65;
-}
+/**********/
+/** MISC **/
+/**********?
 
 .view-sd38-feature-pages {
 	padding-top: 2rem;
@@ -644,7 +697,9 @@ body.path-frontpage #navbar-main {
 }
 
 
-/* Our District Story */
+/************************/
+/** Our District Story **/
+/************************/
 
 body.our-district-story .featured-top {
 }
@@ -730,6 +785,8 @@ body.our-district-story .featured-top {
 }
 
 .featured-bottom {
+	padding-top: 30px;
+	padding-bottom: 30px;
 	background: rgba(209, 229, 243, 0.45);
 }
 
@@ -793,6 +850,12 @@ section.section > .block-views {
     font-weight:normal;
 }
 
+
+
+/************************/
+/** Content Accordions **/
+/************************/
+
 .accordion {
 	width: 100%;
 }
@@ -805,4 +868,134 @@ body.staff-directory .accordion .card-header {
 .accordion h3 {
 	display: inline-block;
 	float: left;
+}
+
+
+
+/**********************/
+/** SD38 News Alerts **/
+/**********************/
+
+.sd38-news-alerts .sd38-alert h1 {
+	font-size: 1.35rem;
+	margin: 0 0 0.625rem 0 !important;
+}
+
+.sd38-news-alerts .sd38-alert,
+.sd38-news-alerts .views-row {
+	display: block;
+	width: 100%;
+}
+
+body .sd38-news-alerts .sd38-alert {
+	border-radius: 0.625rem;
+	padding: 0.5rem 0 0.5rem 3.25rem;
+	margin-top: 1.25rem;
+	margin-bottom: 1.25rem;
+	background-size: 2.5rem;
+	background-position: 0.875rem center;
+	background-repeat: no-repeat;
+}
+
+body.path-frontpage .sd38-news-alerts .sd38-alert {
+	margin-top: 0rem;
+}
+
+.sd38-news-alerts .sd38-alert.standard-alert {
+	background-color: rgba(0, 0, 255, 0.05);
+	color: #24408d;
+	background-image: url('../images/icons/sd38-alert.png');
+	border: 1px solid rgba(36, 63, 140, 0.35);
+}
+
+.sd38-news-alerts .sd38-alert.standard-alert:hover {
+	border: 1px solid #24408d;
+}
+
+.sd38-news-alerts .sd38-alert.urgent-alert {
+	background-color: rgba(191, 31, 47, 0.1);
+	color: #be1e2d;
+	background-image: url('../images/icons/sd38-urgent-alert.png');
+	border: 1px solid rgba(191, 31, 47, 0.35);
+}
+
+.sd38-news-alerts .sd38-alert.urgent-alert:hover {
+	border: 1px solid #be1e2d;
+}
+
+.sd38-news-alerts .sd38-alert.warning-alert {
+	background-color: rgba(248, 150, 30, 0.1);
+	color: #f7941d;
+	background-image: url('../images/icons/sd38-warning-alert.png');
+	border: 1px solid rgba(248, 150, 30, 0.35);
+}
+
+.sd38-news-alerts .sd38-alert.warning-alert:hover {
+	border: 1px solid #f7941d;
+}
+
+.sd38-news-alerts .sd38-alert.summer-alert {
+	background-color: rgba(248, 150, 30, 0.1);
+	color: #f7941d;
+	background-image: url('../images/icons/sd38-summer-alert.png');
+	border: 1px solid rgba(247, 148, 29, 0.35);
+}
+
+.sd38-news-alerts .sd38-alert.summer-alert:hover {
+	border: 1px solid #f7941d;
+}
+
+.sd38-news-alerts .sd38-alert.weather-alert {
+	background-color: rgba(0, 176, 240, 0.1);
+	color: #00aeef;
+	background-image: url('../images/icons/sd38-snow-alert.png');
+	border: 1px solid rgba(0, 176, 240, 0.35);
+}
+
+.sd38-news-alerts .sd38-alert.weather-alert:hover {
+	border: 1px solid #00aeef;
+}
+
+#page-wrapper .sd38-news-alerts a.sd38-alert {
+	font-size: 1.15rem;
+	line-height: 1.2;
+}
+
+#page-wrapper .sd38-news-alerts a.sd38-alert:hover {
+	text-decoration: none;
+	box-shadow: 0 7px 25px 0 rgba(0,0,0,0.03),0 4px 12px 0 rgba(0,0,0,0.03);
+}
+
+#page-wrapper .sd38-news-alerts .view-content p {
+	margin-bottom: 0;
+}
+
+@media screen and (max-width:767px) {
+	
+	#page-wrapper .sd38-news-alerts .view-content,
+	#page-wrapper .sd38-news-alerts .view-content p {
+		font-size: 1rem;
+	}
+	
+	.sd38-news-alerts .sd38-alert h1 {
+		font-size: 1rem;
+	}
+}
+
+
+.ops-links {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	opacity: 0;
+}
+
+.ops-links .dropbutton-widget {
+	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
+}
+
+.sd38-news-alerts:hover .ops-links,
+.slide__content:hover .ops-links,
+.card:hover .ops-links {
+	opacity: 1;
 }

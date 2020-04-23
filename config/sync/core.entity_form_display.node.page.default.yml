@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.field_body_2
+    - field.field.node.page.field_custom_template
     - field.field.node.page.field_feature_page
     - field.field.node.page.field_image
     - field.field.node.page.field_page_thumbnail_image
@@ -14,6 +15,7 @@ dependencies:
   module:
     - image
     - path
+    - template_whisperer
     - text
 _core:
   default_config_hash: sb0qCkzU_8mNq29NehYAU8jCBXWPLeX0UN8sYFVGVcw
@@ -55,6 +57,12 @@ content:
       show_summary: false
     third_party_settings: {  }
     type: text_textarea_with_summary
+    region: content
+  field_custom_template:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: template_whisperer
     region: content
   field_feature_page:
     weight: 7

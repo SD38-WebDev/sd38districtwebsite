@@ -14,13 +14,13 @@ third_party_settings:
     selected_classes: ''
 id: mainnavigation_2
 theme: rsd_district
-region: footer_second
+region: footer_first
 weight: -11
 provider: null
 plugin: 'menu_block:main'
 settings:
   id: 'menu_block:main'
-  label: 'Board of Education'
+  label: 'Board of Education Menu Block'
   provider: menu_block
   label_display: visible
   follow: false

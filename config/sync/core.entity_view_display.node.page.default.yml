@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.field_body_2
+    - field.field.node.page.field_custom_template
     - field.field.node.page.field_feature_page
     - field.field.node.page.field_image
     - field.field.node.page.field_page_thumbnail_image
@@ -13,6 +14,7 @@ dependencies:
   module:
     - image
     - layout_builder
+    - template_whisperer
     - user
 third_party_settings:
   layout_builder:
@@ -25,6 +27,13 @@ targetEntityType: node
 bundle: page
 mode: default
 content:
+  field_custom_template:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: template_whisperer
+    region: content
   field_feature_page:
     weight: 1
     label: above

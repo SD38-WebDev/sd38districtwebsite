@@ -5,9 +5,12 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.article.body
+    - field.field.node.article.field_attachments
     - field.field.node.article.field_carousel_content_link
     - field.field.node.article.field_carousel_image
     - field.field.node.article.field_image
+    - field.field.node.article.field_image_gallery
+    - field.field.node.article.field_page_assignment
     - field.field.node.article.field_tags
     - field.field.node.article.field_to_home_page_carousel
     - image.style.large
@@ -41,8 +44,11 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
+  field_attachments: true
   field_carousel_content_link: true
   field_carousel_image: true
+  field_image_gallery: true
+  field_page_assignment: true
   field_tags: true
   field_to_home_page_carousel: true
   links: true

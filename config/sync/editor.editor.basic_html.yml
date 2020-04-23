@@ -65,7 +65,7 @@ settings:
             - Table
   plugins:
     stylescombo:
-      styles: "p|Plain text\r\np.hero-text|Hero text"
+      styles: "p|Plain text\r\np.small-text|Small text"
     drupallink:
       linkit_enabled: true
       linkit_profile: default

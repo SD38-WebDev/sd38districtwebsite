@@ -5,7 +5,7 @@ features:
   favicon: true
 logo:
   use_default: false
-  path: 'public://LogoHeader.png'
+  path: 'public://LogoHeader_0.png'
 favicon:
   use_default: true
 bootstrap_barrio_library: cdn
@@ -89,3 +89,9 @@ bootstrap_barrio_system_messages: ''
 bootstrap_barrio_table_style: ''
 bootstrap_barrio_table_hover: 0
 bootstrap_barrio_table_head: ''
+bootstrap_barrio_region_clean_search_modal: 0
+bootstrap_barrio_region_class_search_modal: row
+bootstrap_barrio_region_clean_section_left: 0
+bootstrap_barrio_region_class_section_left: row
+bootstrap_barrio_region_clean_section_right: 0
+bootstrap_barrio_region_class_section_right: row
