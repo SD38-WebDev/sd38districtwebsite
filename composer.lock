@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c20ea905d25adf3e7736f18e2893266b",
+    "content-hash": "7c31e568ff6bc3d2c1e61092e74d0793",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3729,6 +3729,69 @@
                 "source": "https://git.drupalcode.org/project/menu_block"
             },
             "time": "2019-11-25T06:47:11+00:00"
+        },
+        {
+            "name": "drupal/node_class",
+            "version": "1.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/node_class.git",
+                "reference": "8.x-1.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/node_class-8.x-1.0-beta1.zip",
+                "reference": "8.x-1.0-beta1",
+                "shasum": "9242c529240052aef9d1c4f50505bb346beb698a"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta1",
+                    "datestamp": "1466182462",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Anybody",
+                    "homepage": "https://www.drupal.org/user/291091"
+                },
+                {
+                    "name": "Pravin Ajaaz",
+                    "homepage": "https://www.drupal.org/user/2910049"
+                },
+                {
+                    "name": "dineshw",
+                    "homepage": "https://www.drupal.org/user/2279292"
+                },
+                {
+                    "name": "drnikki",
+                    "homepage": "https://www.drupal.org/user/385042"
+                },
+                {
+                    "name": "sacred8",
+                    "homepage": "https://www.drupal.org/user/393247"
+                }
+            ],
+            "description": "Adds classes specific to node",
+            "homepage": "https://www.drupal.org/project/node_class",
+            "support": {
+                "source": "https://git.drupalcode.org/project/node_class"
+            }
         },
         {
             "name": "drupal/notification",

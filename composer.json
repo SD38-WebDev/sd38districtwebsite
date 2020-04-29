@@ -39,6 +39,7 @@
         "drupal/draggableviews": "^1.2",
         "drupal/dropzonejs": "^2.0",
         "drupal/menu_block": "1.x-dev",
+        "drupal/node_class": "^1.0",
         "drupal/slick": "^2.0",
         "drupal/slick_views": "^2.1",
         "drupal/smart_date": "^2.0",
