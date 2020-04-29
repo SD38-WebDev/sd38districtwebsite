@@ -64,7 +64,6 @@ module:
   menu_link_attributes: 0
   menu_ui: 0
   node: 0
-  node_class: 0
   notification: 0
   options: 0
   page_cache: 0
