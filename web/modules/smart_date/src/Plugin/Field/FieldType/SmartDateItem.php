@@ -58,6 +58,20 @@ class SmartDateItem extends TimestampItem {
       ->setSetting('unsigned', TRUE)
       ->setRequired(FALSE);
 
+    $properties['rrule_index'] = DataDefinition::create('integer')
+      ->setLabel(t('RRule Index'))
+      ->setSetting('unsigned', TRUE)
+      ->setRequired(FALSE);
+
+    $properties['timezone'] = DataDefinition::create('string')
+      ->setLabel(t('Timezone'))
+      ->setDescription(t('The timezone of this date.'))
+      ->setSetting('max_length', 32)
+      ->setRequired(FALSE)
+      // @todo: Define this via an options provider once
+      // https://www.drupal.org/node/2329937 is completed.
+      ->addConstraint('AllowedValues', array_keys(system_time_zones(TRUE, FALSE)));
+
     return $properties;
   }
 
@@ -84,6 +98,15 @@ class SmartDateItem extends TimestampItem {
           'description' => 'The ID an associated recurrence rule.',
           'type' => 'int',
         ],
+        'rrule_index' => [
+          'description' => 'The Index of an associated recurrence rule instance.',
+          'type' => 'int',
+        ],
+        'timezone' => [
+          'description' => 'The preferred timezone.',
+          'type' => 'varchar',
+          'length' => 32,
+        ],
       ],
       'indexes' => [
         'value' => [
@@ -94,6 +117,9 @@ class SmartDateItem extends TimestampItem {
         ],
         'rrule' => [
           'rrule',
+        ],
+        'rrule_index' => [
+          'rrule_index',
         ],
       ],
     ];
@@ -111,6 +137,7 @@ class SmartDateItem extends TimestampItem {
     $values['value'] = $timestamp;
     $values['end_value'] = $timestamp + $duration * 60;
     $values['duration'] = $duration;
+    $values['timezone'] = 'UTC';
     return $values;
   }
 

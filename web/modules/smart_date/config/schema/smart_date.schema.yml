@@ -43,10 +43,6 @@ field.formatter.settings.smartdate_default:
   type: field.formatter.settings.datetime_default
   label: 'Smart date default display format settings'
   mapping:
-    separator:
-      type: string
-      label: 'Smart Date Format'
-      translation context: 'Smart date display'
     timezone_override:
       type: string
       label: 'Time zone override'
@@ -54,6 +50,10 @@ field.formatter.settings.smartdate_default:
     format:
       type: string
       label: 'Format'
+      translation context: 'Smart date display'
+    force_chronological:
+      type: boolean
+      label: 'Force chronological'
       translation context: 'Smart date display'
     format_type:
       type: string
@@ -94,6 +94,21 @@ field.widget.settings.smartdate_datelist:
 field.widget.settings.smartdate_default:
   type: mapping
   label: 'Smart date default display format settings'
+  mapping:
+    modal:
+      type: boolean
+      label: 'Use modal'
+
+field.widget.settings.smartdate_timezone:
+  type: mapping
+  label: 'Smart date timezone display format settings'
+  mapping:
+    default_tz:
+      type: string
+      label: 'Default timezone'
+    custom_tz:
+      type: string
+      label: 'Custom timezone'
 
 smart_date.smart_date_format.*:
   type: config_entity
@@ -122,12 +137,6 @@ smart_date.smart_date_format.*:
       translatable: true
       form_element_class: \Drupal\config_translation\FormElement\Textfield
       label: 'Time Hour Format String'
-      translation context: 'Smart date format'
-    allday_label:
-      type: string
-      translatable: true
-      form_element_class: \Drupal\config_translation\FormElement\Textfield
-      label: 'All day label'
       translation context: 'Smart date format'
     allday_label:
       type: string

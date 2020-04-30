@@ -2,6 +2,7 @@
 
 namespace Drupal\smart_date\Plugin\Field\FieldFormatter;
 
+use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\datetime\Plugin\Field\FieldFormatter\DateTimeDefaultFormatter;
 use Drupal\smart_date\Entity\SmartDateFormat;
@@ -32,26 +33,8 @@ class SmartDateDefaultFormatter extends DateTimeDefaultFormatter {
   public static function defaultSettings() {
     return [
       'format' => 'default',
+      'force_chronological' => 0,
     ] + parent::defaultSettings();
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  protected function formatDate($date) {
-    // Try to load the format from the field settings. If that doesn't work, use
-    // the default format, which cannot be deleted.
-    $format = static::loadSmartDateFormat($this->getSetting('format'))
-      ?: static::loadSmartDateFormat('default');
-
-    // If a timezone override is set, get its machine name.
-    $timezone = $this->getSetting('timezone_override')
-      ?: $date->getTimezone()->getName();
-
-    // This (formatDate()) function only formats one date, so we pass the same
-    // date to both the start and end dates of SmartDateTrait::formatSmartDate()
-    // which will only display one date.
-    return static::formatSmartDate($date->getTimestamp(), $date->getTimestamp(), $format->getOptions(), $timezone, 'string');
   }
 
   /**
@@ -66,6 +49,11 @@ class SmartDateDefaultFormatter extends DateTimeDefaultFormatter {
     // a Smart Date Format instead.
     unset($form['format_type']);
 
+    // Change the description of the timezone_override element.
+    if (isset($form['timezone_override'])) {
+      $form['timezone_override']['#description'] = $this->t('The time zone selected here will be used unless overridden on an individual date.');
+    }
+
     // Ask the user to choose a Smart Date Format.
     $smartDateFormatOptions = $this->getAvailableSmartDateFormatOptions();
     $form['format'] = [
@@ -74,6 +62,14 @@ class SmartDateDefaultFormatter extends DateTimeDefaultFormatter {
       '#description' => $this->t('Choose which display configuration to use.'),
       '#default_value' => $this->getSetting('format'),
       '#options' => $smartDateFormatOptions,
+    ];
+
+    // Provide an option to force a chronological display.
+    $form['force_chronological'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Force chronogical'),
+      '#description' => $this->t('Override any manual sorting or other differences.'),
+      '#default_value' => $this->getSetting('force_chronological'),
     ];
 
     return $form;
@@ -118,6 +114,50 @@ class SmartDateDefaultFormatter extends DateTimeDefaultFormatter {
     }
 
     return $formatOptions;
+  }
+
+    /**
+   * {@inheritdoc}
+   */
+  public function viewElements(FieldItemListInterface $items, $langcode) {
+    $format_label = $this->getSetting('format');
+    if ($format_label) {
+      $entity_storage_manager = \Drupal::entityTypeManager()
+        ->getStorage('smart_date_format');
+      $format = $entity_storage_manager->load($format_label);
+      $settings = $format->getOptions();
+    }
+
+    if (!$format_label || !$settings) {
+      // Throw an error.
+      $messenger = \Drupal::messenger();
+      $messenger->addMessage(t('Invalid or missing Smart Date format specified.'));
+      return FALSE;
+    }
+
+    // Sort all instances chronologically.
+    $elements = [];
+    foreach ($items as $delta => $item) {
+      if (!empty($item->value) && !empty($item->end_value)) {
+        $elements[$delta] = static::formatSmartDate($item->value, $item->end_value, $settings);
+        $elements[$delta]['#start'] = $item->value;
+        $elements[$delta]['#end'] = $item->end_value;
+
+        if (!empty($item->_attributes)) {
+          $elements[$delta]['#attributes'] += $item->_attributes;
+          // Unset field item attributes since they have been included in the
+          // formatter output and should not be rendered in the field template.
+          unset($item->_attributes);
+        }
+      }
+    }
+
+    // If specified, sort based on start, end times.
+    if ($this->getSetting('force_chronological')) {
+      $elements = smart_date_array_orderby($elements, '#start', SORT_ASC, '#end', SORT_ASC);
+    }
+
+    return $elements;
   }
 
 }

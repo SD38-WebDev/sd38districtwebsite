@@ -24,7 +24,7 @@ function smart_date_help($route_name, RouteMatchInterface $route_match) {
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
       $output .= '<p>' . t('The Smart Date module provides a Date field that stores start dates and times, as well as end dates and times. See the <a href=":field">Field module help</a> and the <a href=":field_ui">Field UI module help</a> pages for general information on fields and how to create and manage them. For more information, see the <a href=":datetime_do">online documentation for the Datetime Range module</a>.', [
-        ':field' => Drupal::url('help.page', ['name' => 'field']),
+        ':field' => Url::fromRoute('help.page', ['name' => 'field']),
         ':field_ui' => $field_ui_link,
         ':datetime_do' => 'https://www.drupal.org/documentation/modules/smart_date',
       ]) . '</p>';
@@ -54,4 +54,24 @@ function smart_date_entity_access($entity, $operation, $account) {
       return AccessResult::neutral();
     }
   }
+}
+
+/**
+ * Helper function to sort a multidimensional array on multiple values.
+ */
+function smart_date_array_orderby() {
+  $args = func_get_args();
+  $data = array_shift($args);
+  foreach ($args as $n => $field) {
+    if (is_string($field)) {
+      $tmp = [];
+      foreach ($data as $key => $row) {
+        $tmp[$key] = $row[$field];
+      }
+      $args[$n] = $tmp;
+    }
+  }
+  $args[] = &$data;
+  call_user_func_array('array_multisort', $args);
+  return array_pop($args);
 }

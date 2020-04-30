@@ -2,9 +2,12 @@
 
 namespace Drupal\smart_date_recur\Form;
 
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Form\ConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
+use Drupal\smart_date_recur\Controller\Instances;
 use Drupal\smart_date_recur\Entity\SmartDateOverride;
 use Drupal\smart_date_recur\Entity\SmartDateRule;
 
@@ -16,7 +19,7 @@ class SmartDateRemoveInstanceForm extends ConfirmFormBase {
   /**
    * ID of the rrule being used.
    *
-   * @var int
+   * @var \Drupal\smart_date_recur\Entity\SmartDateRule
    */
   protected $rrule;
 
@@ -37,14 +40,14 @@ class SmartDateRemoveInstanceForm extends ConfirmFormBase {
   /**
    * {@inheritdoc}
    */
-  public function getFormId() : string {
+  public function getFormId() {
     return "smart_date_recur_remove_form";
   }
 
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, SmartDateRule $rrule = NULL, string $index = NULL) {
+  public function buildForm(array $form, FormStateInterface $form_state, SmartDateRule $rrule = NULL, string $index = NULL, $ajax = FALSE) {
     $this->rrule = $rrule;
     $this->index = $index;
     $result = \Drupal::entityQuery('smart_date_override')
@@ -54,7 +57,47 @@ class SmartDateRemoveInstanceForm extends ConfirmFormBase {
     if ($result && $override = SmartDateOverride::load(array_pop($result))) {
       $this->oid = $override->id();
     }
-    return parent::buildForm($form, $form_state);
+    $form = parent::buildForm($form, $form_state);
+    if ($ajax) {
+      $this->addAjaxWrapper($form);
+      $form['actions']['cancel']['#attributes']['class'][] = 'use-ajax';
+      $form['actions']['cancel']['#url']->setRouteParameter('modal', TRUE);
+      $form['actions']['submit']['#ajax'] = ['callback' => '::ajaxSubmit'];
+    }
+    return $form;
+  }
+
+  /**
+   * Ajax submit function.
+   *
+   * @param array $form
+   *   The form values being submitted.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The form state being submitted.
+   *
+   * @return \Drupal\Core\Ajax\AjaxResponse
+   *   The response from the AJAX form submit.
+   */
+  public function ajaxSubmit(array &$form, FormStateInterface $form_state) {
+    $form_state->disableRedirect();
+    $instanceController = new Instances();
+    $instanceController->setSmartDateRule($this->rrule);
+    $instanceController->setUseAjax(TRUE);
+    $instanceController->setUpdateButton(FALSE);
+    $response = new AjaxResponse();
+    $response->addCommand(new ReplaceCommand('#manage-instances', $instanceController->listInstancesOutput()));
+    return $response;
+  }
+
+  /**
+   * Adding a wrapper to the form, for ajax targeting.
+   *
+   * @param array $form
+   *   The form array to be enclosed.
+   */
+  protected function addAjaxWrapper(array &$form) {
+    $form['#prefix'] = '<div id="manage-instances">';
+    $form['#suffix'] = '</div>';
   }
 
   /**
@@ -90,18 +133,10 @@ class SmartDateRemoveInstanceForm extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $index = $this->index;
-    $rrule = $this->rrule->id();
-    // Delete existing override, if it exists.
-    if ($this->oid) {
-      $existing = SmartDateOverride::load($this->oid);
-      $existing->delete();
-    }
-    $override = SmartDateOverride::create([
-      'rrule' => $rrule,
-      'rrule_index' => $index,
-    ]);
-    $override->save();
+    $instanceController = new Instances();
+    $instanceController->setSmartDateRule($this->rrule);
+    $instanceController->removeInstance($this->index, $this->oid);
+
     // TODO: Update parent entity field value.
     $form_state
       ->setRedirectUrl($this

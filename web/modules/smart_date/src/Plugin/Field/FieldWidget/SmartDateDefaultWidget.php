@@ -32,6 +32,41 @@ class SmartDateDefaultWidget extends SmartDateWidgetBase implements ContainerFac
   /**
    * {@inheritdoc}
    */
+  public static function defaultSettings() {
+    return [
+      'modal' => FALSE,
+    ] + parent::defaultSettings();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function settingsForm(array $form, FormStateInterface $form_state) {
+    $element = parent::settingsForm($form, $form_state);
+
+    $element['modal'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Use modal for managing instances'),
+      '#default_value' => $this->getSetting('modal'),
+    ];
+
+    return $element;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function settingsSummary() {
+    $summary = parent::settingsSummary();
+    if ($this->getSetting('modal')) {
+      $summary[] = $this->t('Use modal for managing instances');
+    }
+    return $summary;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, array $third_party_settings, EntityStorageInterface $date_storage) {
     parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $third_party_settings);
 
@@ -58,7 +93,7 @@ class SmartDateDefaultWidget extends SmartDateWidgetBase implements ContainerFac
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     $element = parent::formElement($items, $delta, $element, $form, $form_state);
 
-    if (!isset($element['value'])) {
+    if (!isset($element['value']) || (isset($element['#access']) && $element['#access'] === FALSE)) {
       return $element;
     }
 

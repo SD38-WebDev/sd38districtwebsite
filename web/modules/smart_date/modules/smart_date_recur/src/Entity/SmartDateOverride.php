@@ -40,8 +40,7 @@ use Drupal\Core\Entity\EntityTypeInterface;
  *     "edit-form" = "/admin/content/smart_date_recur/overrides/{smart_date_override}/edit",
  *     "delete-form" = "/admin/content/smart_date_recur/overrides/{smart_date_override}/delete",
  *     "collection" = "/admin/content/smart_date_recur/overrides",
- *   },
- *   field_ui_base_route = "smart_date_override.collection"
+ *   }
  * )
  */
 class SmartDateOverride extends ContentEntityBase {

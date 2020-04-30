@@ -153,27 +153,17 @@ class MediaSubFormManager implements ContainerInjectionInterface, MediaSubFormMa
     /** @var \Drupal\media\MediaInterface $dummyMedia */
     $dummyMedia = $this->mediaStorage->create(['bundle' => $mediaType->id()]);
     $mediaFormDisplay = $this->getMediaFormDisplay($mediaBulkConfig, $mediaType);
-    $mediaFormDisplay->buildForm($dummyMedia, $form['fields']['shared'], $form_state);
-
-    $storage = $form_state->getStorage();
-    $field_storage = $storage['field_storage']['#parents'];
-    $storage['field_storage']['#parents'] = [
-      'fields' => [
-        'shared' => $field_storage,
-      ],
-    ];
-    $form_state->setStorage($storage);
+    $mediaFormDisplay->buildForm($dummyMedia, $form, $form_state);
 
     $targetFieldName = $this->mediaTypeManager->getTargetFieldName($mediaType);
-    unset($form['fields']['shared'][$targetFieldName]);
-    unset($form['fields']['shared']['#parents']);
+    unset($form[$targetFieldName]);
 
     $fields = $this->getFields($mediaBulkConfig);
     if (empty($fields)) {
       return $this;
     }
 
-    $this->configureSharedFields($form['fields']['shared'], $fields);
+    $this->configureSharedFields($form, $fields);
 
     return $this;
   }
@@ -225,12 +215,6 @@ class MediaSubFormManager implements ContainerInjectionInterface, MediaSubFormMa
         unset($elements[$child]);
         continue;
       }
-      unset($elements[$child]['#parents']);
-      $widget_parents = array_merge([
-        'fields',
-        'shared',
-      ], $elements[$child]['widget']['#parents']);
-      $elements[$child]['widget']['#parents'] = $widget_parents;
 
       $this->forceFieldsAsOptional($elements[$child]);
     }

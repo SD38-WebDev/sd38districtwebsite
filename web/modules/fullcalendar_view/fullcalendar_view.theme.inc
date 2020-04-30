@@ -5,7 +5,9 @@
  * Theme for Full Calendar views.
  */
 
+use Drupal\Component\Utility\Xss;
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Language\LanguageInterface;
 
 /**
  * Implement fullcalendar view theme preprocess function.
@@ -99,6 +101,7 @@ function template_preprocess_views_view_fullcalendar(array &$variables) {
   }
   // Default Language.
   $default_lang = $options['defaultLanguage'];
+  $default_lang = $options['defaultLanguage'] === 'current_lang' ? _fullcalendar_view_map_langcodes($language->getId()) : $options['defaultLanguage'];
   // Color for bundle types.
   $color_content = $options['color_bundle'];
   // Color for taxonomies.
@@ -109,7 +112,7 @@ function template_preprocess_views_view_fullcalendar(array &$variables) {
   $exc_field_option = empty($exc_field) ? NULL : $fields[$exc_field]->options;
   // Custom timezone or user timezone.
   $timezone = !empty($start_field_option['settings']['timezone_override']) ?
-    $start_field_option['settings']['timezone_override'] : drupal_get_user_timezone();
+  $start_field_option['settings']['timezone_override'] : date_default_timezone_get();
   // Open a new window for details of an event.
   $title_field = (empty($options['title']) || $options['title'] == 'title') ? 'title' : $options['title'];
   // Calendar entries linked to entity.
@@ -201,12 +204,21 @@ function template_preprocess_views_view_fullcalendar(array &$variables) {
       // other fields might be rewritten by
       // the field settgins of the view.
       if ($options['use_entity_fields']) {
+        // Translate the title and description,
+        if ($current_entity->hasTranslation($language->getId())) {
+          $translated_entity = $current_entity->getTranslation($language->getId());
+        }
+        else {
+          // Current entity doesn't have the translation for
+          // the language specified.
+          $translated_entity = $current_entity->getTranslation(LanguageInterface::LANGCODE_DEFAULT);
+        }
         // Description for events. For multiple bundle types,
         // there might be more than one field specified.
         if (!empty($des_field) && is_array($des_field)) {
           foreach ($des_field as $des_field_name) {
             if ($current_entity->hasField($des_field_name)) {
-              $des = $current_entity->get($des_field_name)->getValue();
+              $des = $translated_entity->get($des_field_name)->value;
               // We just need only one description text.
               // Once we got it, quit the loop.
               break;
@@ -224,21 +236,30 @@ function template_preprocess_views_view_fullcalendar(array &$variables) {
         }
         // Event title.
         if (empty($options['title']) || $options['title'] == 'title') {
-          $title = $current_entity->label();
+          $title = $translated_entity->getTitle();
         }
         elseif ($current_entity->hasField($options['title'])) {
-          $title = $current_entity->get($options['title'])->value;
+          $title = $translated_entity->get($options['title'])->value;
         }
         else {
-          $title = 'Invalid event title';
+          $title = t('Invalid event title');
         }
       }
       else {
         // Description for events. For multiple bundle types,
         // there might be more than one field specified.
         if (!empty($des_field) && is_array($des_field)) {
+          // Render all other fields to so they can be used in rewrite.
+          foreach ($fields as $field) {
+            if (method_exists($field, 'advancedRender')) {
+              $field->advancedRender($row);
+            }
+          }
+          // We need to render the description field again,
+          // in case a replacement pattern for other field.
+          // For exmaple, {{field name}}.
           foreach ($des_field as $des_field_name) {
-            if ($row->_entity->hasField($des_field_name)) {
+            if (isset($fields[$des_field_name]) && method_exists($fields[$des_field_name], 'advancedRender')) {
               $des_raw = $fields[$des_field_name]->advancedRender($row);
               $des = empty($des_raw) ? '' : $des_raw;
               // We just need only one description text.
@@ -264,57 +285,24 @@ function template_preprocess_views_view_fullcalendar(array &$variables) {
           $title = $fields[$options['title']]->advancedRender($row);
         }
         else {
-          $title = 'Invalid event title';
+          $title = t('Invalid event title');
         }
       }
       $entry = [
-        'title' => $title,
+        'title' =>  Xss::filter($title),
         'description' => $des,
         'id' => $entity_id,
-        'url' => $current_entity->toUrl()->toString(),
+        'url' => $current_entity->toUrl('canonical', ['language' => $language])->toString(),
       ];
 
       if (!empty($start_date)) {
-        // There might be more than one value for a field, so use only one.
-        $type = $row->_entity->getEntityTypeId();
-        $delta_key = $type . '__' . $start_field . '_delta';
-        if (property_exists($row, $delta_key)) {
-          // Use the delta to retrieve the proper value.
-          $delta = $row->$delta_key;
-          $start_date = $start_date[$delta]['value'];
-        }
-        else {
-          // Default to the first value.
-          $start_date = reset($start_date)['value'];
-          $delta = FALSE;
-        }
+        // There might be more than one value for a field,
+        // but we only need the first one and ignore others.
+        $start_date = reset($start_date)['value'];
         // Examine the field type.
         if ($start_field_option['type'] === 'timestamp') {
           $start_date = intval($start_date);
           $start_date = date(DATE_ATOM, $start_date);
-        }
-        elseif (strpos($start_field_option['type'], 'smartdate') === 0) {
-          // Process start and end right away, since a Smart Date will always
-          // include both values.
-          $start_date = intval($start_date);
-          if ($delta === FALSE) {
-            $end_date = reset($end_date)['end_value'];
-          }
-          else {
-            $end_date = $end_date[$delta]['end_value'];
-          }
-          $end_date = intval($end_date);
-
-          // Check for how Smart Date stores all day events
-          // and format appropriately.
-          if (date('Hi', $start_date) == "0000" && date('Hi', $end_date) == "2359") {
-            $start_date = date('Y-m-d', $start_date);
-            $end_date = date('Y-m-d', $end_date);
-          }
-          else {
-            $start_date = date(DATE_ATOM, $start_date);
-            $end_date = date(DATE_ATOM, $end_date);
-          }
         }
         elseif (strpos($start_field_option['type'], 'datetime') === FALSE && strpos($start_field_option['type'], 'daterange') === FALSE) {
           // This field is not a valid date time field.
@@ -373,9 +361,6 @@ function template_preprocess_views_view_fullcalendar(array &$variables) {
           $end_date = reset($end_date)['value'];
           $end_date = intval($end_date);
           $end_date = date(DATE_ATOM, $end_date);
-        }
-        elseif (strpos($end_field_option['type'], 'smartdate') === 0) {
-          // Do nothing here, since we already processed the end value.
         }
         elseif (strpos($end_field_option['type'], 'daterange') !== FALSE) {
           $end_date = $end_date[0]['end_value'];
@@ -508,6 +493,7 @@ function template_preprocess_views_view_fullcalendar(array &$variables) {
       'alloweventOverlap' => $options['alloweventOverlap'],
       'updateAllowed' => $options['updateAllowed'],
       'updateConfirm' => $options['updateConfirm'],
+      'dialogWindow' => $options['dialogWindow'],
       'linkToEntity' => $link_to_entity,
       'columnHeaderFormat' => $column_header_format,
       'eventBundleType' => $event_bundle_type,
@@ -526,4 +512,28 @@ function template_preprocess_views_view_fullcalendar(array &$variables) {
       'titleFormat' => $title_format,
     ];
   }
+}
+
+/**
+  * Map Drupal language codes to those used by FullCalendar.
+  *
+  * @param string $langcode
+  *   Drupal language code.
+  *
+  * @return string
+  *   Returns the mapped langcode.
+*/
+function _fullcalendar_view_map_langcodes($langcode) {
+    switch ($langcode) {
+      case "en-x-simple":
+        return "en";
+      case "pt-pt":
+        return "pt";
+      case "zh-hans":
+        return "zh-cn";  
+      case "zh-hant":
+        return "zh-tw";    
+      default:
+        return $langcode;
+    }
 }

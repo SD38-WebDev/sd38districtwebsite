@@ -7,6 +7,7 @@
 
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\smart_date\Entity\SmartDateFormat;
 use Drupal\smart_date\Plugin\Field\FieldType\SmartDateFieldItemList;
 use Drupal\smart_date\SmartDateTrait;
 
@@ -108,17 +109,17 @@ function smart_date_tokens($type, $tokens, array $data, array $options, Bubbleab
     }
     else {
       $property_name = $parts[0];
-      $format_value = $parts[1];
-    }
-    if (!$format_value) {
-      // Our tokens require a value, so skip if absent.
-      continue;
+      $format_value = isset($parts[1]) ? $parts[1] : NULL;
     }
     // Now parse out the pieces of the token name.
     $name_parts = explode('-', $property_name);
     $approach = array_pop($name_parts);
     $field = $list->first();
     if ($approach == 'custom') {
+      if (!$format_value) {
+        // This token requires a value, so skip if absent.
+        continue;
+      }
       // Get the requested property and apply the provided format.
       if ($name_parts && $prop_needed = array_pop($name_parts)) {
         $field_ts = $field->get($prop_needed)->getValue();
@@ -126,22 +127,23 @@ function smart_date_tokens($type, $tokens, array $data, array $options, Bubbleab
       }
     }
     elseif ($approach == 'format') {
-      $format = \Drupal::getContainer()
-        ->get('entity_type.manager')
-        ->getStorage('smart_date_format')
-        ->load($format_value);
+      if (!$format_value) {
+        // Our tokens require a value, so skip if absent.
+        $format_value = 'default';
+      }
+      $format = SmartDateFormat::load($format_value);
       $settings = $format->getOptions();
       // Apply the specified smart date format.
       // If a property was specified, only use that.
       if ($name_parts && $prop_needed = array_pop($name_parts)) {
         $field_ts = $field->get($prop_needed)->getValue();
-        $replacements[$original] = SmartDateTrait::formatSmartDate($field_ts, $field_ts, $settings);
+        $replacements[$original] = SmartDateTrait::formatSmartDate($field_ts, $field_ts, $settings, NULL, 'string');
       }
       // Otherise, format the whole range.
       else {
         $start = $field->get('value')->getValue();
         $end = $field->get('end_value')->getValue();
-        $replacements[$original] = SmartDateTrait::formatSmartDate($start, $end, $settings);
+        $replacements[$original] = SmartDateTrait::formatSmartDate($start, $end, $settings, NULL, 'string');
       }
     }
   }

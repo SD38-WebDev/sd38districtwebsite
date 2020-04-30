@@ -4,7 +4,7 @@ namespace Drupal\smart_date\Plugin\Field\FieldWidget;
 
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\smart_date\Plugin\Field\FieldType\SmartDateItem;
+use Drupal\datetime\Plugin\Field\FieldType\DateTimeItem;
 
 /**
  * Plugin implementation of the 'smartdate_datelist' widget.
@@ -36,9 +36,13 @@ class SmartDateDatelistWidget extends SmartDateWidgetBase {
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     $element = parent::formElement($items, $delta, $element, $form, $form_state);
 
+    if (!isset($element['value']) || (isset($element['#access']) && $element['#access'] === FALSE)) {
+      return $element;
+    }
+
     $date_order = $this->getSetting('date_order');
 
-    if ($this->getFieldSetting('datetime_type') == SmartDateItem::DATETIME_TYPE_DATETIME) {
+    if ($this->getFieldSetting('datetime_type') == DateTimeItem::DATETIME_TYPE_DATETIME) {
       $time_type = $this->getSetting('time_type');
       $increment = $this->getSetting('increment');
     }

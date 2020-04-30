@@ -259,7 +259,7 @@ class SmartDateFormat extends ConfigEntityBase implements SmartDateFormatInterfa
   /**
    * {@inheritdoc}
    */
-  public function setOptions($values) {
+  public function setOptions(array $values) {
     $keys = $this->getAllKeys();
     foreach ($keys as $key) {
       if (isset($values[$key])) {

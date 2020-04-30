@@ -13,6 +13,6 @@
   "require": {
     "php": "^7.1",
     "drupal/core": "^8.6",
-    "simshaun/recurr": "^3"
+    "simshaun/recurr": "^4"
   }
 }

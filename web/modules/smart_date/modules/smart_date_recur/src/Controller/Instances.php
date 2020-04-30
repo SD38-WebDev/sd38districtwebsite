@@ -2,11 +2,18 @@
 
 namespace Drupal\smart_date_recur\Controller;
 
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\OpenModalDialogCommand;
+use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\smart_date\SmartDateTrait;
+use Drupal\smart_date_recur\Entity\SmartDateOverride;
 use Drupal\smart_date_recur\Entity\SmartDateRule;
+use Drupal\smart_date_recur\Form\SmartDateOverrideDeleteAjaxForm;
+use Drupal\smart_date_recur\Form\SmartDateOverrideForm;
+use Drupal\smart_date_recur\Form\SmartDateRemoveInstanceForm;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
@@ -43,25 +50,42 @@ class Instances extends ControllerBase {
   protected $entityTypeManager;
 
   /**
-   * Add a link to update the parent entity.
+   * Indicating whether update button (Apply changes) should be provided.
    *
-   * @param \Drupal\smart_date_recur\Entity\SmartDateRule $rrule
-   *   The rule whose instances will be listed.
+   * @var bool
+   */
+  private $updateButton;
+
+  /**
+   * Indicating whether current controller instance uses Ajax.
+   *
+   * @var bool
+   */
+  private $useAjax;
+
+  /**
+   * Provide a list of rule items with operations to change rule items.
    *
    * @return array
-   *   A render array of list of instaces, with actions.
+   *   A render array of list of instances, with actions/operations.
    */
-  public function listInstances(SmartDateRule $rrule) {
+  public function listInstancesOutput() {
 
-    if (!$entity = $rrule->getParentEntity()) {
+    if (!$entity = $this->rrule->getParentEntity()) {
       return $this->returnError();
     }
-    $this->rrule = $rrule;
-    $rid = $rrule->id();
-    $field_name = $rrule->field_name->getString();
+    $field_name = $this->rrule->field_name->getString();
+
+    if ($this->rrule->limit->isEmpty()) {
+      $month_limit = $this->rrule->getFieldSettings('month_limit');
+      $before = strtotime('+' . (int) $month_limit . ' months');
+    }
+    else {
+      $before = NULL;
+    }
 
     // Use generated instances so we have a full list, and override as we go.
-    $gen_instances = $rrule->makeRuleInstances()->toArray();
+    $gen_instances = $this->rrule->makeRuleInstances($before)->toArray();
     $instances = [];
     foreach ($gen_instances as $gen_instance) {
       $gen_index = $gen_instance->getIndex();
@@ -74,7 +98,7 @@ class Instances extends ControllerBase {
       return $this->returnError();
     }
 
-    $overrides = $rrule->getRuleOverrides();
+    $overrides = $this->rrule->getRuleOverrides();
 
     // Build headers.
     // Iterate through rows and check for existing overrides.
@@ -111,11 +135,10 @@ class Instances extends ControllerBase {
       }
       else {
       }
-      $instance['rrule'] = $rrule->id();
+      $instance['rrule'] = $this->rrule->id();
       $instance['rrule_index'] = $index;
 
     }
-
     return $this->render($instances);
   }
 
@@ -131,9 +154,14 @@ class Instances extends ControllerBase {
    * @see \Drupal\Core\Entity\EntityListBuilder::render()
    */
   private function render(array $instances) {
-    $build['action'] = $this->buildUpdateButton();
+    if ($this->updateButton) {
+      $build['action'] = $this->buildUpdateButton();
+    }
     $build['table'] = [
       '#type' => 'table',
+      '#attributes' => [
+        'id' => 'manage-instances',
+      ],
       '#header' => $this
         ->buildHeader(),
       '#rows' => [],
@@ -141,12 +169,6 @@ class Instances extends ControllerBase {
         ->t('There are no @label yet.', [
           '@label' => 'recurring instances',
         ]),
-      // '#cache' => [
-      //   'contexts' => $this->entityType
-      //     ->getListCacheContexts(),
-      //   'tags' => $this->entityType
-      //     ->getListCacheTags(),
-      // ],
     ];
     foreach ($instances as $index => $instance) {
       if ($row = $this
@@ -156,12 +178,6 @@ class Instances extends ControllerBase {
     }
     $build['table']['#attached']['library'][] = 'smart_date_recur/smart_date_recur';
 
-    // Only add the pager if a limit is specified.
-    // if ($this->limit) {
-    //   $build['pager'] = [
-    //     '#type' => 'pager',
-    //   ];
-    // }
     return $build;
   }
 
@@ -268,6 +284,14 @@ class Instances extends ControllerBase {
         ['rrule' => $instance['rrule'], 'index' => $instance['rrule_index']]
       ),
     ];
+    if ($this->useAjax) {
+      $operations['remove']['url'] = Url::fromRoute('smart_date_recur.instance.remove.ajax', [
+        'rrule' => $instance['rrule'],
+        'index' => $instance['rrule_index'],
+        'confirm' => 0,
+      ]);
+      $operations['remove']['attributes']['class'][] = 'use-ajax';
+    }
     if (isset($instance['override'])) {
       // An override exists, so provide an option to revert (delete) it.
       $operations['delete'] = [
@@ -277,6 +301,11 @@ class Instances extends ControllerBase {
         'url' => $instance['override']
           ->toUrl('delete-form'),
       ];
+      if ($this->useAjax) {
+        $operations['delete']['url'] = Url::fromRoute('smart_date_recur.instance.revert.ajax',
+          ['entity' => $instance['override']->id(), 'confirm' => 0]);
+        $operations['delete']['attributes']['class'][] = 'use-ajax';
+      }
       switch ($instance['class']) {
         case 'cancelled':
           // Only option should be to revert.
@@ -293,6 +322,11 @@ class Instances extends ControllerBase {
               'index' => $instance['rrule_index'],
             ]),
           ];
+          if ($this->useAjax) {
+            $operations['edit']['url'] = Url::fromRoute('smart_date_recur.instance.reschedule.ajax',
+              ['rrule' => $instance['rrule'], 'index' => $instance['rrule_index']]);
+            $operations['edit']['attributes']['class'][] = 'use-ajax';
+          }
 
         case 'overriden':
           // Removal handled by the delete action already defined.
@@ -312,6 +346,11 @@ class Instances extends ControllerBase {
           ['rrule' => $instance['rrule'], 'index' => $instance['rrule_index']]
         ),
       ];
+      if ($this->useAjax) {
+        $operations['create']['url'] = Url::fromRoute('smart_date_recur.instance.reschedule.ajax',
+          ['rrule' => $instance['rrule'], 'index' => $instance['rrule_index']]);
+        $operations['create']['attributes']['class'][] = 'use-ajax';
+      }
     }
     // Sort the operations before returning them.
     uasort($operations, '\\Drupal\\Component\\Utility\\SortArray::sortByWeightElement');
@@ -364,12 +403,13 @@ class Instances extends ControllerBase {
     }
     // Retrieve all instances for this rule, with overrides applied.
     $instances = $rrule->getRuleInstances();
-    foreach ($instances as $instance) {
+    foreach ($instances as $rrule_index => $instance) {
       // Apply instance values to our template, and add to the field values.
       $first_instance['value'] = $instance['value'];
       $first_instance['end_value'] = $instance['end_value'];
       // Calculate the duration, since it isn't returned.
       $first_instance['duration'] = ($instance['end_value'] - $instance['value']) / 60;
+      $first_instance['rrule_index'] = $rrule_index;
       $values[] = $first_instance;
     }
     // Add to the entity, and save.
@@ -377,6 +417,178 @@ class Instances extends ControllerBase {
     $entity->save();
     // Redirect to the entity view.
     return new RedirectResponse($entity->toUrl()->toString());
+  }
+
+  /**
+   * Removing a rule instance.
+   *
+   * @param int $index
+   *   Index of the instance to remove.
+   * @param int|null $oid
+   *   SmartDateOverride override id if existing.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  public function removeInstance(int $index, ?int $oid) {
+    $rrule = $this->rrule->id();
+    // Delete existing override, if it exists.
+    if ($oid) {
+      $existing = SmartDateOverride::load($oid);
+      $existing->delete();
+    }
+    $override = SmartDateOverride::create([
+      'rrule' => $rrule,
+      'rrule_index' => $index,
+    ]);
+    $override->save();
+  }
+
+  /**
+   * Preparing the form for removing a rule instance via Ajax.
+   *
+   * @param \Drupal\smart_date_recur\Entity\SmartDateRule $rrule
+   *   The rule object.
+   * @param int $index
+   *   Index of the instance to remove.
+   *
+   * @return \Drupal\Core\Ajax\AjaxResponse
+   *   The AJAX response object.
+   */
+  public function removeAjax(SmartDateRule $rrule, int $index) {
+    $this->setSmartDateRule($rrule);
+    $this->setUpdateButton(FALSE);
+    $this->setUseAjax(TRUE);
+    $content = \Drupal::formBuilder()
+      ->getForm(SmartDateRemoveInstanceForm::class, $rrule, $index, TRUE);
+    $content['title']['#markup'] = '<p>' . $content['#title'] . '</p>';
+    $form['#attached']['library'][] = 'core/drupal.ajax';
+    $response = new AjaxResponse();
+    $response->addCommand(new ReplaceCommand('#manage-instances', $content));
+    return $response;
+  }
+
+  /**
+   * Preparing output of instance listing either modal/Ajax or default.
+   *
+   * @param \Drupal\smart_date_recur\Entity\SmartDateRule $rrule
+   *   The rule object.
+   * @param bool $modal
+   *   Whether or not to use a modal for display.
+   *
+   * @return array|\Drupal\Core\Ajax\AjaxResponse
+   *   The AJAX response object.
+   */
+  public function listInstances(SmartDateRule $rrule, bool $modal = FALSE) {
+    $this->setSmartDateRule($rrule);
+    $this->setUpdateButton(TRUE);
+    if ($modal) {
+      $this->setUpdateButton(FALSE);
+      $this->setUseAjax(TRUE);
+    }
+    $instancesList = $this->listInstancesOutput();
+    if ($modal) {
+      $response = new AjaxResponse();
+      $response->addCommand(new OpenModalDialogCommand('Manage Instances', $instancesList, ['width' => '800']));
+      return $response;
+    }
+    else {
+      return $instancesList;
+    }
+  }
+
+  /**
+   * Reverting a rule instance in an Ajax confirm dialog.
+   *
+   * @param \Drupal\smart_date_recur\Entity\SmartDateOverride $entity
+   *   The override entity to remove.
+   * @param bool $confirm
+   *   Whether or not the removal has been confirmed.
+   *
+   * @return \Drupal\Core\Ajax\AjaxResponse
+   *   The AJAX response object.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   */
+  public function revertAjax(SmartDateOverride $entity, bool $confirm) {
+    if ($confirm) {
+      $rrule = $this->entityTypeManager()->getStorage('smart_date_rule')->load($entity->rrule->value);
+      $this->setSmartDateRule($rrule);
+      $this->setUpdateButton(FALSE);
+      $this->setUseAjax(TRUE);
+      $this->revertInstance($entity);
+      $content = $this->listInstancesOutput();
+    }
+    else {
+      $content = \Drupal::formBuilder()
+        ->getForm(SmartDateOverrideDeleteAjaxForm::class, $entity);
+    }
+    $form['#attached']['library'][] = 'core/drupal.ajax';
+    $response = new AjaxResponse();
+    $response->addCommand(new ReplaceCommand('#manage-instances', $content));
+    return $response;
+  }
+
+  /**
+   * Preparing the form for rescheduling a rule instance via Ajax.
+   *
+   * @param \Drupal\smart_date_recur\Entity\SmartDateRule $rrule
+   *   The rule object.
+   * @param string $index
+   *   Index of the instance to override.
+   *
+   * @return \Drupal\Core\Ajax\AjaxResponse
+   *   The AJAX response object.
+   */
+  public function reschedule(SmartDateRule $rrule, string $index) {
+    $content = \Drupal::formBuilder()
+      ->getForm(SmartDateOverrideForm::class, $rrule, $index, TRUE);
+    $form['#attached']['library'][] = 'core/drupal.ajax';
+    $response = new AjaxResponse();
+    $response->addCommand(new ReplaceCommand('#manage-instances', $content));
+    return $response;
+  }
+
+  /**
+   * Revert instance by deleting the override.
+   *
+   * @param \Drupal\smart_date_recur\Entity\SmartDateOverride $entity
+   *   The override entity to remove.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  public function revertInstance(SmartDateOverride $entity) {
+    $entity->delete();
+  }
+
+  /**
+   * Setting the SmartDateRule on the controller.
+   *
+   * @param \Drupal\smart_date_recur\Entity\SmartDateRule $rrule
+   *   The rule object.
+   */
+  public function setSmartDateRule(SmartDateRule $rrule) {
+    $this->rrule = $rrule;
+  }
+
+  /**
+   * Setting the update button setting on the controller.
+   *
+   * @param bool $update_button
+   *   The value of the button.
+   */
+  public function setUpdateButton(bool $update_button) {
+    $this->updateButton = $update_button;
+  }
+
+  /**
+   * Setting the use ajax setting on the controller.
+   *
+   * @param bool $use_ajax
+   *   Whether or not to use AJAX.
+   */
+  public function setUseAjax(bool $use_ajax) {
+    $this->useAjax = $use_ajax;
   }
 
 }

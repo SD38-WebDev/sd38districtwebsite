@@ -1,5 +1,5 @@
 smart_date_recur.instances:
-  path: '/admin/content/smart_date_recur/{rrule}/instances'
+  path: '/admin/content/smart_date_recur/{rrule}/instances/{modal}'
   options:
     parameters:
       rrule:
@@ -7,6 +7,7 @@ smart_date_recur.instances:
   defaults:
     _controller: '\Drupal\smart_date_recur\Controller\Instances::listInstances'
     _title: 'Manage Instances'
+    modal: FALSE
   requirements:
     _permission: 'reschedule smart date recur instances'
 
@@ -34,6 +35,18 @@ smart_date_recur.instance.reschedule:
   requirements:
     _permission: 'reschedule smart date recur instances'
 
+smart_date_recur.instance.reschedule.ajax:
+  path: '/admin/content/smart_date_recur/{rrule}/instance/reschedule/{index}/ajax'
+  options:
+    parameters:
+      rrule:
+        type: entity:smart_date_rule
+  defaults:
+    _controller: '\Drupal\smart_date_recur\Controller\Instances::reschedule'
+    _title: 'Override an Instance'
+  requirements:
+    _permission: 'reschedule smart date recur instances'
+
 smart_date_recur.instance.remove:
   path: '/admin/content/smart_date_recur/{rrule}/instance/remove/{index}'
   options:
@@ -46,14 +59,26 @@ smart_date_recur.instance.remove:
   requirements:
     _permission: 'cancel smart date recur instances'
 
-smart_date_recur.instance.revert:
-  path: '/admin/content/smart_date_recur/{rrule}/instance/revert/{index}'
+smart_date_recur.instance.remove.ajax:
+  path: '/admin/content/smart_date_recur/{rrule}/instance/remove/{index}/ajax'
   options:
     parameters:
       rrule:
         type: entity:smart_date_rule
   defaults:
-    _form: '\Drupal\smart_date_recur\Form\InstanceRevertForm'
+    _controller: '\Drupal\smart_date_recur\Controller\Instances::removeAjax'
+    _title: 'Remove an Instance'
+  requirements:
+    _permission: 'cancel smart date recur instances'
+
+smart_date_recur.instance.revert.ajax:
+  path: '/admin/content/smart_date_recur/{entity}/instance/revert/{confirm}/ajax'
+  options:
+    parameters:
+      entity:
+        type: entity:smart_date_override
+  defaults:
+    _controller: '\Drupal\smart_date_recur\Controller\Instances::revertAjax'
     _title: 'Revert an Instance'
   requirements:
     _permission: 'reschedule smart date recur instances'

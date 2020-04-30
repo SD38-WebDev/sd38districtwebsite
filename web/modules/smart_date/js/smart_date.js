@@ -3,7 +3,20 @@
 
   Drupal.behaviors.smartDate = {
     attach: function(context, settings) {
-      $('.field--type-smartdate select').each(function(){
+      // Manipulate the labels for BYDAY checkboxes.
+      $('.field--type-smartdate .byday-checkboxes label').each(function(){
+        $(this).prop('title', $(this).text());
+        $(this).prop('tabindex', '0');
+        // Check the input on spacebar or return.
+        $(this).keydown(function( event ) {
+          if ( event.which == 13 || event.which == 32 ) {
+            $(this).siblings('input').click();
+            event.preventDefault();
+          }
+        });
+      });
+
+      $('.field--type-smartdate select.field-duration').each(function(){
         setInitialDuration(this);
         augmentInputs(this);
       });
@@ -17,13 +30,13 @@
       // set the step value on time inputs to hide seconds
       $('.field--type-smartdate input[type="time"]').prop('step', '60');
 
-      // update the end values when the start is chnged
+      // update the end values when the start is changed
       $('.field--type-smartdate .time-start input').on('change', function(){
         setEndDate(this);
       });
 
       // special handler for duration updates
-      $('.field--type-smartdate select').on('change', function(){
+      $('.field--type-smartdate select.field-duration').on('change', function(){
         durationChanged(this);
       });
 
@@ -32,9 +45,16 @@
         setDuration(this);
       });
 
+      // When the repeat frequency changes, update the advanced label.
+      $('.field--type-smartdate .recur-repeat').on('change', function(){
+        updateRepeatLabel(this);
+      }).each(function(){
+        updateRepeatLabel(this);
+      });
+
       function setEndDate(element) {
-        var wrapper = $(element).parents('.fieldset-wrapper');
-        var duration_select = wrapper.find('select');
+        var wrapper = $(element).closest('fieldset');
+        var duration_select = wrapper.find('select.field-duration');
         if (duration_select.val() === 'custom') {
           var duration = parseInt(duration_select.prop('data-duration'));
         }
@@ -67,10 +87,6 @@
           var end = new Date();
         }
 
-        // Update End Date input.
-        var new_end = end.getFullYear() + '-' + pad(end.getMonth() + 1, 2) + '-' + pad(end.getDate(), 2);
-        wrapper.find('.time-end input[type="date"]').val(new_end);
-
         // Calculate and set End Time only if All Day is not checked.
         if (!(wrapper.find('input.allday').is(':checked'))) {
           end.setHours(start_array[0]);
@@ -80,11 +96,15 @@
           var end_val = pad(end.getHours(), 2) + ":" + pad(end.getMinutes(), 2);
           wrapper.find('.time-end input[type="time"]').val(end_val);
         }
+
+        // Update End Date input.
+        var new_end = end.getFullYear() + '-' + pad(end.getMonth() + 1, 2) + '-' + pad(end.getDate(), 2);
+        wrapper.find('.time-end input[type="date"]').val(new_end);
       }
 
       function durationChanged(element) {
         var current_val = $(element).val();
-        var wrapper = $(element).parents('.fieldset-wrapper');
+        var wrapper = $(element).parents('fieldset');
         var end_time_input = wrapper.find('.time-end input[type="time"]');
         var end_date_input = wrapper.find('.time-end input[type="date"]');
         var end_date_label = wrapper.find('.time-start + .label')
@@ -103,7 +123,7 @@
         }
         if ($(element).val() === 'custom') {
           // reset end time and add focus
-          var wrapper = $(element).parents('.fieldset-wrapper');
+          var wrapper = $(element).parents('fieldset');
           var end_time = wrapper.find('.time-end input[type="time"]');
           end_time.val('').focus();
         }
@@ -116,7 +136,7 @@
       function setInitialDuration(element) {
         var duration = $(element).val();
         if (duration == 'custom') {
-          var wrapper = $(element).parents('.fieldset-wrapper');
+          var wrapper = $(element).parents('fieldset');
           var duration = calcDuration(wrapper);
         }
         else if (duration == 0) {
@@ -142,21 +162,23 @@
         }
         // if a forced duration, make end date and time read only
         if ($(element).children('[value="custom"]').length == 0) {
-          var wrapper = $(element).parents('.fieldset-wrapper');
+          var wrapper = $(element).parents('fieldset');
           var end_time_input = wrapper.find('.time-end input[type="time"]');
           var end_date_input = wrapper.find('.time-end input[type="date"]');
           end_time_input.prop('readonly', true);
+          end_time_input.attr('aria-readonly', true);
           end_date_input.prop('readonly', true);
+          end_date_input.attr('aria-readonly', true);
         }
       }
 
       function setDuration(element) {
-        var wrapper = $(element).parents('.fieldset-wrapper');
+        var wrapper = $(element).parents('fieldset');
         var duration = calcDuration(wrapper);
         if (duration == 0) {
           return;
         }
-        var duration_select = wrapper.find('select');
+        var duration_select = wrapper.find('select.field-duration');
         // Store the numeric value in a property so it can be used programmatically
         duration_select.prop('data-duration', duration);
         // Update the select to show the appropriate value
@@ -196,17 +218,21 @@
 
       function setAllDay(element) {
         var checkbox = $(element);
-        var wrapper = checkbox.parents('.fieldset-wrapper');
+        var wrapper = checkbox.parents('fieldset');
         var start_time = wrapper.find('.time-start input[type="time"]');
+        var start_time_label = start_time.prev('label');
         var end_time = wrapper.find('.time-end input[type="time"]');
-        var duration = wrapper.find('select');
+        var end_time_label = end_time.prev('label');
+        var duration = wrapper.find('select.field-duration');
         // set initial state of checkbox based on initial values
         if (start_time.val() == '00:00:00' && end_time.val() == '23:59:00') {
           checkbox.prop('checked', true);
           checkbox.prop('data-duration', duration.data('default'));
           start_time.fadeOut();
+          start_time_label.fadeOut();
           end_time.fadeOut();
-          var duration_wrapper = wrapper.find('.form-type-select');
+          end_time_label.fadeOut();
+          var duration_wrapper = duration.parent();
           duration_wrapper.fadeOut(0);
         }
         else {
@@ -216,11 +242,13 @@
 
       function checkAllDay(element) {
         var checkbox = $(element);
-        var wrapper = checkbox.parents('.fieldset-wrapper');
+        var wrapper = checkbox.parents('fieldset');
         var start_time = wrapper.find('.time-start input[type="time"]');
+        var start_time_label = start_time.siblings('label');
         var end_time = wrapper.find('.time-end input[type="time"]');
-        var duration = wrapper.find('select');
-        var duration_wrapper = wrapper.find('.form-type-select');
+        var end_time_label = end_time.siblings('label');
+        var duration = wrapper.find('select.field-duration');
+        var duration_wrapper = wrapper.find('select.field-duration').parent();
 
         if (checkbox.is(':checked')) {
           if (checkbox.prop('data-duration') == 0) {
@@ -242,7 +270,9 @@
           }
           // set to all day $values and hide time elements
           start_time.fadeOut(0).val('00:00');
+          start_time_label.fadeOut(0);
           end_time.fadeOut(0).val('23:59');
+          end_time_label.fadeOut(0);
           duration_wrapper.fadeOut(0);
         }
         else {
@@ -268,13 +298,39 @@
           }
           // make time inputs visible
           start_time.fadeIn(0);
+          start_time_label.fadeIn(0);
           end_time.fadeIn(0);
+          end_time_label.fadeIn(0);
           duration_wrapper.fadeIn(0);
           if (duration.val() == 0) {
             // call this to hide the end date and time
             durationChanged(duration);
           }
         }
+      }
+
+      function updateRepeatLabel(element) {
+        var wrapper = $(element).parents('fieldset');
+        var repeat_label = wrapper.find('.field-interval + .field-suffix');
+        var new_label = '';
+        switch ($(element).val()) {
+          case '':
+            new_label = 'times';
+            break;
+          case 'DAILY':
+            new_label = 'days';
+            break;
+          case 'WEEKLY':
+            new_label = 'weeks';
+            break;
+          case 'MONTHLY':
+            new_label = 'months';
+            break;
+          case 'YEARLY':
+            new_label = 'years';
+            break;
+        }
+        repeat_label.text(Drupal.t(new_label, {}, {context: "Smart Date Recur"}));
       }
 
       function pad(str, max) {

@@ -98,8 +98,8 @@ class MediaTypeManager implements MediaTypeManagerInterface {
    * {@inheritdoc}
    */
   public function getTargetFieldExtensions(array $targetFieldSettings) {
-    $extensions = explode(' ', $targetFieldSettings['file_extensions']);
-    return array_map('trim', $extensions);
+    $extensions = isset($targetFieldSettings['file_extensions']) ? $targetFieldSettings['file_extensions'] : '';
+    return array_map('trim', explode(' ', $extensions));
   }
 
   /**
@@ -138,7 +138,8 @@ class MediaTypeManager implements MediaTypeManagerInterface {
    */
   public function getTargetFieldMaxSize(MediaTypeInterface $mediaType) {
     $targetFieldSettings = $this->getTargetFieldSettings($mediaType);
-    return $targetFieldSettings['max_filesize'];
+    $filesize = isset($targetFieldSettings['max_filesize']) ? $targetFieldSettings['max_filesize'] : '';
+    return $filesize;
   }
 
   /**

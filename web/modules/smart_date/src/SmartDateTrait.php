@@ -39,7 +39,18 @@ trait SmartDateTrait {
 
     foreach ($items as $delta => $item) {
       if (!empty($item->value) && !empty($item->end_value)) {
-        $elements[$delta] = static::formatSmartDate($item->value, $item->end_value, $settings);
+        $timezone = $item->timezone ? $item->timezone : NULL;
+        $elements[$delta] = static::formatSmartDate($item->value, $item->end_value, $settings, $timezone);
+        // Get the user/site timezone for comparison.
+        $user = \Drupal::currentUser();
+        $user_tz = $user->getTimeZone();
+        if ($timezone && $timezone != $user_tz) {
+          // Uses a custom timezone, so append time in default timezone.
+          $site_time = static::formatSmartDate($item->value, $item->end_value, $settings, $user_tz);
+          $site_time['#prefix'] = ' (';
+          $site_time['#suffix'] = ')';
+          $elements[$delta]['site_time'] = $site_time;
+        }
 
         if (!empty($item->_attributes)) {
           $elements[$delta]['#attributes'] += $item->_attributes;
@@ -73,6 +84,10 @@ trait SmartDateTrait {
   public static function formatSmartDate($start_ts, $end_ts, array $settings, $timezone = NULL, $return_type = '') {
     // Don't need to reduce dates unless conditions are met.
     $date_reduce = FALSE;
+    // Ensure that empty timezones are NULL to avoid errors.
+    if (empty($timezone)) {
+      $timezone = NULL;
+    }
     // Apply date format from the display config.
     if ($settings['date_format']) {
       $range['start']['date'] = \Drupal::service('date.formatter')->format($start_ts, '', $settings['date_format'], $timezone);
@@ -95,7 +110,14 @@ trait SmartDateTrait {
     }
     // If not rendering times, we can stop here.
     if (!$settings['time_format']) {
+      if ($date_reduce) {
+        // Reduce duplication in date only range
+        $range = static::rangeDateReduce($range, $settings, $start_ts, $end_ts);
+      }
       return static::rangeFormat($range, $settings, $return_type);
+    }
+    if ($timezone) {
+      date_default_timezone_set($timezone);
     }
     $temp_start = date('H:i', $start_ts);
     $temp_end = date('H:i', $end_ts);
@@ -130,75 +152,8 @@ trait SmartDateTrait {
         }
       }
       if ($date_reduce) {
-        // Reduce duplication in date only range
-        // First attempt has the following limitations, to reduce complexity:
-        // * Day ranges only work either d or j, and no other day tokens.
-        // * Not able to handle S token unless adjacent to day.
-        // * Month, day ranges only work if year at start or end.
-        $start = getdate($start_ts);
-        $end = getdate($end_ts);
-        // If the years are different, no deduplication necessary.
-        if ($start['year'] == $end['year']) {
-          $valid_days = [];
-          $invalid_days = [];
-          // Check for workable day tokens.
-          preg_match_all('/[dj]/', $settings['date_format'], $valid_days, PREG_OFFSET_CAPTURE);
-          // Check for challenging day tokens.
-          preg_match_all('/[DNlwz]/', $settings['date_format'], $invalid_days, PREG_OFFSET_CAPTURE);
-          // TODO: add handling for S token
-          // If specific conditions are met format as a range within the month.
-          if ($start['month'] == $end['month'] && count($valid_days[0]) == 1 && count($invalid_days[0]) == 0) {
-            // Split the date string at the valid day token.
-            $day_loc = $valid_days[0][0][1];
-            // Don't remove the S token from the start if present.
-            if ($s_loc = strpos($settings['date_format'], 'S', $day_loc)) {
-              $offset = 1 + $s_loc - $day_loc;
-            }
-            else {
-              $offset = 1;
-            }
-            $start_format = substr($settings['date_format'], 0, $day_loc + $offset);
-            $end_format = substr($settings['date_format'], $day_loc);
-
-            $range['start']['date'] = \Drupal::service('date.formatter')
-              ->format($start_ts, '', $start_format, $timezone);
-            $range['end']['date'] = \Drupal::service('date.formatter')
-              ->format($end_ts, '', $end_format, $timezone);
-          }
-          else {
-            if (strpos($settings['date_format'], 'Y') === 0) {
-              $year_pos = 0;
-            }
-            elseif (strpos($settings['date_format'], 'Y') == (strlen($settings['date_format']) - 1)) {
-              $year_pos = -1;
-            }
-            else {
-              // Too complicated if year is in the middle.
-              $year_pos = FALSE;
-            }
-            if ($year_pos !== FALSE) {
-              $valid_tokens = [];
-              // Check for workable day or month tokens.
-              preg_match_all('/[djDNlwzSFmMn]/', $settings['date_format'], $valid_tokens, PREG_OFFSET_CAPTURE);
-              if ($valid_tokens) {
-                if ($year_pos == 0) {
-                  // Year is at the beginning, so change the end to start at the
-                  // first valid token after it.
-                  $first_token = $valid_tokens[0][0];
-                  $end_format = substr($settings['date_format'], $first_token[1]);
-                  $range['end']['date'] = \Drupal::service('date.formatter')
-                    ->format($end_ts, '', $end_format, $timezone);
-                }
-                else {
-                  $last_token = array_pop($valid_tokens[0]);
-                  $start_format = substr($settings['date_format'], 0, $last_token[1] + 1);
-                  $range['start']['date'] = \Drupal::service('date.formatter')
-                    ->format($start_ts, '', $start_format, $timezone);
-                }
-              }
-            }
-          }
-        }
+        // Reduce duplication in date only range.
+        $range = static::rangeDateReduce($range, $settings, $start_ts, $end_ts);
       }
       return static::rangeFormat($range, $settings, $return_type);
     }
@@ -231,6 +186,95 @@ trait SmartDateTrait {
     }
 
     return $format;
+  }
+
+  /**
+   * Reduce duplication in a provided date range.
+   *
+   * @param array $range
+   *   The date/time range to format.
+   * @param array $settings
+   *   The date/time range to format.
+   * @param object $start_ts
+   *   A timestamp.
+   * @param object $end_ts
+   *   A timestamp.
+   *
+   * @return string|array
+   *   The range, with duplicate elements removed.
+   */
+  private static function rangeDateReduce(array $range, array $settings, $start_ts, $end_ts) {
+    // First attempt has the following limitations, to reduce complexity:
+    // * Day ranges only work either d or j, and no other day tokens.
+    // * Not able to handle S token unless adjacent to day.
+    // * Month, day ranges only work if year at start or end.
+    $start = getdate($start_ts);
+    $end = getdate($end_ts);
+    // If the years are different, no deduplication necessary.
+    if ($start['year'] != $end['year']) {
+      return $range;
+    }
+    $valid_days = [];
+    $invalid_days = [];
+    // Check for workable day tokens.
+    preg_match_all('/[dj]/', $settings['date_format'], $valid_days, PREG_OFFSET_CAPTURE);
+    // Check for challenging day tokens.
+    preg_match_all('/[DNlwz]/', $settings['date_format'], $invalid_days, PREG_OFFSET_CAPTURE);
+    // If specific conditions are met format as a range within the month.
+    if ($start['month'] == $end['month'] && count($valid_days[0]) == 1 && count($invalid_days[0]) == 0) {
+      // Split the date string at the valid day token.
+      $day_loc = $valid_days[0][0][1];
+      // Don't remove the S token from the start if present.
+      if ($s_loc = strpos($settings['date_format'], 'S', $day_loc)) {
+        $offset = 1 + $s_loc - $day_loc;
+      }
+      else {
+        $offset = 1;
+      }
+      $start_format = substr($settings['date_format'], 0, $day_loc + $offset);
+      $end_format = substr($settings['date_format'], $day_loc);
+
+      $range['start']['date'] = \Drupal::service('date.formatter')
+        ->format($start_ts, '', $start_format, $timezone);
+      $range['end']['date'] = \Drupal::service('date.formatter')
+        ->format($end_ts, '', $end_format, $timezone);
+    }
+    else {
+      // Only remaining possibility is to deduplicate the year.
+      // NOTE: Our code only works with a 4 digit year format.
+      if (strpos($settings['date_format'], 'Y') === 0) {
+        $year_pos = 0;
+      }
+      elseif (strpos($settings['date_format'], 'Y') == (strlen($settings['date_format']) - 1)) {
+        $year_pos = -1;
+      }
+      else {
+        // Too complicated if year is in the middle.
+        $year_pos = FALSE;
+      }
+      if ($year_pos !== FALSE) {
+        $valid_tokens = [];
+        // Check for workable day or month tokens.
+        preg_match_all('/[djDNlwzSFmMn]/', $settings['date_format'], $valid_tokens, PREG_OFFSET_CAPTURE);
+        if ($valid_tokens) {
+          if ($year_pos == 0) {
+            // Year is at the beginning, so change the end to start at the
+            // first valid token after it.
+            $first_token = $valid_tokens[0][0];
+            $end_format = substr($settings['date_format'], $first_token[1]);
+            $range['end']['date'] = \Drupal::service('date.formatter')
+              ->format($end_ts, '', $end_format, $timezone);
+          }
+          else {
+            $last_token = array_pop($valid_tokens[0]);
+            $start_format = substr($settings['date_format'], 0, $last_token[1] + 1);
+            $range['start']['date'] = \Drupal::service('date.formatter')
+              ->format($start_ts, '', $start_format, $timezone);
+          }
+        }
+      }
+    }
+    return $range;
   }
 
   /**

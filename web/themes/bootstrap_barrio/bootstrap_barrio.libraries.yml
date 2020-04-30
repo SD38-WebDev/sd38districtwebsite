@@ -63,6 +63,12 @@ book-navigation:
     component:
       css/components/book-navigation.css: {}
 
+bootstrap-icons:
+  version: VERSION
+  css:
+    component:
+      css/components/bootstrap-icons.css: {}
+
 breadcrumb:
   version: VERSION
   css:
@@ -133,6 +139,12 @@ verticaltabs:
   css:
     component:
       css/components/vertical-tabs.css: {}
+
+commerce:
+  version: VERSION
+  css:
+    component:
+      css/components/commerce.css: {}
 
 # Fonts
 
@@ -261,7 +273,7 @@ fontawesome:
   version: VERSION
   css:
     component:
-      //use.fontawesome.com/releases/v5.0.13/css/all.css: {}
+      //use.fontawesome.com/releases/v5.13.0/css/all.css: {}
 
 # Material Design for Bootstrap
 
@@ -279,3 +291,6 @@ mdb:
     - core/jquery
     - bootstrap_barrio/material_design_icons
 
+views.ajax:
+  js:
+    js/modules/views/ajax_view.js: {}

@@ -5,11 +5,14 @@ namespace Drupal\smart_date\Plugin\Field\FieldWidget;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\EntityFormInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Field\FieldConfigInterface;
 use Drupal\Core\Field\FieldFilteredMarkup;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\datetime\Plugin\Field\FieldWidget\DateTimeWidgetBase;
+use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\smart_date\Plugin\Field\FieldType\SmartDateListItemBase;
 use Drupal\smart_date_recur\Entity\SmartDateRule;
 
@@ -25,42 +28,54 @@ class SmartDateWidgetBase extends DateTimeWidgetBase {
     $element = parent::formElement($items, $delta, $element, $form, $form_state);
 
     $field_def = $this->fieldDefinition;
-    $allow_recurring = $field_def->getThirdPartySetting('smart_date_recur', 'allow_recurring');
+    if ($field_def instanceof FieldConfigInterface) {
+      $allow_recurring = $field_def->getThirdPartySetting('smart_date_recur', 'allow_recurring');
+    }
+    elseif ($field_def instanceof BaseFieldDefinition) {
+      // TODO: Document that for custom entities, you must enable recurring
+      // functionality by adding ->setSetting('allow_recurring', TRUE)
+      // to your field definition.
+      $allow_recurring = $field_def->getSetting('allow_recurring');
+    }
+    else {
+      // Not sure what other method we can provide to define this.
+      $allow_recurring = FALSE;
+    }
 
     // TODO: more elegant way to handle hiding recurring instances?
     if ($allow_recurring && $items[$delta]->rrule) {
       $rrule = SmartDateRule::load($items[$delta]->rrule);
-      if ($rrule && $items[$delta]->value != $rrule->start->getString()) {
+      if ($rrule && isset($form['#rules_processed'][$items[$delta]->rrule])) {
         // Not the first instance, so skip this delta.
         $element['#access'] = FALSE;
+        return $element;
+      }
+      else {
+        // Keep track of this rule as having been processed.
+        $form['#rules_processed'][$items[$delta]->rrule] = $items[$delta]->rrule;
+        $items[$delta]->value = (int) $rrule->start->getString();
+        $items[$delta]->end_value = (int) $rrule->end->getString();
+        $items[$delta]->duration = ($items[$delta]->end_value - $items[$delta]->value) / 60;
       }
     }
     $form['#attached']['library'][] = 'smart_date/smart_date';
 
     $defaults = $this->fieldDefinition->getDefaultValueLiteral()[0];
 
-    $values['start'] = isset($items[$delta]->value) ? DrupalDateTime::createFromTimestamp($items[$delta]->value) : '';
-    $values['end'] = isset($items[$delta]->end_value) ? DrupalDateTime::createFromTimestamp($items[$delta]->end_value) : '';
+    $timezone = NULL;
+    if (!empty($items[$delta]->timezone)) {
+      $timezone = new \DateTimezone($items[$delta]->timezone);
+    }
+    $temp_tz = date_default_timezone_get();
+    $values['start'] = isset($items[$delta]->value) ? DrupalDateTime::createFromTimestamp($items[$delta]->value, $timezone) : '';
+    $values['end'] = isset($items[$delta]->end_value) ? DrupalDateTime::createFromTimestamp($items[$delta]->end_value, $timezone) : '';
     $values['duration'] = isset($items[$delta]->duration) ? $items[$delta]->duration : $defaults['default_duration'];
+    $values['timezone'] = isset($items[$delta]->timezone) ? $items[$delta]->timezone : '';
 
     $this->createWidget($element, $values, $defaults);
 
-    // Can't easily call createDefaultValue from inside a static method.
-    // TODO: determine if there's value in moving this inside createWidget.
-    if ($items[$delta]->start_time) {
-      // ** @var \Drupal\Core\Datetime\DrupalDateTime $start_time //
-      $start_time = $items[$delta]->start_time;
-      $element['value']['#default_value'] = $this->createDefaultValue($start_time, $element['value']['#date_timezone']);
-    }
-
-    if ($items[$delta]->end_time) {
-      // ** @var \Drupal\Core\Datetime\DrupalDateTime $end_time //
-      $end_time = $items[$delta]->end_time;
-      $element['end_value']['#default_value'] = $this->createDefaultValue($end_time, $element['end_value']['#date_timezone']);
-    }
-
     if ($allow_recurring && function_exists('smart_date_recur_widget_extra_fields')) {
-      smart_date_recur_widget_extra_fields($element, $items[$delta]);
+      smart_date_recur_widget_extra_fields($element, $items[$delta], $this->getSetting('modal'));
     }
 
     return $element;
@@ -69,18 +84,27 @@ class SmartDateWidgetBase extends DateTimeWidgetBase {
   /**
    * Helper method to create SmartDate element.
    */
-  public static function createWidget(&$element, $values, array $defaults) {
+  public static function createWidget(&$element, $values, ?array $defaults) {
+    // If an empty set of defaults provided, create our own.
+    if (empty($defaults)) {
+      $defaults = [
+        'default_duration_increments' => "30\n60|1 hour\n90\n120|2 hours\ncustom",
+        'default_duration' => '60',
+      ];
+    }
     // Wrap all of the select elements with a fieldset.
     $element['#theme_wrappers'][] = 'fieldset';
 
     $element['#element_validate'][] = [static::class, 'validateStartEnd'];
     $element['value']['#title'] = t('Start');
     $element['value']['#date_year_range'] = '1902:2037';
-    $element['value']['#default_value'] = $values['start'];
+    // Ensure values always display relative to the site.
+    $element['value']['#default_value'] = self::remapDatetime($values['start']);
 
     $element['end_value'] = [
       '#title' => t('End'),
-      '#default_value' => $values['end'],
+      // Ensure values always display relative to the site.
+      '#default_value' => self::remapDatetime($values['end']),
     ] + $element['value'];
     $element['value']['#attributes']['class'] = ['time-start'];
     $element['end_value']['#attributes']['class'] = ['time-end'];
@@ -120,7 +144,18 @@ class SmartDateWidgetBase extends DateTimeWidgetBase {
       '#type' => 'select',
       '#options' => $increments,
       '#default_value' => $default_duration,
-      '#attributes' => ['data-default' => $defaults['default_duration']],
+      '#attributes' => [
+        'data-default' => $defaults['default_duration'],
+        'class' => ['field-duration'],
+      ],
+    ];
+
+    // No true input, so preserve an existing value otherwise use site default.
+    $default_tz = (isset($values['timezone'])) ? $values['timezone'] : NULL;
+    $element['timezone'] = [
+      '#type' => 'hidden',
+      '#title' => t('Time zone'),
+      '#default_value' => $default_tz,
     ];
 
   }
@@ -134,24 +169,26 @@ class SmartDateWidgetBase extends DateTimeWidgetBase {
     // DrupalDateTime object at this point. We need to convert it back to the
     // storage timestamp.
     foreach ($values as &$item) {
+      $timezone = NULL;
+      if (!empty($item['timezone'])) {
+        $timezone = new \DateTimezone($item['timezone']);
+      }
       if (!empty($item['value']) && $item['value'] instanceof DrupalDateTime) {
         /** @var \Drupal\Core\Datetime\DrupalDateTime $start_time */
         $start_time = $item['value'];
-
         // Adjust the date for storage.
-        $item['value'] = $start_time->getTimestamp();
+        $item['value'] = $this->smartGetTimestamp($item['value'], $timezone);
       }
 
       if (!empty($item['end_value']) && $item['end_value'] instanceof DrupalDateTime) {
         /** @var \Drupal\Core\Datetime\DrupalDateTime $end_time */
         $end_time = $item['end_value'];
-
         // Adjust the date for storage.
-        $item['end_value'] = $end_time->getTimestamp();
+        $item['end_value'] = $this->smartGetTimestamp($item['end_value'], $timezone);
       }
       if ($item['duration'] == 'custom') {
         // If using a custom duration, calculate based on start and end times.
-        if(isset($start_time) && isset($end_time) && $start_time instanceof DrupalDateTime && $end_time instanceof DrupalDateTime) {
+        if (isset($start_time) && isset($end_time) && $start_time instanceof DrupalDateTime && $end_time instanceof DrupalDateTime) {
           $item['duration'] = (int) ($item['end_value'] - $item['value']) / 60;
         }
       }
@@ -159,13 +196,25 @@ class SmartDateWidgetBase extends DateTimeWidgetBase {
 
     if (!$form_state->isValidationComplete()) {
       // Make sure we only process once, after validation.
-      return;
+      return $values;
     }
 
     // Skip any additional processing if the field doesn't allow recurring.
     $field_def = $this->fieldDefinition;
-    $allow_recurring = $field_def
-      ->getThirdPartySetting('smart_date_recur', 'allow_recurring');
+    if ($field_def instanceof FieldConfigInterface) {
+      $allow_recurring = $field_def->getThirdPartySetting('smart_date_recur', 'allow_recurring');
+    }
+    elseif ($field_def instanceof BaseFieldDefinition) {
+      // TODO: Document that for custom entities, you must enable recurring
+      // functionality by adding ->setSetting('allow_recurring', TRUE)
+      // to your field definition.
+      $allow_recurring = $field_def->getSetting('allow_recurring');
+    }
+    else {
+      // Not sure what other method we can provide to define this.
+      $allow_recurring = FALSE;
+    }
+
     if ($allow_recurring && function_exists('smart_date_recur_widget_extra_fields')) {
       // Provide extra parameters to be stored with the recurrence rule.
       $month_limit = $field_def
@@ -180,6 +229,38 @@ class SmartDateWidgetBase extends DateTimeWidgetBase {
     }
 
     return $values;
+  }
+
+  /**
+   * Conditionally convert a DrupalDateTime object to a timestamp.
+   *
+   * @param \Drupal\Core\Datetime\DrupalDateTime $time
+   *   The time to be converted.
+   * @param DateTimezone|null $timezone
+   *   An optional timezone to use for conversion.
+   */
+  private function smartGetTimestamp(DrupalDateTime $time, $timezone = NULL) {
+    // Map the date to be relative to a provided timezone, if supplied.
+    if ($timezone) {
+      $time = $this->remapDatetime($time, $timezone);
+    }
+    return $time->getTimestamp();
+  }
+
+  /**
+   * Conditionally convert a DrupalDateTime object to a timestamp.
+   *
+   * @param \Drupal\Core\Datetime\DrupalDateTime|null $time
+   *   The time to be converted.
+   * @param DateTimezone|null $timezone
+   *   An optional timezone to use for conversion.
+   */
+  public static function remapDatetime($time, $timezone = NULL) {
+    if (empty($time)) {
+      return '';
+    }
+    $time = new DrupalDateTime($time->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT), $timezone);
+    return $time;
   }
 
   /**
@@ -213,7 +294,7 @@ class SmartDateWidgetBase extends DateTimeWidgetBase {
    * Handles generic features for multiple fields:
    * - number of widgets
    * - AHAH-'add more' button
-   * - table display and drag-n-drop value reordering
+   * - table display and drag-n-drop value reordering.
    */
   protected function formMultipleElements(FieldItemListInterface $items, array &$form, FormStateInterface $form_state) {
     $field_name = $this->fieldDefinition

@@ -8,11 +8,13 @@ use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Field\FieldConfigInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\smart_date\Entity\SmartDateFormat;
+use Drupal\smart_date\SmartDateTrait;
 use Recurr\Rule;
 use Recurr\Transformer\ArrayTransformer;
-use Recurr\Transformer\TextTransformer;
-use Recurr\Transformer\Translator;
 use Recurr\Transformer\Constraint\AfterConstraint;
 use Recurr\Transformer\Constraint\BeforeConstraint;
 use Recurr\Transformer\Constraint\BetweenConstraint;
@@ -26,6 +28,7 @@ use Recurr\Transformer\Constraint\BetweenConstraint;
  *   id = "smart_date_rule",
  *   label = @Translation("Smart date recurring rule"),
  *   handlers = {
+ *     "storage" = "Drupal\smart_date_recur\RuleStorage",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
  *     "views_data" = "Drupal\views\EntityViewsData",
  *
@@ -48,6 +51,7 @@ use Recurr\Transformer\Constraint\BetweenConstraint;
 class SmartDateRule extends ContentEntityBase {
 
   use EntityChangedTrait;
+  use StringTranslationTrait;
 
   /**
    * The frequency of recurrence.
@@ -64,11 +68,11 @@ class SmartDateRule extends ContentEntityBase {
   protected $limit = '';
 
   /**
-   * An array of extra parameters, such as increment values.
+   * An imploded array of extra parameters, such as increment values.
    *
-   * @var array
+   * @var string
    */
-  protected $parameters = [];
+  protected $parameters = '';
 
   /**
    * The assembled rule, as a string.
@@ -87,9 +91,9 @@ class SmartDateRule extends ContentEntityBase {
   /**
    * The timezone for the field/rule.
    *
-   * @var object
+   * @var string
    */
-  protected $rrule = NULL;
+  protected $timezone = NULL;
 
   /**
    * {@inheritdoc}
@@ -117,9 +121,9 @@ class SmartDateRule extends ContentEntityBase {
 
     $rule = new FormattableMarkup('RRULE:FREQ=:freq', [':freq' => $repeat]);
     // Processing for extra parameters e.g. INCREMENT, BYMONTHDAY, etc.
-    $params = $this->get('parameters')->getValue();
+    $params = $this->get('parameters')->getString();
     if (!empty($params)) {
-      $rule .= ';' . implode(';', $params);
+      $rule .= ';' . $params;
     }
     // If a limit has been set, add it to the rule definition.
     $end = $this->get('limit')->getString();
@@ -189,7 +193,31 @@ class SmartDateRule extends ContentEntityBase {
         'end_value' => $instance->getEnd()->getTimestamp(),
       ];
     }
+    // Return the assembled array.
     return $formatted;
+  }
+
+  /**
+   * Generate default instances based on rule structure.
+   */
+  public function getNewInstances() {
+    $month_limit = $this->getFieldSettings('month_limit');
+    $before = strtotime('+' . (int) $month_limit . ' months');
+    $instances = $this->getStoredInstances();
+    $last_instance = end($instances);
+    $new_instances = $this->makeRuleInstances($before, $last_instance['value']);
+    return $new_instances;
+  }
+
+  /**
+   * Helper function to parse instances from storage and return as an array.
+   */
+  public function getStoredInstances() {
+    $instances = $this->instances->getValue();
+    if (is_array($instances)) {
+      $instances = $instances[0]['data'];
+    }
+    return $instances;
   }
 
   /**
@@ -216,13 +244,14 @@ class SmartDateRule extends ContentEntityBase {
     $transformer = new ArrayTransformer();
     $instances = $transformer->transform($rrule, $constraint);
 
+    // TODO: Convert the generated instances into an array for later processing.
     return $instances;
   }
 
   /**
    * Retrieve the entity to which the rule is attached.
    */
-  public function getParentEntity() {
+  public function getParentEntity($id_only = FALSE) {
     // Retrieve the entity using the rule id.
     $rid = $this->id();
     if (empty($rid)) {
@@ -234,12 +263,17 @@ class SmartDateRule extends ContentEntityBase {
     $result = \Drupal::entityQuery($entity_type)
       ->condition($field_name . '.rrule', $rid)
       ->execute();
-    $entity_manager = \Drupal::entityManager($entity_type);
+
+    $id = array_pop($result);
+    if ($id_only) {
+      return $id;
+    }
+    $entity_manager = \Drupal::entityTypeManager($entity_type);
     $entity_storage = $entity_manager
       ->getStorage($entity_type);
 
     $entity = $entity_storage
-      ->load(array_pop($result));
+      ->load($id);
     return $entity;
   }
 
@@ -270,14 +304,282 @@ class SmartDateRule extends ContentEntityBase {
    * Use the transformer to get text output of the rule.
    */
   public function getTextRule() {
-    $rrule = $this->getAssembledRule();
-    if (empty($rrule)) {
-      // Required elements missing, so abort.
-      return FALSE;
+    $freq = $this->get('freq')->getString();
+    $repeat = $freq;
+    $params = $this->getParametersArray();
+    $day_labels = [
+      'SU' => $this->t('Sunday'),
+      'MO' => $this->t('Monday'),
+      'TU' => $this->t('Tuesday'),
+      'WE' => $this->t('Wednesday'),
+      'TH' => $this->t('Thursday'),
+      'FR' => $this->t('Friday'),
+      'SA' => $this->t('Saturday'),
+    ];
+    // Convert the stored repeat value to something human-readable.
+    if ($params['interval'] && $params['interval'] > 1) {
+      switch ($repeat) {
+        case 'DAILY':
+          $period = $this->t('days');
+          break;
+
+        case 'WEEKLY':
+          $period = $this->t('weeks');
+          break;
+
+        case 'MONTHLY':
+          $period = $this->t('months');
+          break;
+
+        case 'YEARLY':
+          $period = $this->t('years');
+          break;
+
+      }
+      $repeat = $this->t('every :num :period', [':num' => $params['interval'], ':period' => $period]);
     }
-    $textTransformer = new TextTransformer();
-    // TODO: translate the output.
-    return $textTransformer->transform($rrule);
+    else {
+      switch ($repeat) {
+        case 'DAILY':
+          $repeat = $this->t('daily');
+          break;
+
+        case 'WEEKLY':
+          $repeat = $this->t('weekly');
+          break;
+
+        case 'MONTHLY':
+          $repeat = $this->t('monthly');
+          break;
+
+        case 'YEARLY':
+          $repeat = $this->t('annually');
+          break;
+
+      }
+    }
+    // Convert the stored day modifier to something human-readable.
+    if ($params['which']) {
+      switch ($params['which']) {
+        case '1':
+          $params['which'] = $this->t('first');
+          break;
+
+        case '2':
+          $params['which'] = $this->t('second');
+          break;
+
+        case '3':
+          $params['which'] = $this->t('third');
+          break;
+
+        case '4':
+          $params['which'] = $this->t('fourth');
+          break;
+
+        case '5':
+          $params['which'] = $this->t('fifth');
+          break;
+
+        case '-1':
+          $params['which'] = $this->t('last');
+          break;
+
+      }
+    }
+    // Convert the stored day value to something human-readable.
+    if (isset($params['day'])) {
+      switch ($params['day']) {
+        case 'SU':
+        case 'MO':
+        case 'TU':
+        case 'WE':
+        case 'TH':
+        case 'FR':
+        case 'SA':
+          $params['day'] = $day_labels[$params['day']];
+          break;
+
+        case 'MO,TU,WE,TH,FR':
+          $params['day'] = $this->t('weekday');
+          break;
+
+        case 'SA,SU':
+          $params['day'] = $this->t('weekend day');
+          break;
+
+        case '':
+          $params['day'] = $this->t('day');
+          break;
+
+      }
+    }
+
+    $start_ts = $this->start;
+    // TODO: proper timezone handling, allowing for field override.
+    $tz_string = \Drupal::config('system.date')->get('timezone')['default'];
+
+    // Format the day output.
+    if ($freq == 'DAILY') {
+      // No day output required.
+      $day = '';
+    }
+    elseif ($freq == 'WEEKLY') {
+      if (!empty($params['byday']) && is_array($params['byday'])) {
+        switch(count($params['byday'])) {
+          case 1:
+            $day_output = $day_labels[array_pop($params['byday'])];
+            break;
+
+          case 2:
+            $day_output = $day_labels[$params['byday'][0]] . ' ' . $this->t('and') . ' ' . $day_labels[$params['byday'][1]];
+            break;
+
+          default:
+            $day_output = '';
+            foreach($params['byday'] as $key => $day) {
+              if ($key === array_key_last($params['byday'])) {
+                $day_output .= $this->t('and') . ' ' . $day_labels[$day];
+
+              }
+              else {
+                $day_output .= $day_labels[$day] . ', ';
+              }
+            }
+            break;
+          }
+      }
+      else {
+        // Default to getting the day from the start date.
+        $day_output = date('l', $start_ts);
+      }
+      $day = $this->t('on :day', [':day' => $day_output], ['context' => 'Rule text']);
+    }
+    else {
+      $day = date('jS', $start_ts);
+      if ($params['which']) {
+        $day = $params['which'] . ' ' . $params['day'];
+      }
+      $day = $this->t('on the :day', [':day' => $day], ['context' => 'Rule text']);
+    }
+
+    // Format the month display, if needed.
+    if ($freq == 'YEARLY') {
+      $month = ' ' . $this->t('of :month', [':month' => date('F', $start_ts)], ['context' => 'Rule text']);
+    }
+    else {
+      $month = '';
+    }
+
+    // Format the time display.
+    // Use the "Time Only" Smart Date Format to allow better formatting.
+    $format = SmartDateFormat::load('time_only');
+    $time_string = SmartDateTrait::formatSmartDate($start_ts, $start_ts, $format->getOptions(), $tz_string, 'string');
+    $time = $this->t('at :time', [':time' => ''], ['context' => 'Rule text']) . $time_string;
+
+    // Process the limit value, if present.
+    $limit = '';
+    if ($this->limit) {
+      list($limit_type, $limit_val) = explode('=', $this->limit);
+      switch ($limit_type) {
+        case 'UNTIL':
+          $limit_ts = strtotime($limit_val);
+          $format = SmartDateFormat::load('date_only');
+          $date_string = SmartDateTrait::formatSmartDate($limit_ts, $limit_ts, $format->getOptions(), $tz_string, 'string');
+          $limit = ' ' . $this->t('until :date', [':date' => $date_string]);
+          break;
+
+        case 'COUNT':
+          $limit = ' ' . $this->t('for :num times', [':num' => $limit_val]);
+      }
+    }
+
+    return [
+      '#theme' => 'smart_date_recurring_text_rule',
+      '#repeat' => $repeat,
+      '#day' => $day,
+      '#month' => $month,
+      '#time' => $time,
+      '#limit' => $limit,
+    ];
+  }
+
+  /**
+   * Retrieve a setting from the field config.
+   */
+  public function getFieldSettings($setting_name, $module = 'smart_date_recur') {
+    $entity_type = $this->entity_type->getString();
+    $bundle = $this->bundle->getString();
+    $field_name = $this->field_name->getString();
+    $bundle_fields = \Drupal::getContainer()->get('entity_field.manager')->getFieldDefinitions($entity_type, $bundle);
+    $field_def = $bundle_fields[$field_name];
+    if ($field_def instanceof FieldConfigInterface) {
+      $value = $field_def->getThirdPartySetting($module, $setting_name);
+    }
+    elseif ($field_def instanceof BaseFieldDefinition) {
+      // TODO: Document that for custom entities, you must enable recurring
+      // functionality by adding ->setSetting('allow_recurring', TRUE)
+      // to your field definition.
+      $value = $field_def->getSetting($setting_name);
+    }
+    else {
+      // Not sure what other method we can provide to define this.
+      $value = FALSE;
+    }
+    return $value;
+  }
+
+  /**
+   * Convert the stored parameters into an array.
+   */
+  public function getParametersArray() {
+    $params = $this->get('parameters')->getString();
+    $return_array = [
+      'interval' => NULL,
+      'which' => '',
+      'day' => '',
+      'byday' => [],
+    ];
+    if ($params && $params = explode(';', $params)) {
+      foreach ($params as $param) {
+        list($var_name, $var_value) = explode('=', $param);
+        switch ($var_name) {
+          case 'INTERVAL':
+            $return_array['interval'] = (int) $var_value;
+            break;
+
+          case 'BYDAY':
+            $arr = preg_split('/(?<=[-0-9])(?=[,A-Z]+)/i', $var_value);
+            if ((int) $arr[0]) {
+              // Starts with a number, so treat as a compound value.
+              $return_array['which'] = $arr[0];
+              $return_array['day'] = $arr[1];
+            }
+            else {
+              // Assume this is a multi-day value.
+              $freq = $this->get('freq')->getString();
+              if ($freq == 'WEEKLY') {
+                // Split into an array before returning the value.
+                $return_array['byday'] = explode(',', $arr[0]);
+              }
+              else {
+                $return_array['day'] = $arr[0];
+              }
+            }
+            break;
+
+          case 'BYMONTHDAY':
+            $return_array['which'] = $var_value;
+            break;
+
+          case 'BYSETPOS':
+            $return_array['which'] = $var_value;
+            break;
+
+        }
+      }
+    }
+    return $return_array;
   }
 
   /**
@@ -301,13 +603,6 @@ class SmartDateRule extends ContentEntityBase {
     }
   }
 
-  // TODO: Implement the following helper methods:
-  // - getUnlimited
-  // - getByEntity
-  // - getRuleInstances
-  // - getDefaultInstances
-  // - updateDefaultInstances
-  
   /**
    * {@inheritdoc}
    */
@@ -322,10 +617,8 @@ class SmartDateRule extends ContentEntityBase {
         'text_processing' => 0,
       ])
       ->setDefaultValue('')
-      // TODO add a unique constrain for a combination of values, e.g. start field amd delta and revision
-      // ->addConstraint('UniqueField', [
-      //   'message' => 'An override for %value already exists.',
-      // ])
+      // TODO add a unique constrain for a combination of values,
+      // e.g. start field amd delta and revision.
       ->setDisplayOptions('view', [
         'label' => 'hidden',
         'type' => 'string',
