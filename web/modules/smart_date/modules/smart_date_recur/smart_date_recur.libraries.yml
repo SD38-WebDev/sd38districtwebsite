@@ -1,5 +1,0 @@
-smart_date_recur:
-  version: 1.x
-  css:
-    component:
-      css/smart_date_recur.css: {}

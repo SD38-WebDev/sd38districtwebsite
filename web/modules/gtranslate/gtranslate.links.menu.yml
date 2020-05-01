@@ -1,5 +1,0 @@
-gtranslate.settings:
-  title: 'GTranslate'
-  descrption: 'Configure GTranslate and settings.'
-  route_name: gtranslate.settings
-  parent: system.admin_config_regional
