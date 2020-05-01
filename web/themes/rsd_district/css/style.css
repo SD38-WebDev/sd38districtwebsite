@@ -55,6 +55,10 @@ img {
 	font-size: 1.35rem;
 }
 
+#page-wrapper .site-footer h2 {
+	color: #253f8e;
+}
+
 #page-wrapper footer h2 {
 	font-size: 1.2rem;
 /* 	margin-bottom: 1.25rem; */
