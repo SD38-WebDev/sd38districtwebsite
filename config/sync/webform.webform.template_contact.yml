@@ -248,6 +248,7 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+variants: {  }
 uuid: 52cbb241-4af9-4fac-bde9-f0765a00c48d
 _core:
   default_config_hash: WivzySV_6XSQM-1k0zsHN8Hs4zvZkDquEFyPBTe3eRE

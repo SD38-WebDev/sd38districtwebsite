@@ -18,7 +18,7 @@ third_party_settings:
 id: headercontactaddress
 theme: rsd_district
 region: top_header
-weight: -15
+weight: -17
 provider: null
 plugin: 'block_content:008b865f-19e7-4b88-86c5-20951ac84494'
 settings:

@@ -213,6 +213,7 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+variants: {  }
 uuid: 352948f1-e683-4985-afd3-665443fc244c
 _core:
   default_config_hash: NVXCtVVrWqphxtHVXgno7iLP1PcL4Qx1FZpaiqpW_WE

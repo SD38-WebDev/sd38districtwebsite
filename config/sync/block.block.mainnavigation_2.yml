@@ -30,6 +30,6 @@ settings:
   expand: false
   parent: 'main:menu_link_content:d42e2c60-155e-4f91-8257-e7d41cb77b33'
   suggestion: main
-  label_type: fixed_parent
+  label_type: fixed
   label_link: 1
 visibility: {  }

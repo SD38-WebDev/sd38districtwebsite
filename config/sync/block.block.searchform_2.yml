@@ -16,7 +16,7 @@ third_party_settings:
 id: searchform_2
 theme: rsd_district
 region: top_header
-weight: -13
+weight: -15
 provider: null
 plugin: search_form_block
 settings:

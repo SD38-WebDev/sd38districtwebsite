@@ -175,18 +175,11 @@ display:
           clear_on_exposed: false
           action_title: Action
           selected_actions:
-            comment_delete_action: 0
-            views_bulk_edit: views_bulk_edit
-            views_bulk_operations_delete_entity: 0
-            pathauto_update_alias: 0
-            'entity:save_action:media': 0
-            'entity:unpublish_action:media': 0
-            'entity:publish_action:media': 0
-            'entity:delete_action:media': 0
-          preconfiguration:
-            views_bulk_edit:
-              label_override: ''
-              get_bundles_from_results: 0
+            -
+              action_id: views_bulk_edit
+              preconfiguration:
+                label_override: ''
+                get_bundles_from_results: 0
           plugin_id: views_bulk_operations_bulk_form
         name:
           id: name

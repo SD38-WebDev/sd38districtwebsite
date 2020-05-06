@@ -1,4 +1,4 @@
-uuid: ce2660e8-b675-440e-8f13-4c78dbc676c6
+uuid: a9461f23-4682-4c64-adcd-050a455ae065
 langcode: en
 status: true
 dependencies:
@@ -13,7 +13,7 @@ third_party_settings:
 id: gtranslate
 theme: rsd_district
 region: top_header
-weight: -14
+weight: -16
 provider: null
 plugin: gtranslate_block
 settings:

@@ -248,6 +248,7 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+variants: {  }
 uuid: 1b7332be-ced5-4b9f-8035-698e12aa2fc8
 _core:
   default_config_hash: 9VvRhyFTsY3ILtr6v0MP2VOX_kVhh7ZU2E0YzCXGxtU

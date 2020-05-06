@@ -687,6 +687,7 @@ display:
           table: views
           field: views_bulk_operations_bulk_form
           plugin_id: views_bulk_operations_bulk_form
+          selected_actions: {  }
       filters:
         name:
           id: name
