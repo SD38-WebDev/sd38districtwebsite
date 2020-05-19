@@ -69,6 +69,7 @@
         "drupal/notification": "^1.0",
         "drupal/path_redirect_import": "^1.0",
         "drupal/pathauto": "^1.8",
+        "drupal/recaptcha": "^2.5",
         "drupal/redirect": "^1.6",
         "drupal/search_exclude": "^1.2",
         "drupal/semanticviews": "^2.2",
