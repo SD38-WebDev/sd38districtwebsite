@@ -52,6 +52,7 @@
         "drupal/field_group": "^3.0",
         "drupal/fontyourface": "^3.2",
         "drupal/fullcalendar_view": "^4.2",
+        "drupal/google_analytics": "^2.4",
         "drupal/gtranslate": "^1.13",
         "drupal/inline_entity_form": "^1.0",
         "drupal/json_feed": "^1.2",
