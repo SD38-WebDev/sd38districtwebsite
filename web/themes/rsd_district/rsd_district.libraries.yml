@@ -29,3 +29,10 @@ color.preview:
     color/preview.js: {}
   dependencies:
     - color/drupal.color
+    
+ds-scripts:
+  version: VERSION
+  js:
+    js/ds.js: {}
+  dependencies:
+    - core/jquery
