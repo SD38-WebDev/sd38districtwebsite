@@ -6,7 +6,11 @@
 /************/
 /** Layout **/
 /************/
- 
+
+#main-wrapper {
+	background: red !important;
+}
+
 .bs-region .block {
 	margin-bottom: 2rem;
 }
