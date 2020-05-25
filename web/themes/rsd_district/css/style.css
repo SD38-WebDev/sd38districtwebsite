@@ -994,7 +994,7 @@ body.user-logged-in .ops-links {
 	position: absolute;
 	top: 4px;
 	left: 4px;
-	display: block;
+	display: none;
 }
 
 .ops-links .dropbutton-widget {
@@ -1008,7 +1008,7 @@ body.user-logged-in .ops-links {
 .sd38-news-alerts:hover .ops-links,
 .slide__content:hover .ops-links,
 .card:hover .ops-links {
-	opacity: 1;
+	display: block;
 }
 
 
