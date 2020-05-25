@@ -7,10 +7,6 @@
 /** Layout **/
 /************/
 
-#main-wrapper {
-	background: red !important;
-}
-
 .bs-region .block {
 	margin-bottom: 2rem;
 }
@@ -990,12 +986,15 @@ body.path-frontpage .sd38-news-alerts .sd38-alert {
 	}
 }
 
+body .ops-links {
+	display: none;
+}
 
-.ops-links {
+body.user-logged-in .ops-links {
 	position: absolute;
 	top: 4px;
 	left: 4px;
-	opacity: 0;
+	display: block;
 }
 
 .ops-links .dropbutton-widget {
