@@ -31,5 +31,5 @@ settings:
   parent: 'secondary-navigation:'
   suggestion: secondary_navigation
   label_type: block
-  label_link: 0
+  label_link: false
 visibility: {  }

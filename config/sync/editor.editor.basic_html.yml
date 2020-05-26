@@ -49,9 +49,9 @@ settings:
         -
           name: Media
           items:
+            - DrupalFile
             - Blockquote
             - DrupalImage
-            - DrupalFile
             - media_assets
         -
           name: 'Block Formatting'
@@ -80,6 +80,8 @@ settings:
       count_html: 0
       max_words: '-1'
       max_chars: '-1'
+    colorbutton:
+      colors: ''
 image_upload:
   status: true
   scheme: public

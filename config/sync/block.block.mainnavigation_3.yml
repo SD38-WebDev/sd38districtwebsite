@@ -31,5 +31,5 @@ settings:
   parent: 'main:menu_link_content:7b685999-3f7f-4941-a22d-137579c4660c'
   suggestion: main
   label_type: fixed
-  label_link: 1
+  label_link: true
 visibility: {  }

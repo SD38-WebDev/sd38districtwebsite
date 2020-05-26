@@ -36,7 +36,7 @@ settings:
   parent: 'main:menu_link_content:dbe155f3-2400-41ab-bd8e-af0706229618'
   suggestion: sectionmenu
   label_type: block
-  label_link: 0
+  label_link: false
 visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'

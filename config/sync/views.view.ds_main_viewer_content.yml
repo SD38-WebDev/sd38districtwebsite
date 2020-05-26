@@ -1,17 +1,18 @@
-uuid: a8512154-d6ba-41eb-a89a-f94d60dd21bf
+uuid: 66896132-7ee8-4442-868d-f7e7ad885ce9
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_event_date
-    - node.type.event
+    - field.storage.node.field_image
+    - image.style.max_650x650
+    - node.type.article
   module:
-    - fullcalendar_view
+    - image
     - node
-    - smart_date
     - user
-id: calendar
-label: Calendar
+    - views_bootstrap
+id: ds_main_viewer_content
+label: 'DS Main Viewer Content'
 module: views
 description: ''
 tag: ''
@@ -52,45 +53,24 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 50
+          items_per_page: 5
           offset: 0
       style:
-        type: fullcalendar_view_display
+        type: views_bootstrap_carousel
         options:
-          default_date_source: now
-          defaultDate: ''
-          start: field_event_date
-          end: field_event_date
+          grouping: {  }
+          interval: '3500'
+          keyboard: 0
+          ride: 1
+          navigation: 0
+          indicators: 0
+          pause: 0
+          use_caption: 1
+          wrap: 1
+          effect: 'slide carousel-fade'
+          image: field_image
           title: title
-          des: {  }
-          use_entity_fields: 1
-          right_buttons:
-            agendaWeek: agendaWeek
-            agendaDay: agendaDay
-            listYear: 0
-          default_view: month
-          firstDay: '0'
-          nav_links: 1
-          timeFormat: 'h(:mm)a'
-          alloweventOverlap: 1
-          updateAllowed: 1
-          updateConfirm: 1
-          defaultLanguage: en
-          languageSelector: 0
-          createEventLink: 0
-          openEntityInNewTab: 1
-          tax_field: ''
-          vocabularies: ''
-          color_bundle:
-            article: '#3a87ad'
-            event: '#3a87ad'
-            page: '#3a87ad'
-            staff_member: '#3a87ad'
-          business_start: '2019-12-11T08:00:00'
-          business_end: '2019-12-11T18:00:00'
-          excluding_dates: title
-          bundle_type: event
-          classes: ''
+          description: ''
       row:
         type: fields
       fields:
@@ -98,39 +78,54 @@ display:
           id: title
           table: node_field_data
           field: title
-          entity_type: node
-          entity_field: title
-          label: ''
-          alter:
-            alter_text: false
-            make_link: false
-            absolute: false
-            trim: false
-            word_boundary: false
-            ellipsis: false
-            strip_tags: false
-            html: false
-          hide_empty: false
-          empty_zero: false
-          settings:
-            link_to_entity: true
-          plugin_id: field
           relationship: none
           group_type: group
           admin_label: ''
-          exclude: false
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
+          hide_empty: false
+          empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: string
+          settings:
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -141,15 +136,18 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_event_date:
-          id: field_event_date
-          table: node__field_event_date
-          field: field_event_date
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+        field_image:
+          id: field_image
+          table: node__field_image
+          field: field_image
           relationship: none
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -189,12 +187,12 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: smartdate_default
+          click_sort_column: target_id
+          type: image
           settings:
-            timezone_override: ''
-            format: default
-          group_column: value
+            image_style: max_650x650
+            image_link: ''
+          group_column: ''
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -224,7 +222,7 @@ display:
           table: node_field_data
           field: type
           value:
-            event: event
+            article: article
           entity_type: node
           entity_field: type
           plugin_id: bundle
@@ -247,7 +245,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: 'District Calendar'
+      title: 'DS Main Viewer Content'
       header: {  }
       footer: {  }
       empty: {  }
@@ -262,41 +260,14 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_event_date'
+        - 'config:field.storage.node.field_image'
   block_1:
     display_plugin: block
     id: block_1
     display_title: Block
-    position: 2
-    display_options:
-      display_extenders: {  }
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.field_event_date'
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
     position: 1
     display_options:
       display_extenders: {  }
-      path: calendar
-      menu:
-        type: none
-        title: 'District Calendar'
-        description: ''
-        expanded: false
-        parent: 'menu_link_content:7b685999-3f7f-4941-a22d-137579c4660c'
-        weight: 0
-        context: '0'
-        menu_name: main
-      enabled: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -305,4 +276,4 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_event_date'
+        - 'config:field.storage.node.field_image'

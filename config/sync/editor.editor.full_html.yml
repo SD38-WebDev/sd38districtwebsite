@@ -54,6 +54,7 @@ settings:
         -
           name: Media
           items:
+            - DrupalFile
             - Blockquote
             - DrupalImage
             - media_assets

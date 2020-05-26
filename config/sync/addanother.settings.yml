@@ -13,6 +13,7 @@ button:
   article: true
   blog_post: true
   news_alert: true
+  digital_signage: true
 message:
   staff_member: true
   event: true
@@ -22,6 +23,7 @@ message:
   article: true
   blog_post: true
   news_alert: true
+  digital_signage: true
 tab:
   staff_member: true
   event: true
@@ -31,6 +33,7 @@ tab:
   article: true
   blog_post: true
   news_alert: true
+  digital_signage: true
 tab_edit:
   staff_member: true
   event: true
@@ -40,3 +43,4 @@ tab_edit:
   article: true
   blog_post: true
   news_alert: true
+  digital_signage: true

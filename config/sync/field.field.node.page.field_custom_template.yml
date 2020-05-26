@@ -20,6 +20,7 @@ default_value_callback: ''
 settings:
   handler:
     suggestions:
+      digitalsignage: digitalsignage
       ods: ods
       ods_our_focus: ods_our_focus
       ods_our_learning: ods_our_learning

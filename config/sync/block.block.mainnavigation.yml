@@ -35,7 +35,7 @@ settings:
   parent: 'main:'
   suggestion: subpages
   label_type: block
-  label_link: 0
+  label_link: false
 visibility:
   request_path:
     id: request_path

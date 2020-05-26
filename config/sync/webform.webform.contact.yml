@@ -1,9 +1,12 @@
+uuid: 1b7332be-ced5-4b9f-8035-698e12aa2fc8
 langcode: en
 status: open
 dependencies:
   enforced:
     module:
       - webform
+_core:
+  default_config_hash: 9VvRhyFTsY3ILtr6v0MP2VOX_kVhh7ZU2E0YzCXGxtU
 open: null
 close: null
 weight: 0
@@ -14,7 +17,7 @@ id: contact
 title: Contact
 description: 'Basic email contact webform.'
 category: ''
-elements: "name:\n  '#title': 'Your Name'\n  '#type': textfield\n  '#required': true\n  '#default_value': '[current-user:display-name]'\nemail:\n  '#title': 'Your Email'\n  '#type': email\n  '#required': true\n  '#default_value': '[current-user:mail]'\nsubject:\n  '#title': Subject\n  '#type': textfield\n  '#required': true\n  '#test': 'Testing contact webform from [site:name]'\nmessage:\n  '#title': Message\n  '#type': textarea\n  '#required': true\n  '#test': 'Please ignore this email.'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Send message'"
+elements: "name:\n  '#title': 'Your Name'\n  '#type': textfield\n  '#required': true\n  '#default_value': '[current-user:display-name]'\nemail:\n  '#title': 'Your Email'\n  '#type': email\n  '#required': true\n  '#default_value': '[current-user:mail]'\nsubject:\n  '#title': Subject\n  '#type': textfield\n  '#required': true\n  '#test': 'Testing contact webform from [site:name]'\nmessage:\n  '#title': Message\n  '#type': textarea\n  '#required': true\n  '#test': 'Please ignore this email.'\ncaptcha:\n  '#type': captcha\n  '#captcha_type': recaptcha/reCAPTCHA\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Send message'"
 css: ''
 javascript: ''
 settings:
@@ -197,7 +200,7 @@ handlers:
       from_mail: _default
       from_options: {  }
       from_name: _default
-      subject: '[webform_submission:values:subject:raw]'
+      subject: 'Email Submission Confirmation: [webform_submission:source-title]'
       body: '[webform_submission:values:message:value]'
       excluded_elements: {  }
       ignore_access: false
@@ -213,6 +216,7 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+      exclude_attachments: false
   email_notification:
     id: email
     label: 'Email notification'
@@ -223,11 +227,11 @@ handlers:
     settings:
       states:
         - completed
-      to_mail: _default
+      to_mail: questions@sd38.bc.ca
       to_options: {  }
-      cc_mail: ''
+      cc_mail: info@sd38.bc.ca
       cc_options: {  }
-      bcc_mail: ''
+      bcc_mail: '[webform_submission:values:email:raw]'
       bcc_options: {  }
       from_mail: '[webform_submission:values:email:raw]'
       from_options: {  }
@@ -248,7 +252,5 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+      exclude_attachments: false
 variants: {  }
-uuid: 1b7332be-ced5-4b9f-8035-698e12aa2fc8
-_core:
-  default_config_hash: 9VvRhyFTsY3ILtr6v0MP2VOX_kVhh7ZU2E0YzCXGxtU
