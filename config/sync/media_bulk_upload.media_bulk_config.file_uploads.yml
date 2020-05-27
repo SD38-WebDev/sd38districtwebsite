@@ -1,0 +1,13 @@
+uuid: 7308c477-f8b9-490d-ab97-9771627578b6
+langcode: en
+status: true
+dependencies: {  }
+id: file_uploads
+label: 'File Uploads'
+media_types:
+  file: file
+  audio: 0
+  image: 0
+  remote_video: 0
+  video: 0
+form_mode: media_library

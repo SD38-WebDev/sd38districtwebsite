@@ -1,0 +1,35 @@
+uuid: c626a9b0-5875-4829-8f69-261cb63153be
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:3_column_block:fbdfead9-2900-49e9-9429-ece9425fcf3a'
+  module:
+    - block_class_select
+    - block_content
+    - system
+  theme:
+    - rsd_district
+third_party_settings:
+  block_class_select:
+    selected_classes: ''
+id: weresocial
+theme: rsd_district
+region: content
+weight: -6
+provider: null
+plugin: 'block_content:fbdfead9-2900-49e9-9429-ece9425fcf3a'
+settings:
+  id: 'block_content:fbdfead9-2900-49e9-9429-ece9425fcf3a'
+  label: 'We''re Social'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

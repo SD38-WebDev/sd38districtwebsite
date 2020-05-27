@@ -1,0 +1,8 @@
+uuid: c008125c-c4fd-4cf9-b09d-8fcb34772ddb
+langcode: en
+status: true
+dependencies: {  }
+id: friendly_date
+label: 'Friendly Date'
+locked: false
+pattern: 'M j, Y'

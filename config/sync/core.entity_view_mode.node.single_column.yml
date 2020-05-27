@@ -1,0 +1,10 @@
+uuid: ae740479-0bcb-4e3f-b40e-8b73402069bf
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.single_column
+label: 'Single Column'
+targetEntityType: node
+cache: true

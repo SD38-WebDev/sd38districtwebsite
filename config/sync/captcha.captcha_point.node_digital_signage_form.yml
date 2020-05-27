@@ -1,0 +1,7 @@
+uuid: 8e90d968-af15-4f52-8230-2c3dfd457989
+langcode: en
+status: false
+dependencies: {  }
+formId: node_digital_signage_form
+captchaType: default
+label: null

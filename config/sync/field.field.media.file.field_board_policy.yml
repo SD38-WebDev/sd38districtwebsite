@@ -1,0 +1,21 @@
+uuid: edb6d581-9aae-4c37-a075-d817b651bee9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_board_policy
+    - media.type.file
+  module:
+    - options
+id: media.file.field_board_policy
+field_name: field_board_policy
+entity_type: media
+bundle: file
+label: 'Board Policy'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

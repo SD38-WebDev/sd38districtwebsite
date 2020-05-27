@@ -1,0 +1,36 @@
+uuid: 91757419-6710-440e-b788-1e54dd25f3c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.news_alerts
+  module:
+    - block_class_select
+    - ctools
+    - views
+  theme:
+    - rsd_district
+third_party_settings:
+  block_class_select:
+    selected_classes: ''
+id: views_block__news_alerts_block_1
+theme: rsd_district
+region: highlighted
+weight: -17
+provider: null
+plugin: 'views_block:news_alerts-block_1'
+settings:
+  id: 'views_block:news_alerts-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      news_alert: news_alert
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'

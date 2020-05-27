@@ -1,0 +1,32 @@
+uuid: b26e8e7b-5dc4-4a87-a0b6-91f167047249
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:008b865f-19e7-4b88-86c5-20951ac84494'
+  module:
+    - block_class
+    - block_class_select
+    - block_content
+  theme:
+    - rsd_district
+third_party_settings:
+  block_class:
+    classes: 'd-none d-xl-block  '
+  block_class_select:
+    selected_classes: ''
+id: headercontactaddress
+theme: rsd_district
+region: top_header
+weight: -17
+provider: null
+plugin: 'block_content:008b865f-19e7-4b88-86c5-20951ac84494'
+settings:
+  id: 'block_content:008b865f-19e7-4b88-86c5-20951ac84494'
+  label: 'Header Contact Address'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

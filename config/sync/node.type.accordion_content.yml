@@ -1,0 +1,19 @@
+uuid: d64a2c0c-dc70-4a2e-a1a9-55655c4b4e20
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  node_type_class:
+    classes: ''
+name: 'Accordion Content'
+type: accordion_content
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

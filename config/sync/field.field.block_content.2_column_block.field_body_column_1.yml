@@ -1,0 +1,21 @@
+uuid: 47da0a72-57b9-41c5-93d5-df6ce33fe4f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.2_column_block
+    - field.storage.block_content.field_body_column_1
+  module:
+    - text
+id: block_content.2_column_block.field_body_column_1
+field_name: field_body_column_1
+entity_type: block_content
+bundle: 2_column_block
+label: 'Body - Column 1'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

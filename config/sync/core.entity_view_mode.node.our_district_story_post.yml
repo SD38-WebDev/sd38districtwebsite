@@ -1,0 +1,10 @@
+uuid: 672f52dd-b20a-45e2-b64f-6b0dac5fb1d8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.our_district_story_post
+label: 'Our District Story - Post'
+targetEntityType: node
+cache: true

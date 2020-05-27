@@ -1,0 +1,11 @@
+id: block_menu
+label: 'Block Menu'
+ui_limit: ''
+properties:
+  block: 'menu_block:main'
+  use_block_title: false
+  add_block_wrappers: false
+type: block
+type_label: 'Block field'
+entities:
+  block_content: block_content
