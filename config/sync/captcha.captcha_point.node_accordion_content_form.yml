@@ -1,7 +1,0 @@
-uuid: 4c62eace-4bbd-4b78-ab0e-9a7abc49633d
-langcode: en
-status: false
-dependencies: {  }
-formId: node_accordion_content_form
-captchaType: default
-label: null
