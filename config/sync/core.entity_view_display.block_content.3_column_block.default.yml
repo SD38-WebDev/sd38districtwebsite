@@ -1,0 +1,165 @@
+uuid: 2704e532-6e9e-4e2c-a559-a4aa1d466647
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.3_column_block
+    - field.field.block_content.3_column_block.field_body_column_1
+    - field.field.block_content.3_column_block.field_body_column_2
+    - field.field.block_content.3_column_block.field_body_column_3
+    - field.field.block_content.3_column_block.layout_builder__layout
+  module:
+    - bootstrap_layouts
+    - layout_builder
+    - text
+third_party_settings:
+  layout_builder:
+    allow_custom: true
+    enabled: true
+    sections:
+      -
+        layout_id: bs_3col_stacked
+        layout_settings:
+          label: ''
+          layout:
+            wrapper: div
+            classes:
+              row: row
+            add_layout_class: 1
+            attributes: ''
+          regions:
+            top:
+              wrapper: div
+              classes:
+                col-sm-12: col-sm-12
+              add_region_classes: 1
+              attributes: ''
+            left:
+              wrapper: div
+              classes:
+                col-sm-4: col-sm-4
+              add_region_classes: 1
+              attributes: ''
+            middle:
+              wrapper: div
+              classes:
+                col-sm-4: col-sm-4
+              add_region_classes: 1
+              attributes: ''
+            right:
+              wrapper: div
+              classes:
+                col-sm-4: col-sm-4
+              add_region_classes: 1
+              attributes: ''
+            bottom:
+              wrapper: div
+              classes:
+                col-sm-12: col-sm-12
+              add_region_classes: 1
+              attributes: ''
+        components:
+          1ab72995-7352-447e-a2f5-f5cdafc99821:
+            uuid: 1ab72995-7352-447e-a2f5-f5cdafc99821
+            region: left
+            configuration:
+              id: 'field_block:block_content:3_column_block:field_body_column_1'
+              label: 'Body - Column 1'
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: hidden
+                type: text_default
+                settings: {  }
+                third_party_settings:
+                  ds:
+                    ft:
+                      id: default
+                      settings:
+                        lb: ''
+                        lb-col: false
+                        classes: {  }
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+            additional: {  }
+            weight: 0
+          e1cb7077-5471-4bb0-ad25-454ebeec326e:
+            uuid: e1cb7077-5471-4bb0-ad25-454ebeec326e
+            region: middle
+            configuration:
+              id: 'field_block:block_content:3_column_block:field_body_column_2'
+              label: 'Body - Column 2'
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: hidden
+                type: text_default
+                settings: {  }
+                third_party_settings:
+                  ds:
+                    ft:
+                      id: default
+                      settings:
+                        lb: ''
+                        lb-col: false
+                        classes: {  }
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+            additional: {  }
+            weight: 0
+          096c1141-e0ca-4f00-832d-7fc335aa031e:
+            uuid: 096c1141-e0ca-4f00-832d-7fc335aa031e
+            region: right
+            configuration:
+              id: 'field_block:block_content:3_column_block:field_body_column_3'
+              label: 'Body - Column 3'
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: hidden
+                type: text_default
+                settings: {  }
+                third_party_settings:
+                  ds:
+                    ft:
+                      id: default
+                      settings:
+                        lb: ''
+                        lb-col: false
+                        classes: {  }
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+            additional: {  }
+            weight: 0
+        third_party_settings: {  }
+id: block_content.3_column_block.default
+targetEntityType: block_content
+bundle: 3_column_block
+mode: default
+content:
+  field_body_column_1:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: left
+  field_body_column_2:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: middle
+  field_body_column_3:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: right
+hidden:
+  layout_builder__layout: true

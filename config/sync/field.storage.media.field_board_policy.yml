@@ -1,0 +1,51 @@
+uuid: 2ef12d0e-1618-49fe-a2a2-05812a22990f
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - options
+id: media.field_board_policy
+field_name: field_board_policy
+entity_type: media
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '100 District Philosophy'
+      label: '100 District Philosophy'
+    -
+      value: '200 Governance'
+      label: '200 Governance'
+    -
+      value: '300 Administration'
+      label: '300 Administration'
+    -
+      value: '400 Human Resources'
+      label: '400 Human Resources'
+    -
+      value: '500 Students-Education'
+      label: '500 Students-Education'
+    -
+      value: '510 Students-Programs'
+      label: '510 Students-Programs'
+    -
+      value: '520 Students-Services'
+      label: '520 Students-Services'
+    -
+      value: '600 Finance'
+      label: '600 Finance'
+    -
+      value: '700 Facilities'
+      label: '700 Facilities'
+    -
+      value: '800 Community Relations'
+      label: '800 Community Relations'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

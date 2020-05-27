@@ -1,0 +1,23 @@
+uuid: 5f2da78f-8075-4190-8d26-0fc82dc3b169
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: basic_page_pattern
+label: 'Menu Hierarchy Pattern'
+type: 'canonical_entities:node'
+pattern: '[node:menu-link:parents:join-path]/[node:title]'
+selection_criteria:
+  a5a16f1a-1bc0-4b55-af58-29b997b2b924:
+    id: node_type
+    bundles:
+      page: page
+      staff_member: staff_member
+    negate: false
+    context_mapping:
+      node: node
+    uuid: a5a16f1a-1bc0-4b55-af58-29b997b2b924
+selection_logic: and
+weight: -5
+relationships: {  }

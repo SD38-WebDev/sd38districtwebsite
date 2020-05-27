@@ -1,0 +1,22 @@
+uuid: b92f8b1e-d071-4923-a903-d9d1f2776b86
+langcode: en
+status: true
+dependencies:
+  theme:
+    - rsd_district
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: rsd_district_local_tasks
+theme: rsd_district
+region: content
+weight: -15
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

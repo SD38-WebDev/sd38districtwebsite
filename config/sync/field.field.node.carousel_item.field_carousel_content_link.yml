@@ -1,0 +1,35 @@
+uuid: a7f359d8-a977-474c-9856-f63f96a294c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_carousel_content_link
+    - node.type.carousel_item
+  module:
+    - link
+    - link_field_autocomplete_filter
+third_party_settings:
+  link_field_autocomplete_filter:
+    negate: '0'
+    allowed_content_types:
+      article: article
+      event: event
+      page: page
+      carousel_item: 0
+      accordion_content: 0
+      staff_member: 0
+      test: 0
+id: node.carousel_item.field_carousel_content_link
+field_name: field_carousel_content_link
+entity_type: node
+bundle: carousel_item
+label: 'Content Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

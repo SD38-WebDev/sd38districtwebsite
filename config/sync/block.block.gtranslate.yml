@@ -1,0 +1,24 @@
+uuid: a9461f23-4682-4c64-adcd-050a455ae065
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class_select
+    - gtranslate
+  theme:
+    - rsd_district
+third_party_settings:
+  block_class_select:
+    selected_classes: ''
+id: gtranslate
+theme: rsd_district
+region: top_header
+weight: -16
+provider: null
+plugin: gtranslate_block
+settings:
+  id: gtranslate_block
+  label: GTranslate
+  provider: gtranslate
+  label_display: '0'
+visibility: {  }

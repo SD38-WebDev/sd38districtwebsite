@@ -1,0 +1,28 @@
+uuid: beceec65-21b7-4bde-834b-8b05f9487354
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - block_class_select
+    - search
+  theme:
+    - rsd_district
+third_party_settings:
+  block_class:
+    classes: 'd-none d-sm-block  '
+  block_class_select:
+    selected_classes: ''
+id: searchform_2
+theme: rsd_district
+region: top_header
+weight: -15
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form'
+  provider: search
+  label_display: '0'
+  page_id: ''
+visibility: {  }

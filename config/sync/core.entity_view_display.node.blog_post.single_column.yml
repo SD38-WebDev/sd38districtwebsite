@@ -1,0 +1,105 @@
+uuid: 79a6cafd-78c4-4756-a042-820ef969b3c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.single_column
+    - field.field.node.blog_post.body
+    - field.field.node.blog_post.field_image_gallery
+    - field.field.node.blog_post.field_page_assignment
+    - field.field.node.blog_post.field_tags
+    - node.type.blog_post
+  module:
+    - ds
+    - layout_builder
+    - slick
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: bs_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          main:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      main:
+        - body
+        - field_image_gallery
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.blog_post.single_column
+targetEntityType: node
+bundle: blog_post
+mode: single_column
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: main
+  field_image_gallery:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      optionset_thumbnail: ''
+      skin_thumbnail: ''
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      optionset: default
+      override: false
+      overridables: {  }
+      skin: ''
+      skin_arrows: ''
+      skin_dots: ''
+      cache: 0
+      current_view_mode: ''
+      style: ''
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      media_switch: ''
+      ratio: ''
+      responsive_image_style: ''
+      sizes: ''
+      preserve_keys: false
+      visible_items: 0
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
+    third_party_settings: {  }
+    type: slick_image
+    region: main
+hidden:
+  field_page_assignment: true
+  field_tags: true
+  links: true

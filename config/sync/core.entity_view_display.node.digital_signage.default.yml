@@ -1,0 +1,28 @@
+uuid: 2128e56d-29af-4e6d-88bb-253589c4c4f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.digital_signage.body
+    - node.type.digital_signage
+  module:
+    - text
+    - user
+id: node.digital_signage.default
+targetEntityType: node
+bundle: digital_signage
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

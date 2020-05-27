@@ -1,0 +1,28 @@
+uuid: dc16e683-1151-4a5f-a46e-caa594383878
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_custom_template
+    - node.type.page
+  module:
+    - template_whisperer
+id: node.page.field_custom_template
+field_name: field_custom_template
+entity_type: node
+bundle: page
+label: 'Custom Template'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler:
+    suggestions:
+      digitalsignage: digitalsignage
+      ods: ods
+      ods_our_focus: ods_our_focus
+      ods_our_learning: ods_our_learning
+      ods_our_story: ods_our_story
+field_type: template_whisperer

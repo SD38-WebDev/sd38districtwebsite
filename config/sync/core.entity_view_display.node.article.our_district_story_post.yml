@@ -1,0 +1,166 @@
+uuid: a0b11452-1e89-4e63-bb3c-38b70d26897f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.our_district_story_post
+    - field.field.node.article.body
+    - field.field.node.article.field_attachments
+    - field.field.node.article.field_carousel_content_link
+    - field.field.node.article.field_carousel_image
+    - field.field.node.article.field_image
+    - field.field.node.article.field_image_gallery
+    - field.field.node.article.field_page_assignment
+    - field.field.node.article.field_tags
+    - field.field.node.article.field_to_home_page_carousel
+    - node.type.article
+  module:
+    - ds
+    - layout_builder
+    - slick
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: bs_2col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          left:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+              col-md-7: col-md-7
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+              col-md-5: col-md-5
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      left:
+        - body
+      right:
+        - field_image_gallery
+  layout_builder:
+    allow_custom: false
+    enabled: false
+_core:
+  default_config_hash: ChmU3AVqDKU32A_fyChG0W9dTRKmVBR58B6OClCLvZI
+id: node.article.our_district_story_post
+targetEntityType: node
+bundle: article
+mode: our_district_story_post
+content:
+  body:
+    type: text_default
+    weight: 0
+    region: left
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  field_image_gallery:
+    weight: 1
+    label: hidden
+    settings:
+      style: ''
+      optionset: default
+      optionset_thumbnail: ''
+      skin: ''
+      skin_thumbnail: ''
+      image_style: ''
+      responsive_image_style: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      media_switch: ''
+      thumbnail_style: ''
+      ratio: ''
+      grid: null
+      grid_medium: null
+      grid_small: null
+      visible_items: null
+      layout: ''
+      thumbnail_caption: ''
+      cache: 0
+      sizes: ''
+      breakpoints:
+        xs:
+          image_style: ''
+          width: ''
+        sm:
+          image_style: ''
+          width: ''
+        md:
+          image_style: ''
+          width: ''
+        lg:
+          image_style: ''
+          width: ''
+        xl:
+          image_style: ''
+          width: ''
+      current_view_mode: our_district_story_post
+      background: false
+      caption:
+        title: '0'
+        alt: '0'
+      preserve_keys: false
+      override: false
+      overridables:
+        arrows: '0'
+        autoplay: '0'
+        dots: '0'
+        draggable: '0'
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      skin_arrows: ''
+      skin_dots: ''
+      icon: ''
+      view_mode: ''
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      grid_header: ''
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: slick_image
+    region: right
+hidden:
+  field_attachments: true
+  field_carousel_content_link: true
+  field_carousel_image: true
+  field_image: true
+  field_page_assignment: true
+  field_tags: true
+  field_to_home_page_carousel: true
+  links: true

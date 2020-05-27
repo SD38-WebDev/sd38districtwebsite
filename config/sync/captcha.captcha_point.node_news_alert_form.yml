@@ -1,0 +1,7 @@
+uuid: f615796c-3caf-4311-bd73-d90e2a38231b
+langcode: en
+status: false
+dependencies: {  }
+formId: node_news_alert_form
+captchaType: default
+label: null

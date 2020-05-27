@@ -1,0 +1,74 @@
+uuid: 80e867f4-b985-473f-b022-b56a6246b120
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.news_alert.body
+    - field.field.node.news_alert.field_alert_type
+    - node.type.news_alert
+  module:
+    - ds
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: bs_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          left:
+            wrapper: div
+            classes:
+              col-xs-12: col-xs-12
+              col-sm-2: col-sm-2
+            add_region_classes: 1
+            attributes: ''
+          middle:
+            wrapper: div
+            classes:
+              col-xs-12: col-xs-12
+              col-sm-8: col-sm-8
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-xs-12: col-xs-12
+              col-sm-2: col-sm-2
+            add_region_classes: 1
+            attributes: ''
+        wrappers:
+          main: div
+    regions:
+      main:
+        - body
+        - links
+id: node.news_alert.default
+targetEntityType: node
+bundle: news_alert
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: main
+  links:
+    weight: 1
+    region: main
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_alert_type: true
