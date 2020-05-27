@@ -1,8 +1,0 @@
-uuid: 767bcfbd-44d7-4cdb-9d7c-2639711fd483
-langcode: en
-status: true
-dependencies: {  }
-name: 'Staff Type'
-vid: staff_type
-description: ''
-weight: 0
