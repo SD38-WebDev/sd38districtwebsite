@@ -22,3 +22,6 @@
 
 # Ignore .env files as they are personal
 /.env
+
+# Ignore files inside Drupal config export
+/config/sync/color.theme.rsd_district.yml
