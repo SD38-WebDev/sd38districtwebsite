@@ -21,7 +21,6 @@ permissions:
   - 'create and edit custom blocks'
   - 'create article content'
   - 'create carousel_item content'
-  - 'create digital_signage content'
   - 'create event content'
   - 'create file media'
   - 'create media'
