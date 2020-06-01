@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.media.field_file_date
-    - field.storage.media.field_file_name
     - field.storage.media.field_media_file
     - media.type.file
     - node.type.page
@@ -80,7 +79,7 @@ display:
           row_class: ''
           default_row_class: false
           type: ul
-          wrapper_class: ''
+          wrapper_class: col
           class: list-unstyled
       row:
         type: fields
@@ -142,69 +141,6 @@ display:
           type: file_url_plain
           settings: {  }
           group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_file_name:
-          id: field_file_name
-          table: media__field_file_name
-          field: field_file_name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: true
-            path: '{{ field_media_file }}'
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: _blank
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: span
-          element_wrapper_class: 'file file--mime-application-pdf file--application-pdf'
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -279,20 +215,20 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_media_file_1:
-          id: field_media_file_1
-          table: media__field_media_file
-          field: field_media_file
+        name:
+          id: name
+          table: media_field_data
+          field: name
           relationship: none
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
-            make_link: false
-            path: ''
+            make_link: true
+            path: '{{ field_media_file }}'
             absolute: false
             external: false
             replace_spaces: false
@@ -320,18 +256,18 @@ display:
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
+          element_wrapper_type: span
+          element_wrapper_class: 'file file--mime-application-pdf file--application-pdf'
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: file_default
+          click_sort_column: value
+          type: string
           settings:
-            use_description_as_link_text: true
-          group_column: ''
+            link_to_entity: false
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -341,6 +277,8 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: media
+          entity_field: name
           plugin_id: field
       filters:
         status:
@@ -582,7 +520,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_1:
     display_plugin: block
@@ -973,7 +910,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_11:
     display_plugin: block
@@ -1159,7 +1095,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_12:
     display_plugin: block
@@ -1345,7 +1280,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_13:
     display_plugin: block
@@ -1531,7 +1465,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_14:
     display_plugin: block
@@ -1717,7 +1650,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_15:
     display_plugin: block
@@ -1903,7 +1835,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_16:
     display_plugin: block
@@ -2089,7 +2020,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_17:
     display_plugin: block
@@ -2275,7 +2205,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_18:
     display_plugin: block
@@ -2287,7 +2216,7 @@ display:
       block_description: '300 PR'
       display_description: ''
       defaults:
-        fields: false
+        fields: true
         arguments: false
         relationships: false
         title: false
@@ -2451,196 +2380,6 @@ display:
         operator: AND
         groups:
           1: AND
-      fields:
-        field_media_file:
-          id: field_media_file
-          table: media__field_media_file
-          field: field_media_file
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: file_url_plain
-          settings: {  }
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_file_name:
-          id: field_file_name
-          table: media__field_file_name
-          field: field_file_name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: true
-            path: '{{ field_media_file }}'
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: _blank
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: span
-          element_wrapper_class: 'file file--mime-application-pdf file--application-pdf'
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_file_date:
-          id: field_file_date
-          table: media__field_file_date
-          field: field_file_date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Date
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: strong
-          element_class: ''
-          element_label_type: strong
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: strong
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: datetime_custom
-          settings:
-            timezone_override: ''
-            date_format: m-d-Y
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
     cache_metadata:
       max-age: -1
       contexts:
@@ -2651,7 +2390,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_19:
     display_plugin: block
@@ -2837,7 +2575,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_2:
     display_plugin: block
@@ -2988,7 +2725,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_20:
     display_plugin: block
@@ -3174,7 +2910,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_21:
     display_plugin: block
@@ -3360,7 +3095,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_22:
     display_plugin: block
@@ -3546,7 +3280,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_3:
     display_plugin: block
@@ -3575,7 +3308,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_4:
     display_plugin: block
@@ -3761,7 +3493,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_5:
     display_plugin: block
@@ -3947,7 +3678,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_6:
     display_plugin: block
@@ -4133,7 +3863,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_7:
     display_plugin: block
@@ -4319,7 +4048,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_8:
     display_plugin: block
@@ -4505,7 +4233,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_9:
     display_plugin: block
@@ -4691,5 +4418,4 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'

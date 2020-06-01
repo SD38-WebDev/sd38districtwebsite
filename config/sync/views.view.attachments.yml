@@ -1,21 +1,18 @@
-uuid: 55a9b74f-1b5c-4482-859b-91962b6a659a
+uuid: 2d254319-1d85-4559-be4f-56e4303fb0aa
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.media.field_file_date
-    - field.storage.media.field_file_name
     - field.storage.media.field_media_file
     - media.type.file
-    - node.type.page
+    - node.type.article
   module:
-    - datetime
     - file
     - media
     - node
     - user
-id: generic_file_list
-label: 'Generic File List'
+id: attachments
+label: Attachments
 module: views
 description: ''
 tag: ''
@@ -54,31 +51,14 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: mini
+        type: some
         options:
-          items_per_page: 8
+          items_per_page: 25
           offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: ‹‹
-            next: ››
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
       style:
         type: html_list
         options:
-          grouping:
-            -
-              field: field_file_date
-              rendered: false
-              rendered_strip: true
+          grouping: {  }
           row_class: ''
           default_row_class: false
           type: ul
@@ -135,7 +115,7 @@ display:
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: false
+          element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -144,133 +124,6 @@ display:
           type: file_url_plain
           settings: {  }
           group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_file_name:
-          id: field_file_name
-          table: media__field_file_name
-          field: field_file_name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: true
-            path: '{{ field_media_file }}'
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: _blank
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: span
-          element_wrapper_class: 'file file--mime-application-pdf file--application-pdf'
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_file_date:
-          id: field_file_date
-          table: media__field_file_date
-          field: field_file_date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: datetime_default
-          settings:
-            timezone_override: ''
-            format_type: friendly_date
-          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -308,8 +161,8 @@ display:
             target: ''
             nl2br: false
             max_length: 0
-            word_boundary: true
-            ellipsis: true
+            word_boundary: false
+            ellipsis: false
             more_link: false
             more_link_text: ''
             more_link_path: ''
@@ -344,7 +197,7 @@ display:
           separator: ', '
           field_api_classes: false
           entity_type: media
-          entity_field: name
+          entity_field: media
           plugin_id: field
       filters:
         status:
@@ -373,38 +226,52 @@ display:
             operator_limit_selection: false
             operator_list: {  }
       sorts:
-        field_file_date_value:
-          id: field_file_date_value
-          table: media__field_file_date
-          field: field_file_date_value
+        name:
+          id: name
+          table: media_field_data
+          field: name
+          order: DESC
+          entity_type: media
+          entity_field: name
+          plugin_id: standard
           relationship: none
           group_type: group
           admin_label: ''
-          order: DESC
           exposed: false
           expose:
             label: ''
-          granularity: second
-          plugin_id: datetime
-      header: {  }
+      title: Attachments
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: '<h2>Attachments</h2>'
+          plugin_id: text_custom
       footer: {  }
       empty: {  }
       relationships:
-        field_page_reference:
-          id: field_page_reference
-          table: media__field_page_reference
-          field: field_page_reference
+        reverse__node__field_attachments:
+          id: reverse__node__field_attachments
+          table: media_field_data
+          field: reverse__node__field_attachments
           relationship: none
           group_type: group
-          admin_label: 'field_page_reference: Content'
+          admin_label: field_attachments
           required: true
-          plugin_id: standard
+          entity_type: media
+          plugin_id: entity_reverse
       arguments:
         nid:
           id: nid
           table: node_field_data
           field: nid
-          relationship: field_page_reference
+          relationship: reverse__node__field_attachments
           group_type: group
           admin_label: ''
           default_action: default
@@ -432,7 +299,7 @@ display:
             fail: 'not found'
           validate_options:
             bundles:
-              page: page
+              article: article
             operation: view
             multiple: 0
             access: false
@@ -442,18 +309,14 @@ display:
           entity_field: nid
           plugin_id: node_nid
       display_extenders: {  }
-      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - url.query_args
         - user.permissions
       tags:
-        - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_1:
     display_plugin: block
@@ -462,16 +325,13 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      block_description: 'Generic File List (Grouped by Date)'
+      block_description: Attachments
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - url.query_args
         - user.permissions
       tags:
-        - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'

@@ -53,13 +53,24 @@ third_party_settings:
       left:
         - field_image
         - node_post_date
-        - field_attachments
+        - 'dynamic_block_field:node-attachments_block'
         - field_carousel_content_link
         - field_image_gallery
         - field_page_assignment
       right:
         - body
     fields:
+      'dynamic_block_field:node-attachments_block':
+        plugin_id: 'dynamic_block_field:node-attachments_block'
+        weight: 2
+        label: hidden
+        formatter: default
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
       node_post_date:
         plugin_id: node_post_date
         weight: 1
@@ -113,44 +124,6 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-  field_attachments:
-    type: entity_reference_entity_view
-    weight: 2
-    label: above
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings:
-      ds:
-        ds_limit: ''
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw: true
-            lbw-el: h2
-            lbw-cl: ''
-            lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
-            ow-at: ''
-            fis: true
-            fis-el: ''
-            fis-cl: ''
-            fis-at: 'target="_blank"'
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lb-col: false
-            ow: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis-def-at: false
-            fi: false
-            fi-def-at: false
-    region: left
   field_carousel_content_link:
     weight: 3
     label: above
@@ -190,6 +163,7 @@ content:
     type: entity_reference_label
     region: left
 hidden:
+  field_attachments: true
   field_carousel_image: true
   field_tags: true
   field_to_home_page_carousel: true

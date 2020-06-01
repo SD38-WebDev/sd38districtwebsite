@@ -15,7 +15,7 @@ matchers:
     id: 'entity:node'
     weight: 0
     settings:
-      metadata: '[node:nid] [node:content-type] [node:url]'
+      metadata: '[node:content-type] - ID:[node:nid] - Saved: [node:changed:since] - [node:url]'
       bundles: {  }
       group_by_bundle: false
       include_unpublished: false
@@ -26,7 +26,7 @@ matchers:
     id: 'entity:media'
     weight: 0
     settings:
-      metadata: 'by [media:uid:entity:account-name] | [media:created:medium]'
+      metadata: '[media:bundle] - ID:[media:mid] - Saved: [media:changed:date:since] ([media:changed:date:short])'
       bundles:
         file: file
       group_by_bundle: false
