@@ -1053,3 +1053,120 @@ body.user-logged-in .card:hover .ops-links {
 	width: 100%;
 	height: 15%;
 }
+
+/******************/
+/** News Feature **/
+/******************/
+
+
+#sd38-news-panel {
+	margin: 0 0 30px 0;
+	height: 500px;
+	display: flex;
+	background: white;
+	overflow: hidden;
+	border-radius: 1.25rem;
+	box-shadow: 0 7px 25px 0 rgba(0,0,0,0.03),0 4px 12px 0 rgba(0,0,0,0.03);
+	border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+#sd38-news-panel a,
+#sd38-news-panel h2,
+#sd38-news-panel h3 {
+	color: #253f8e;
+}
+@media (max-width: 767.98px) {
+	#sd38-news-panel {
+		height: auto;
+	}
+}
+.news-panel {
+    display: flex;
+    flex-direction: column;
+}
+.news-panel .content {
+    flex: auto;
+}
+.news-panel img {
+	max-width: 100%;
+	height: 300px;
+}
+.news-panel-1 {
+	border-right: 4px solid white;
+}
+@media (max-width: 767.98px) {
+	.news-panel-1 {
+		border-right: none;
+		border-bottom: 4px solid white;
+	}
+}
+.news-panel-2 {
+	background: #f4f4f4;
+}
+.news-items {
+	display: flex;
+	flex-direction: column;
+}
+.news-item {
+	flex: 1 1 auto;
+	background: rgba(255, 255, 255, 0.4);
+	border-top: 4px solid white;
+	display: flex;
+/* 				justify-content: center; */
+	flex-direction: column;
+	height: 33.333%;
+	padding: 0.75rem;
+}			
+@media (max-width: 767.98px) {
+	.news-item {
+		height: auto;
+	}
+}
+.news-item:hover {
+	background: rgba(255, 255, 255, 0.6);
+}
+.news-item:first-child{
+	border: none;
+}
+.news-headline {
+	background: rgba(255, 255, 255, 0.5);
+	padding: 0.75rem;
+	width: 100%;
+}
+
+#sd38-news-panel h2,
+#sd38-news-panel h3 {
+	margin: 0;
+}
+
+@media (max-width: 991.98px) {
+	#sd38-news-panel h2 {
+		font-size: 1.5rem;
+	}
+	#sd38-news-panel h3 {
+		font-size: 1.25rem;
+	}
+}
+
+@media (max-width: 767.98px) {
+	#sd38-news-panel h2 {
+		font-size: 1.5rem;
+	}
+	#sd38-news-panel h3 {
+		font-size: 1.25rem;
+	}
+	#panel-sidebar .news-item {
+		min-height: 5rem;
+		height: auto;
+	}
+}
+.link {
+	background: ;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.link:hover ~ div.row h2 {
+	text-decoration: underline;
+}
