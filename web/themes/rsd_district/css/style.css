@@ -22,6 +22,11 @@
 /** Typography **/
 /****************/
 
+a,
+.link {
+    color: #253f8e;
+}
+
 body {
 	font-family: Lato, sans-serif;
 }
@@ -145,8 +150,6 @@ body .site-section-branding,
 #page-wrapper .block-views .file a {
 	font-size: 1.15rem;
 }
-
-/** Typography **/
 
 #content blockquote {
     position: relative;
@@ -352,6 +355,7 @@ body.our-district-story #page-wrapper .block-page-title-block h1 {
 /******************************/
 
 #navbar-top {
+    background-color: #37a89a;
 	padding: .2rem 1rem;
 }
 
@@ -617,6 +621,7 @@ button.navbar-toggler {
 }
 
 #navbar-main {
+    background-color: white;
 	padding: 0.2rem 1rem;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -646,6 +651,7 @@ body.path-frontpage #navbar-main {
 }
 
 .site-footer {
+    background: #d0e4f3;
 	padding-bottom: 0;
 }
 

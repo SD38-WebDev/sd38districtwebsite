@@ -21,17 +21,7 @@ body {
     border-bottom-color: #fff;
 }
 
-#navbar-top {
-    background-color: #055a8e;
-}
-
 #navbar-main {
-    background-color: #1d84c3;
-}
-
-a,
-.link {
-    color: #0071b3;
 }
 
 .main-content .content a span {
@@ -73,10 +63,6 @@ a:active,
 .btn-primary:hover,
 .btn-primary:focus {
     background-color: #0256b1;
-}
-
-.site-footer {
-    background: #292929;
 }
 
 .region-header,
