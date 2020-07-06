@@ -62,11 +62,11 @@ display:
             element_type: h3
             attributes: class|title
           list:
-            element_type: div
-            attributes: class|flex-grid
+            element_type: ''
+            attributes: ''
           row:
             element_type: div
-            attributes: class|card
+            attributes: 'class|col-lg event mb-3'
             last_every_nth: ''
             first_class: ''
             last_class: ''
@@ -132,6 +132,55 @@ display:
           absolute: false
           entity_type: node
           plugin_id: entity_link
+        nothing_2:
+          id: nothing_2
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: 'OPEN DIV - Wrapper'
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '<div class="wrapper">'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: custom
         nothing:
           id: nothing
           table: views
@@ -143,7 +192,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="{{ view_node }}" class="card-body h-100 p-3">'
+            text: '<a href="{{ view_node }}" class="event-body">'
             make_link: false
             path: ''
             absolute: false
@@ -181,70 +230,6 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
-        field_event_date:
-          id: field_event_date
-          table: node__field_event_date
-          field: field_event_date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: smartdate_default
-          settings:
-            timezone_override: ''
-            format: date_only
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         title:
           id: title
           table: node_field_data
@@ -310,13 +295,78 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: field
+        field_event_date:
+          id: field_event_date
+          table: node__field_event_date
+          field: field_event_date
+          relationship: none
+          group_type: group
+          admin_label: 'Event Date'
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: div
+          element_wrapper_class: event-date
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: smartdate_default
+          settings:
+            timezone_override: ''
+            format: date_only
+            force_chronological: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_event_date_1:
           id: field_event_date_1
           table: node__field_event_date
           field: field_event_date
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: 'Event Time'
           label: ''
           exclude: false
           alter:
@@ -363,6 +413,7 @@ display:
           settings:
             timezone_override: ''
             format: time_only
+            force_chronological: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -474,6 +525,55 @@ display:
           destination: false
           entity_type: node
           plugin_id: entity_operations
+        nothing_3:
+          id: nothing_3
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: 'CLOSE DIV - Wrapper'
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '</div>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: custom
       filters:
         status:
           value: '1'
@@ -561,7 +661,18 @@ display:
           granularity: day
           plugin_id: date
       title: 'Upcoming Events'
-      header: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: '<h2>Upcoming Events</h2>'
+          plugin_id: text_custom
       footer:
         area_text_custom:
           id: area_text_custom

@@ -13,8 +13,42 @@ dependencies:
     - media.type.file
   module:
     - datetime
+    - field_group
     - file
-    - path
+third_party_settings:
+  field_group:
+    group_board_of_education:
+      children:
+        - field_board_policy
+        - field_board_policy_type
+      parent_name: ''
+      weight: 3
+      format_type: tab
+      region: content
+      format_settings:
+        description: ''
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: ''
+        effect: none
+        open: false
+        weight: 0
+      label: 'Board of Education Document'
+    group_file_date_settings:
+      children:
+        - field_file_date
+      parent_name: ''
+      weight: 4
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: 'If the file needs to be grouped with other files using a specific date. Used for things like Board Meeting documents.'
+        formatter: closed
+        required_fields: true
+      label: 'File Date'
 _core:
   default_config_hash: 50n0D6KiBgpTONc-n8sPE24kUJQgu1UafJ2Vshd0q2I
 id: media.file.default
@@ -24,18 +58,18 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 5
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   field_board_policy:
-    weight: 9
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_board_policy_type:
-    weight: 10
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -46,52 +80,33 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_file_name:
-    weight: 2
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_media_file:
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
-    weight: 1
+    weight: 0
     region: content
   field_page_reference:
-    weight: 11
+    weight: 5
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_tags:
-    weight: 3
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
   name:
     type: string_textfield
-    weight: 0
+    weight: 2
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  path:
-    type: path
-    weight: 6
+  replace_file:
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -99,12 +114,12 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 8
     region: content
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60
@@ -112,4 +127,7 @@ content:
       match_limit: 10
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_file_name: true
+  field_tags: true
+  path: true

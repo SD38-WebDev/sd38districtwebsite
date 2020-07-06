@@ -24,6 +24,8 @@ regions:
   section_right: 'Section Branding Right'
   featured_top: 'Featured top'
   breadcrumb: Breadcrumb
+  news_panel_carousel: 'News Panel Carousel'
+  news_panel_articles: 'News Panel Articles'
   content: Content
   sidebar_first: 'Sidebar first'
   sidebar_second: 'Sidebar second'

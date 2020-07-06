@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.carousel_item.body
     - field.field.node.carousel_item.field_carousel_content_link
     - field.field.node.carousel_item.field_carousel_image
+    - field.field.node.carousel_item.field_title_caption_background
     - image.style.thumbnail
     - node.type.carousel_item
   module:
@@ -57,6 +58,12 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_title_caption_background:
+    weight: 124
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   path:
     type: path
@@ -110,4 +117,9 @@ content:
       match_limit: 10
     region: content
     third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden: {  }

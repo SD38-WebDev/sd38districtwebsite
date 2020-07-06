@@ -64,7 +64,7 @@ display:
             attributes: class|title
           list:
             element_type: div
-            attributes: class|flex-grid
+            attributes: 'class|flex-grid col-12'
           row:
             element_type: div
             attributes: class|card
@@ -152,7 +152,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''

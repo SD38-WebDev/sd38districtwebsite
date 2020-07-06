@@ -1,0 +1,28 @@
+uuid: 0de6ca81-60e0-4848-8cd1-8e7cbef9af24
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.news_panel_carousel
+  module:
+    - block_class_select
+    - views
+  theme:
+    - rsd_district
+third_party_settings:
+  block_class_select:
+    selected_classes: ''
+id: views_block__news_panel_carousel_block_2
+theme: rsd_district
+region: news_panel_articles
+weight: 0
+provider: null
+plugin: 'views_block:news_panel_carousel-block_2'
+settings:
+  id: 'views_block:news_panel_carousel-block_2'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility: {  }

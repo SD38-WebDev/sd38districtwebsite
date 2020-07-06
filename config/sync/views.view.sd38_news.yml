@@ -952,7 +952,7 @@ display:
             attributes: class|title
           list:
             element_type: div
-            attributes: class|flex-grid
+            attributes: 'class|flex-grid col-12'
           row:
             element_type: div
             attributes: class|card

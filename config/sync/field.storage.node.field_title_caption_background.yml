@@ -1,0 +1,27 @@
+uuid: 7b8b6e14-e2a5-49d8-9f2d-a3b9436c9af8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_title_caption_background
+field_name: field_title_caption_background
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: dark
+      label: Dark
+    -
+      value: light
+      label: Light
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.carousel_item.body
     - field.field.node.carousel_item.field_carousel_content_link
     - field.field.node.carousel_item.field_carousel_image
+    - field.field.node.carousel_item.field_title_caption_background
     - node.type.carousel_item
   module:
     - text
@@ -32,3 +33,4 @@ content:
 hidden:
   field_carousel_content_link: true
   field_carousel_image: true
+  field_title_caption_background: true

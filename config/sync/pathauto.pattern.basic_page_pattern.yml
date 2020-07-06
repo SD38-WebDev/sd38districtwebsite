@@ -9,7 +9,7 @@ label: 'Menu Hierarchy Pattern'
 type: 'canonical_entities:node'
 pattern: '[node:menu-link:parents:join-path]/[node:title]'
 selection_criteria:
-  a5a16f1a-1bc0-4b55-af58-29b997b2b924:
+  9cfb89eb-cffd-4130-8e8e-a7dcad5b392f:
     id: node_type
     bundles:
       page: page
@@ -17,7 +17,7 @@ selection_criteria:
     negate: false
     context_mapping:
       node: node
-    uuid: a5a16f1a-1bc0-4b55-af58-29b997b2b924
+    uuid: 9cfb89eb-cffd-4130-8e8e-a7dcad5b392f
 selection_logic: and
 weight: -5
 relationships: {  }
