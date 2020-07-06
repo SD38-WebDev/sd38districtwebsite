@@ -225,10 +225,10 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
-            make_link: true
-            path: '{{ field_media_file }}'
+            alter_text: true
+            text: '<a href="{{ field_media_file }}" target="blank">{{ name }}</a>'
+            make_link: false
+            path: ''
             absolute: false
             external: false
             replace_spaces: false
