@@ -27,10 +27,10 @@
     color: #253f8e;
 }
 
-a:hover,
-a:focus,
-.link:hover,
-.link:focus {
+#page-wrapper a:hover,
+#page-wrapper a:focus,
+#page-wrapper .link:hover,
+#page-wrapper .link:focus {
     color: #018fe2;
 }
 
