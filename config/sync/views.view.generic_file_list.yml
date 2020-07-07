@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.media.field_file_date
-    - field.storage.media.field_file_name
     - field.storage.media.field_media_file
     - media.type.file
     - node.type.page
@@ -154,69 +153,6 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_file_name:
-          id: field_file_name
-          table: media__field_file_name
-          field: field_file_name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: true
-            path: '{{ field_media_file }}'
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: _blank
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: span
-          element_wrapper_class: 'file file--mime-application-pdf file--application-pdf'
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         field_file_date:
           id: field_file_date
           table: media__field_file_date
@@ -291,10 +227,10 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
-            make_link: true
-            path: '{{ field_media_file }}'
+            alter_text: true
+            text: '<a href="{{ field_media_file }}" target="blank">{{ name }}</a>'
+            make_link: false
+            path: ''
             absolute: false
             external: false
             replace_spaces: false
@@ -453,7 +389,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
   block_1:
     display_plugin: block
@@ -473,5 +408,4 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_file_date'
-        - 'config:field.storage.media.field_file_name'
         - 'config:field.storage.media.field_media_file'
