@@ -22,8 +22,8 @@
 /** Typography **/
 /****************/
 
-a,
-.link {
+#page-wrapper a,
+#page-wrapper .link {
     color: #253f8e;
 }
 
