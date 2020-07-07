@@ -25,17 +25,17 @@ body {
 }
 
 .main-content .content a span {
-    color: #0071b3 !important;
+    color: #253f8e !important;
 }
 
 .page-item.active .page-link {
-    background-color: #0071b3;
-    border-color: #0071b3;
+    background-color: #253f8e;
+    border-color: #253f8e;
 }
 
 .page-link,
 .page-link:hover {
-    color: #0071b3;
+    color: #253f8e;
 }
 
 .sidebar .block {

@@ -24,19 +24,19 @@
 
 a,
 .link {
-    color: #253f8e !important;
+    color: #253f8e;
 }
 
 a:hover,
 a:focus,
 .link:hover,
 .link:focus {
-    color: #018fe2 !important;
+    color: #018fe2;
 }
 
 a:active,
 .link:active {
-    color: #23aeff !important;
+    color: #23aeff;
 }
 
 body {
