@@ -27,6 +27,18 @@ a,
     color: #253f8e !important;
 }
 
+a:hover,
+a:focus,
+.link:hover,
+.link:focus {
+    color: #018fe2 !important;
+}
+
+a:active,
+.link:active {
+    color: #23aeff !important;
+}
+
 body {
 	font-family: Lato, sans-serif;
 }

@@ -28,18 +28,6 @@ body {
     color: #0071b3 !important;
 }
 
-a:hover,
-a:focus,
-.link:hover,
-.link:focus {
-    color: #018fe2;
-}
-
-a:active,
-.link:active {
-    color: #23aeff;
-}
-
 .page-item.active .page-link {
     background-color: #0071b3;
     border-color: #0071b3;
