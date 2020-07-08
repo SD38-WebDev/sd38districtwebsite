@@ -65,7 +65,7 @@ display:
         type: views_bootstrap_carousel
         options:
           grouping: {  }
-          interval: '3500'
+          interval: '4000'
           keyboard: 1
           ride: 1
           navigation: 1
@@ -415,7 +415,7 @@ display:
           click_sort_column: uri
           type: link
           settings:
-            trim_length: 80
+            trim_length: null
             url_only: true
             url_plain: true
             rel: '0'
