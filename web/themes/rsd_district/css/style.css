@@ -835,6 +835,16 @@ body.our-district-story .featured-top {
 	justify-content: center;
 }
 
+.ministry-ods-block {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	color: #367ebd;
+	background-color: rgba(55, 127, 189, 0.15);
+	font-size: 18px;
+	text-align: center;
+	border: 3px solid rgba(55, 127, 189, 0.5);
+}
+
 .site-section-branding {
 	margin: 1.5rem auto;
 }
