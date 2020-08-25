@@ -64,7 +64,7 @@ display:
             attributes: class|title
           list:
             element_type: div
-            attributes: "class|accordion\r\nid|accordionitems"
+            attributes: "class|accordion col-12\r\nid|accordionitems"
           row:
             element_type: div
             attributes: class|card
