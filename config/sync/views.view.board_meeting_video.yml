@@ -58,6 +58,10 @@ display:
           offset: 0
       style:
         type: default
+        options:
+          row_class: col-12
+          default_row_class: false
+          uses_fields: false
       row:
         type: 'ds_entity:media'
       fields:
@@ -199,6 +203,7 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      css_class: ''
     cache_metadata:
       max-age: -1
       contexts:
