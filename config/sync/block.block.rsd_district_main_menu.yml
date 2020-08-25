@@ -5,9 +5,13 @@ dependencies:
   config:
     - system.menu.main
   module:
+    - block_class_select
     - system
   theme:
     - rsd_district
+third_party_settings:
+  block_class_select:
+    selected_classes: ''
 _core:
   default_config_hash: ChCx7DYNUrPTt5uiRdQAPDKJQMc-_SyAQTrZh8H0o-c
 id: rsd_district_main_menu
