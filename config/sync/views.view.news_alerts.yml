@@ -3,13 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.body
     - field.storage.node.field_alert_type
+    - field.storage.node.field_content_link
+    - field.storage.node.field_news_alert_description
     - node.type.news_alert
   module:
+    - link
     - node
     - options
-    - text
     - user
 id: news_alerts
 label: 'News Alerts'
@@ -130,6 +131,73 @@ display:
           entity_type: node
           entity_field: nid
           plugin_id: field
+        field_content_link:
+          id: field_content_link
+          table: node__field_content_link
+          field: field_content_link
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: uri
+          type: link
+          settings:
+            trim_length: null
+            url_only: true
+            url_plain: true
+            rel: '0'
+            target: '0'
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_alert_type:
           id: field_alert_type
           table: node__field_alert_type
@@ -192,59 +260,6 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        view_node:
-          id: view_node
-          table: node
-          field: view_node
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          text: view
-          output_url_as_text: true
-          absolute: false
-          entity_type: node
-          plugin_id: entity_link
         operations:
           id: operations
           table: node
@@ -359,76 +374,13 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        body:
-          id: body
-          table: node__body
-          field: body
+        field_news_alert_description:
+          id: field_news_alert_description
+          table: node__field_news_alert_description
+          field: field_news_alert_description
           relationship: none
           group_type: group
-          admin_label: 'Body (Summary/Trimmed)'
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: true
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: text_summary_or_trimmed
-          settings:
-            trim_length: 200
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        body_1:
-          id: body_1
-          table: node__body
-          field: body
-          relationship: none
-          group_type: group
-          admin_label: 'Body (Full)'
+          admin_label: ''
           label: ''
           exclude: true
           alter:
@@ -471,7 +423,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: text_default
+          type: basic_string
           settings: {  }
           group_column: value
           group_columns: {  }
@@ -495,56 +447,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ view_node }}\" class=\"sd38-alert {{ field_alert_type }}\" data-toggle=\"modal\" data-target=\"#node-{{ nid }}\">\r\n<div class=\"container\">\r\n<h1>{{ title }}</h1>\r\n{{ body }}\r\n</div>\r\n</a>"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-          plugin_id: custom
-        nothing_1:
-          id: nothing_1
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: 'Alert Modal (Content Overlay)'
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: "<div class=\"modal fade\" id=\"node-{{ nid }}\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalScrollableTitle\" aria-hidden=\"true\">\r\n<div class=\"modal-dialog modal-dialog-scrollable modal-lg\" role=\"document\">\r\n<div class=\"modal-content\">\r\n<div class=\"modal-header\">\r\n<h5 class=\"modal-title\" id=\"exampleModalScrollableTitle\">{{ title }}</h5>\r\n<a type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n<span aria-hidden=\"true\">&times;</span>\r\n</a>\r\n</div>\r\n<div class=\"modal-body\">\r\n{{ body_1 }}\r\n</div>\r\n<div class=\"modal-footer\">\r\n<div>{{ operations }}</div>\r\n<a type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">Close</a>\r\n</div>\r\n</div>\r\n</div>\r\n</div>"
+            text: "<a href=\"{{ field_content_link }}\" class=\"sd38-alert {{ field_alert_type }}\">\r\n<div class=\"container\">\r\n<h1>{{ title }}</h1>\r\n{{ field_news_alert_description }}\r\n</div>\r\n</a>"
             make_link: false
             path: ''
             absolute: false
@@ -640,8 +543,9 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_alert_type'
+        - 'config:field.storage.node.field_content_link'
+        - 'config:field.storage.node.field_news_alert_description'
   block_1:
     display_plugin: block
     id: block_1
@@ -658,5 +562,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_alert_type'
+        - 'config:field.storage.node.field_content_link'
+        - 'config:field.storage.node.field_news_alert_description'
