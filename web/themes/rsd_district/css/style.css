@@ -1371,13 +1371,28 @@ body.user-logged-in .event:hover .ops-links {
 	width: 100%;
 }
 	
-.carousel-edit a {
+.carousel-edit a,
+.edit-link a {
 	display: inline-block;
 	background: #dedede;
+	padding: 0rem 0.375rem;
 	margin-top: 0.5rem;
-	padding: 4px 20px;
 	border-radius: 0.625rem;
 	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
+}
+
+.edit-link a {
+	margin-top: 0;
+	background: white;
+	margin-left: 0.5rem;
+}
+
+li .edit-link {
+	display:none;
+}
+
+li:hover .edit-link {
+	display:inline-block;
 }
 
 .carousel-edit a:hover {
