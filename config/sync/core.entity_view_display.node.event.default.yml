@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.event.field_event_date
     - field.field.node.event.field_event_location
     - field.field.node.event.field_image
+    - field.field.node.event.field_location_reference
     - image.style.x_large
     - node.type.event
   module:
@@ -59,9 +60,16 @@ third_party_settings:
       left:
         - field_image
       right:
+        - node_title
         - field_event_date
-        - field_event_location
         - body
+        - field_location_reference
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 1
+        label: hidden
+        formatter: default
 id: node.event.default
 targetEntityType: node
 bundle: event
@@ -103,11 +111,12 @@ content:
             fi-def-at: false
     region: right
   field_event_date:
-    weight: 1
+    weight: 2
     label: above
     settings:
       timezone_override: ''
       format: default
+      force_chronological: false
       format_type: medium
     third_party_settings:
       ds:
@@ -140,16 +149,28 @@ content:
             fi-def-at: false
     type: smartdate_default
     region: right
-  field_event_location:
-    weight: 2
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: x_large
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: left
+  field_location_reference:
+    weight: 4
     label: above
-    settings: {  }
+    settings:
+      view_mode: default
+      link: false
     third_party_settings:
       ds:
+        ds_limit: ''
         ft:
           id: expert
           settings:
-            lb: ''
+            lb: 'Event Location(s)'
             prefix: ''
             lbw: true
             lbw-el: ''
@@ -173,16 +194,8 @@ content:
             fis-def-at: false
             fi: false
             fi-def-at: false
-    type: basic_string
+    type: entity_reference_entity_view
     region: right
-  field_image:
-    weight: 0
-    label: hidden
-    settings:
-      image_style: x_large
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: left
 hidden:
+  field_event_location: true
   links: true

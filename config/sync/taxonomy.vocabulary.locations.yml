@@ -1,0 +1,8 @@
+uuid: 201e31ce-9ad0-4590-90c8-22410cc5548b
+langcode: en
+status: true
+dependencies: {  }
+name: Locations
+vid: locations
+description: 'A list of School District locations'
+weight: 0

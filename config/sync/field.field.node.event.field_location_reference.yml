@@ -1,0 +1,29 @@
+uuid: e02eb4a4-cd07-4d2b-b600-48f1e2e15a6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_reference
+    - node.type.event
+    - taxonomy.vocabulary.locations
+id: node.event.field_location_reference
+field_name: field_location_reference
+entity_type: node
+bundle: event
+label: 'Event Location'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      locations: locations
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

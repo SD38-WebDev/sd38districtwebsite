@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.event.field_event_date
     - field.field.node.event.field_event_location
     - field.field.node.event.field_image
+    - field.field.node.event.field_location_reference
     - image.style.thumbnail
     - node.type.event
   module:
@@ -45,17 +46,10 @@ content:
     third_party_settings: {  }
   field_event_date:
     weight: 10
-    settings: {  }
+    settings:
+      modal: false
     third_party_settings: {  }
     type: smartdate_default
-    region: content
-  field_event_location:
-    weight: 12
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
     region: content
   field_image:
     weight: 1
@@ -64,6 +58,12 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_location_reference:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   path:
     type: path
@@ -117,4 +117,10 @@ content:
       match_limit: 10
     region: content
     third_party_settings: {  }
-hidden: {  }
+  url_redirects:
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_event_location: true

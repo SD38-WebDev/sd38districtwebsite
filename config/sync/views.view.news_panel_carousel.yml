@@ -1081,7 +1081,7 @@ display:
           element_label_class: ''
           element_label_colon: true
           element_wrapper_type: div
-          element_wrapper_class: post-date
+          element_wrapper_class: 'post-date small'
           element_default_classes: true
           empty: ''
           hide_empty: false

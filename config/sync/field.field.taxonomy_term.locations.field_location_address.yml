@@ -1,0 +1,48 @@
+uuid: adb6684f-f54a-419a-8ca9-588868a2eeb7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_location_address
+    - taxonomy.vocabulary.locations
+  module:
+    - address
+id: taxonomy_term.locations.field_location_address
+field_name: field_location_address
+entity_type: taxonomy_term
+bundle: locations
+label: Address
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    country_code: CA
+    langcode: ''
+    given_name: ''
+    family_name: ''
+    organization: ''
+    address_line1: ''
+    address_line2: ''
+    locality: ''
+    administrative_area: ''
+    postal_code: ''
+    additional_name: null
+    sorting_code: null
+    dependent_locality: null
+default_value_callback: ''
+settings:
+  available_countries:
+    CA: CA
+  langcode_override: ''
+  field_overrides:
+    givenName:
+      override: hidden
+    additionalName:
+      override: hidden
+    familyName:
+      override: hidden
+    organization:
+      override: hidden
+  fields: {  }
+field_type: address
