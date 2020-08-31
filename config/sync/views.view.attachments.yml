@@ -144,9 +144,9 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
-            make_link: true
+            alter_text: true
+            text: '<a href="{{ field_media_file }}" target="blank">{{ name }}</a>'
+            make_link: false
             path: '{{ field_media_file }}'
             absolute: false
             external: false
