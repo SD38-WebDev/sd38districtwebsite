@@ -6,7 +6,9 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.staff_member.body
     - field.field.node.staff_member.field_additional_notes
+    - field.field.node.staff_member.field_first_name
     - field.field.node.staff_member.field_image
+    - field.field.node.staff_member.field_last_name
     - field.field.node.staff_member.field_staff_type
     - image.style.large
     - node.type.staff_member
@@ -74,5 +76,7 @@ content:
     third_party_settings: {  }
 hidden:
   body: true
+  field_first_name: true
+  field_last_name: true
   field_staff_type: true
   links: true
