@@ -24,6 +24,7 @@
         "drupal/address": "^1.8",
         "drupal/admin_toolbar": "^2.0",
         "drupal/admin_toolbar_search": "^1.0",
+        "drupal/auto_entitylabel": "^3.0",
         "drupal/backup_migrate": "^4.1",
         "drupal/better_search": "^1.5",
         "drupal/bg_image_formatter": "^1.14",
