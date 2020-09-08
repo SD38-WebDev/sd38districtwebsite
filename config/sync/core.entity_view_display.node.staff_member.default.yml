@@ -23,6 +23,7 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
+        label: ''
         layout:
           wrapper: div
           classes:
@@ -71,14 +72,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: right
-  field_first_name:
-    weight: 2
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
   field_image:
     weight: 0
     label: hidden
@@ -88,15 +81,9 @@ content:
     third_party_settings: {  }
     type: image
     region: left
-  field_last_name:
-    weight: 3
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
 hidden:
   field_additional_notes: true
+  field_first_name: true
+  field_last_name: true
   field_staff_type: true
   links: true
