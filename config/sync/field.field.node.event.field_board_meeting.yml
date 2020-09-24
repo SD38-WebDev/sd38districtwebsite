@@ -1,0 +1,21 @@
+uuid: 1fac3471-3717-4338-96e1-c95fca4e0a8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_board_meeting
+    - node.type.event
+  module:
+    - options
+id: node.event.field_board_meeting
+field_name: field_board_meeting
+entity_type: node
+bundle: event
+label: 'Board Meeting'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

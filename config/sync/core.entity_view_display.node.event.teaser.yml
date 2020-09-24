@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.event.body
+    - field.field.node.event.field_board_meeting
     - field.field.node.event.field_event_date
     - field.field.node.event.field_event_location
     - field.field.node.event.field_image
@@ -19,6 +20,7 @@ mode: teaser
 content: {  }
 hidden:
   body: true
+  field_board_meeting: true
   field_event_date: true
   field_event_location: true
   field_image: true

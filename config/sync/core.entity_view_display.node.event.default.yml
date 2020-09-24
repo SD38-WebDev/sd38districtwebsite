@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.event.body
+    - field.field.node.event.field_board_meeting
     - field.field.node.event.field_event_date
     - field.field.node.event.field_event_location
     - field.field.node.event.field_image
@@ -13,6 +14,7 @@ dependencies:
   module:
     - ds
     - image
+    - options
     - smart_date
     - text
     - user
@@ -110,6 +112,13 @@ content:
             fi: false
             fi-def-at: false
     region: right
+  field_board_meeting:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_event_date:
     weight: 2
     label: above

@@ -1,0 +1,27 @@
+uuid: 4b5d9744-c0c1-43ef-a81f-cc3be8c083ac
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_board_meeting
+field_name: field_board_meeting
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'yes'
+      label: 'Yes'
+    -
+      value: 'no'
+      label: 'No'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
