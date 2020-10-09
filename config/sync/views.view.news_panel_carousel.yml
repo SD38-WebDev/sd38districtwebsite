@@ -9,6 +9,7 @@ dependencies:
     - image.style.max_650x650
     - node.type.article
     - node.type.carousel_item
+    - node.type.page
   module:
     - image
     - link
@@ -935,6 +936,7 @@ display:
         filters: false
         filter_groups: false
         fields: false
+        sorts: false
       row:
         type: fields
         options:
@@ -998,10 +1000,93 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+        promote:
+          id: promote
+          table: node_field_data
+          field: promote
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: promote
+          plugin_id: boolean
+        type_1:
+          id: type_1
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            page: page
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
       filter_groups:
-        operator: AND
+        operator: OR
         groups:
           1: AND
+          2: AND
       block_description: 'News Panel Articles Block'
       fields:
         operations:
@@ -1338,6 +1423,36 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
+      sorts:
+        sticky:
+          id: sticky
+          table: node_field_data
+          field: sticky
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          entity_type: node
+          entity_field: sticky
+          plugin_id: standard
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          order: DESC
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
     cache_metadata:
       max-age: -1
       contexts:
