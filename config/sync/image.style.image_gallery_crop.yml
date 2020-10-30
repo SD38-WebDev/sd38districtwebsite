@@ -1,0 +1,7 @@
+uuid: 708354cf-ea16-48cc-821d-b6258e3f5a0b
+langcode: en
+status: true
+dependencies: {  }
+name: image_gallery_crop
+label: 'Image Gallery Crop'
+effects: {  }

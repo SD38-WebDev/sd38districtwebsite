@@ -185,13 +185,13 @@ handlers:
     id: email
     label: 'Email confirmation'
     handler_id: email_confirmation
-    status: true
+    status: false
     conditions: {  }
     weight: 1
     settings:
       states:
         - completed
-      to_mail: '[webform_submission:values:email:raw]'
+      to_mail: questions@sd38.bc.ca
       to_options: {  }
       cc_mail: ''
       cc_options: {  }
