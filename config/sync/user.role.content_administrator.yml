@@ -11,6 +11,7 @@ permissions:
   - 'access content overview'
   - 'access draggableviews'
   - 'access media overview'
+  - 'access media_asset_library entity browser pages'
   - 'access toolbar'
   - 'administer menu'
   - 'administer nodes'

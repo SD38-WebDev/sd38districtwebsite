@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.page.field_custom_template
     - field.field.node.page.field_feature_page
     - field.field.node.page.field_image
+    - field.field.node.page.field_image_gallery
     - field.field.node.page.field_page_thumbnail_image
     - field.field.node.page.layout_builder__layout
     - node.type.page
@@ -43,6 +44,15 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
+  field_image_gallery:
+    weight: 4
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
     region: content
   field_page_thumbnail_image:
     weight: 2
