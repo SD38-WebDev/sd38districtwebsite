@@ -17,7 +17,6 @@
     }
 }
 
-
 /****************/
 /** Typography **/
 /****************/
@@ -1131,6 +1130,14 @@ body.user-logged-in .event:hover .ops-links {
 }
 
 /******************/
+/** Misc. Styles **/
+/******************/
+
+.bs-1col .field--type-image {
+	margin: 0;
+}
+
+/******************/
 /** News Feature **/
 /******************/
 
@@ -1450,3 +1457,74 @@ li:hover .edit-link {
 #strategicpriorities {
 	
 }
+
+.sp a {
+	display: inline-block;
+	padding: 0.125rem 0.65rem;
+	color: black !important;
+	background-color: #dfdfdf;
+}
+
+.sp .back a::before {
+	content: '\2190';
+}
+
+.sp .forward a::after {
+	content: '\2192';
+}
+
+.sp.row {
+	margin: 0;
+}
+
+.sp-goals h2 {
+	display: inline-block;
+	padding: 0.125rem 0.65rem;
+	color: white;
+}
+
+.sp-goals h3 {
+	text-transform: uppercase;
+}
+
+.sp-goals.sp1 h2 {
+	background-color: #f05b55;
+}
+
+.sp-goals.sp1 h3 {
+	color: #f05b55;
+}
+
+.sp2 h2 {
+	background-color: #009fdb;
+}
+
+.sp2 h3 {
+	color: #009fdb;
+}
+
+.sp3 h2 {
+	background-color: #ec0c6e;
+}
+
+.sp3 h3 {
+	color: #ec0c6e;
+}
+
+.sp4 h2 {
+	background-color: #9f66a9;
+}
+
+.sp4 h3 {
+	color: #9f66a9;
+}
+
+.sp5 h2 {
+	background-color: #66a144;
+}
+
+.sp5 h3 {
+	color: #66a144;
+}
+
+
