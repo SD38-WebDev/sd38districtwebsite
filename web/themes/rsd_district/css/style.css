@@ -1458,22 +1458,22 @@ li:hover .edit-link {
 	
 }
 
-.sp a {
+.sp .bs-region--main a {
 	display: inline-block;
 	padding: 0.125rem 0.65rem;
 	color: black !important;
 	background-color: #dfdfdf;
 }
 
-.sp .bs-region--main .back a::before {
+.sp .back .bs-region--main a::before {
 	content: '\2190';
 }
 
-.sp .bs-region--main .forward {
+.sp .forward .bs-region--main {
 	text-align: right;
 }
 
-.sp .bs-region--main .forward a::after {
+.sp .forward .bs-region--main a::after {
 	content: '\2192';
 }
 
