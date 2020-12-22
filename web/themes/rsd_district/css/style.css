@@ -1465,15 +1465,15 @@ li:hover .edit-link {
 	background-color: #dfdfdf;
 }
 
-.sp .back a::before {
+.sp .bs-region--main .back a::before {
 	content: '\2190';
 }
 
-.sp .forward {
+.sp .bs-region--main .forward {
 	text-align: right;
 }
 
-.sp .forward a::after {
+.sp .bs-region--main .forward a::after {
 	content: '\2192';
 }
 
