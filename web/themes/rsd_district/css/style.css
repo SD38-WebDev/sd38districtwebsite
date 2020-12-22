@@ -1469,6 +1469,10 @@ li:hover .edit-link {
 	content: '\2190';
 }
 
+.sp .forward {
+	text-align: right;
+}
+
 .sp .forward a::after {
 	content: '\2192';
 }
