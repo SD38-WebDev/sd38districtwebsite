@@ -1491,7 +1491,8 @@ li:hover .edit-link {
 	text-transform: uppercase;
 }
 
-.sp-goals.sp1 h2 {
+.sp1 h2,
+#sp-full .sp1 {
 	background-color: #f05b55;
 }
 
@@ -1499,7 +1500,8 @@ li:hover .edit-link {
 	color: #f05b55;
 }
 
-.sp2 h2 {
+.sp2 h2,
+#sp-full .sp2 {
 	background-color: #009fdb;
 }
 
@@ -1507,7 +1509,8 @@ li:hover .edit-link {
 	color: #009fdb;
 }
 
-.sp3 h2 {
+.sp3 h2,
+#sp-full .sp3 {
 	background-color: #ec0c6e;
 }
 
@@ -1515,7 +1518,8 @@ li:hover .edit-link {
 	color: #ec0c6e;
 }
 
-.sp4 h2 {
+.sp4 h2,
+#sp-full .sp4 {
 	background-color: #9f66a9;
 }
 
@@ -1523,7 +1527,8 @@ li:hover .edit-link {
 	color: #9f66a9;
 }
 
-.sp5 h2 {
+.sp5 h2,
+#sp-full .sp5 {
 	background-color: #66a144;
 }
 
