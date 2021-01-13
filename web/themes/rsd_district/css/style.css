@@ -1450,19 +1450,16 @@ li:hover .edit-link {
 	max-width: 100%;
 }
 
-/**************************/
-/** Strategic Priorities **/
-/**************************/
-
-#strategicpriorities {
-	
-}
+/********************************/
+/** Strategic Plan 2020 - 2025 **/
+/********************************/
 
 .sp .bs-region--main a {
 	display: inline-block;
 	padding: 0.125rem 0.65rem;
 	color: black !important;
-	background-color: #dfdfdf;
+	background-color: #f5f5f5;
+	border-radius: 0.313rem;
 }
 
 .sp .back .bs-region--main a::before {
@@ -1535,5 +1532,3 @@ li:hover .edit-link {
 .sp5 h3 {
 	color: #66a144;
 }
-
-
