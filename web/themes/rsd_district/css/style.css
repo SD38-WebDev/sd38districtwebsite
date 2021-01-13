@@ -1457,9 +1457,13 @@ li:hover .edit-link {
 .sp .bs-region--main a {
 	display: inline-block;
 	padding: 0.125rem 0.65rem;
-	color: black !important;
+	color: rgba(0, 0, 0, 0.65) !important;
 	background-color: #f5f5f5;
 	border-radius: 0.313rem;
+}
+
+.sp .bs-region--main a:hover {
+	color: rgba(0, 0, 0, 1) !important;
 }
 
 .sp .back .bs-region--main a::before {
