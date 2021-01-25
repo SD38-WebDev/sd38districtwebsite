@@ -10,7 +10,7 @@ dependencies:
     - rsd_district
 third_party_settings:
   block_class:
-    classes: 'my-3 '
+    classes: 'my-3  '
   block_class_select:
     selected_classes: ''
 _core:
@@ -29,6 +29,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: '<front>'
+    pages: "<front>\r\n/*/strategic-plan\r\n/*/strategic-plan/*"
     negate: true
     context_mapping: {  }

@@ -1,0 +1,8 @@
+uuid: 3b5cdf04-1ed7-4220-921f-bc2216de6fbe
+langcode: en
+status: true
+dependencies: {  }
+id: alternate_page_section_title
+label: 'Alternate Page/Section Title'
+revision: 0
+description: 'Place these blocks in the ''Featured Top'' region.'

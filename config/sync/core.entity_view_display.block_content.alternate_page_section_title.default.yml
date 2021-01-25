@@ -1,0 +1,74 @@
+uuid: 11a2c7df-67db-4146-975e-fb8257b1e092
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.alternate_page_section_title
+    - field.field.block_content.alternate_page_section_title.field_title
+  module:
+    - ds
+third_party_settings:
+  ds:
+    layout:
+      id: bs_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes: {  }
+          add_layout_class: 0
+          attributes: ''
+        regions:
+          main:
+            wrapper: div
+            classes: {  }
+            add_region_classes: 0
+            attributes: 'class|my-3 block-page-title-block'
+    regions:
+      main:
+        - field_title
+id: block_content.alternate_page_section_title.default
+targetEntityType: block_content
+bundle: alternate_page_section_title
+mode: default
+content:
+  field_title:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: h1
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
+    type: string
+    region: main
+hidden: {  }

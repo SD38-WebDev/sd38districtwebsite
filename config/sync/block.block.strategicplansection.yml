@@ -1,0 +1,35 @@
+uuid: 345d11ed-6350-44ad-a1da-82007e9961dc
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:alternate_page_section_title:ad997be3-b1dd-43fd-9125-d05e53870330'
+  module:
+    - block_class_select
+    - block_content
+    - system
+  theme:
+    - rsd_district
+third_party_settings:
+  block_class_select:
+    selected_classes: ''
+id: strategicplansection
+theme: rsd_district
+region: featured_top
+weight: 0
+provider: null
+plugin: 'block_content:ad997be3-b1dd-43fd-9125-d05e53870330'
+settings:
+  id: 'block_content:ad997be3-b1dd-43fd-9125-d05e53870330'
+  label: 'Strategic Plan Section'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "/*/strategic-plan\r\n/*/strategic-plan/*"
+    negate: false
+    context_mapping: {  }
