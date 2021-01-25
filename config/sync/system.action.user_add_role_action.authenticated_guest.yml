@@ -1,0 +1,14 @@
+uuid: 5e861c41-9797-49c3-9441-1ef442c8d015
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.authenticated_guest
+  module:
+    - user
+id: user_add_role_action.authenticated_guest
+label: 'Add the Authenticated Guest role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: authenticated_guest

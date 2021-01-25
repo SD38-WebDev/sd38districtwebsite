@@ -1,0 +1,14 @@
+uuid: 60c7074d-08fb-4fba-8dc4-ee626969d34a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.authenticated_guest
+  module:
+    - user
+id: user_remove_role_action.authenticated_guest
+label: 'Remove the Authenticated Guest role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: authenticated_guest

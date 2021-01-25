@@ -14,7 +14,7 @@ dependencies:
     - rsd_district
 third_party_settings:
   block_class:
-    classes: 'float-sm-right '
+    classes: 'float-sm-right  '
   block_class_select:
     selected_classes: ''
 id: mainnavigation_8
@@ -48,6 +48,6 @@ visibility:
       node: '@node.node_route_context:node'
   request_path:
     id: request_path
-    pages: "/our-district/our-story\r\n/our-district/our-district-story\r\n/our-district/our-district-story/*"
+    pages: "/our-district/about-us\r\n/our-district/about-us/*\r\n/our-district/our-story\r\n/our-district/our-district-story\r\n/our-district/our-district-story/*"
     negate: false
     context_mapping: {  }

@@ -30,6 +30,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/our-district/our-story\r\n/our-district/our-district-story\r\n/our-district/our-district-story/*"
+    pages: "/our-district/about-us\r\n/our-district/about-us/*\r\n/our-district/our-story\r\n/our-district/our-district-story\r\n/our-district/our-district-story/*"
     negate: false
     context_mapping: {  }
