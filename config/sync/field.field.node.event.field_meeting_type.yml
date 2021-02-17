@@ -1,0 +1,21 @@
+uuid: 715453a9-9db6-416a-89a1-4221772634fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meeting_type
+    - node.type.event
+  module:
+    - options
+id: node.event.field_meeting_type
+field_name: field_meeting_type
+entity_type: node
+bundle: event
+label: 'Meeting Type'
+description: 'If this event pertains to a board of committee meeting, you must select one of the options above.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

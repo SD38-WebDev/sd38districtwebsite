@@ -4,11 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.event.body
+    - field.field.node.event.field_attachments
     - field.field.node.event.field_board_meeting
     - field.field.node.event.field_event_date
     - field.field.node.event.field_event_location
     - field.field.node.event.field_image
     - field.field.node.event.field_location_reference
+    - field.field.node.event.field_meeting_type
     - image.style.x_large
     - node.type.event
   module:
@@ -59,6 +61,8 @@ third_party_settings:
             add_region_classes: 1
             attributes: ''
     regions:
+      top:
+        - field_board_meeting
       left:
         - field_image
       right:
@@ -66,10 +70,11 @@ third_party_settings:
         - field_event_date
         - body
         - field_location_reference
+        - field_attachments
     fields:
       node_title:
         plugin_id: node_title
-        weight: 1
+        weight: 2
         label: hidden
         formatter: default
 id: node.event.default
@@ -80,7 +85,7 @@ content:
   body:
     label: above
     type: text_default
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings:
       ds:
@@ -112,15 +117,52 @@ content:
             fi: false
             fi-def-at: false
     region: right
+  field_attachments:
+    weight: 6
+    label: above
+    settings:
+      link: true
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw: true
+            lbw-el: ''
+            lbw-cl: font-weight-bold
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    type: entity_reference_label
+    region: right
   field_board_meeting:
-    weight: 5
+    weight: 0
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
-    region: content
+    region: top
   field_event_date:
-    weight: 2
+    weight: 3
     label: above
     settings:
       timezone_override: ''
@@ -159,7 +201,7 @@ content:
     type: smartdate_default
     region: right
   field_image:
-    weight: 0
+    weight: 1
     label: hidden
     settings:
       image_style: x_large
@@ -168,7 +210,7 @@ content:
     type: image
     region: left
   field_location_reference:
-    weight: 4
+    weight: 5
     label: above
     settings:
       view_mode: default
@@ -207,4 +249,5 @@ content:
     region: right
 hidden:
   field_event_location: true
+  field_meeting_type: true
   links: true

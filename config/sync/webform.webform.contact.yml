@@ -1,6 +1,6 @@
 uuid: 1b7332be-ced5-4b9f-8035-698e12aa2fc8
 langcode: en
-status: open
+status: closed
 dependencies:
   enforced:
     module:
@@ -133,11 +133,10 @@ settings:
   results_disabled_ignore: false
   token_view: false
   token_update: false
+  results_customize: false
 access:
   create:
-    roles:
-      - anonymous
-      - authenticated
+    roles: {  }
     users: {  }
     permissions: {  }
   view_any:

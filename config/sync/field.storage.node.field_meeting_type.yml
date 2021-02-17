@@ -1,0 +1,36 @@
+uuid: c53025a2-dc12-431f-84f3-cd88952e5692
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_meeting_type
+field_name: field_meeting_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: policy_commitee_mtg
+      label: 'Policy Committee Meeting'
+    -
+      value: finance_legal_commitee_mtg
+      label: 'Finance and Legal Public Committee Meeting'
+    -
+      value: education_commitee_mtg
+      label: 'Education Public Committee Meeting'
+    -
+      value: facilities_commitee_mtg
+      label: 'Facilities and Building Committee Meeting'
+    -
+      value: board_mtg
+      label: 'Board Meeting'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
