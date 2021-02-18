@@ -1,0 +1,8 @@
+uuid: 6f2a4958-4c89-45ce-b8dd-e5505259dd56
+langcode: en
+status: true
+dependencies: {  }
+id: video_gallery_block
+label: 'Video Gallery Block'
+revision: 0
+description: ''

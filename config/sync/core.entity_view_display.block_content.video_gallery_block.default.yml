@@ -1,14 +1,14 @@
-uuid: 5ad90c85-3ab4-48dc-ba1f-ac01b57a8f77
+uuid: c174d453-b72e-4ebb-b637-2b3491ef74fa
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.media.remote_video.field_media_oembed_video
-    - field.field.media.remote_video.field_tags
-    - media.type.remote_video
+    - block_content.type.video_gallery_block
+    - field.field.block_content.video_gallery_block.body
+    - field.field.block_content.video_gallery_block.field_video
   module:
     - ds
-    - media
+    - text
 third_party_settings:
   ds:
     layout:
@@ -33,23 +33,30 @@ third_party_settings:
             attributes: ''
     regions:
       main:
-        - field_media_oembed_video
-_core:
-  default_config_hash: gUaDZKMQD3lmLKWPn727X3JHVdKJ525g4EJCCcDVAqk
-id: media.remote_video.default
-targetEntityType: media
-bundle: remote_video
+        - body
+        - field_video
+id: block_content.video_gallery_block.default
+targetEntityType: block_content
+bundle: video_gallery_block
 mode: default
 content:
-  field_media_oembed_video:
-    type: oembed
+  body:
+    label: hidden
+    type: text_default
     weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: main
+  field_video:
+    type: entity_reference_entity_view
+    weight: 1
     label: hidden
     settings:
-      max_width: 600
-      max_height: 0
+      view_mode: default
+      link: false
     third_party_settings:
       ds:
+        ds_limit: ''
         ft:
           id: expert
           settings:
@@ -58,29 +65,24 @@ content:
             lbw-el: ''
             lbw-cl: ''
             lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
+            ow: true
+            ow-el: div
+            ow-cl: row
             ow-at: ''
             fis-el: ''
             fis-cl: ''
             fis-at: ''
             fi: true
             fi-el: div
-            fi-cl: 'embed-responsive embed-responsive-16by9'
+            fi-cl: col
             fi-at: ''
             suffix: ''
             lbw: false
             lb-col: false
-            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis: false
             fis-def-at: false
             fi-def-at: false
     region: main
-hidden:
-  created: true
-  field_tags: true
-  name: true
-  thumbnail: true
-  uid: true
+hidden: {  }
