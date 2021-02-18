@@ -7,6 +7,29 @@
 /** Layout **/
 /************/
 
+body.pink-shirt-day #main-wrapper,
+body.pink-shirt-day #page,
+body.pink-shirt-day #navbar-main,
+body.pink-shirt-day #page-wrapper .breadcrumb {
+	background-color: #fff8fc !important;
+}
+
+body.pink-shirt-day #navbar-top {
+	background-color: #ea91bf;
+}
+
+body.pink-shirt-day .featured-bottom {
+	background-color: #fbe4f0;
+}
+
+body.pink-shirt-day .site-footer {
+	background-color: #f6cbe1;
+}
+
+body.pink-shirt-day .copyright-footer {
+	background-color: #ea91bf;
+}
+
 .bs-region .block {
 	margin-bottom: 2rem;
 }
@@ -540,7 +563,7 @@ button.navbar-toggler {
 }
 
 .home-events-grid .event .wrapper {
-	background: linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(37,63,142,0.05) 100%);
+	background: linear-gradient(0deg, rgba(255,255,255,1) 70%, rgba(242,246,252,1) 100%);
 	border-radius: 0.625rem !important;
 	overflow: hidden;
 	box-shadow: 0 7px 25px 0 rgba(0,0,0,0.03),0 4px 12px 0 rgba(0,0,0,0.03);
@@ -1584,57 +1607,83 @@ li:hover .edit-link {
 }
 
 .edweek.edweek-nav .day1,
-.edweek.day-header.day1 {
-	background-color: #edf2fa;
-}
-
 .edweek.edweek-nav .day2,
-.edweek.day-header.day2 {
-	background-color: #edf9f8;
-}
-
 .edweek.edweek-nav .day3,
-.edweek.day-header.day3 {
-	background-color: #fef2f9;
-}
-
 .edweek.edweek-nav .day4,
-.edweek.day-header.day4 {
-	background-color: #fffee3;
-}
-
-.edweek.edweek-nav .day5,
-.edweek.day-header.day5 {
-	background-color: #edf9fe;
+.edweek.edweek-nav .day5 {
+	background-color: rgba(0, 0, 0, 0.05);
 }
 
 .edweek.edweek-nav .day1 .event-title,
-.edweek.day1 .event-title {
+.edweek.edweek-nav .day2 .event-title,
+.edweek.edweek-nav .day3 .event-title,
+.edweek.edweek-nav .day4 .event-title,
+.edweek.edweek-nav .day5 .event-title {
+	color: #bcbcbc !important;
+}
+
+
+body.edweek .edweek.edweek-nav .day1,
+body.edweek-day1 .edweek-nav .day1,
+body.edweek .edweek.day-header.day1 {
+	background-color: #edf2fa;
+}
+
+body.edweek .edweek.edweek-nav .day2,
+body.edweek-day2 .edweek-nav .day2,
+body.edweek .edweek.day-header.day2 {
+	background-color: #edf9f8;
+}
+
+body.edweek .edweek.edweek-nav .day3,
+body.edweek-day3 .edweek-nav .day3,
+body.edweek .edweek.day-header.day3 {
+	background-color: #fef2f9;
+}
+
+body.edweek .edweek.edweek-nav .day4,
+body.edweek-day4 .edweek-nav .day4,
+body.edweek .edweek.day-header.day4 {
+	background-color: #fffee3;
+}
+
+body.edweek .edweek.edweek-nav .day5,
+body.edweek-day5 .edweek-nav .day5,
+body.edweek .edweek.day-header.day5 {
+	background-color: #edf9fe;
+}
+
+body.edweek .edweek.edweek-nav .day1 .event-title,
+body.edweek-day1 .edweek.edweek-nav .day1 .event-title,
+body.edweek .edweek.day1 .event-title {
 	color: #0047ba !important;
 }
 
-.edweek.edweek-nav .day2 .event-title,
-.edweek.day2 .event-title {
+body.edweek .edweek.edweek-nav .day2 .event-title,
+body.edweek-day2 .edweek.edweek-nav .day2 .event-title,
+body.edweek .edweek.day2 .event-title {
 	color: #00af9a !important;
 }
 
-.edweek.edweek-nav .day3 .event-title,
-.edweek.day3 .event-title {
+body.edweek .edweek.edweek-nav .day3 .event-title,
+body.edweek-day3 .edweek.edweek-nav .day3 .event-title,
+body.edweek .edweek.day3 .event-title {
 	color: #ec008c !important;
 }
 
-.edweek.edweek-nav .day4 .event-title,
-.edweek.day4 .event-title {
+body.edweek .edweek.edweek-nav .day4 .event-title,
+body.edweek-day4 .edweek.edweek-nav .day4 .event-title,
+body.edweek .edweek.day4 .event-title {
 	color: #fcb316 !important;
 }
 
-.edweek.edweek-nav .day5 .event-title,
-.edweek.day5 .event-title {
+body.edweek .edweek.edweek-nav .day5 .event-title,
+body.edweek-day5 .edweek.edweek-nav .day5 .event-title,
+body.edweek .edweek.day5 .event-title {
 	color: #00aeef !important;
 }
 
-.edweek.edweek-nav .date,
-.edweek.edweek-nav .day,
+
 .edweek.edweek-nav .event-title {
 	display: block;
 }
@@ -1642,17 +1691,19 @@ li:hover .edit-link {
 .edweek.edweek-nav .date {
 	font-weight: 800;
 	color: black !important;
+	font-size: 0.95rem;
 }
 
 .edweek.edweek-nav .day,
 .edweek .day {
 	font-weight: 800;
 	color: black !important;
-	font-size: 1.85rem;
+	font-size: 0.95rem;
 }
 
 .edweek.edweek-nav .event-title,
 .edweek .event-title {
+	margin-top: 0.5rem;
 	font-weight: 800;
 	text-transform: uppercase;
 	font-size: 1.5rem;
