@@ -5,7 +5,7 @@ features:
   favicon: true
 logo:
   use_default: false
-  path: 'public://LogoHeader_0.png'
+  path: 'public://LogoHeader-pinkshirtday.png'
 favicon:
   use_default: false
   path: 'public://favicon.ico'
@@ -106,3 +106,7 @@ bootstrap_barrio_region_class_ds_ticker: row
 bootstrap_barrio_navbar_top_class: ''
 bootstrap_barrio_navbar_class: ''
 bootstrap_barrio_bootstrap_icons: 0
+bootstrap_barrio_region_clean_news_panel_carousel: 0
+bootstrap_barrio_region_class_news_panel_carousel: row
+bootstrap_barrio_region_clean_news_panel_articles: 0
+bootstrap_barrio_region_class_news_panel_articles: row

@@ -121,7 +121,8 @@ content:
     weight: 6
     label: above
     settings:
-      link: true
+      view_mode: full
+      link: false
     third_party_settings:
       ds:
         ds_limit: ''
@@ -152,7 +153,7 @@ content:
             fis-def-at: false
             fi: false
             fi-def-at: false
-    type: entity_reference_label
+    type: entity_reference_entity_view
     region: right
   field_board_meeting:
     weight: 0

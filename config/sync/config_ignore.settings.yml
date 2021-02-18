@@ -1,4 +1,7 @@
 ignored_config_entities:
+  - rsd_district.settings
+  - color.theme.rsd_district
+  - block.block.mainnavigation
   - block.block.rsd_district_page_title
   - block.block.educationweek2021sectiontitle
   - block.block.strategicplan20202025
