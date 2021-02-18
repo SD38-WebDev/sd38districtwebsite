@@ -309,6 +309,13 @@ body.our-district-story #page-wrapper .block-page-title-block h1 {
 }
 
 
+/******************************/
+/** Embedded Media - iframes **/
+/******************************/
+
+.block-layout-builder iframe {
+	max-width: 100%;
+}
 
 /*******************************/
 /** Home Page Carousel Styles **/
