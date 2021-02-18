@@ -4,12 +4,14 @@ status: true
 dependencies:
   config:
     - block_content.type.image_gallery_block
+    - field.field.block_content.image_gallery_block.body
     - field.field.block_content.image_gallery_block.field_gallery_image
     - image.style.image_gallery_crop
     - image.style.max_1300x1300
   module:
     - colorbox
     - ds
+    - text
 third_party_settings:
   ds:
     layout:
@@ -34,14 +36,22 @@ third_party_settings:
             attributes: ''
     regions:
       main:
+        - body
         - field_gallery_image
 id: block_content.image_gallery_block.default
 targetEntityType: block_content
 bundle: image_gallery_block
 mode: default
 content:
-  field_gallery_image:
+  body:
     weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: main
+  field_gallery_image:
+    weight: 1
     label: hidden
     settings:
       colorbox_node_style: image_gallery_crop
@@ -71,7 +81,7 @@ content:
             fis-at: ''
             fi: true
             fi-el: div
-            fi-cl: 'col-12 col-sm-3'
+            fi-cl: col
             fi-at: ''
             suffix: ''
             lbw: false

@@ -4,15 +4,27 @@ status: true
 dependencies:
   config:
     - block_content.type.image_gallery_block
+    - field.field.block_content.image_gallery_block.body
     - field.field.block_content.image_gallery_block.field_gallery_image
     - image.style.thumbnail
   module:
     - image
+    - text
 id: block_content.image_gallery_block.default
 targetEntityType: block_content
 bundle: image_gallery_block
 mode: default
 content:
+  body:
+    weight: 27
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
   field_gallery_image:
     weight: 26
     settings:
