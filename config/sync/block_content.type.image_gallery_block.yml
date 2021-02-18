@@ -1,0 +1,8 @@
+uuid: f23b9b41-7e8f-4a54-a418-119ba1d5d31c
+langcode: en
+status: true
+dependencies: {  }
+id: image_gallery_block
+label: 'Image Gallery Block'
+revision: 0
+description: ''

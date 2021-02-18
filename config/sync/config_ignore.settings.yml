@@ -1,4 +1,5 @@
 ignored_config_entities:
+  - block.block.rsd_district_page_title
   - block.block.educationweek2021sectiontitle
   - block.block.strategicplan20202025
 _core:
