@@ -8,6 +8,7 @@ dependencies:
     - field.field.block_content.image_gallery_block.field_gallery_image
     - image.style.thumbnail
   module:
+    - filefield_sources
     - image
     - text
 id: block_content.image_gallery_block.default
@@ -28,9 +29,24 @@ content:
   field_gallery_image:
     weight: 26
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+      progress_indicator: throbber
+    third_party_settings:
+      filefield_sources:
+        filefield_sources:
+          sources:
+            upload: true
+            remote: true
+            reference: true
+            attach: true
+            clipboard: false
+          source_reference:
+            autocomplete: '0'
+            search_all_fields: '0'
+          source_attach:
+            path: file_attach
+            absolute: 0
+            attach_mode: move
     type: image_image
     region: content
   info:

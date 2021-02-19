@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1efb30cba37e679d008799711d2d46c4",
+    "content-hash": "0eff019d697d07318f6d1f14c4378674",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5124,6 +5124,66 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/file_delete",
                 "issues": "https://www.drupal.org/project/issues/file_delete"
+            }
+        },
+        {
+            "name": "drupal/filefield_sources",
+            "version": "1.0.0-alpha4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/filefield_sources.git",
+                "reference": "8.x-1.0-alpha4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/filefield_sources-8.x-1.0-alpha4.zip",
+                "reference": "8.x-1.0-alpha4",
+                "shasum": "6a5941a62b0f7028264b18eba04754f1c5c3544a"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "require-dev": {
+                "drupal/imce": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-alpha4",
+                    "datestamp": "1604947958",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Nate Lampton (quicksketch)",
+                    "homepage": "https://www.drupal.org/u/quicksketch",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Andrey Khromyshev (profak)",
+                    "homepage": "https://www.drupal.org/u/profak",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "David Valdez (gnuget)",
+                    "homepage": "https://www.drupal.org/u/gnuget",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Extends File fields to allow referencing of existing files, remote files, and server files.",
+            "homepage": "https://www.drupal.org/project/filefield_sources",
+            "support": {
+                "source": "https://git.drupalcode.org/project/filefield_sources",
+                "issues": "https://www.drupal.org/project/issues/filefield_sources",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
             }
         },
         {
@@ -13798,6 +13858,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/filefield_sources": 15,
         "drupal/menu_block": 20
     },
     "prefer-stable": true,
