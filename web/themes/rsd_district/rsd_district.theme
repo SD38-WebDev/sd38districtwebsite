@@ -15,6 +15,12 @@ use Drupal\Core\Form\FormStateInterface;
  * Example on how to alter theme settings form
  * 
  */
+
+function rsd_district_preprocess_html(&$variables) {
+  $variables['attributes']['class'][] = 'pink-shirt-day';
+}
+ 
+ 
 function rsd_district_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
   $form['components']['navbar']['rsd_district_navbar_top_background']['#options'] = array(
       'bg-primary' => t('Primary'),
