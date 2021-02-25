@@ -16,9 +16,11 @@ use Drupal\Core\Form\FormStateInterface;
  * 
  */
 
+/*
 function rsd_district_preprocess_html(&$variables) {
   $variables['attributes']['class'][] = 'pink-shirt-day';
 }
+*/
  
  
 function rsd_district_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
