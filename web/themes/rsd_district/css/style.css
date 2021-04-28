@@ -979,6 +979,10 @@ section.section > .block-views {
 	width: 100%;
 }
 
+.accordion a {
+	text-align: left !important;
+}
+
 body.staff-directory .accordion .card-header {
 	padding: 0.1rem 0.3rem;
 }
