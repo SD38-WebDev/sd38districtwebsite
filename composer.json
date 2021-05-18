@@ -18,7 +18,7 @@
     "require": {
         "php": ">=7.0.8",
         "composer/installers": "^1.2",
-        "cweagans/composer-patches": "^1.6",
+        "cweagans/composer-patches": "^1.7",
         "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/addanother": "^1.0",
         "drupal/address": "^1.8",
@@ -99,8 +99,7 @@
         "enyo/dropzone": "^5.5",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
-        "webmozart/path-util": "^2.3",
-        "zaporylie/composer-drupal-optimizations": "^1.0"
+        "webmozart/path-util": "^2.3"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8"
@@ -154,10 +153,10 @@
         },
         "patches": {
             "drupal/custom_body_class:^1.2": {
-                "Patch to fix fatal errors on node revisions": "https://www.drupal.org/files/issues/2019-01-05/get-error-when-revert-node-2997700-3.patch"     
+                "Patch to fix fatal errors on node revisions": "https://www.drupal.org/files/issues/2019-01-05/get-error-when-revert-node-2997700-3.patch"
             },
             "drupal/menu_block": {
-                "Add links to menu parent block title": "https://www.drupal.org/files/issues/2020-05-03/2950943-33.patch"     
+                "Add links to menu parent block title": "https://www.drupal.org/files/issues/2020-05-03/2950943-33.patch"
             }
         }
     }
