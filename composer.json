@@ -17,9 +17,8 @@
     ],
     "require": {
         "php": ">=7.0.8",
-        "composer/installers": "^1.2",
+        "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.7",
-        "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/addanother": "^1.0",
         "drupal/address": "^1.8",
         "drupal/admin_toolbar": "^2.0",
@@ -41,7 +40,7 @@
         "drupal/config_ignore": "^2.3",
         "drupal/config_installer": "^1.8",
         "drupal/console": "^1.0.2",
-        "drupal/core": "^8.7.0",
+        "drupal/console-extend-plugin": "0.9.5",
         "drupal/ctools": "^3.4",
         "drupal/custom_body_class": "^1.2",
         "drupal/date_popup": "^1.0",
@@ -146,10 +145,9 @@
             "drush/Commands/contrib/{$name}": ["type:drupal-drush"]
         },
         "drupal-scaffold": {
-            "initial": {
-                ".editorconfig": "../.editorconfig",
-                ".gitattributes": "../.gitattributes"
-            }
+              "locations": {
+              "web-root": "web/"
+          }
         },
         "patches": {
             "drupal/custom_body_class:^1.2": {
