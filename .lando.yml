@@ -1,0 +1,4 @@
+name: sd38-district-website
+recipe: platformsh
+config:
+  id: 4rgkkoz2zwote
