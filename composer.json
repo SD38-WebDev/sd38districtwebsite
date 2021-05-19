@@ -146,8 +146,8 @@
             "drush/Commands/contrib/{$name}": ["type:drupal-drush"]
         },
         "drupal-scaffold": {
-              "locations": {
-              "web-root": "web/"
+          "locations": {
+            "web-root": "web/"
           }
         },
         "patches": {
