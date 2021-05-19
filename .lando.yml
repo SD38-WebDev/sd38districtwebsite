@@ -1,5 +1,5 @@
 name: sd38-district-website
-recipe: drupal8
+recipe: platformsh
 config:
   id: 4rgkkoz2zwote
   webroot: web
