@@ -29,6 +29,7 @@
         "drupal/bg_image_formatter": "^1.14",
         "drupal/block_class": "^1.1",
         "drupal/block_class_select": "^1.1",
+        "drupal/bootstrap_barrio": "^4.33",
         "drupal/bootstrap_datetime_picker": "^1.2",
         "drupal/bootstrap_layouts": "^5.1",
         "drupal/bootstrap_library": "^1.11",
@@ -57,9 +58,9 @@
         "drupal/entity_embed": "^1.1",
         "drupal/field_group": "^3.0",
         "drupal/file_delete": "^1.0",
-        "drupal/filefield_sources": "^1.0@alpha",
+        "drupal/filefield_sources": "1.x-dev@dev",
         "drupal/fontyourface": "^3.2",
-        "drupal/fullcalendar_view": "^4.2",
+        "drupal/fullcalendar_view": "^5.0",
         "drupal/google_analytics": "^2.4",
         "drupal/gtranslate": "^1.13",
         "drupal/honeypot": "^2.0",
@@ -83,7 +84,7 @@
         "drupal/semanticviews": "^2.2",
         "drupal/slick": "^2.1",
         "drupal/slick_views": "^2.1",
-        "drupal/smart_date": "^2.4",
+        "drupal/smart_date": "^3.2",
         "drupal/social_media_links": "^2.6",
         "drupal/summary_word_limit": "^1.0",
         "drupal/template_whisperer": "^2.3",
@@ -154,8 +155,8 @@
             "drupal/custom_body_class:^1.2": {
                 "Patch to fix fatal errors on node revisions": "https://www.drupal.org/files/issues/2019-01-05/get-error-when-revert-node-2997700-3.patch"
             },
-            "drupal/menu_block": {
-                "Add links to menu parent block title": "https://www.drupal.org/files/issues/2020-05-03/2950943-33.patch"
+            "drupal/filefield_sources:1.x-dev@dev": {
+                "Deprecated function: Cannot use parent when current class scope has no parent": "https://www.drupal.org/files/issues/2020-06-12/3151023-fix-entity-type-manager-dependency-injection.patch"
             }
         }
     }
