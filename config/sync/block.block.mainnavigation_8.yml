@@ -32,11 +32,12 @@ settings:
   follow_parent: child
   level: 1
   depth: 1
-  expand: false
+  expand_all_items: false
   parent: 'main:menu_link_content:dbe155f3-2400-41ab-bd8e-af0706229618'
   suggestion: sectionmenu
   label_type: block
   label_link: false
+  expand: false
 visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'

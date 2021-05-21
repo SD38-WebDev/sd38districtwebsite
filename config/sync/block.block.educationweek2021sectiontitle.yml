@@ -1,0 +1,35 @@
+uuid: 6f81d26d-4a15-4baf-a969-35b2f5f76c4a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:alternate_page_section_title:814736ef-847f-4624-880c-30d9fa94c535'
+  module:
+    - block_class_select
+    - block_content
+    - system
+  theme:
+    - rsd_district
+third_party_settings:
+  block_class_select:
+    selected_classes: ''
+id: educationweek2021sectiontitle
+theme: rsd_district
+region: featured_top
+weight: 0
+provider: null
+plugin: 'block_content:814736ef-847f-4624-880c-30d9fa94c535'
+settings:
+  id: 'block_content:814736ef-847f-4624-880c-30d9fa94c535'
+  label: 'Education Week 2021 - Section Title'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "/our-district/education-week-2021\r\n/our-district/education-week-2021*\r\n/our-district/education-week-2021*/*"
+    negate: false
+    context_mapping: {  }

@@ -1723,3 +1723,9 @@ body.edweek .edweek.day5 .event-title {
 .edweek .event-title .day {
 	text-transform: none;
 }
+
+/** Paragraph Styles **/
+
+.paragraph--type-basic-text-section {
+	background-color: lightblue;
+}

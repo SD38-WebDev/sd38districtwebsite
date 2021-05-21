@@ -161,22 +161,24 @@
               <main{{ content_attributes }}>
                 <section class="section">
                 	<div id="sd38-news-panel" class="container">
-						<div class="row">
-						    <div class="news-panel news-panel-1 col-lg-8">
-						            {{ page.news_panel_carousel }}
-						    </div>
-						    <div class="news-panel news-panel-2 col-lg-4">
-						        {{ page.news_panel_articles }}
-						    </div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-12">
-						<div class="float-right p-3">
-							<a href="news" class="" title="News Archive">View News Archive</a>
-						</div>
-						</div>
-					</div>
+				            <div class="row">
+      						    <div class="news-panel news-panel-1 col-lg-8">
+      						            {{ page.news_panel_carousel }}
+      						    </div>
+      						    <div class="news-panel news-panel-2 col-lg-4">
+      						        {{ page.news_panel_articles }}
+      						    </div>
+				            </div>
+					         </div>
+                   <div class="container">
+          					<div class="row">
+          						<div class="col-12">
+          						<div class="float-right p-3">
+          							<a href="news" class="" title="News Archive">View News Archive</a>
+          						</div>
+          						</div>
+          					</div>
+                    </div>
 					<a id="main-content" tabindex="-1"></a>
                   {{ page.content }}
                 </section>
@@ -187,7 +189,7 @@
     </div>
     {% if page.featured_bottom_first or page.featured_bottom_second or page.featured_bottom_third %}
       <div class="featured-bottom">
-        <aside class="{{ container }} clearfix" role="complementary">
+        <aside class="container clearfix" role="complementary">
           {{ page.featured_bottom_first }}
           {{ page.featured_bottom_second }}
           {{ page.featured_bottom_third }}
@@ -195,6 +197,7 @@
       </div>
     {% endif %}
     <footer class="site-footer">
+    <div class="container">
       {% block footer %}
         <div class="{{ container }}">
           {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
@@ -214,11 +217,12 @@
 #}
         </div>
       {% endblock %}
+      </div>
       <div class="address-footer">
 	  		Richmond School District, 7811 Granville Avenue, Richmond BC, V6Y 3E3 | <a href="contact">Contact Us</a>
       </div>
       <div class="copyright-footer">
-	  		Developed and powered by School District No. 38 (Richmond). Copyright &copy; {{ 'now' | date('Y') }}. 
+	  		Developed and powered by School District No. 38 (Richmond). Copyright &copy; {{ 'now' | date('Y') }}.
       </div>
     </footer>
   </div>

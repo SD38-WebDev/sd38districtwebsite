@@ -27,9 +27,10 @@ settings:
   follow_parent: child
   level: 1
   depth: 1
-  expand: false
+  expand_all_items: false
   parent: 'main:menu_link_content:b904b8ab-63bf-47b2-8076-40324492fb59'
   suggestion: main
   label_type: fixed
   label_link: true
+  expand: false
 visibility: {  }

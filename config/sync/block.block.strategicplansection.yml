@@ -2,11 +2,8 @@ uuid: 345d11ed-6350-44ad-a1da-82007e9961dc
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:alternate_page_section_title:ad997be3-b1dd-43fd-9125-d05e53870330'
   module:
     - block_class_select
-    - block_content
     - system
   theme:
     - rsd_district

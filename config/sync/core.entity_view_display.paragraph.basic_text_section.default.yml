@@ -1,0 +1,69 @@
+uuid: c23249be-17ba-4c40-a61e-d08081d60b51
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.basic_text_section.field_section_content
+    - paragraphs.paragraphs_type.basic_text_section
+  module:
+    - ds
+    - field_group
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: bs_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 0
+          attributes: ''
+        regions:
+          main:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      main:
+        - group_container
+        - field_section_content
+  field_group:
+    group_container:
+      children:
+        - field_section_content
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      region: main
+      format_settings:
+        id: ''
+        classes: container
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: Container
+id: paragraph.basic_text_section.default
+targetEntityType: paragraph
+bundle: basic_text_section
+mode: default
+content:
+  field_section_content:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: main
+hidden: {  }

@@ -147,7 +147,7 @@
     {% if page.featured_top %}
       {% block featured %}
         <div class="featured-top">
-          <aside class="featured-top__inner section {{ container }} clearfix" role="complementary">
+          <aside class="featured-top__inner section container clearfix" role="complementary">
             {{ page.featured_top }}
           </aside>
         </div>
@@ -159,10 +159,14 @@
           {{ page.breadcrumb }}
           <div class="row row-offcanvas row-offcanvas-left clearfix">
               <main{{ content_attributes }}>
+              <div class="row">
                 <section class="section">
                   <a id="main-content" tabindex="-1"></a>
+                  <div class="col">
                   {{ page.content }}
+                  </div>
                 </section>
+                </div>
               </main>
             {% if page.sidebar_first %}
               <div{{ sidebar_first_attributes }}>
@@ -184,7 +188,7 @@
     </div>
     {% if page.featured_bottom_first or page.featured_bottom_second or page.featured_bottom_third %}
       <div class="featured-bottom">
-        <aside class="{{ container }} clearfix" role="complementary">
+        <aside class="container clearfix" role="complementary">
           {{ page.featured_bottom_first }}
           {{ page.featured_bottom_second }}
           {{ page.featured_bottom_third }}
@@ -193,7 +197,7 @@
     {% endif %}
     <footer class="site-footer">
       {% block footer %}
-        <div class="{{ container }}">
+      <div class="container">
           {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
             <div class="row menu-footer site-footer__top clearfix">
               {{ page.footer_first }}
@@ -208,14 +212,14 @@
               {{ page.footer_fifth }}
             </div>
           {% endif %}
-#}
+#}        </div>
         </div>
       {% endblock %}
       <div class="address-footer">
 	  		Richmond School District, 7811 Granville Avenue, Richmond BC, V6Y 3E3 | <a href="contact">Contact Us</a>
       </div>
       <div class="copyright-footer">
-	  		Developed and powered by School District No. 38 (Richmond). Copyright &copy; {{ 'now' | date('Y') }}. 
+	  		Developed and powered by School District No. 38 (Richmond). Copyright &copy; {{ 'now' | date('Y') }}.
       </div>
     </footer>
   </div>

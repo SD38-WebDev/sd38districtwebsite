@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.field_body_2
+    - field.field.node.page.field_content_section
     - field.field.node.page.field_custom_template
     - field.field.node.page.field_feature_page
     - field.field.node.page.field_image
@@ -15,6 +16,7 @@ dependencies:
     - node.type.page
   module:
     - image
+    - paragraphs
     - path
     - template_whisperer
     - text
@@ -58,6 +60,18 @@ content:
       show_summary: false
     third_party_settings: {  }
     type: text_textarea_with_summary
+    region: content
+  field_content_section:
+    type: entity_reference_paragraphs
+    weight: 27
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
     region: content
   field_custom_template:
     weight: 14
