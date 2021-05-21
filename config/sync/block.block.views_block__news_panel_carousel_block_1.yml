@@ -6,6 +6,7 @@ dependencies:
     - views.view.news_panel_carousel
   module:
     - block_class_select
+    - system
     - views
   theme:
     - rsd_district
@@ -25,4 +26,9 @@ settings:
   label_display: visible
   views_label: ''
   items_per_page: none
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

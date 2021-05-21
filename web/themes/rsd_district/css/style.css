@@ -9,6 +9,10 @@
 /** Layout **/
 /************/
 
+.section {
+	flex: auto;
+}
+
 body.pink-shirt-day #main-wrapper,
 body.pink-shirt-day #page,
 body.pink-shirt-day #navbar-main,
@@ -930,7 +934,7 @@ section.section > .block-views {
 }
 
 .layout-main-wrapper {
-	padding: 0 0 2rem 0;
+	padding: 0;
 }
 
 .gtranslate select {

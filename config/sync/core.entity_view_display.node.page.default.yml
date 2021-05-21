@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.page.layout_builder__layout
     - node.type.page
   module:
+    - ds
     - entity_reference_revisions
     - image
     - layout_builder
@@ -25,6 +26,37 @@ third_party_settings:
   layout_builder:
     allow_custom: false
     enabled: false
+  ds:
+    layout:
+      id: bs_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          main:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      main:
+        - field_body_2
+        - field_feature_page
+        - field_image
+        - field_page_thumbnail_image
+        - body
+        - field_custom_template
+        - field_image_gallery
+        - field_content_section
 _core:
   default_config_hash: g1S3_GLaxq4l3I9RIca5Mlz02MxI2KmOquZpHw59akM
 id: node.page.default
@@ -34,37 +66,37 @@ mode: default
 content:
   body:
     type: text_default
-    weight: 2
-    region: content
+    weight: 5
+    region: main
     label: above
     settings: {  }
     third_party_settings: {  }
   field_body_2:
     type: text_summary_or_trimmed
-    weight: 0
-    region: content
+    weight: 1
+    region: main
     label: above
     settings:
       trim_length: 600
     third_party_settings: {  }
   field_content_section:
     type: entity_reference_revisions_entity_view
-    weight: 5
+    weight: 8
     label: above
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    region: content
+    region: main
   field_custom_template:
-    weight: 3
+    weight: 6
     label: above
     settings: {  }
     third_party_settings: {  }
     type: template_whisperer
-    region: content
+    region: main
   field_feature_page:
-    weight: 0
+    weight: 2
     label: above
     settings:
       format: default
@@ -72,17 +104,26 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
-    region: content
+    region: main
   field_image:
     type: responsive_image
-    weight: 0
-    region: content
+    weight: 3
+    region: main
     label: above
     settings:
       responsive_image_style: ''
       image_link: ''
     third_party_settings: {  }
   field_image_gallery:
+    weight: 7
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: main
+  field_page_thumbnail_image:
     weight: 4
     label: above
     settings:
@@ -90,16 +131,7 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
-    region: content
-  field_page_thumbnail_image:
-    weight: 1
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
+    region: main
 hidden:
   layout_builder__layout: true
   links: true

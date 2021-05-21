@@ -18,8 +18,8 @@ dependencies:
     - ds
     - entity_reference_revisions
     - field_group
-    - image
     - layout_builder
+    - responsive_image
     - text
     - user
 third_party_settings:
@@ -28,7 +28,7 @@ third_party_settings:
     enabled: false
   ds:
     layout:
-      id: bs_1col_stacked
+      id: bs_1col
       library: null
       disable_css: false
       entity_classes: all_classes
@@ -41,19 +41,7 @@ third_party_settings:
           add_layout_class: 0
           attributes: ''
         regions:
-          top:
-            wrapper: div
-            classes:
-              col-sm-12: col-sm-12
-            add_region_classes: 0
-            attributes: ''
           main:
-            wrapper: div
-            classes:
-              col-sm-12: col-sm-12
-            add_region_classes: 0
-            attributes: ''
-          bottom:
             wrapper: div
             classes:
               col-sm-12: col-sm-12
@@ -62,18 +50,16 @@ third_party_settings:
     regions:
       main:
         - group_container
-        - body
-        - group_row
-        - field_image
-        - field_body_2
-        - field_image_gallery
-      bottom:
-        - group_row2
         - field_content_section
+        - field_image
+        - body
+        - field_body_2
   field_group:
     group_container:
       children:
-        - group_row
+        - field_image
+        - body
+        - field_body_2
       parent_name: ''
       weight: 0
       format_type: html_element
@@ -90,15 +76,11 @@ third_party_settings:
         classes: container
       label: Container
     group_row:
-      children:
-        - body
-        - field_image
-        - field_body_2
-        - field_image_gallery
-      parent_name: group_container
-      weight: 2
+      children: {  }
+      parent_name: ''
+      weight: 21
       format_type: html_element
-      region: main
+      region: hidden
       format_settings:
         id: ''
         classes: row
@@ -111,12 +93,11 @@ third_party_settings:
         speed: fast
       label: Row
     group_row2:
-      children:
-        - field_content_section
+      children: {  }
       parent_name: ''
-      weight: 1
+      weight: 22
       format_type: html_element
-      region: bottom
+      region: hidden
       format_settings:
         id: ''
         classes: row
@@ -137,77 +118,41 @@ mode: full_content_sections_
 content:
   body:
     type: text_default
-    weight: 1
+    weight: 20
     region: main
     label: hidden
     settings: {  }
     third_party_settings: {  }
   field_body_2:
-    type: text_default
-    weight: 3
+    type: text_trimmed
+    weight: 21
     region: main
     label: hidden
-    settings: {  }
+    settings:
+      trim_length: 600
     third_party_settings: {  }
   field_content_section:
     type: entity_reference_revisions_entity_view
-    weight: 2
+    weight: 3
+    region: main
     label: hidden
     settings:
       view_mode: default
       link: ''
-    third_party_settings:
-      ds:
-        ds_limit: ''
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow: true
-            ow-el: ''
-            ow-cl: ''
-            ow-at: 'style="flex:auto;"'
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi: false
-            fi-def-at: false
-    region: bottom
+    third_party_settings: {  }
   field_image:
-    type: image
-    weight: 2
+    type: responsive_image
+    weight: 19
     region: main
     label: hidden
     settings:
-      image_style: ''
+      responsive_image_style: ''
       image_link: ''
     third_party_settings: {  }
-  field_image_gallery:
-    weight: 4
-    label: hidden
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: main
 hidden:
   field_custom_template: true
   field_feature_page: true
+  field_image_gallery: true
   field_page_thumbnail_image: true
   layout_builder__layout: true
   links: true

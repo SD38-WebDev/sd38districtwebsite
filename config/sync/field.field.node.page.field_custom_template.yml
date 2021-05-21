@@ -25,4 +25,5 @@ settings:
       ods_our_focus: ods_our_focus
       ods_our_learning: ods_our_learning
       ods_our_story: ods_our_story
+      page_container_fluid: page_container_fluid
 field_type: template_whisperer
