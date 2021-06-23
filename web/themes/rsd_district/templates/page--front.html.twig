@@ -77,7 +77,9 @@
           <div class="container">
           {% endif %}
               {{ page.secondary_menu }}
+              <div class="col-12">
               {{ page.top_header }}
+              </div>
 					<div id="mobile-search" class="d-block d-sm-none" data-toggle="modal" data-target="#searchModal"><svg class="bi bi-search" width="1.25em" height="1.25em" viewBox="0 0 20 20" fill="white" xmlns="http://www.w3.org/2000/svg">
 						<path fill-rule="evenodd" d="M12.442 12.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"></path>
 						<path fill-rule="evenodd" d="M8.5 14a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM15 8.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" clip-rule="evenodd"></path></svg>
@@ -160,8 +162,8 @@
           <div class="row row-offcanvas row-offcanvas-left clearfix">
               <main{{ content_attributes }}>
                 <section class="section">
-                	<div id="sd38-news-panel" class="container">
-				            <div class="row">
+                	<div class="container">
+				            <div id="sd38-news-panel" class="row">
       						    <div class="news-panel news-panel-1 col-lg-8">
       						            {{ page.news_panel_carousel }}
       						    </div>
