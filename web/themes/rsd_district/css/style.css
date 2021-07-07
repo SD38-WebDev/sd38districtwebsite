@@ -1,4 +1,6 @@
-/** TESTING 123 **/
+#main-wrapper {
+	background-color: red !important;
+}
 /**
  * @file
  * Subtheme specific CSS.
