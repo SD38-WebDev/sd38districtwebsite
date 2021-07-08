@@ -42,6 +42,7 @@
         "drupal/config_installer": "^1.8",
         "drupal/console": "^1.0.2",
         "drupal/console-extend-plugin": "0.9.5",
+        "drupal/content_lock": "^2.2",
         "drupal/ctools": "^3.4",
         "drupal/custom_body_class": "^1.2",
         "drupal/date_popup": "^1.0",
