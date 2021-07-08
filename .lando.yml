@@ -3,3 +3,10 @@ recipe: platformsh
 config:
   id: 4rgkkoz2zwote
   webroot: web
+
+# These are tools that are commonly used during development for this template.
+tooling:
+  drush:
+    service: app
+  drupal:
+    service: app

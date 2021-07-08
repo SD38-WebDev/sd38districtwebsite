@@ -1,0 +1,31 @@
+uuid: 85489d40-ef46-4801-8488-a8b5783b2e3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content_section
+    - node.type.page
+    - paragraphs.paragraphs_type.basic_text_section
+  module:
+    - entity_reference_revisions
+id: node.page.field_content_section
+field_name: field_content_section
+entity_type: node
+bundle: page
+label: 'Content Section'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      basic_text_section: basic_text_section
+    target_bundles_drag_drop:
+      basic_text_section:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

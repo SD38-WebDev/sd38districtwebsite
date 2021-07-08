@@ -937,6 +937,7 @@ display:
         filter_groups: false
         fields: false
         sorts: false
+        css_class: false
       row:
         type: fields
         options:
@@ -1453,6 +1454,7 @@ display:
           expose:
             label: ''
           granularity: second
+      css_class: ''
     cache_metadata:
       max-age: -1
       contexts:

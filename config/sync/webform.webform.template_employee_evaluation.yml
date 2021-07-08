@@ -1,9 +1,12 @@
+uuid: 3444369f-fbff-4384-9601-f910bb668079
 langcode: en
 status: closed
 dependencies:
   enforced:
     module:
       - webform_templates
+_core:
+  default_config_hash: wWFpWiw5HN3yhWYj64IRjDm0wxrfpdL35kUTiFTtxmk
 open: null
 close: null
 weight: 0
@@ -179,6 +182,3 @@ access:
     permissions: {  }
 handlers: {  }
 variants: {  }
-uuid: 3444369f-fbff-4384-9601-f910bb668079
-_core:
-  default_config_hash: wWFpWiw5HN3yhWYj64IRjDm0wxrfpdL35kUTiFTtxmk

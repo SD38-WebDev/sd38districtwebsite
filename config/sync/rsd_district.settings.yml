@@ -5,17 +5,17 @@ features:
   favicon: true
 logo:
   use_default: false
-  path: 'public://LogoHeader-pinkshirtday.png'
+  path: 'public://LogoHeader_0.png'
 favicon:
   use_default: false
   path: 'public://favicon.ico'
   mimetype: image/vnd.microsoft.icon
 bootstrap_barrio_library: cdn
-bootstrap_barrio_fluid_container: 0
+bootstrap_barrio_fluid_container: 1
 bootstrap_barrio_region_clean_top_header: 0
 bootstrap_barrio_region_class_top_header: row
 bootstrap_barrio_region_clean_top_header_form: 0
-bootstrap_barrio_region_class_top_header_form: row
+bootstrap_barrio_region_class_top_header_form: ''
 bootstrap_barrio_region_clean_header: 1
 bootstrap_barrio_region_class_header: ''
 bootstrap_barrio_region_clean_header_form: 0

@@ -1,9 +1,12 @@
+uuid: 52cbb241-4af9-4fac-bde9-f0765a00c48d
 langcode: en
 status: closed
 dependencies:
   enforced:
     module:
       - webform_templates
+_core:
+  default_config_hash: WivzySV_6XSQM-1k0zsHN8Hs4zvZkDquEFyPBTe3eRE
 open: null
 close: null
 weight: 0
@@ -181,6 +184,7 @@ handlers:
   email_confirmation:
     id: email
     label: 'Email confirmation'
+    notes: ''
     handler_id: email_confirmation
     status: true
     conditions: {  }
@@ -213,9 +217,11 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+      exclude_attachments: false
   email_notification:
     id: email
     label: 'Email notification'
+    notes: ''
     handler_id: email_notification
     status: true
     conditions: {  }
@@ -248,7 +254,5 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+      exclude_attachments: false
 variants: {  }
-uuid: 52cbb241-4af9-4fac-bde9-f0765a00c48d
-_core:
-  default_config_hash: WivzySV_6XSQM-1k0zsHN8Hs4zvZkDquEFyPBTe3eRE

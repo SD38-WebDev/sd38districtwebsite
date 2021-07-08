@@ -1,9 +1,12 @@
+uuid: 31dfa2da-e96d-4cab-b280-32ac9870df49
 langcode: en
 status: closed
 dependencies:
   enforced:
     module:
       - webform_templates
+_core:
+  default_config_hash: 1M7lPkfMTwfSt0Rj9ULf9_-O6bYgMwZ3k9HUdljI9Ps
 open: null
 close: null
 weight: 0
@@ -181,6 +184,7 @@ handlers:
   email_notification:
     id: email
     label: 'Email Notification'
+    notes: ''
     handler_id: email_notification
     status: true
     conditions: {  }
@@ -213,7 +217,5 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+      exclude_attachments: false
 variants: {  }
-uuid: 31dfa2da-e96d-4cab-b280-32ac9870df49
-_core:
-  default_config_hash: 1M7lPkfMTwfSt0Rj9ULf9_-O6bYgMwZ3k9HUdljI9Ps

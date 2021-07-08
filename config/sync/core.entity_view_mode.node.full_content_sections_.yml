@@ -1,0 +1,10 @@
+uuid: 1280800e-25f7-4363-b9a4-30d1874ab8df
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.full_content_sections_
+label: 'Full content (Sections)'
+targetEntityType: node
+cache: true

@@ -29,6 +29,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "<front>\r\n/*/strategic-plan\r\n/*/strategic-plan/*"
+    pages: "<front>\r\n/*/strategic-plan*\r\n/*/strategic-plan*/*\r\n/our-district/education-week-2021\r\n/our-district/education-week-2021*\r\n/our-district/education-week-2021*/*"
     negate: true
     context_mapping: {  }

@@ -27,9 +27,10 @@ settings:
   follow_parent: child
   level: 1
   depth: 0
-  expand: false
+  expand_all_items: false
   parent: 'secondary-navigation:'
   suggestion: secondary_navigation
   label_type: block
   label_link: false
+  expand: false
 visibility: {  }

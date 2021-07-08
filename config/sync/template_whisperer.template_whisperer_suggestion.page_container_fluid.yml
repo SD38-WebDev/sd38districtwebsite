@@ -1,0 +1,7 @@
+uuid: 766475eb-15fa-4793-a859-ec7c4297d887
+langcode: en
+status: true
+dependencies: {  }
+id: page_container_fluid
+name: 'Page (full-width)'
+suggestion: page_container_fluid

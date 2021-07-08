@@ -31,7 +31,7 @@ settings:
   follow_parent: child
   level: 2
   depth: 1
-  expand: false
+  expand_all_items: false
   parent: 'main:'
   suggestion: subpages
   label_type: block

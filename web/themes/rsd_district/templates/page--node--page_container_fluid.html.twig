@@ -77,9 +77,7 @@
           <div class="container">
           {% endif %}
               {{ page.secondary_menu }}
-              <div class="col-12">
               {{ page.top_header }}
-              </div>
 					<div id="mobile-search" class="d-block d-sm-none" data-toggle="modal" data-target="#searchModal"><svg class="bi bi-search" width="1.25em" height="1.25em" viewBox="0 0 20 20" fill="white" xmlns="http://www.w3.org/2000/svg">
 						<path fill-rule="evenodd" d="M12.442 12.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"></path>
 						<path fill-rule="evenodd" d="M8.5 14a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM15 8.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" clip-rule="evenodd"></path></svg>
@@ -94,7 +92,7 @@
 					        </button>
 					      </div>
 					      <div class="modal-body">
-					        <div class="container-fluid">
+					        <div class="container">
 							    {{ page.search_modal }}
 					        </div>
 					      </div>
@@ -149,7 +147,7 @@
     {% if page.featured_top %}
       {% block featured %}
         <div class="featured-top">
-          <aside class="featured-top__inner section {{ container }} clearfix" role="complementary">
+          <aside class="featured-top__inner section container clearfix" role="complementary">
             {{ page.featured_top }}
           </aside>
         </div>
@@ -157,34 +155,35 @@
     {% endif %}
     <div id="main-wrapper" class="layout-main-wrapper clearfix">
       {% block content %}
-        <div id="main" class="{{ container }}">
+        <div id="main" class="container-fluid">
+        <div class="container">
           {{ page.breadcrumb }}
+        </div>
           <div class="row row-offcanvas row-offcanvas-left clearfix">
               <main{{ content_attributes }}>
+              <div class="row">
                 <section class="section">
-                	<div class="container">
-				            <div id="sd38-news-panel" class="row">
-      						    <div class="news-panel news-panel-1 col-lg-8">
-      						            {{ page.news_panel_carousel }}
-      						    </div>
-      						    <div class="news-panel news-panel-2 col-lg-4">
-      						        {{ page.news_panel_articles }}
-      						    </div>
-				            </div>
-					         </div>
-                   <div class="container">
-          					<div class="row">
-          						<div class="col-12">
-          						<div class="float-right p-3">
-          							<a href="news" class="" title="News Archive">View News Archive</a>
-          						</div>
-          						</div>
-          					</div>
-                    </div>
-					<a id="main-content" tabindex="-1"></a>
+                  <a id="main-content" tabindex="-1"></a>
+                  <div class="col">
                   {{ page.content }}
+                  </div>
                 </section>
+                </div>
               </main>
+            {% if page.sidebar_first %}
+              <div{{ sidebar_first_attributes }}>
+                <aside class="section" role="complementary">
+                  {{ page.sidebar_first }}
+                </aside>
+              </div>
+            {% endif %}
+            {% if page.sidebar_second %}
+              <div{{ sidebar_second_attributes }}>
+                <aside class="section" role="complementary">
+                  {{ page.sidebar_second }}
+                </aside>
+              </div>
+            {% endif %}
           </div>
         </div>
       {% endblock %}
@@ -199,9 +198,8 @@
       </div>
     {% endif %}
     <footer class="site-footer">
-    <div class="container">
       {% block footer %}
-        <div class="{{ container }}">
+      <div class="container">
           {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
             <div class="row menu-footer site-footer__top clearfix">
               {{ page.footer_first }}
@@ -216,10 +214,9 @@
               {{ page.footer_fifth }}
             </div>
           {% endif %}
-#}
+#}        </div>
         </div>
       {% endblock %}
-      </div>
       <div class="address-footer">
 	  		Richmond School District, 7811 Granville Avenue, Richmond BC, V6Y 3E3 | <a href="contact">Contact Us</a>
       </div>

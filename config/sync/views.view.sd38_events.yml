@@ -612,7 +612,7 @@ display:
           value:
             min: ''
             max: ''
-            value: today
+            value: now
             type: offset
           group: 1
           exposed: false
@@ -700,7 +700,7 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
-      css_class: home-events-grid
+      css_class: 'home-events-grid container'
       filter_groups:
         operator: AND
         groups:
