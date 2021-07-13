@@ -227,8 +227,16 @@ body #page-wrapper .block-page-title-block h1 {
 	color: rgba(37, 63, 143, 1);;
 	border-radius: 0.625rem;
 	padding: 1rem 2.25rem;
-	margin: 0rem -1.5rem 4rem -1.5rem;
+	margin: 0rem -2.5rem 4rem -2.5rem;
 	clear: both;
+}
+
+@media (max-width: 575.98px) {
+	body #page-wrapper .block-page-title-block h1 {
+		margin: 0rem -15px 4rem -15px;
+		padding: 1rem 15px;
+		border-radius: 0rem;
+	}
 }
 
 body.our-district-story #page-wrapper .block-page-title-block h1 {

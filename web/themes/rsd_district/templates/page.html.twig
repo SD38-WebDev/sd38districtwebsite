@@ -70,18 +70,20 @@
 <div id="page-wrapper">
   <div id="page">
     <header id="header" class="header" role="banner" aria-label="{{ 'Site header'|t}}">
-      {% block head %}
-        {% if page.secondary_menu or page.top_header or page.top_header_form %}
-          <nav{{ navbar_top_attributes }}>
-          {% if container_navbar %}
-          <div class="container">
-          {% endif %}
-              {{ page.secondary_menu }}
-              {{ page.top_header }}
-					<div id="mobile-search" class="d-block d-sm-none" data-toggle="modal" data-target="#searchModal"><svg class="bi bi-search" width="1.25em" height="1.25em" viewBox="0 0 20 20" fill="white" xmlns="http://www.w3.org/2000/svg">
-						<path fill-rule="evenodd" d="M12.442 12.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"></path>
-						<path fill-rule="evenodd" d="M8.5 14a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM15 8.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" clip-rule="evenodd"></path></svg>
-					</div>
+    {% block head %}
+      {% if page.secondary_menu or page.top_header or page.top_header_form %}
+        <nav{{ navbar_top_attributes }}>
+        {% if container_navbar %}
+        <div class="container">
+        {% endif %}
+            {{ page.secondary_menu }}
+            <div class="col-12">
+            {{ page.top_header }}
+            </div>
+        <div id="mobile-search" class="d-block d-sm-none" data-toggle="modal" data-target="#searchModal"><svg class="bi bi-search" width="1.25em" height="1.25em" viewBox="0 0 20 20" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M12.442 12.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"></path>
+          <path fill-rule="evenodd" d="M8.5 14a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM15 8.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" clip-rule="evenodd"></path></svg>
+        </div>
 					<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
 					  <div class="modal-dialog" role="document">
 					    <div class="modal-content">
@@ -156,20 +158,14 @@
     <div id="main-wrapper" class="layout-main-wrapper clearfix">
       {% block content %}
         <div id="main" class="container">
-        <div class="container">
           {{ page.breadcrumb }}
-        </div>
           <div class="row row-offcanvas row-offcanvas-left clearfix">
-              <main{{ content_attributes }}>
-              <div class="row">
-                <section class="section">
-                  <a id="main-content" tabindex="-1"></a>
-                  <div class="col">
-                  {{ page.content }}
-                  </div>
-                </section>
-                </div>
-              </main>
+          <main class="main-content order-last" id="content" role="main">
+            <section class="section">
+            <a id="main-content" tabindex="-1"></a>
+              {{ page.content }}
+            </section>
+          </main>
             {% if page.sidebar_first %}
               <div{{ sidebar_first_attributes }}>
                 <aside class="section" role="complementary">
@@ -198,8 +194,9 @@
       </div>
     {% endif %}
     <footer class="site-footer">
+    <div class="container">
       {% block footer %}
-      <div class="container">
+        <div class="{{ container }}">
           {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
             <div class="row menu-footer site-footer__top clearfix">
               {{ page.footer_first }}
@@ -208,21 +205,22 @@
               {{ page.footer_fourth }}
             </div>
           {% endif %}
-{#
+    {#
           {% if page.footer_fifth %}
             <div class="site-footer__bottom">
               {{ page.footer_fifth }}
             </div>
           {% endif %}
-#}        </div>
+    #}
         </div>
       {% endblock %}
+      </div>
       <div class="address-footer">
-	  		Richmond School District, 7811 Granville Avenue, Richmond BC, V6Y 3E3 | <a href="contact">Contact Us</a>
+        Richmond School District, 7811 Granville Avenue, Richmond BC, V6Y 3E3 | <a href="contact">Contact Us</a>
       </div>
       <div class="copyright-footer">
-	  		Developed and powered by School District No. 38 (Richmond). Copyright &copy; {{ 'now' | date('Y') }}.
+        Developed and powered by School District No. 38 (Richmond). Copyright &copy; {{ 'now' | date('Y') }}.
       </div>
     </footer>
-  </div>
-</div>
+    </div>
+    </div>
