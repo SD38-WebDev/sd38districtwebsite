@@ -1,6 +1,6 @@
 icon_base_uri: 'public://media-icons/generic'
 iframe_domain: ''
-oembed_providers_url: 'https://oembed.com/providers.json'
+oembed_providers_url: 'https://gist.githubusercontent.com/Berdir/75849d8b01bafbb15264bd93ced5a2f2/raw/3f20bd0a163f71fa46a1b80dc53fd08890dfc36e/providers.json'
 standalone_url: false
 _core:
   default_config_hash: PlWtVQXY5oKYZqCMPXh6SPamXagn5BoZqgAI8EY9WsY
