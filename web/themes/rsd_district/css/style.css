@@ -1292,7 +1292,7 @@ body.user-logged-in .event:hover .ops-links {
 	flex: 1 1 auto;
 	/* background: linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(37,63,142,0.05) 100%); */
 	flex-direction: column;
-	min-height: 20%;
+	min-height: 25%;
 	position: relative;
 }
 

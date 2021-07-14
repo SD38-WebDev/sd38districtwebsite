@@ -60,7 +60,7 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 5
+          items_per_page: 4
           offset: 0
       style:
         type: views_bootstrap_carousel
@@ -1316,7 +1316,7 @@ display:
           group_type: group
           admin_label: ''
           label: Posted
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -1360,7 +1360,7 @@ display:
           type: timestamp
           settings:
             date_format: custom
-            custom_date_format: 'l, F j, Y'
+            custom_date_format: 'F j, Y'
             timezone: ''
           group_column: value
           group_columns: {  }
