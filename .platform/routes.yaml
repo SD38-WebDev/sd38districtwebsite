@@ -15,3 +15,9 @@
 "https://www.{default}/":
     type: redirect
     to: "https://{default}/"
+
+"https://main-bvxea6i-4rgkkoz2zwote.ca-1.platformsh.site":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
