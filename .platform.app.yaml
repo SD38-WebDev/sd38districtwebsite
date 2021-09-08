@@ -17,7 +17,9 @@ runtime:
     # Enable the redis extension so Drupal can communicate with the Redis cache.
     extensions:
         - redis
-
+variables:
+    php:
+        memory_limit: 512M
 # The relationships of the application with services or other applications.
 #
 # The left-hand side is the name of the relationship as it will be exposed
