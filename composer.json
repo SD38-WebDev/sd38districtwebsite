@@ -13,7 +13,20 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
-        }
+        },
+        {
+            "type": "package",
+            "package": {
+              "name": "recurser/jquery-simple-color",
+              "version": "1.2.3",
+              "type": "drupal-library",
+              "source": {
+                "url": "https://github.com/recurser/jquery-simple-color",
+                "type": "git",
+                "reference": "master"
+              }
+            }
+          }
     ],
     "require": {
         "php": ">=7.0.8",
@@ -102,6 +115,7 @@
         "drush/drush": "^10.5",
         "enyo/dropzone": "^5.5",
         "platformsh/config-reader": "^2.3",
+        "recurser/jquery-simple-color": "^1.2",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3"

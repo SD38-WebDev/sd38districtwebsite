@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3faf9b1e9edbc7e2c575b635f9c0882d",
+    "content-hash": "bdbc0b9a0bc44d0d910394a91670750f",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -9898,6 +9898,16 @@
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
             "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "recurser/jquery-simple-color",
+            "version": "1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/recurser/jquery-simple-color",
+                "reference": "master"
+            },
+            "type": "drupal-library"
         },
         {
             "name": "simshaun/recurr",
