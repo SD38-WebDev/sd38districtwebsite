@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bdbc0b9a0bc44d0d910394a91670750f",
+    "content-hash": "9560076614364be535e198da2bf8238d",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -129,6 +129,16 @@
                 "source": "https://github.com/asm89/stack-cors/tree/1.3.0"
             },
             "time": "2019-12-24T22:41:47+00:00"
+        },
+        {
+            "name": "bgrins/spectrum",
+            "version": "1.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bgrins/spectrum",
+                "reference": "master"
+            },
+            "type": "drupal-library"
         },
         {
             "name": "chi-teck/drupal-code-generator",

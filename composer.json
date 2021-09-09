@@ -26,10 +26,24 @@
                 "reference": "master"
               }
             }
-          }
+          },
+          {
+              "type": "package",
+              "package": {
+                "name": "bgrins/spectrum",
+                "version": "1.8.1",
+                "type": "drupal-library",
+                "source": {
+                  "url": "https://github.com/bgrins/spectrum",
+                  "type": "git",
+                  "reference": "master"
+                }
+              }
+            }
     ],
     "require": {
         "php": ">=7.0.8",
+        "bgrins/spectrum": "^1.8",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.7",
         "drupal/addanother": "^1.0",
