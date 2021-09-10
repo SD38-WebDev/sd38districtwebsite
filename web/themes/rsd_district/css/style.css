@@ -1743,6 +1743,7 @@ body.edweek .edweek.day5 .event-title {
 
 /** Paragraph Styles **/
 
-.paragraph--type-basic-text-section {
-	background-color: lightblue;
+.paragraph--type-basic-text-section .bs-region,
+.paragraph--type-image-text-section .bs-region {
+	padding: 1.5rem 0;
 }

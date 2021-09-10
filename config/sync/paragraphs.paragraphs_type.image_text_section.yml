@@ -1,7 +1,12 @@
 uuid: 0f5c1caf-c479-47f5-8d8c-f17bd71847fc
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - paragraph_view_mode
+third_party_settings:
+  paragraph_view_mode:
+    enabled: true
 id: image_text_section
 label: 'Image and Text Section'
 icon_uuid: null

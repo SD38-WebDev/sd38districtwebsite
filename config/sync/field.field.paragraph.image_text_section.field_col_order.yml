@@ -1,0 +1,23 @@
+uuid: 55386284-4ce0-4142-b288-e1cd2b191b04
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_col_order
+    - paragraphs.paragraphs_type.image_text_section
+  module:
+    - options
+id: paragraph.image_text_section.field_col_order
+field_name: field_col_order
+entity_type: paragraph
+bundle: image_text_section
+label: 'Column Order'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: flex-row
+default_value_callback: ''
+settings: {  }
+field_type: list_string

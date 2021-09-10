@@ -1,0 +1,10 @@
+uuid: bdd9794c-fb0a-4a95-b551-8713d6e6a51f
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.image_left
+label: 'Image Left'
+targetEntityType: paragraph
+cache: true

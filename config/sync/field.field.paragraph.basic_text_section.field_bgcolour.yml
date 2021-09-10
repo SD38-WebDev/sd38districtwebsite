@@ -1,20 +1,20 @@
-uuid: 19bcb892-4699-4e06-9e87-0f4df866babc
+uuid: cb16591d-de45-4810-bfb3-785daed65089
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_bgcolour
-    - paragraphs.paragraphs_type.image_text_section
+    - paragraphs.paragraphs_type.basic_text_section
   module:
     - color_field
-id: paragraph.image_text_section.field_bgcolour
+id: paragraph.basic_text_section.field_bgcolour
 field_name: field_bgcolour
 entity_type: paragraph
-bundle: image_text_section
+bundle: basic_text_section
 label: 'Background Colour'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

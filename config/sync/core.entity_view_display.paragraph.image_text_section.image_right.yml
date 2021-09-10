@@ -1,8 +1,9 @@
-uuid: b8b6bc6c-394c-4802-8a93-67e42e1e6b6e
+uuid: b2fd8b0c-ff4e-487a-8daa-58495fe742f8
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.paragraph.image_right
     - field.field.paragraph.image_text_section.field_bgcolour
     - field.field.paragraph.image_text_section.field_col_order
     - field.field.paragraph.image_text_section.field_image
@@ -12,6 +13,7 @@ dependencies:
   module:
     - ds
     - field_group
+    - layout_builder
     - text
 third_party_settings:
   ds:
@@ -34,7 +36,7 @@ third_party_settings:
             classes:
               col-sm-12: col-sm-12
             add_region_classes: 1
-            attributes: ''
+            attributes: 'style|background-color:[paragraph:field_bgcolour:color];'
     regions:
       main:
         - group_container
@@ -117,10 +119,13 @@ third_party_settings:
         effect: none
         speed: fast
       label: Row
-id: paragraph.image_text_section.default
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: paragraph.image_text_section.image_right
 targetEntityType: paragraph
 bundle: image_text_section
-mode: default
+mode: image_right
 content:
   field_image:
     type: entity_reference_entity_view

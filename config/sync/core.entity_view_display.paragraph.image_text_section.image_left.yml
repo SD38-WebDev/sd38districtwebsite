@@ -1,8 +1,9 @@
-uuid: b8b6bc6c-394c-4802-8a93-67e42e1e6b6e
+uuid: 78b9ecb0-ae6c-40cf-b51e-90a83daec779
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.paragraph.image_left
     - field.field.paragraph.image_text_section.field_bgcolour
     - field.field.paragraph.image_text_section.field_col_order
     - field.field.paragraph.image_text_section.field_image
@@ -12,6 +13,7 @@ dependencies:
   module:
     - ds
     - field_group
+    - layout_builder
     - text
 third_party_settings:
   ds:
@@ -34,12 +36,12 @@ third_party_settings:
             classes:
               col-sm-12: col-sm-12
             add_region_classes: 1
-            attributes: ''
+            attributes: 'style|background-color:[paragraph:field_bgcolour:color];'
     regions:
       main:
         - group_container
-        - field_section_content
         - field_image
+        - field_section_content
         - group_row
         - group_column_1
         - group_column_2
@@ -64,7 +66,7 @@ third_party_settings:
       label: Container
     group_column_1:
       children:
-        - field_section_content
+        - field_image
       parent_name: group_row
       weight: 21
       format_type: html_element
@@ -82,7 +84,7 @@ third_party_settings:
       label: 'Column 1'
     group_column_2:
       children:
-        - field_image
+        - field_section_content
       parent_name: group_row
       weight: 22
       format_type: html_element
@@ -117,10 +119,13 @@ third_party_settings:
         effect: none
         speed: fast
       label: Row
-id: paragraph.image_text_section.default
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: paragraph.image_text_section.image_left
 targetEntityType: paragraph
 bundle: image_text_section
-mode: default
+mode: image_left
 content:
   field_image:
     type: entity_reference_entity_view
@@ -133,7 +138,7 @@ content:
     third_party_settings: {  }
   field_section_content:
     type: text_default
-    weight: 1
+    weight: 3
     region: main
     label: hidden
     settings: {  }
