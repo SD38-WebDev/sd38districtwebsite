@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_content_section
     - node.type.page
     - paragraphs.paragraphs_type.basic_text_section
+    - paragraphs.paragraphs_type.image_text_section
   module:
     - entity_reference_revisions
 id: node.page.field_content_section
@@ -24,8 +25,12 @@ settings:
     negate: 0
     target_bundles:
       basic_text_section: basic_text_section
+      image_text_section: image_text_section
     target_bundles_drag_drop:
       basic_text_section:
         enabled: true
         weight: 2
+      image_text_section:
+        enabled: true
+        weight: 4
 field_type: entity_reference_revisions

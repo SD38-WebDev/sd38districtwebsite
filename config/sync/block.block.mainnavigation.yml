@@ -13,7 +13,7 @@ dependencies:
     - rsd_district
 third_party_settings:
   block_class:
-    classes: 'my-4 container '
+    classes: 'my-4  '
   block_class_select:
     selected_classes: ''
 id: mainnavigation

@@ -1,0 +1,140 @@
+uuid: b8b6bc6c-394c-4802-8a93-67e42e1e6b6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image_text_section.field_bgcolour
+    - field.field.paragraph.image_text_section.field_image
+    - field.field.paragraph.image_text_section.field_section_content
+    - paragraphs.paragraphs_type.image_text_section
+  module:
+    - ds
+    - field_group
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: bs_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 0
+          attributes: ''
+        regions:
+          main:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      main:
+        - group_container
+        - field_section_content
+        - field_image
+        - group_row
+        - group_column_1
+        - group_column_2
+  field_group:
+    group_container:
+      children:
+        - group_row
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      region: main
+      format_settings:
+        id: ''
+        classes: container
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: Container
+    group_column_1:
+      children:
+        - field_section_content
+      parent_name: group_row
+      weight: 21
+      format_type: html_element
+      region: main
+      format_settings:
+        id: ''
+        classes: col-sm-6
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Column 1'
+    group_column_2:
+      children:
+        - field_image
+      parent_name: group_row
+      weight: 22
+      format_type: html_element
+      region: main
+      format_settings:
+        id: ''
+        classes: col-sm-6
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Column 2'
+    group_row:
+      children:
+        - group_column_1
+        - group_column_2
+      parent_name: group_container
+      weight: 20
+      format_type: html_element
+      region: main
+      format_settings:
+        id: ''
+        classes: row
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: Row
+id: paragraph.image_text_section.default
+targetEntityType: paragraph
+bundle: image_text_section
+mode: default
+content:
+  field_image:
+    type: entity_reference_entity_view
+    weight: 2
+    region: main
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+  field_section_content:
+    type: text_default
+    weight: 1
+    region: main
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_bgcolour: true
