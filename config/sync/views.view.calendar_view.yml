@@ -62,20 +62,21 @@ display:
           start: field_event_date
           end: field_event_date
           title: title
-          right_buttons: 'dayGridMonth,timeGridWeek,timeGridDay,listYear'
           left_buttons: 'prev,next today'
+          right_buttons: 'dayGridMonth,timeGridWeek,timeGridDay,listYear'
           default_view: dayGridMonth
           firstDay: '0'
           nav_links: 1
-          timeFormat: 'H(:mm)'
+          timeFormat: ''
           allowEventOverlap: 1
           updateAllowed: 0
           updateConfirm: 0
           defaultLanguage: en
           languageSelector: 0
           dialogWindow: 0
-          createEventLink: 0
           openEntityInNewTab: 1
+          createEventLink: 0
+          eventLimit: '3'
           tax_field: ''
           vocabularies: ''
           color_bundle:
@@ -83,6 +84,7 @@ display:
             article: '#3a87ad'
             blog_post: '#3a87ad'
             carousel_item: '#3a87ad'
+            digital_signage: '#3a87ad'
             event: '#d4e3ff'
             news_alert: '#3a87ad'
             page: '#3a87ad'
