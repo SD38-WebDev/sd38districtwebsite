@@ -931,10 +931,10 @@ body.our-district-story .featured-top {
 	margin: 1.5rem auto;
 }
 
-.node__content > .row,
+/* .node__content > .row,
 section.section > .block-views {
 	margin: 0 0 2.25rem 0;
-}
+} */
 
 .path-frontpage section.section > .block-views {
 	margin: 0 0 0rem 0;
