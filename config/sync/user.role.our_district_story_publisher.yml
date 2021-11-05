@@ -1,38 +1,40 @@
-uuid: c6bc3cef-bae2-486d-b216-3a8070a3eb95
+uuid: a54c9a3d-5eeb-4562-b93f-f4f1ace9e764
 langcode: en
 status: true
 dependencies: {  }
-id: content_publisher
-label: 'Content Publisher'
-weight: -6
+id: our_district_story_publisher
+label: 'Our District Story Publisher'
+weight: -7
 is_admin: null
 permissions:
   - 'access administration pages'
   - 'access content overview'
   - 'access draggableviews'
   - 'access media overview'
+  - 'access media_asset_library entity browser pages'
   - 'access toolbar'
-  - 'create event content'
+  - 'administer menu'
+  - 'create blog_post content'
   - 'create file media'
   - 'create media'
   - 'create remote_video media'
-  - 'delete any event content'
+  - 'delete any blog_post content'
   - 'delete any file media'
   - 'delete any media'
   - 'delete any remote_video media'
-  - 'delete event revisions'
+  - 'delete blog_post revisions'
   - 'delete media'
-  - 'delete own event content'
+  - 'delete own blog_post content'
   - 'delete own file media'
   - 'delete own remote_video media'
-  - 'edit any event content'
+  - 'edit any blog_post content'
   - 'edit any file media'
   - 'edit any remote_video media'
-  - 'edit own event content'
+  - 'edit own blog_post content'
   - 'edit own file media'
   - 'edit own remote_video media'
   - 'revert all revisions'
-  - 'revert event revisions'
+  - 'revert blog_post revisions'
   - 'update any media'
   - 'use file_uploads bulk upload form'
   - 'use menu link attributes'
@@ -40,7 +42,7 @@ permissions:
   - 'use text format restricted_html'
   - 'view all media revisions'
   - 'view all revisions'
-  - 'view event revisions'
+  - 'view blog_post revisions'
   - 'view own unpublished content'
   - 'view own unpublished media'
   - 'view the administration theme'

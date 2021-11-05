@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: content_administrator
 label: 'Content Administrator'
-weight: -6
+weight: -5
 is_admin: null
 permissions:
   - 'access administration pages'
@@ -20,6 +20,7 @@ permissions:
   - 'create accordion_content content'
   - 'create and edit custom blocks'
   - 'create article content'
+  - 'create blog_post content'
   - 'create carousel_item content'
   - 'create event content'
   - 'create file media'
@@ -38,12 +39,14 @@ permissions:
   - 'delete any page content'
   - 'delete any remote_video media'
   - 'delete article revisions'
+  - 'delete blog_post revisions'
   - 'delete carousel_item revisions'
   - 'delete event revisions'
   - 'delete media'
   - 'delete news_alert revisions'
   - 'delete own accordion_content content'
   - 'delete own article content'
+  - 'delete own blog_post content'
   - 'delete own carousel_item content'
   - 'delete own event content'
   - 'delete own file media'
@@ -53,6 +56,7 @@ permissions:
   - 'delete page revisions'
   - 'edit any accordion_content content'
   - 'edit any article content'
+  - 'edit any blog_post content'
   - 'edit any carousel_item content'
   - 'edit any event content'
   - 'edit any file media'
@@ -62,6 +66,7 @@ permissions:
   - 'edit any staff_member content'
   - 'edit own accordion_content content'
   - 'edit own article content'
+  - 'edit own blog_post content'
   - 'edit own carousel_item content'
   - 'edit own event content'
   - 'edit own file media'
@@ -72,6 +77,7 @@ permissions:
   - 'revert accordion_content revisions'
   - 'revert all revisions'
   - 'revert article revisions'
+  - 'revert blog_post revisions'
   - 'revert carousel_item revisions'
   - 'revert event revisions'
   - 'revert news_alert revisions'
@@ -86,6 +92,7 @@ permissions:
   - 'view all media revisions'
   - 'view all revisions'
   - 'view article revisions'
+  - 'view blog_post revisions'
   - 'view carousel_item revisions'
   - 'view event revisions'
   - 'view news_alert revisions'

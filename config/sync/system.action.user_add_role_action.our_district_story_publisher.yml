@@ -1,0 +1,14 @@
+uuid: 3977417c-c902-4f3f-be54-9eb8f5981b80
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.our_district_story_publisher
+  module:
+    - user
+id: user_add_role_action.our_district_story_publisher
+label: 'Add the Our District Story Publisher role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: our_district_story_publisher
