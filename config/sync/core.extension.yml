@@ -11,6 +11,7 @@ module:
   blazy: 0
   block: 0
   block_class: 0
+  block_class_select: 0
   block_content: 0
   bootstrap_layouts: 0
   bootstrap_library: 0
