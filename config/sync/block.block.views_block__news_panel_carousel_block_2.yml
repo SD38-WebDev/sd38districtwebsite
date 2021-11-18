@@ -5,13 +5,9 @@ dependencies:
   config:
     - views.view.news_panel_carousel
   module:
-    - block_class_select
     - views
   theme:
     - rsd_district
-third_party_settings:
-  block_class_select:
-    selected_classes: ''
 id: views_block__news_panel_carousel_block_2
 theme: rsd_district
 region: news_panel_articles

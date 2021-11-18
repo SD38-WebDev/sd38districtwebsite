@@ -5,14 +5,10 @@ dependencies:
   content:
     - 'block_content:alternate_page_section_title:814736ef-847f-4624-880c-30d9fa94c535'
   module:
-    - block_class_select
     - block_content
     - system
   theme:
     - rsd_district
-third_party_settings:
-  block_class_select:
-    selected_classes: ''
 id: educationweek2021sectiontitle
 theme: rsd_district
 region: featured_top

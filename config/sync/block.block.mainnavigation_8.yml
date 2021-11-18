@@ -6,7 +6,6 @@ dependencies:
     - system.menu.main
   module:
     - block_class
-    - block_class_select
     - ctools
     - menu_block
     - system
@@ -15,8 +14,6 @@ dependencies:
 third_party_settings:
   block_class:
     classes: 'float-sm-right  '
-  block_class_select:
-    selected_classes: ''
 id: mainnavigation_8
 theme: rsd_district
 region: section_right

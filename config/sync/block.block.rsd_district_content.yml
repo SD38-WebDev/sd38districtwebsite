@@ -3,13 +3,9 @@ langcode: en
 status: true
 dependencies:
   module:
-    - block_class_select
     - system
   theme:
     - rsd_district
-third_party_settings:
-  block_class_select:
-    selected_classes: ''
 _core:
   default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
 id: rsd_district_content

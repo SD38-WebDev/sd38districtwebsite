@@ -5,14 +5,10 @@ dependencies:
   config:
     - views.view.news_alerts
   module:
-    - block_class_select
     - ctools
     - views
   theme:
     - rsd_district
-third_party_settings:
-  block_class_select:
-    selected_classes: ''
 id: views_block__news_alerts_block_1
 theme: rsd_district
 region: highlighted

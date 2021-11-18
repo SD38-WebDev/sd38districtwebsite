@@ -5,13 +5,9 @@ dependencies:
   config:
     - views.view.sd38_feature_pages
   module:
-    - block_class_select
     - views
   theme:
     - rsd_district
-third_party_settings:
-  block_class_select:
-    selected_classes: ''
 id: views_block__sd38_feature_pages_block_1
 theme: rsd_district
 region: featured_bottom_third

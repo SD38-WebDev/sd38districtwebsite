@@ -3,13 +3,9 @@ langcode: en
 status: true
 dependencies:
   module:
-    - block_class_select
     - gtranslate
   theme:
     - rsd_district
-third_party_settings:
-  block_class_select:
-    selected_classes: ''
 id: gtranslate
 theme: rsd_district
 region: top_header

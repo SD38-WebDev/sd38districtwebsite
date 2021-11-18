@@ -5,14 +5,10 @@ dependencies:
   content:
     - 'block_content:basic:0678f2af-e43e-485c-9eaa-0c06b48aa451'
   module:
-    - block_class_select
     - block_content
     - system
   theme:
     - rsd_district
-third_party_settings:
-  block_class_select:
-    selected_classes: ''
 id: ourdistrictstorybranding
 theme: rsd_district
 region: section_left

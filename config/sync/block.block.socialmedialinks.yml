@@ -4,15 +4,12 @@ status: true
 dependencies:
   module:
     - block_class
-    - block_class_select
     - social_media_links
   theme:
     - rsd_district
 third_party_settings:
   block_class:
     classes: 'float-right  '
-  block_class_select:
-    selected_classes: ''
 id: socialmedialinks
 theme: rsd_district
 region: footer_fourth

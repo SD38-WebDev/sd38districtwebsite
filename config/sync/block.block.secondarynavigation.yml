@@ -6,15 +6,12 @@ dependencies:
     - system.menu.secondary-navigation
   module:
     - block_class
-    - block_class_select
     - menu_block
   theme:
     - rsd_district
 third_party_settings:
   block_class:
     classes: 'd-none d-sm-block  '
-  block_class_select:
-    selected_classes: ''
 id: secondarynavigation
 theme: rsd_district
 region: top_header

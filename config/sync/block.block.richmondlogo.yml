@@ -5,13 +5,9 @@ dependencies:
   content:
     - 'block_content:basic:87778f72-0d34-408f-971e-15fe54e360f4'
   module:
-    - block_class_select
     - block_content
   theme:
     - rsd_district
-third_party_settings:
-  block_class_select:
-    selected_classes: ''
 id: richmondlogo
 theme: rsd_district
 region: footer_fourth

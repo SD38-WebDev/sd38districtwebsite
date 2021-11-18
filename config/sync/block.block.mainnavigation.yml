@@ -6,7 +6,6 @@ dependencies:
     - system.menu.main
   module:
     - block_class
-    - block_class_select
     - menu_block
     - system
   theme:
@@ -14,8 +13,6 @@ dependencies:
 third_party_settings:
   block_class:
     classes: 'my-4  '
-  block_class_select:
-    selected_classes: ''
 id: mainnavigation
 theme: rsd_district
 region: content

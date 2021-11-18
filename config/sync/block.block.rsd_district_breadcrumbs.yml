@@ -4,15 +4,12 @@ status: true
 dependencies:
   module:
     - block_class
-    - block_class_select
     - system
   theme:
     - rsd_district
 third_party_settings:
   block_class:
     classes: 'my-2 '
-  block_class_select:
-    selected_classes: ''
 _core:
   default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
 id: rsd_district_breadcrumbs
