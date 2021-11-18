@@ -214,12 +214,6 @@ body .site-section-branding,
 	line-height: 1.65rem;
 }
 
-/*
-.main-content a:hover {
-	font-weight: bold;
-}
-*/
-
 body #page-wrapper .block-page-title-block h1 {
 	position: relative;
 	bottom: -2.5rem;
@@ -414,7 +408,7 @@ body.our-district-story #page-wrapper .block-page-title-block h1 {
 /******************************/
 
 #navbar-top {
-    background-color: #37a89a;
+  background-color: #37a89a;
 	padding: .2rem 1rem;
 }
 
@@ -655,10 +649,12 @@ button.navbar-toggler {
 	color: rgba(0, 0, 0, 1);
 }
 
-#navbar-top .content,
-#navbar-top .nav a,
-#navbar-top .content a {
+#page-wrapper #navbar-top .content,
+#page-wrapper #navbar-top .nav a,
+#page-wrapper #navbar-top .content a,
+#page-wrapper #navbar-top div {
 	color: white;
+	font-weight: bold !important;
 }
 
 .navbar-subpages {
