@@ -55,6 +55,7 @@
         "drupal/better_search": "^1.5",
         "drupal/bg_image_formatter": "^1.14",
         "drupal/block_class": "^1.1",
+        "drupal/block_class_select": "^1.1",
         "drupal/bootstrap_barrio": "^4.33",
         "drupal/bootstrap_datetime_picker": "^1.2",
         "drupal/bootstrap_layouts": "^5.1",
