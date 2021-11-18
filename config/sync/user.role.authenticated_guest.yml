@@ -1,7 +1,9 @@
 uuid: 4a2f3ccf-f424-4373-8af0-d9b48f265e99
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - view_unpublished
 id: authenticated_guest
 label: 'Authenticated Guest'
 weight: -8

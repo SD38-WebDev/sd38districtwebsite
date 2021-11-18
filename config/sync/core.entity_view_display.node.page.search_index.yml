@@ -21,8 +21,8 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
   ds:
     layout:
       id: bs_1col
@@ -69,11 +69,11 @@ mode: search_index
 content:
   body:
     type: text_default
-    weight: 0
-    region: main
     label: above
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: main
 hidden:
   field_body_2: true
   field_content_section: true

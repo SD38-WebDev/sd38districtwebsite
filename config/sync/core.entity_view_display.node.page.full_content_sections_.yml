@@ -24,8 +24,8 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
   ds:
     layout:
       id: bs_1col
@@ -60,11 +60,14 @@ third_party_settings:
         - field_image
         - body
         - field_body_2
+      label: Container
       parent_name: ''
+      region: main
       weight: 0
       format_type: html_element
-      region: main
       format_settings:
+        classes: container
+        id: ''
         element: div
         show_label: false
         label_element: h3
@@ -72,18 +75,16 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
-        id: ''
-        classes: container
-      label: Container
     group_row:
       children: {  }
+      label: Row
       parent_name: ''
+      region: hidden
       weight: 21
       format_type: html_element
-      region: hidden
       format_settings:
-        id: ''
         classes: row
+        id: ''
         element: div
         show_label: false
         label_element: h3
@@ -91,16 +92,16 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
-      label: Row
     group_row2:
       children: {  }
+      label: Row
       parent_name: ''
+      region: hidden
       weight: 22
       format_type: html_element
-      region: hidden
       format_settings:
-        id: ''
         classes: row
+        id: ''
         element: div
         show_label: false
         label_element: h3
@@ -108,7 +109,6 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
-      label: Row
 _core:
   default_config_hash: g1S3_GLaxq4l3I9RIca5Mlz02MxI2KmOquZpHw59akM
 id: node.page.full_content_sections_
@@ -118,37 +118,37 @@ mode: full_content_sections_
 content:
   body:
     type: text_default
-    weight: 20
-    region: main
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 20
+    region: main
   field_body_2:
     type: text_trimmed
-    weight: 21
-    region: main
     label: hidden
     settings:
       trim_length: 600
     third_party_settings: {  }
+    weight: 21
+    region: main
   field_content_section:
     type: entity_reference_revisions_entity_view
-    weight: 3
-    region: main
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    weight: 3
+    region: main
   field_image:
     type: responsive_image
-    weight: 19
-    region: main
     label: hidden
     settings:
       responsive_image_style: ''
       image_link: ''
     third_party_settings: {  }
+    weight: 19
+    region: main
 hidden:
   field_custom_template: true
   field_feature_page: true

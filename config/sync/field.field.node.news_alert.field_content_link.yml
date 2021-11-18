@@ -10,17 +10,17 @@ dependencies:
     - link_field_autocomplete_filter
 third_party_settings:
   link_field_autocomplete_filter:
-    negate: '0'
+    negate: false
     allowed_content_types:
       article: article
       event: event
       page: page
-      news_alert: 0
-      accordion_content: 0
-      blog_post: 0
-      carousel_item: 0
-      digital_signage: 0
-      staff_member: 0
+      news_alert: '0'
+      accordion_content: '0'
+      blog_post: '0'
+      carousel_item: '0'
+      digital_signage: '0'
+      staff_member: '0'
 id: node.news_alert.field_content_link
 field_name: field_content_link
 entity_type: node
@@ -32,6 +32,6 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  link_type: 17
   title: 0
+  link_type: 17
 field_type: link

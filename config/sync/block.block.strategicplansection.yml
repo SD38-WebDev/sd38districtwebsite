@@ -15,14 +15,14 @@ plugin: 'block_content:ad997be3-b1dd-43fd-9125-d05e53870330'
 settings:
   id: 'block_content:ad997be3-b1dd-43fd-9125-d05e53870330'
   label: 'Strategic Plan Section'
-  provider: block_content
   label_display: '0'
+  provider: block_content
   status: true
   info: ''
   view_mode: full
 visibility:
   request_path:
     id: request_path
-    pages: "/*/strategic-plan\r\n/*/strategic-plan/*"
     negate: false
     context_mapping: {  }
+    pages: "/*/strategic-plan\r\n/*/strategic-plan/*"

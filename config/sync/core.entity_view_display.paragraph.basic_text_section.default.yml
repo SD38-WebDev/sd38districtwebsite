@@ -40,13 +40,14 @@ third_party_settings:
     group_container:
       children:
         - field_section_content
+      label: Container
       parent_name: ''
+      region: main
       weight: 0
       format_type: html_element
-      region: main
       format_settings:
-        id: ''
         classes: container
+        id: ''
         element: div
         show_label: false
         label_element: h3
@@ -54,18 +55,17 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
-      label: Container
 id: paragraph.basic_text_section.default
 targetEntityType: paragraph
 bundle: basic_text_section
 mode: default
 content:
   field_section_content:
-    weight: 1
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 1
     region: main
 hidden:
   field_bgcolour: true

@@ -4,8 +4,8 @@ status: true
 dependencies: {  }
 id: sd38_slick
 name: sd38_slick
-label: 'SD38 Slick'
 weight: 0
+label: 'SD38 Slick'
 group: ''
 skin: ''
 breakpoints: 0
@@ -18,10 +18,10 @@ options:
     accessibility: true
     adaptiveHeight: false
     autoplay: true
-    autoplaySpeed: 3000
     pauseOnHover: true
     pauseOnDotsHover: false
     pauseOnFocus: true
+    autoplaySpeed: 3000
     arrows: true
     prevArrow: Previous
     nextArrow: Next

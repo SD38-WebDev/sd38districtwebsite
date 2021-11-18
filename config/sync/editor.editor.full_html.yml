@@ -78,14 +78,14 @@ settings:
     language:
       language_list: un
     wordcount:
-      enable: 1
-      show_paragraphs: 1
-      show_word_count: 1
-      show_char_count: 0
-      count_spaces: 0
+      enable: true
+      show_paragraphs: true
+      show_word_count: true
+      show_char_count: false
+      count_spaces: false
       count_html: 0
-      max_words: '-1'
-      max_chars: '-1'
+      max_words: -1
+      max_chars: -1
     colorbutton:
       colors: ''
 image_upload:

@@ -24,8 +24,8 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
   ds:
     layout:
       id: bs_1col
@@ -66,71 +66,71 @@ mode: default
 content:
   body:
     type: text_default
-    weight: 5
-    region: main
     label: above
     settings: {  }
     third_party_settings: {  }
+    weight: 5
+    region: main
   field_body_2:
     type: text_summary_or_trimmed
-    weight: 1
-    region: main
     label: above
     settings:
       trim_length: 600
     third_party_settings: {  }
+    weight: 1
+    region: main
   field_content_section:
     type: entity_reference_revisions_entity_view
-    weight: 8
     label: above
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    weight: 8
     region: main
   field_custom_template:
-    weight: 6
+    type: template_whisperer
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: template_whisperer
+    weight: 6
     region: main
   field_feature_page:
-    weight: 2
+    type: boolean
     label: above
     settings:
       format: default
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    type: boolean
+    weight: 2
     region: main
   field_image:
     type: responsive_image
-    weight: 3
-    region: main
     label: above
     settings:
       responsive_image_style: ''
       image_link: ''
     third_party_settings: {  }
+    weight: 3
+    region: main
   field_image_gallery:
-    weight: 7
+    type: image
     label: above
     settings:
-      image_style: ''
       image_link: ''
+      image_style: ''
     third_party_settings: {  }
-    type: image
+    weight: 7
     region: main
   field_page_thumbnail_image:
-    weight: 4
+    type: image
     label: above
     settings:
-      image_style: ''
       image_link: ''
+      image_style: ''
     third_party_settings: {  }
-    type: image
+    weight: 4
     region: main
 hidden:
   layout_builder__layout: true

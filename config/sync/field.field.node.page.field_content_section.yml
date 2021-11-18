@@ -22,15 +22,15 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       basic_text_section: basic_text_section
       image_text_section: image_text_section
+    negate: 0
     target_bundles_drag_drop:
       basic_text_section:
-        enabled: true
         weight: 2
-      image_text_section:
         enabled: true
+      image_text_section:
         weight: 4
+        enabled: true
 field_type: entity_reference_revisions

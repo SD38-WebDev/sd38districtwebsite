@@ -60,20 +60,20 @@ mode: teaser
 content:
   field_additional_notes:
     type: text_default
-    weight: 2
-    region: main
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 2
+    region: main
   field_image:
     type: image
-    weight: 0
-    region: main
     label: hidden
     settings:
-      image_style: large
       image_link: content
+      image_style: large
     third_party_settings: {  }
+    weight: 0
+    region: main
 hidden:
   body: true
   field_first_name: true

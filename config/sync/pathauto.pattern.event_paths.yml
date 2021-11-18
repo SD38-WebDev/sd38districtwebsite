@@ -11,12 +11,12 @@ pattern: 'calendar/[node:nid]-[node:title]'
 selection_criteria:
   9da11b51-d467-4476-ac6c-0197f2bb8e06:
     id: node_type
-    bundles:
-      event: event
     negate: false
+    uuid: 9da11b51-d467-4476-ac6c-0197f2bb8e06
     context_mapping:
       node: node
-    uuid: 9da11b51-d467-4476-ac6c-0197f2bb8e06
+    bundles:
+      event: event
 selection_logic: and
 weight: -5
 relationships: {  }

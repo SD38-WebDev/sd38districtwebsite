@@ -47,13 +47,14 @@ third_party_settings:
     group_container:
       children:
         - group_row
+      label: Container
       parent_name: ''
+      region: main
       weight: 0
       format_type: html_element
-      region: main
       format_settings:
-        id: ''
         classes: container
+        id: ''
         element: div
         show_label: false
         label_element: h3
@@ -61,17 +62,17 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
-      label: Container
     group_column_1:
       children:
         - field_section_content
+      label: 'Column 1'
       parent_name: group_row
+      region: main
       weight: 21
       format_type: html_element
-      region: main
       format_settings:
-        id: ''
         classes: col-sm-6
+        id: ''
         element: div
         show_label: false
         label_element: h3
@@ -79,17 +80,17 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
-      label: 'Column 1'
     group_column_2:
       children:
         - field_image
+      label: 'Column 2'
       parent_name: group_row
+      region: main
       weight: 22
       format_type: html_element
-      region: main
       format_settings:
-        id: ''
         classes: col-sm-6
+        id: ''
         element: div
         show_label: false
         label_element: h3
@@ -97,18 +98,18 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
-      label: 'Column 2'
     group_row:
       children:
         - group_column_1
         - group_column_2
+      label: Row
       parent_name: group_container
+      region: main
       weight: 20
       format_type: html_element
-      region: main
       format_settings:
-        id: ''
         classes: row
+        id: ''
         element: div
         show_label: false
         label_element: h3
@@ -116,7 +117,6 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
-      label: Row
 id: paragraph.image_text_section.default
 targetEntityType: paragraph
 bundle: image_text_section
@@ -124,20 +124,20 @@ mode: default
 content:
   field_image:
     type: entity_reference_entity_view
-    weight: 2
-    region: main
     label: hidden
     settings:
-      link: true
       view_mode: default
+      link: true
     third_party_settings: {  }
+    weight: 2
+    region: main
   field_section_content:
     type: text_default
-    weight: 1
-    region: main
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: main
 hidden:
   field_bgcolour: true
   field_col_order: true

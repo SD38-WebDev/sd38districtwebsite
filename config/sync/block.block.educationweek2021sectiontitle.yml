@@ -18,14 +18,14 @@ plugin: 'block_content:814736ef-847f-4624-880c-30d9fa94c535'
 settings:
   id: 'block_content:814736ef-847f-4624-880c-30d9fa94c535'
   label: 'Education Week 2021 - Section Title'
-  provider: block_content
   label_display: '0'
+  provider: block_content
   status: true
   info: ''
   view_mode: full
 visibility:
   request_path:
     id: request_path
-    pages: "/our-district/education-week-2021\r\n/our-district/education-week-2021*\r\n/our-district/education-week-2021*/*"
     negate: false
     context_mapping: {  }
+    pages: "/our-district/education-week-2021\r\n/our-district/education-week-2021*\r\n/our-district/education-week-2021*/*"

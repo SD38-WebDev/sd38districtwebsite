@@ -14,13 +14,14 @@ dependencies:
     - text
 third_party_settings:
   layout_builder:
-    allow_custom: true
     enabled: true
+    allow_custom: true
     sections:
       -
         layout_id: bs_3col_stacked
         layout_settings:
           label: ''
+          context_mapping: {  }
           layout:
             wrapper: div
             classes:
@@ -65,11 +66,14 @@ third_party_settings:
             configuration:
               id: 'field_block:block_content:3_column_block:field_body_column_1'
               label: 'Body - Column 1'
-              provider: layout_builder
               label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
-                label: hidden
                 type: text_default
+                label: hidden
                 settings: {  }
                 third_party_settings:
                   ds:
@@ -79,22 +83,22 @@ third_party_settings:
                         lb: ''
                         lb-col: false
                         classes: {  }
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-            additional: {  }
             weight: 0
+            additional: {  }
           e1cb7077-5471-4bb0-ad25-454ebeec326e:
             uuid: e1cb7077-5471-4bb0-ad25-454ebeec326e
             region: middle
             configuration:
               id: 'field_block:block_content:3_column_block:field_body_column_2'
               label: 'Body - Column 2'
-              provider: layout_builder
               label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
-                label: hidden
                 type: text_default
+                label: hidden
                 settings: {  }
                 third_party_settings:
                   ds:
@@ -104,22 +108,22 @@ third_party_settings:
                         lb: ''
                         lb-col: false
                         classes: {  }
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-            additional: {  }
             weight: 0
+            additional: {  }
           096c1141-e0ca-4f00-832d-7fc335aa031e:
             uuid: 096c1141-e0ca-4f00-832d-7fc335aa031e
             region: right
             configuration:
               id: 'field_block:block_content:3_column_block:field_body_column_3'
               label: 'Body - Column 3'
-              provider: layout_builder
               label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
-                label: hidden
                 type: text_default
+                label: hidden
                 settings: {  }
                 third_party_settings:
                   ds:
@@ -129,11 +133,8 @@ third_party_settings:
                         lb: ''
                         lb-col: false
                         classes: {  }
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-            additional: {  }
             weight: 0
+            additional: {  }
         third_party_settings: {  }
 id: block_content.3_column_block.default
 targetEntityType: block_content
@@ -141,25 +142,25 @@ bundle: 3_column_block
 mode: default
 content:
   field_body_column_1:
-    weight: 1
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 1
     region: left
   field_body_column_2:
-    weight: 2
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 2
     region: middle
   field_body_column_3:
-    weight: 3
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 3
     region: right
 hidden:
   layout_builder__layout: true

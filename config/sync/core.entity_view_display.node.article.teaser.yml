@@ -28,21 +28,21 @@ mode: teaser
 content:
   body:
     type: text_summary_or_trimmed
-    weight: 2
-    region: bottom
+    label: hidden
     settings:
       trim_length: 100
     third_party_settings: {  }
-    label: hidden
+    weight: 2
+    region: bottom
   field_image:
     type: image
+    label: hidden
+    settings:
+      image_link: content
+      image_style: large
+    third_party_settings: {  }
     weight: 0
     region: top
-    settings:
-      image_style: large
-      image_link: content
-    third_party_settings: {  }
-    label: hidden
 hidden:
   field_attachments: true
   field_carousel_content_link: true

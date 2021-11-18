@@ -15,10 +15,10 @@ third_party_settings:
       article: article
       event: event
       page: page
-      accordion_content: 0
-      carousel_item: 0
-      staff_member: 0
-      test: 0
+      accordion_content: '0'
+      carousel_item: '0'
+      staff_member: '0'
+      test: '0'
 id: node.article.field_carousel_content_link
 field_name: field_carousel_content_link
 entity_type: node
@@ -30,6 +30,6 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  link_type: 17
   title: 1
+  link_type: 17
 field_type: link

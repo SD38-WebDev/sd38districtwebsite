@@ -21,34 +21,34 @@ third_party_settings:
       children:
         - field_board_policy
         - field_board_policy_type
+      label: 'Board of Education Document'
+      region: content
       parent_name: ''
       weight: 3
       format_type: tab
-      region: content
       format_settings:
-        description: ''
-        formatter: closed
-        required_fields: true
-        id: ''
         classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
         effect: none
         open: false
         weight: 0
-      label: 'Board of Education Document'
     group_file_date_settings:
       children:
         - field_file_date
+      label: 'File Date'
+      region: content
       parent_name: ''
       weight: 4
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: 'If the file needs to be grouped with other files using a specific date. Used for things like Board Meeting documents.'
+        id: ''
         formatter: closed
+        description: 'If the file needs to be grouped with other files using a specific date. Used for things like Board Meeting documents.'
         required_fields: true
-      label: 'File Date'
 _core:
   default_config_hash: 50n0D6KiBgpTONc-n8sPE24kUJQgu1UafJ2Vshd0q2I
 id: media.file.default
@@ -63,40 +63,40 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_board_policy:
+    type: options_select
     weight: 7
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_board_policy_type:
-    weight: 8
-    settings: {  }
-    third_party_settings: {  }
     type: options_select
-    region: content
-  field_file_date:
     weight: 8
+    region: content
     settings: {  }
     third_party_settings: {  }
+  field_file_date:
     type: datetime_default
+    weight: 8
     region: content
-  field_media_file:
-    settings:
-      progress_indicator: throbber
+    settings: {  }
     third_party_settings: {  }
+  field_media_file:
     type: file_generic
     weight: 0
     region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
   field_page_reference:
+    type: entity_reference_autocomplete
     weight: 5
+    region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   name:
     type: string_textfield
     weight: 2
@@ -112,20 +112,20 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 8
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
     weight: 6
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
-    region: content
     third_party_settings: {  }
 hidden:
   field_file_name: true

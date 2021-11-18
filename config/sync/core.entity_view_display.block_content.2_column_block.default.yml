@@ -47,17 +47,17 @@ bundle: 2_column_block
 mode: default
 content:
   field_body_column_1:
-    weight: 0
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 0
     region: left
   field_body_column_2:
-    weight: 1
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 1
     region: right
 hidden: {  }

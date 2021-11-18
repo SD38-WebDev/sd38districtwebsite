@@ -23,29 +23,29 @@ plugin: 'menu_block:main'
 settings:
   id: 'menu_block:main'
   label: 'Main navigation'
-  provider: menu_block
   label_display: '0'
+  provider: menu_block
   follow: false
   follow_parent: child
+  label_link: false
+  label_type: block
   level: 1
   depth: 1
   expand_all_items: false
   parent: 'main:menu_link_content:dbe155f3-2400-41ab-bd8e-af0706229618'
   suggestion: sectionmenu
-  label_type: block
-  label_link: false
   expand: false
 visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'
-    bundles:
-      blog_post: blog_post
-      page: page
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
+    bundles:
+      blog_post: blog_post
+      page: page
   request_path:
     id: request_path
-    pages: "/our-district/about-us\r\n/our-district/about-us/*\r\n/our-district/our-story\r\n/our-district/our-district-story\r\n/our-district/our-district-story/*"
     negate: false
     context_mapping: {  }
+    pages: "/our-district/about-us\r\n/our-district/about-us/*\r\n/our-district/our-story\r\n/our-district/our-district-story\r\n/our-district/our-district-story/*"

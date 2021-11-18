@@ -17,8 +17,8 @@ plugin: 'block_content:df3ca853-dc9b-4e4f-9570-8fb3e0aa7443'
 settings:
   id: 'block_content:df3ca853-dc9b-4e4f-9570-8fb3e0aa7443'
   label: Clock
-  provider: block_content
   label_display: visible
+  provider: block_content
   status: true
   info: ''
   view_mode: full

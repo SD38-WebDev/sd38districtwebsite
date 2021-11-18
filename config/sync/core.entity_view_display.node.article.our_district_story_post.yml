@@ -56,8 +56,8 @@ third_party_settings:
       right:
         - field_image_gallery
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 _core:
   default_config_hash: ChmU3AVqDKU32A_fyChG0W9dTRKmVBR58B6OClCLvZI
 id: node.article.our_district_story_post
@@ -67,8 +67,6 @@ mode: our_district_story_post
 content:
   body:
     type: text_default
-    weight: 0
-    region: left
     label: hidden
     settings: {  }
     third_party_settings:
@@ -79,53 +77,54 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
+    weight: 0
+    region: left
   field_image_gallery:
-    weight: 1
+    type: slick_image
     label: hidden
     settings:
-      style: ''
-      optionset: default
-      optionset_thumbnail: ''
-      skin: ''
-      skin_thumbnail: ''
-      image_style: ''
-      responsive_image_style: ''
-      thumbnail_effect: ''
-      thumbnail_position: ''
-      media_switch: ''
-      thumbnail_style: ''
-      ratio: ''
-      grid: null
-      grid_medium: null
-      grid_small: null
-      visible_items: null
-      layout: ''
-      thumbnail_caption: ''
-      cache: 0
-      sizes: ''
-      breakpoints:
-        xs:
-          image_style: ''
-          width: ''
-        sm:
-          image_style: ''
-          width: ''
-        md:
-          image_style: ''
-          width: ''
-        lg:
-          image_style: ''
-          width: ''
-        xl:
-          image_style: ''
-          width: ''
-      current_view_mode: our_district_story_post
-      background: false
       caption:
         title: '0'
         alt: '0'
-      preserve_keys: false
-      override: false
+      optionset: default
+      icon: ''
+      layout: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: our_district_story_post
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      responsive_image_style: ''
+      box_style: ''
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      thumbnail_style: ''
+      breakpoints:
+        xs:
+          width: ''
+          image_style: ''
+        sm:
+          width: ''
+          image_style: ''
+        md:
+          width: ''
+          image_style: ''
+        lg:
+          width: ''
+          image_style: ''
+        xl:
+          width: ''
+          image_style: ''
+      sizes: ''
+      grid_header: ''
+      grid: null
+      grid_medium: null
+      grid_small: null
       overridables:
         arrows: '0'
         autoplay: '0'
@@ -135,15 +134,16 @@ content:
         mouseWheel: '0'
         randomize: '0'
         variableWidth: '0'
+      optionset_thumbnail: ''
+      skin_thumbnail: ''
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: false
       skin_arrows: ''
       skin_dots: ''
-      icon: ''
-      view_mode: ''
-      box_caption: ''
-      box_caption_custom: ''
-      box_style: ''
-      box_media_style: ''
-      grid_header: ''
+      preserve_keys: false
+      visible_items: null
     third_party_settings:
       ds:
         ds_limit: ''
@@ -153,7 +153,7 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    type: slick_image
+    weight: 1
     region: right
 hidden:
   field_attachments: true

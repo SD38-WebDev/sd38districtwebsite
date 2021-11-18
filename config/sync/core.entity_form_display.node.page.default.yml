@@ -27,15 +27,15 @@ third_party_settings:
       children:
         - group_tab
         - group_advanced_beta_
+      label: Tabs
+      region: content
       parent_name: ''
       weight: 0
       format_type: tabs
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         direction: horizontal
-      label: Tabs
     group_tab:
       children:
         - title
@@ -43,47 +43,47 @@ third_party_settings:
         - body
         - field_body_2
         - field_image_gallery
+      label: 'Basic Content'
+      region: content
       parent_name: group_tabs
       weight: 1
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: open
+        description: ''
         required_fields: true
-      label: 'Basic Content'
     group_advanced_beta_:
       children:
         - field_content_section
+      label: 'Advanced (Beta)'
+      region: content
       parent_name: group_tabs
       weight: 2
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: 'Advanced (Beta)'
     group_details_sidebar:
       children:
         - field_feature_page
         - field_page_thumbnail_image
+      label: 'Feature Page'
+      region: content
       parent_name: ''
       weight: 1
       format_type: details_sidebar
-      region: content
       format_settings:
-        description: ''
-        weight: 0
-        required_fields: true
-        id: ''
         classes: ''
+        id: ''
         open: false
-      label: 'Feature Page'
+        description: ''
+        required_fields: true
+        weight: 0
 _core:
   default_config_hash: sb0qCkzU_8mNq29NehYAU8jCBXWPLeX0UN8sYFVGVcw
 id: node.page.default
@@ -116,18 +116,19 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_body_2:
+    type: text_textarea_with_summary
     weight: 3
+    region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-    type: text_textarea_with_summary
-    region: content
   field_content_section:
     type: paragraphs
     weight: 18
+    region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -143,44 +144,43 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: '0'
     third_party_settings: {  }
-    region: content
   field_custom_template:
+    type: template_whisperer
     weight: 12
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: template_whisperer
-    region: content
   field_feature_page:
+    type: boolean_checkbox
     weight: 10
+    region: content
     settings:
       display_label: true
     third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_image:
+    type: image_image
     weight: 1
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_image_gallery:
+    type: image_image
     weight: 4
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   field_page_thumbnail_image:
+    type: image_image
     weight: 11
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   path:
     type: path
     weight: 6
@@ -189,10 +189,10 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 4
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   specific_node_class:
     type: boolean_checkbox
@@ -203,17 +203,17 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 9
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 5
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -229,9 +229,9 @@ content:
     region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
   url_redirects:
     weight: 13

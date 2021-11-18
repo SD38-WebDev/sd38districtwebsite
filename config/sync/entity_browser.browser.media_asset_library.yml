@@ -24,29 +24,32 @@ widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:
   e7ce8e36-3236-4711-a593-2b0f49ffe2b0:
+    id: view
+    uuid: e7ce8e36-3236-4711-a593-2b0f49ffe2b0
+    label: 'Media Asset Library'
+    weight: -9
     settings:
-      view: media_asset_library_view
-      view_display: entity_browser_1
       submit_text: Done
       auto_select: false
-    uuid: e7ce8e36-3236-4711-a593-2b0f49ffe2b0
-    weight: -9
-    label: 'Media Asset Library'
-    id: view
+      view: media_asset_library_view
+      view_display: entity_browser_1
   849710da-84c9-443e-bf8b-485245fb552d:
+    id: entity_form
+    uuid: 849710da-84c9-443e-bf8b-485245fb552d
+    label: YouTube
+    weight: -8
     settings:
+      submit_text: Save
       entity_type: media
       bundle: remote_video
       form_mode: default
-      submit_text: Save
-    uuid: 849710da-84c9-443e-bf8b-485245fb552d
-    weight: -8
-    label: YouTube
-    id: entity_form
   ce89b252-fc3f-47b9-aee4-087f0bd028ea:
+    id: dropzonejs_media_entity_inline_entity_form
+    uuid: ce89b252-fc3f-47b9-aee4-087f0bd028ea
+    label: Files
+    weight: -7
     settings:
-      form_mode: default
-      media_type: file
+      submit_text: Upload
       upload_location: 'public://[date:custom:Y]-[date:custom:m]'
       dropzone_description: 'Drop files here to upload them'
       max_filesize: 50M
@@ -57,19 +60,16 @@ widgets:
       resize_quality: !!float 1
       resize_method: contain
       thumbnail_method: contain
-      submit_text: Upload
-    uuid: ce89b252-fc3f-47b9-aee4-087f0bd028ea
-    weight: -7
-    label: Files
-    id: dropzonejs_media_entity_inline_entity_form
+      media_type: file
+      form_mode: default
   0a2b0043-8602-49f4-b335-13b305b8ab52:
+    id: media_image_upload
+    uuid: 0a2b0043-8602-49f4-b335-13b305b8ab52
+    label: Upload
+    weight: -10
     settings:
       extensions: 'jpg jpeg png gif'
       media_type: image
       upload_location: 'public://'
       multiple: '1'
       submit_text: 'Select files'
-    uuid: 0a2b0043-8602-49f4-b335-13b305b8ab52
-    weight: -10
-    label: Upload
-    id: media_image_upload

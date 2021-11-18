@@ -16,68 +16,68 @@ third_party_settings:
       children:
         - group_text
         - group_background_colour
+      label: Tabs
+      region: content
       parent_name: ''
       weight: 0
       format_type: tabs
-      region: content
       format_settings:
-        direction: horizontal
-        id: ''
         classes: ''
-      label: Tabs
+        id: ''
+        direction: horizontal
     group_text:
       children:
         - field_section_content
+      label: Text
+      region: content
       parent_name: group_tabs
       weight: 8
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Text
     group_background_colour:
       children:
         - field_bgcolour
+      label: 'Background Colour'
+      region: content
       parent_name: group_tabs
       weight: 9
       format_type: tab
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: 'Background Colour'
 id: paragraph.basic_text_section.default
 targetEntityType: paragraph
 bundle: basic_text_section
 mode: default
 content:
   field_bgcolour:
+    type: color_field_widget_spectrum
     weight: 3
+    region: content
     settings:
       show_input: '1'
       show_palette: '1'
       palette: ''
+      show_palette_only: '0'
       show_buttons: '1'
       allow_empty: '1'
-      show_palette_only: '0'
     third_party_settings: {  }
-    type: color_field_widget_spectrum
-    region: content
   field_section_content:
+    type: text_textarea
     weight: 1
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
 hidden:
   created: true
   status: true

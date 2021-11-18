@@ -44,24 +44,24 @@ bundle: news_alert
 mode: default
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 0
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 0
     region: main
   field_news_alert_description:
-    weight: 2
+    type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 2
     region: content
   links:
-    weight: 1
-    region: main
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: main
 hidden:
   field_alert_type: true
   field_content_link: true

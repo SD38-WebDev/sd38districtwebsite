@@ -1,7 +1,22 @@
 uuid: c6bc3cef-bae2-486d-b216-3a8070a3eb95
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.full_html
+    - filter.format.restricted_html
+    - media.type.file
+    - media.type.remote_video
+    - node.type.event
+  module:
+    - draggableviews
+    - filter
+    - media
+    - media_bulk_upload
+    - menu_link_attributes
+    - node
+    - system
+    - toolbar
 id: content_publisher
 label: 'Content Publisher'
 weight: -6

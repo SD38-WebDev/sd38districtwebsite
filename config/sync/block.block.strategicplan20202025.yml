@@ -18,14 +18,14 @@ plugin: 'block_content:33f80f21-942c-4f90-9486-442275c78d3b'
 settings:
   id: 'block_content:33f80f21-942c-4f90-9486-442275c78d3b'
   label: 'Strategic Plan 2020-2025'
-  provider: block_content
   label_display: '0'
+  provider: block_content
   status: true
   info: ''
   view_mode: full
 visibility:
   request_path:
     id: request_path
-    pages: "/*/strategic-plan*\r\n/*/strategic-plan*/*"
     negate: false
     context_mapping: {  }
+    pages: "/*/strategic-plan*\r\n/*/strategic-plan*/*"

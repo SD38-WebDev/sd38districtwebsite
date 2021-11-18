@@ -18,14 +18,14 @@ plugin: 'block_content:0678f2af-e43e-485c-9eaa-0c06b48aa451'
 settings:
   id: 'block_content:0678f2af-e43e-485c-9eaa-0c06b48aa451'
   label: 'Our District Story Branding'
-  provider: block_content
   label_display: '0'
+  provider: block_content
   status: true
   info: ''
   view_mode: full
 visibility:
   request_path:
     id: request_path
-    pages: "/our-district/about-us\r\n/our-district/about-us/*\r\n/our-district/our-story\r\n/our-district/our-district-story\r\n/our-district/our-district-story/*"
     negate: false
     context_mapping: {  }
+    pages: "/our-district/about-us\r\n/our-district/about-us/*\r\n/our-district/our-story\r\n/our-district/our-district-story\r\n/our-district/our-district-story/*"

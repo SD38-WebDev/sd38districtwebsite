@@ -83,9 +83,8 @@ bundle: event
 mode: default
 content:
   body:
-    label: above
     type: text_default
-    weight: 4
+    label: above
     settings: {  }
     third_party_settings:
       ds:
@@ -93,32 +92,33 @@ content:
           id: expert
           settings:
             lb: 'Event Details'
-            prefix: ''
             lbw: true
             lbw-el: ''
             lbw-cl: font-weight-bold
             lbw-at: ''
+            lb-col: false
+            ow: false
             ow-el: ''
             ow-cl: ''
             ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lb-col: false
-            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
             fis-def-at: false
             fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
             fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 4
     region: right
   field_attachments:
-    weight: 6
+    type: entity_reference_entity_view
     label: above
     settings:
       view_mode: full
@@ -130,88 +130,88 @@ content:
           id: expert
           settings:
             lb: ''
-            prefix: ''
             lbw: true
             lbw-el: ''
             lbw-cl: font-weight-bold
             lbw-at: ''
+            lb-col: false
+            ow: false
             ow-el: ''
             ow-cl: ''
             ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lb-col: false
-            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
             fis-def-at: false
             fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
             fi-def-at: false
-    type: entity_reference_entity_view
+            prefix: ''
+            suffix: ''
+    weight: 6
     region: right
   field_board_meeting:
-    weight: 0
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 0
     region: top
   field_event_date:
-    weight: 3
+    type: smartdate_default
     label: above
     settings:
       timezone_override: ''
+      format_type: medium
       format: default
       force_chronological: false
-      format_type: medium
     third_party_settings:
       ds:
         ft:
           id: expert
           settings:
             lb: ''
-            prefix: ''
             lbw: true
             lbw-el: ''
             lbw-cl: font-weight-bold
             lbw-at: ''
+            lb-col: false
+            ow: false
             ow-el: ''
             ow-cl: ''
             ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lb-col: false
-            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
             fis-def-at: false
             fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
             fi-def-at: false
-    type: smartdate_default
+            prefix: ''
+            suffix: ''
+    weight: 3
     region: right
   field_image:
-    weight: 1
+    type: image
     label: hidden
     settings:
-      image_style: x_large
       image_link: ''
+      image_style: x_large
     third_party_settings: {  }
-    type: image
+    weight: 1
     region: left
   field_location_reference:
-    weight: 5
+    type: entity_reference_entity_view
     label: above
     settings:
       view_mode: default
@@ -223,30 +223,30 @@ content:
           id: expert
           settings:
             lb: 'Event Location(s)'
-            prefix: ''
             lbw: true
             lbw-el: ''
             lbw-cl: font-weight-bold
             lbw-at: ''
+            lb-col: false
+            ow: false
             ow-el: ''
             ow-cl: ''
             ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lb-col: false
-            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
             fis-def-at: false
             fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
             fi-def-at: false
-    type: entity_reference_entity_view
+            prefix: ''
+            suffix: ''
+    weight: 5
     region: right
 hidden:
   field_event_location: true

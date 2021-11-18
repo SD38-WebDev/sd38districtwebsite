@@ -43,9 +43,9 @@ third_party_settings:
         label: hidden
         formatter: default
         settings:
+          link: false
           wrapper: ''
           class: font-weight-bold
-          link: false
         ft:
           id: default
           settings:
@@ -58,14 +58,14 @@ bundle: locations
 mode: default
 content:
   description:
-    label: hidden
     type: text_default
-    weight: 0
-    region: main
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: main
   field_location_address:
-    weight: 2
+    type: address_default
     label: hidden
     settings: {  }
     third_party_settings:
@@ -74,29 +74,29 @@ content:
           id: expert
           settings:
             lb: ''
-            prefix: ''
             lbw: true
             lbw-el: ''
             lbw-cl: font-weight-bold
             lbw-at: ''
+            lb-col: false
+            ow: false
             ow-el: ''
             ow-cl: ''
             ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lb-col: false
-            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
             fis-def-at: false
             fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
             fi-def-at: false
-    type: address_default
+            prefix: ''
+            suffix: ''
+    weight: 2
     region: main
 hidden: {  }

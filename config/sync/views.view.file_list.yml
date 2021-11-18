@@ -24,70 +24,12 @@ base_table: media_field_data
 base_field: mid
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: perm
-        options:
-          perm: 'view media'
-      cache:
-        type: tag
-        options: {  }
-      query:
-        type: views_query
-        options:
-          disable_sql_rewrite: false
-          distinct: false
-          replica: false
-          query_comment: ''
-          query_tags: {  }
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Apply
-          reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: mini
-        options:
-          items_per_page: 0
-          offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: ‹‹
-            next: ››
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-      style:
-        type: html_list
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: false
-          type: ul
-          wrapper_class: col
-          class: list-unstyled
-      row:
-        type: fields
-        options:
-          default_field_elements: false
-          inline: {  }
-          separator: ''
-          hide_empty: false
+      title: ''
       fields:
         field_media_file:
           id: field_media_file
@@ -96,6 +38,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -150,7 +93,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_file_date:
           id: field_file_date
           table: media__field_file_date
@@ -158,6 +100,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: Date
           exclude: true
           alter:
@@ -214,7 +157,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         name:
           id: name
           table: media_field_data
@@ -222,6 +164,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: field
           label: ''
           exclude: false
           alter:
@@ -277,9 +222,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: media
-          entity_field: name
-          plugin_id: field
         edit_media:
           id: edit_media
           table: media_field_revision
@@ -287,6 +229,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          plugin_id: entity_link_edit
           label: ''
           exclude: false
           alter:
@@ -331,31 +275,123 @@ display:
           text: edit
           output_url_as_text: false
           absolute: false
+      pager:
+        type: mini
+        options:
+          offset: 0
+          items_per_page: 0
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: perm
+        options:
+          perm: 'view media'
+      cache:
+        type: tag
+        options: {  }
+      empty: {  }
+      sorts:
+        name:
+          id: name
+          table: media_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
           entity_type: media
-          plugin_id: entity_link_edit
+          entity_field: name
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: name
+          exposed: false
+      arguments:
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: reverse__node__field_tags
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: nid
+          plugin_id: node_nid
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: node
+          default_argument_options: {  }
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: true
+          validate:
+            type: 'entity:media'
+            fail: 'not found'
+          validate_options:
+            bundles:
+              file: file
+            access: false
+            operation: view
+            multiple: 0
+          break_phrase: false
+          not: false
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -366,6 +402,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '800 Community Relations': '800 Community Relations'
@@ -399,7 +436,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -407,6 +443,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             Guidelines: Guidelines
@@ -440,7 +477,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -448,6 +484,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -481,27 +520,30 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
-      sorts:
-        name:
-          id: name
-          table: media_field_data
-          field: name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          entity_type: media
-          entity_field: name
-          plugin_id: standard
-      header: {  }
-      footer: {  }
-      empty: {  }
+      style:
+        type: html_list
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: false
+          type: ul
+          wrapper_class: col
+          class: list-unstyled
+      row:
+        type: fields
+        options:
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_tags: {  }
       relationships:
         field_tags:
           id: field_tags
@@ -510,8 +552,8 @@ display:
           relationship: none
           group_type: group
           admin_label: 'field_tags: Taxonomy term'
-          required: true
           plugin_id: standard
+          required: true
         field_media_file_target_id:
           id: field_media_file_target_id
           table: media__field_media_file
@@ -519,8 +561,8 @@ display:
           relationship: none
           group_type: group
           admin_label: 'file from field_media_file'
-          required: true
           plugin_id: standard
+          required: true
         reverse__node__field_tags:
           id: reverse__node__field_tags
           table: taxonomy_term_field_data
@@ -528,55 +570,14 @@ display:
           relationship: field_tags
           group_type: group
           admin_label: field_tags
-          required: true
           entity_type: taxonomy_term
           plugin_id: entity_reverse
-      arguments:
-        nid:
-          id: nid
-          table: node_field_data
-          field: nid
-          relationship: reverse__node__field_tags
-          group_type: group
-          admin_label: ''
-          default_action: default
-          exception:
-            value: all
-            title_enable: false
-            title: All
-          title_enable: false
-          title: ''
-          default_argument_type: node
-          default_argument_options: {  }
-          default_argument_skip_url: false
-          summary_options:
-            base_path: ''
-            count: true
-            items_per_page: 25
-            override: false
-          summary:
-            sort_order: asc
-            number_of_records: 0
-            format: default_summary
-          specify_validation: true
-          validate:
-            type: 'entity:media'
-            fail: 'not found'
-          validate_options:
-            bundles:
-              file: file
-            operation: view
-            multiple: 0
-            access: false
-          break_phrase: false
-          not: false
-          entity_type: node
-          entity_field: nid
-          plugin_id: node_nid
-      display_extenders: {  }
-      title: ''
+          required: true
       use_ajax: true
       group_by: false
+      header: {  }
+      footer: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -589,14 +590,11 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_1:
-    display_plugin: block
     id: block_1
     display_title: 'File List (by month day year)'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: 'File List (by month day year) - Block'
-      display_description: ''
       fields:
         field_media_file:
           id: field_media_file
@@ -605,6 +603,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: false
           alter:
@@ -660,7 +659,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_file_date:
           id: field_file_date
           table: media__field_file_date
@@ -668,6 +666,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: Date
           exclude: true
           alter:
@@ -724,40 +723,33 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
-      defaults:
-        fields: false
-        filters: false
-        filter_groups: false
-        style: false
-        row: false
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
+          group: 1
           expose:
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
       filter_groups:
         operator: AND
         groups:
@@ -782,6 +774,15 @@ display:
           inline: {  }
           separator: ''
           hide_empty: false
+      defaults:
+        style: false
+        row: false
+        fields: false
+        filters: false
+        filter_groups: false
+      display_description: ''
+      display_extenders: {  }
+      block_description: 'File List (by month day year) - Block'
     cache_metadata:
       max-age: -1
       contexts:
@@ -794,47 +795,36 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_10:
-    display_plugin: block
     id: block_10
     display_title: '520 PR'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '520 PR'
-      display_description: ''
-      defaults:
-        fields: true
-        arguments: false
-        relationships: false
-        title: false
-        filters: false
-        filter_groups: false
-      arguments: {  }
-      relationships: {  }
       title: 'Policies and Regulations'
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -845,6 +835,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '520 Students-Services': '520 Students-Services'
@@ -878,7 +869,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -886,6 +876,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             'Policies and Regulations': 'Policies and Regulations'
@@ -919,7 +910,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -927,6 +917,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -960,13 +953,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        title: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: '520 PR'
     cache_metadata:
       max-age: -1
       contexts:
@@ -979,47 +980,36 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_11:
-    display_plugin: block
     id: block_11
     display_title: '510 G'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '510 G'
-      display_description: ''
-      defaults:
-        fields: true
-        arguments: false
-        relationships: false
-        title: false
-        filters: false
-        filter_groups: false
-      arguments: {  }
-      relationships: {  }
       title: Guidelines
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -1030,6 +1020,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '510 Students-Programs': '510 Students-Programs'
@@ -1063,7 +1054,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -1071,6 +1061,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             Guidelines: Guidelines
@@ -1104,7 +1095,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -1112,6 +1102,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -1145,13 +1138,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        title: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: '510 G'
     cache_metadata:
       max-age: -1
       contexts:
@@ -1164,47 +1165,36 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_12:
-    display_plugin: block
     id: block_12
     display_title: '510 PR'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '510 PR'
-      display_description: ''
-      defaults:
-        fields: true
-        arguments: false
-        relationships: false
-        title: false
-        filters: false
-        filter_groups: false
-      arguments: {  }
-      relationships: {  }
       title: 'Policies and Regulations'
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -1215,6 +1205,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '510 Students-Programs': '510 Students-Programs'
@@ -1248,7 +1239,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -1256,6 +1246,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             'Policies and Regulations': 'Policies and Regulations'
@@ -1289,7 +1280,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -1297,6 +1287,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -1330,13 +1323,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        title: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: '510 PR'
     cache_metadata:
       max-age: -1
       contexts:
@@ -1349,47 +1350,36 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_13:
-    display_plugin: block
     id: block_13
     display_title: '500 G'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '500 G'
-      display_description: ''
-      defaults:
-        fields: true
-        arguments: false
-        relationships: false
-        title: false
-        filters: false
-        filter_groups: false
-      arguments: {  }
-      relationships: {  }
       title: Guidelines
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -1400,6 +1390,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '500 Students-Education': '500 Students-Education'
@@ -1433,7 +1424,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -1441,6 +1431,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             Guidelines: Guidelines
@@ -1474,7 +1465,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -1482,6 +1472,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -1515,13 +1508,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        title: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: '500 G'
     cache_metadata:
       max-age: -1
       contexts:
@@ -1534,47 +1535,36 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_14:
-    display_plugin: block
     id: block_14
     display_title: '500 PR'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '500 PR'
-      display_description: ''
-      defaults:
-        fields: true
-        arguments: false
-        relationships: false
-        title: false
-        filters: false
-        filter_groups: false
-      arguments: {  }
-      relationships: {  }
       title: 'Policies and Regulations'
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -1585,6 +1575,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '500 Students-Education': '500 Students-Education'
@@ -1618,7 +1609,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -1626,6 +1616,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             'Policies and Regulations': 'Policies and Regulations'
@@ -1659,7 +1650,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -1667,6 +1657,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -1700,13 +1693,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        title: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: '500 PR'
     cache_metadata:
       max-age: -1
       contexts:
@@ -1719,47 +1720,36 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_15:
-    display_plugin: block
     id: block_15
     display_title: '400 G'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '400 G'
-      display_description: ''
-      defaults:
-        fields: true
-        arguments: false
-        relationships: false
-        title: false
-        filters: false
-        filter_groups: false
-      arguments: {  }
-      relationships: {  }
       title: Guidelines
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -1770,6 +1760,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '400 Human Resources': '400 Human Resources'
@@ -1803,7 +1794,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -1811,6 +1801,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             Guidelines: Guidelines
@@ -1844,7 +1835,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -1852,6 +1842,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -1885,13 +1878,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        title: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: '400 G'
     cache_metadata:
       max-age: -1
       contexts:
@@ -1904,47 +1905,36 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_16:
-    display_plugin: block
     id: block_16
     display_title: '400 PR'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '400 PR'
-      display_description: ''
-      defaults:
-        fields: true
-        arguments: false
-        relationships: false
-        title: false
-        filters: false
-        filter_groups: false
-      arguments: {  }
-      relationships: {  }
       title: 'Policies and Regulations'
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -1955,6 +1945,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '400 Human Resources': '400 Human Resources'
@@ -1988,7 +1979,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -1996,6 +1986,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             'Policies and Regulations': 'Policies and Regulations'
@@ -2029,7 +2020,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -2037,6 +2027,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -2070,13 +2063,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        title: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: '400 PR'
     cache_metadata:
       max-age: -1
       contexts:
@@ -2089,47 +2090,36 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_17:
-    display_plugin: block
     id: block_17
     display_title: '300 G'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '300 G'
-      display_description: ''
-      defaults:
-        fields: true
-        arguments: false
-        relationships: false
-        title: false
-        filters: false
-        filter_groups: false
-      arguments: {  }
-      relationships: {  }
       title: Guidelines
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -2140,6 +2130,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '300 Administration': '300 Administration'
@@ -2173,7 +2164,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -2181,6 +2171,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             Guidelines: Guidelines
@@ -2214,7 +2205,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -2222,6 +2212,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -2255,13 +2248,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        title: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: '300 G'
     cache_metadata:
       max-age: -1
       contexts:
@@ -2274,47 +2275,36 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_18:
-    display_plugin: block
     id: block_18
     display_title: '300 PR'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '300 PR'
-      display_description: ''
-      defaults:
-        fields: true
-        arguments: false
-        relationships: false
-        title: false
-        filters: false
-        filter_groups: false
-      arguments: {  }
-      relationships: {  }
       title: 'Policies and Regulations'
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -2325,6 +2315,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '300 Administration': '300 Administration'
@@ -2358,7 +2349,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -2366,6 +2356,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             'Policies and Regulations': 'Policies and Regulations'
@@ -2399,7 +2390,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -2407,6 +2397,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -2440,13 +2433,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        title: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: '300 PR'
     cache_metadata:
       max-age: -1
       contexts:
@@ -2459,47 +2460,36 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_19:
-    display_plugin: block
     id: block_19
     display_title: '200 G'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '200 G'
-      display_description: ''
-      defaults:
-        fields: true
-        arguments: false
-        relationships: false
-        title: false
-        filters: false
-        filter_groups: false
-      arguments: {  }
-      relationships: {  }
       title: Guidelines
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -2510,6 +2500,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '200 Governance': '200 Governance'
@@ -2543,7 +2534,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -2551,6 +2541,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             Guidelines: Guidelines
@@ -2584,7 +2575,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -2592,6 +2582,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -2625,13 +2618,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        title: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: '200 G'
     cache_metadata:
       max-age: -1
       contexts:
@@ -2644,49 +2645,80 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_2:
-    display_plugin: block
     id: block_2
     display_title: 'File List (by year)'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: 'File List (by year) - Block'
-      display_description: ''
-      defaults:
-        fields: true
-        filters: false
-        filter_groups: false
-        style: false
-        row: false
-        arguments: false
-        relationships: false
+      arguments:
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: reverse__node__field_tags
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: nid
+          plugin_id: node_nid
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: node
+          default_argument_options: {  }
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: true
+          validate:
+            type: 'entity:node'
+            fail: 'not found'
+          validate_options:
+            bundles:
+              page: page
+            access: false
+            operation: view
+            multiple: 0
+          break_phrase: false
+          not: false
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
+          group: 1
           expose:
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
       filter_groups:
         operator: AND
         groups:
@@ -2711,48 +2743,14 @@ display:
           inline: {  }
           separator: ''
           hide_empty: false
-      arguments:
-        nid:
-          id: nid
-          table: node_field_data
-          field: nid
-          relationship: reverse__node__field_tags
-          group_type: group
-          admin_label: ''
-          default_action: default
-          exception:
-            value: all
-            title_enable: false
-            title: All
-          title_enable: false
-          title: ''
-          default_argument_type: node
-          default_argument_options: {  }
-          default_argument_skip_url: false
-          summary_options:
-            base_path: ''
-            count: true
-            items_per_page: 25
-            override: false
-          summary:
-            sort_order: asc
-            number_of_records: 0
-            format: default_summary
-          specify_validation: true
-          validate:
-            type: 'entity:node'
-            fail: 'not found'
-          validate_options:
-            bundles:
-              page: page
-            operation: view
-            multiple: 0
-            access: false
-          break_phrase: false
-          not: false
-          entity_type: node
-          entity_field: nid
-          plugin_id: node_nid
+      defaults:
+        style: false
+        row: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
       relationships:
         field_tags:
           id: field_tags
@@ -2761,8 +2759,8 @@ display:
           relationship: none
           group_type: group
           admin_label: 'field_tags: Taxonomy term'
-          required: false
           plugin_id: standard
+          required: false
         field_media_file_target_id:
           id: field_media_file_target_id
           table: media__field_media_file
@@ -2770,8 +2768,8 @@ display:
           relationship: none
           group_type: group
           admin_label: 'file from field_media_file'
-          required: true
           plugin_id: standard
+          required: true
         reverse__node__field_tags:
           id: reverse__node__field_tags
           table: taxonomy_term_field_data
@@ -2779,9 +2777,12 @@ display:
           relationship: field_tags
           group_type: group
           admin_label: field_tags
-          required: false
           entity_type: taxonomy_term
           plugin_id: entity_reverse
+          required: false
+      display_description: ''
+      display_extenders: {  }
+      block_description: 'File List (by year) - Block'
     cache_metadata:
       max-age: -1
       contexts:
@@ -2794,47 +2795,36 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_20:
-    display_plugin: block
     id: block_20
     display_title: '200 PR'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '200 PR'
-      display_description: ''
-      defaults:
-        fields: true
-        arguments: false
-        relationships: false
-        title: false
-        filters: false
-        filter_groups: false
-      arguments: {  }
-      relationships: {  }
       title: 'Policies and Regulations'
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -2845,6 +2835,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '200 Governance': '200 Governance'
@@ -2878,7 +2869,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -2886,6 +2876,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             'Policies and Regulations': 'Policies and Regulations'
@@ -2919,7 +2910,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -2927,6 +2917,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -2960,13 +2953,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        title: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: '200 PR'
     cache_metadata:
       max-age: -1
       contexts:
@@ -2979,47 +2980,36 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_21:
-    display_plugin: block
     id: block_21
     display_title: '100 G'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '100 G'
-      display_description: ''
-      defaults:
-        fields: true
-        arguments: false
-        relationships: false
-        title: false
-        filters: false
-        filter_groups: false
-      arguments: {  }
-      relationships: {  }
       title: Guidelines
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -3030,6 +3020,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '100 District Philosophy': '100 District Philosophy'
@@ -3063,7 +3054,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -3071,6 +3061,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             Guidelines: Guidelines
@@ -3104,7 +3095,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -3112,6 +3102,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -3145,13 +3138,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        title: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: '100 G'
     cache_metadata:
       max-age: -1
       contexts:
@@ -3164,47 +3165,36 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_22:
-    display_plugin: block
     id: block_22
     display_title: '100 PR'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '100 PR'
-      display_description: ''
-      defaults:
-        fields: true
-        arguments: false
-        relationships: false
-        title: false
-        filters: false
-        filter_groups: false
-      arguments: {  }
-      relationships: {  }
       title: 'Policies and Regulations'
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -3215,6 +3205,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '100 District Philosophy': '100 District Philosophy'
@@ -3248,7 +3239,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -3256,6 +3246,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             'Policies and Regulations': 'Policies and Regulations'
@@ -3289,7 +3280,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -3297,6 +3287,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -3330,13 +3323,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        title: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: '100 PR'
     cache_metadata:
       max-age: -1
       contexts:
@@ -3349,22 +3350,22 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_3:
-    display_plugin: block
     id: block_3
     display_title: '800 G'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '800 G'
-      display_description: ''
+      title: Guidelines
+      arguments: {  }
       defaults:
+        title: false
+        relationships: false
         fields: true
         arguments: false
-        relationships: false
-        title: false
-      arguments: {  }
       relationships: {  }
-      title: Guidelines
+      display_description: ''
+      display_extenders: {  }
+      block_description: '800 G'
     cache_metadata:
       max-age: -1
       contexts:
@@ -3377,47 +3378,36 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_4:
-    display_plugin: block
     id: block_4
     display_title: '800 PR'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '800 PR'
-      display_description: ''
-      defaults:
-        fields: true
-        arguments: false
-        relationships: false
-        title: false
-        filters: false
-        filter_groups: false
-      arguments: {  }
-      relationships: {  }
       title: 'Policies and Regulations'
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -3428,6 +3418,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '800 Community Relations': '800 Community Relations'
@@ -3461,7 +3452,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -3469,6 +3459,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             'Policies and Regulations': 'Policies and Regulations'
@@ -3502,7 +3493,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -3510,6 +3500,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -3543,13 +3536,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        title: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: '800 PR'
     cache_metadata:
       max-age: -1
       contexts:
@@ -3562,47 +3563,36 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_5:
-    display_plugin: block
     id: block_5
     display_title: '700 G'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '700 G'
-      display_description: ''
-      defaults:
-        fields: true
-        arguments: false
-        relationships: false
-        title: false
-        filters: false
-        filter_groups: false
-      arguments: {  }
-      relationships: {  }
       title: Guidelines
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -3613,6 +3603,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '700 Facilities': '700 Facilities'
@@ -3646,7 +3637,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -3654,6 +3644,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             Guidelines: Guidelines
@@ -3687,7 +3678,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -3695,6 +3685,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -3728,13 +3721,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        title: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: '700 G'
     cache_metadata:
       max-age: -1
       contexts:
@@ -3747,47 +3748,36 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_6:
-    display_plugin: block
     id: block_6
     display_title: '700 PR'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '700 PR'
-      display_description: ''
-      defaults:
-        fields: true
-        arguments: false
-        relationships: false
-        title: false
-        filters: false
-        filter_groups: false
-      arguments: {  }
-      relationships: {  }
       title: 'Policies and Regulations'
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -3798,6 +3788,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '700 Facilities': '700 Facilities'
@@ -3831,7 +3822,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -3839,6 +3829,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             'Policies and Regulations': 'Policies and Regulations'
@@ -3872,7 +3863,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -3880,6 +3870,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -3913,13 +3906,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        title: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: '700 PR'
     cache_metadata:
       max-age: -1
       contexts:
@@ -3932,47 +3933,36 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_7:
-    display_plugin: block
     id: block_7
     display_title: '600 G'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '600 G'
-      display_description: ''
-      defaults:
-        fields: true
-        arguments: false
-        relationships: false
-        title: false
-        filters: false
-        filter_groups: false
-      arguments: {  }
-      relationships: {  }
       title: Guidelines
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -3983,6 +3973,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '600 Finance': '600 Finance'
@@ -4016,7 +4007,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -4024,6 +4014,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             Guidelines: Guidelines
@@ -4057,7 +4048,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -4065,6 +4055,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -4098,13 +4091,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        title: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: '600 G'
     cache_metadata:
       max-age: -1
       contexts:
@@ -4117,47 +4118,36 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_8:
-    display_plugin: block
     id: block_8
     display_title: '600 PR'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '600 PR'
-      display_description: ''
-      defaults:
-        fields: true
-        arguments: false
-        relationships: false
-        title: false
-        filters: false
-        filter_groups: false
-      arguments: {  }
-      relationships: {  }
       title: 'Policies and Regulations'
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -4168,6 +4158,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '600 Finance': '600 Finance'
@@ -4201,7 +4192,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -4209,6 +4199,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             'Policies and Regulations': 'Policies and Regulations'
@@ -4242,7 +4233,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -4250,6 +4240,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -4283,13 +4276,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        title: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: '600 PR'
     cache_metadata:
       max-age: -1
       contexts:
@@ -4302,47 +4303,36 @@ display:
         - 'config:field.storage.media.field_file_date'
         - 'config:field.storage.media.field_media_file'
   block_9:
-    display_plugin: block
     id: block_9
     display_title: '520 G'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
-      block_description: '520 G'
-      display_description: ''
-      defaults:
-        fields: true
-        arguments: false
-        relationships: false
-        title: false
-        filters: false
-        filter_groups: false
-      arguments: {  }
-      relationships: {  }
       title: Guidelines
+      arguments: {  }
       filters:
         status:
-          value: '1'
+          id: status
           table: media_field_data
           field: status
-          plugin_id: boolean
           entity_type: media
           entity_field: status
-          id: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
           expose:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
         bundle:
           id: bundle
           table: media_field_data
           field: bundle
-          value:
-            file: file
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+          value:
+            file: file
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -4353,6 +4343,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             '520 Students-Services': '520 Students-Services'
@@ -4386,7 +4377,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         field_board_policy_type_value:
           id: field_board_policy_type_value
           table: media__field_board_policy_type
@@ -4394,6 +4384,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: and
           value:
             Guidelines: Guidelines
@@ -4427,7 +4418,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: list_field
         name:
           id: name
           table: media_field_data
@@ -4435,6 +4425,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: word
           value: ''
           group: 1
@@ -4468,13 +4461,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        title: false
+        relationships: false
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      relationships: {  }
+      display_description: ''
+      display_extenders: {  }
+      block_description: '520 G'
     cache_metadata:
       max-age: -1
       contexts:
