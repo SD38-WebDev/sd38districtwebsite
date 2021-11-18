@@ -22,6 +22,10 @@ settings:
   label_display: '0'
   provider: social_media_links
   platforms:
+    gitlab:
+      value: ''
+      description: ''
+      weight: '-10'
     rss:
       value: ''
       description: ''
@@ -30,10 +34,22 @@ settings:
       value: ''
       description: ''
       weight: '-9'
+    website:
+      value: ''
+      description: ''
+      weight: '-9'
     youtube_channel:
       value: ''
       description: ''
       weight: '-8'
+    whatsapp:
+      value: ''
+      description: ''
+      weight: '-8'
+    xing:
+      value: ''
+      description: ''
+      weight: '-7'
     instagram:
       value: ''
       description: ''
@@ -76,11 +92,11 @@ settings:
       weight: '2'
     twitter:
       value: richmondsd38
-      description: ''
+      description: Twitter
       weight: '3'
     youtube:
       value: RichmondSD38
-      description: ''
+      description: Youtube
       weight: '4'
     pinterest:
       value: ''
@@ -92,7 +108,7 @@ settings:
       weight: '6'
     facebook:
       value: RichmondSD38
-      description: ''
+      description: Facebook
       weight: '7'
     googleplus:
       value: ''
@@ -105,6 +121,7 @@ settings:
   appearance:
     orientation: h
     show_name: 0
+    suggestion: ''
   link_attributes:
     target: _blank
     rel: '<none>'
