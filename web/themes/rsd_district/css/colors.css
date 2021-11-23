@@ -1,7 +1,4 @@
 /* ---------- Color Module Styles ----------- */
-.evan {
-
-}
 body {
     color: #3b3b3b;
     background: #292929;
@@ -27,17 +24,17 @@ body {
 }
 
 .main-content .content a span {
-    color: #253f8e !important;
+    color: #0063a6 !important;
 }
 
 .page-item.active .page-link {
-    background-color: #253f8e;
-    border-color: #253f8e;
+    background-color: #005cb9;
+    border-color: #005cb9;
 }
 
 .page-link,
 .page-link:hover {
-    color: #253f8e;
+    color: #005cb9;
 }
 
 .sidebar .block {
