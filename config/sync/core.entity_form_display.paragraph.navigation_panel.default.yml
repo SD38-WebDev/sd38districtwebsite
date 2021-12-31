@@ -1,0 +1,25 @@
+uuid: f39f936b-bb65-443d-babb-fd2640e44831
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.navigation_panel.field_nav_panel_link
+    - paragraphs.paragraphs_type.navigation_panel
+  module:
+    - link
+id: paragraph.navigation_panel.default
+targetEntityType: paragraph
+bundle: navigation_panel
+mode: default
+content:
+  field_nav_panel_link:
+    type: link_default
+    weight: 0
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

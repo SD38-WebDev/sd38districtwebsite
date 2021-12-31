@@ -6,7 +6,9 @@ dependencies:
     - field.storage.node.field_content_section
     - node.type.page
     - paragraphs.paragraphs_type.basic_text_section
+    - paragraphs.paragraphs_type.blog_feed
     - paragraphs.paragraphs_type.image_text_section
+    - paragraphs.paragraphs_type.navigation_panel
   module:
     - entity_reference_revisions
 id: node.page.field_content_section
@@ -25,12 +27,20 @@ settings:
     target_bundles:
       basic_text_section: basic_text_section
       image_text_section: image_text_section
+      blog_feed: blog_feed
+      navigation_panel: navigation_panel
     negate: 0
     target_bundles_drag_drop:
       basic_text_section:
         weight: 2
         enabled: true
+      blog_feed:
+        weight: 6
+        enabled: true
       image_text_section:
         weight: 4
+        enabled: true
+      navigation_panel:
+        weight: 6
         enabled: true
 field_type: entity_reference_revisions

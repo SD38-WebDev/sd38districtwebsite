@@ -1738,3 +1738,23 @@ body.edweek .edweek.day5 .event-title {
 .paragraph--type-image-text-section .bs-region {
 	padding: 1.5rem 0;
 }
+
+.paragraph--type-navigation-panel .list-group {
+	border: none;
+}
+
+.paragraph--type-navigation-panel .list-group {
+	flex-direction: row;
+	justify-content: space-evenly;
+	background: #edf2fb;
+}
+
+.paragraph--type-navigation-panel .list-group .list-group-item {
+	border: none;
+	background: none;
+	padding: 0;
+}
+
+.paragraph--type-navigation-panel .list-group .list-group-item .nav-link {
+	background: none;
+}

@@ -7,5 +7,6 @@ ft-show-colon: false
 ft-layout-builder: false
 classes:
   region: {  }
-  field: {  }
+  field:
+    - test|Test
 use_field_names: true

@@ -6,8 +6,8 @@ dependencies:
     - system.menu.main
   module:
     - block_class
-    - ctools
     - menu_block
+    - node
     - system
   theme:
     - rsd_district

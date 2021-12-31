@@ -1,0 +1,10 @@
+uuid: 563b9cde-577e-4117-b8c5-367384e6697c
+langcode: en
+status: true
+dependencies: {  }
+id: navigation_panel
+label: 'Navigation Panel'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

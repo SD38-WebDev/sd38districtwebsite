@@ -1,0 +1,45 @@
+uuid: c51943dc-50ad-456d-ab6f-94c110adc237
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.blog_feed.field_referenced_tags
+    - field.field.paragraph.blog_feed.field_section_content
+    - field.field.paragraph.blog_feed.field_section_title
+    - paragraphs.paragraphs_type.blog_feed
+  module:
+    - text
+id: paragraph.blog_feed.default
+targetEntityType: paragraph
+bundle: blog_feed
+mode: default
+content:
+  field_referenced_tags:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_section_content:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_section_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,14 +1,15 @@
-uuid: 5ad90c85-3ab4-48dc-ba1f-ac01b57a8f77
+uuid: aa109fdf-b455-4177-8148-45629518a2f9
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.media.remote_video.field_media_oembed_video
-    - field.field.media.remote_video.field_tags
-    - media.type.remote_video
+    - field.field.paragraph.blog_feed.field_referenced_tags
+    - field.field.paragraph.blog_feed.field_section_content
+    - field.field.paragraph.blog_feed.field_section_title
+    - paragraphs.paragraphs_type.blog_feed
   module:
     - ds
-    - media
+    - text
 third_party_settings:
   ds:
     layout:
@@ -20,7 +21,8 @@ third_party_settings:
         label: ''
         layout:
           wrapper: div
-          classes: {  }
+          classes:
+            row: row
           add_layout_class: 1
           attributes: ''
         regions:
@@ -32,20 +34,31 @@ third_party_settings:
             attributes: ''
     regions:
       main:
-        - field_media_oembed_video
-_core:
-  default_config_hash: gUaDZKMQD3lmLKWPn727X3JHVdKJ525g4EJCCcDVAqk
-id: media.remote_video.default
-targetEntityType: media
-bundle: remote_video
+        - field_section_title
+        - field_section_content
+        - blog_feed_entity_view_1
+id: paragraph.blog_feed.default
+targetEntityType: paragraph
+bundle: blog_feed
 mode: default
 content:
-  field_media_oembed_video:
-    type: oembed
+  blog_feed_entity_view_1:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: main
+  field_section_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: main
+  field_section_title:
+    type: string
     label: hidden
     settings:
-      max_width: 600
-      max_height: 0
+      link_to_entity: false
     third_party_settings:
       ds:
         ft:
@@ -69,8 +82,8 @@ content:
             fis-at: ''
             fis-def-at: false
             fi: true
-            fi-el: div
-            fi-cl: 'embed-responsive embed-responsive-16by9'
+            fi-el: h2
+            fi-cl: ''
             fi-at: ''
             fi-def-at: false
             prefix: ''
@@ -78,8 +91,4 @@ content:
     weight: 0
     region: main
 hidden:
-  created: true
-  field_tags: true
-  name: true
-  thumbnail: true
-  uid: true
+  field_referenced_tags: true

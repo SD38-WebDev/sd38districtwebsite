@@ -1,0 +1,47 @@
+uuid: 391edb6d-7189-42ca-9885-30027f4d74fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.navigation_panel.field_nav_panel_link
+    - paragraphs.paragraphs_type.navigation_panel
+  module:
+    - ds
+third_party_settings:
+  ds:
+    layout:
+      id: bs_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          main:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      main:
+        - 'dynamic_block_field:paragraph-navigation_panel_block'
+    fields:
+      'dynamic_block_field:paragraph-navigation_panel_block':
+        plugin_id: 'dynamic_block_field:paragraph-navigation_panel_block'
+        weight: 0
+        label: hidden
+        formatter: default
+id: paragraph.navigation_panel.default
+targetEntityType: paragraph
+bundle: navigation_panel
+mode: default
+content: {  }
+hidden:
+  field_nav_panel_link: true

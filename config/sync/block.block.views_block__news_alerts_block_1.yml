@@ -5,7 +5,7 @@ dependencies:
   config:
     - views.view.news_alerts
   module:
-    - ctools
+    - node
     - views
   theme:
     - rsd_district

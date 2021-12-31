@@ -21,8 +21,7 @@ third_party_settings:
         label: ''
         layout:
           wrapper: div
-          classes:
-            row: row
+          classes: {  }
           add_layout_class: 0
           attributes: ''
         regions:
@@ -47,6 +46,7 @@ third_party_settings:
       format_type: html_element
       format_settings:
         classes: container
+        show_empty_fields: false
         id: ''
         element: div
         show_label: false

@@ -1,0 +1,21 @@
+uuid: c3280542-c1d9-4808-be73-48c5b4439bbd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_content
+    - paragraphs.paragraphs_type.blog_feed
+  module:
+    - text
+id: paragraph.blog_feed.field_section_content
+field_name: field_section_content
+entity_type: paragraph
+bundle: blog_feed
+label: 'Section Content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

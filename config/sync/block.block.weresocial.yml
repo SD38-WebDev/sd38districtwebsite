@@ -16,7 +16,7 @@ third_party_settings:
 id: weresocial
 theme: rsd_district
 region: content
-weight: -8
+weight: -11
 provider: null
 plugin: 'block_content:fbdfead9-2900-49e9-9429-ece9425fcf3a'
 settings:
