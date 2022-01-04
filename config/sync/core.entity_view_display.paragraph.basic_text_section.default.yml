@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.basic_text_section.field_bg
     - field.field.paragraph.basic_text_section.field_bgcolour
     - field.field.paragraph.basic_text_section.field_section_content
     - paragraphs.paragraphs_type.basic_text_section
@@ -21,9 +22,10 @@ third_party_settings:
         label: ''
         layout:
           wrapper: div
-          classes: {  }
+          classes:
+            row: row
           add_layout_class: 0
-          attributes: ''
+          attributes: ' class|[paragraph:field_bg] paragraph'
         regions:
           main:
             wrapper: div
@@ -68,4 +70,5 @@ content:
     weight: 1
     region: main
 hidden:
+  field_bg: true
   field_bgcolour: true

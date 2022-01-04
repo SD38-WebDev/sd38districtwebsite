@@ -19,8 +19,6 @@ dependencies:
     - entity_reference_revisions
     - field_group
     - layout_builder
-    - responsive_image
-    - text
     - user
 third_party_settings:
   layout_builder:
@@ -49,21 +47,14 @@ third_party_settings:
             attributes: ''
     regions:
       main:
-        - group_container
         - field_content_section
-        - field_image
-        - body
-        - field_body_2
   field_group:
     group_container:
-      children:
-        - field_image
-        - body
-        - field_body_2
+      children: {  }
       label: Container
       parent_name: ''
-      region: main
-      weight: 0
+      region: hidden
+      weight: 20
       format_type: html_element
       format_settings:
         classes: container
@@ -116,42 +107,50 @@ targetEntityType: node
 bundle: page
 mode: full_content_sections_
 content:
-  body:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 20
-    region: main
-  field_body_2:
-    type: text_trimmed
-    label: hidden
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    weight: 21
-    region: main
   field_content_section:
     type: entity_reference_revisions_entity_view
     label: hidden
     settings:
       view_mode: default
       link: ''
-    third_party_settings: {  }
-    weight: 3
-    region: main
-  field_image:
-    type: responsive_image
-    label: hidden
-    settings:
-      responsive_image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    weight: 19
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: false
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: div
+            fi-cl: content-section
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 0
     region: main
 hidden:
+  body: true
+  field_body_2: true
   field_custom_template: true
   field_feature_page: true
+  field_image: true
   field_image_gallery: true
   field_page_thumbnail_image: true
   layout_builder__layout: true

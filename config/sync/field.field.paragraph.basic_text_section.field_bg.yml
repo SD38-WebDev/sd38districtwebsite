@@ -1,0 +1,23 @@
+uuid: dffa9426-7233-4302-9917-6719c447e37c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bg
+    - paragraphs.paragraphs_type.basic_text_section
+id: paragraph.basic_text_section.field_bg
+field_name: field_bg
+entity_type: paragraph
+bundle: basic_text_section
+label: 'Background Colour'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: bg-on
+  off_label: bg-none
+field_type: boolean

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.basic_text_section.field_bg
     - field.field.paragraph.basic_text_section.field_bgcolour
     - field.field.paragraph.basic_text_section.field_section_content
     - paragraphs.paragraphs_type.basic_text_section
@@ -41,6 +42,7 @@ third_party_settings:
         required_fields: true
     group_background_colour:
       children:
+        - field_bg
         - field_bgcolour
       label: 'Background Colour'
       region: content
@@ -58,9 +60,16 @@ targetEntityType: paragraph
 bundle: basic_text_section
 mode: default
 content:
+  field_bg:
+    type: boolean_checkbox
+    weight: 10
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_bgcolour:
     type: color_field_widget_spectrum
-    weight: 3
+    weight: 11
     region: content
     settings:
       show_input: '1'
@@ -68,6 +77,8 @@ content:
       palette: ''
       show_palette_only: '0'
       show_buttons: '1'
+      cancel_text: Cancel
+      choose_text: Choose
       allow_empty: '1'
     third_party_settings: {  }
   field_section_content:

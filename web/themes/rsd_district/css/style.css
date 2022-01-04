@@ -1733,10 +1733,38 @@ body.edweek .edweek.day5 .event-title {
 }
 
 /** Paragraph Styles **/
+.paragraph {
+	margin-bottom: 3rem;
+}
 
-.paragraph--type-basic-text-section .bs-region,
+.content-section:last-of-type .paragraph {
+	margin-bottom: 0rem;
+}
+
+.paragraph.bg-none {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+.paragraph.bg-none .bs-region {
+	background-color: unset !important;
+}
+
+.paragraph.bg-on .bs-region {
+	border-radius: 1rem;
+}
+
+.paragraph.bg-on .container {
+	padding: 1rem 0;
+}
+
+.paragraph.bg-none .bs-region,
 .paragraph--type-image-text-section .bs-region {
-	padding: 1.5rem 0;
+	padding: 0;
 }
 
 .paragraph--type-navigation-panel .list-group {

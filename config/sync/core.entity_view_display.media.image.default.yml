@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.media.image.field_media_image
-    - image.style.x_large
+    - image.style.max_1300x1300
+    - image.style.max_650x650
     - media.type.image
   module:
-    - image
+    - colorbox
+    - ds
 _core:
   default_config_hash: jOwnt_yq6AKAfqU6f0xKnxEkFQ2eTPJWxrk3WMLbL68
 id: media.image.default
@@ -16,12 +18,24 @@ bundle: image
 mode: default
 content:
   field_media_image:
-    type: image
+    type: colorbox
     label: visually_hidden
     settings:
-      image_link: file
-      image_style: x_large
-    third_party_settings: {  }
+      colorbox_node_style: max_650x650
+      colorbox_node_style_first: ''
+      colorbox_image_style: max_1300x1300
+      colorbox_gallery: post
+      colorbox_gallery_custom: ''
+      colorbox_caption: auto
+      colorbox_caption_custom: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     weight: 1
     region: content
 hidden:

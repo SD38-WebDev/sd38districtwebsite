@@ -11,7 +11,7 @@ id: paragraph.basic_text_section.field_bgcolour
 field_name: field_bgcolour
 entity_type: paragraph
 bundle: basic_text_section
-label: 'Background Colour'
+label: Colour
 description: ''
 required: false
 translatable: true
