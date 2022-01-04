@@ -27,45 +27,6 @@ third_party_settings:
     allow_custom: true
     sections:
       -
-        layout_id: bs_1col
-        layout_settings:
-          label: ''
-          context_mapping: {  }
-          layout:
-            wrapper: div
-            classes:
-              row: row
-            add_layout_class: 1
-            attributes: ''
-          regions:
-            main:
-              wrapper: div
-              classes:
-                col-sm-12: col-sm-12
-              add_region_classes: 1
-              attributes: ''
-        components:
-          24e0ce58-0aa6-488c-8752-56ac5112c61c:
-            uuid: 24e0ce58-0aa6-488c-8752-56ac5112c61c
-            region: main
-            configuration:
-              id: 'field_block:node:page:title'
-              label: Title
-              label_display: visible
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: string
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
-        third_party_settings: {  }
-      -
         layout_id: bs_2col
         layout_settings:
           label: ''

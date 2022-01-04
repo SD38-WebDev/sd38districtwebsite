@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.blog_post.body
+    - field.field.node.blog_post.field_blog_post_tags
     - field.field.node.blog_post.field_image_gallery
     - field.field.node.blog_post.field_page_assignment
     - field.field.node.blog_post.field_tags
@@ -42,9 +43,19 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_blog_post_tags:
+    type: entity_reference_autocomplete
+    weight: 12
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_image_gallery:
     type: image_image
-    weight: 12
+    weight: 13
     region: content
     settings:
       progress_indicator: throbber
@@ -121,5 +132,10 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 14
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }
