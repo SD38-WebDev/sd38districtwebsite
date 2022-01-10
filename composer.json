@@ -87,6 +87,7 @@
         "drupal/field_group": "^3.0",
         "drupal/file_delete": "^1.0",
         "drupal/filefield_sources": "1.x-dev@dev",
+        "drupal/flood_control": "^2.2",
         "drupal/fontyourface": "^3.2",
         "drupal/fullcalendar_view": "^5.0",
         "drupal/google_analytics": "^2.4",
