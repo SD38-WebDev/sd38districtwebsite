@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.basic_text_section.field_bg
     - field.field.paragraph.basic_text_section.field_bgcolour
     - field.field.paragraph.basic_text_section.field_section_content
+    - field.field.paragraph.basic_text_section.field_section_title
     - paragraphs.paragraphs_type.basic_text_section
   module:
     - color_field
@@ -28,6 +29,7 @@ third_party_settings:
         direction: horizontal
     group_text:
       children:
+        - field_section_title
         - field_section_content
       label: Text
       region: content
@@ -83,10 +85,18 @@ content:
     third_party_settings: {  }
   field_section_content:
     type: text_textarea
-    weight: 1
+    weight: 13
     region: content
     settings:
       rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_section_title:
+    type: string_textfield
+    weight: 12
+    region: content
+    settings:
+      size: 60
       placeholder: ''
     third_party_settings: {  }
 hidden:

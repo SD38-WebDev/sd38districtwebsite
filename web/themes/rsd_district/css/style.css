@@ -91,12 +91,11 @@ img {
 
 #page-wrapper h2 {
 	font-size: 1.75rem;
-	margin-top: 1rem;
 	margin-bottom: 0.5rem;
 }
 
-#page-wrapper .bs-region h2:first-child {
-	margin-top: 0px;
+#page-wrapper .paragraph.bg-none h2:first-child {
+	margin-top: 0rem;
 }
 
 /*

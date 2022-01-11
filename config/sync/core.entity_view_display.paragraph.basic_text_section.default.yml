@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.basic_text_section.field_bg
     - field.field.paragraph.basic_text_section.field_bgcolour
     - field.field.paragraph.basic_text_section.field_section_content
+    - field.field.paragraph.basic_text_section.field_section_title
     - paragraphs.paragraphs_type.basic_text_section
   module:
     - ds
@@ -35,16 +36,18 @@ third_party_settings:
             attributes: 'style|background-color:[paragraph:field_bgcolour:color];'
     regions:
       main:
+        - field_section_title
         - group_container
         - field_section_content
   field_group:
     group_container:
       children:
+        - field_section_title
         - field_section_content
       label: Container
       parent_name: ''
       region: main
-      weight: 0
+      weight: 1
       format_type: html_element
       format_settings:
         classes: container
@@ -97,6 +100,42 @@ content:
             prefix: ''
             suffix: ''
     weight: 1
+    region: main
+  field_section_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: true
+            ow-el: div
+            ow-cl: row
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: h2
+            fi-cl: col-12
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 0
     region: main
 hidden:
   field_bg: true
