@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.article.field_image
     - field.field.node.article.field_image_gallery
     - field.field.node.article.field_page_assignment
+    - field.field.node.article.field_publish_to
     - field.field.node.article.field_tags
     - field.field.node.article.field_to_home_page_carousel
     - image.style.max_650x650
@@ -157,6 +158,14 @@ content:
     third_party_settings: {  }
     weight: 3
     region: left
+  field_publish_to:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
 hidden:
   field_attachments: true
   field_carousel_content_link: true

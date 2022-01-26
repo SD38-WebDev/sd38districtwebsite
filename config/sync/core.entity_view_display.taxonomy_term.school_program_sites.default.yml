@@ -1,0 +1,30 @@
+uuid: 7462bd7d-6821-4a0d-832e-ad2e6e2a55da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.school_program_sites.field_abbreviated_name
+    - taxonomy.vocabulary.school_program_sites
+  module:
+    - text
+id: taxonomy_term.school_program_sites.default
+targetEntityType: taxonomy_term
+bundle: school_program_sites
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_abbreviated_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

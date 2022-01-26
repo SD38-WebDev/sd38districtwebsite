@@ -1,0 +1,54 @@
+uuid: ee8a8471-0c35-42ed-bac7-cc15ed5a4170
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.token
+    - field.field.taxonomy_term.school_program_sites.field_abbreviated_name
+    - taxonomy.vocabulary.school_program_sites
+  module:
+    - ds
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        label: ''
+    regions:
+      ds_content:
+        - field_abbreviated_name
+id: taxonomy_term.school_program_sites.token
+targetEntityType: taxonomy_term
+bundle: school_program_sites
+mode: token
+content:
+  field_abbreviated_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: reset
+          settings:
+            lb: ''
+    weight: 0
+    region: ds_content
+hidden:
+  description: true

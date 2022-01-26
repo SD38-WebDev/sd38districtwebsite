@@ -1,0 +1,8 @@
+uuid: 0bf056ed-f9f4-46d9-bf82-d21a84d49e10
+langcode: en
+status: true
+dependencies: {  }
+name: 'School/Program Sites'
+vid: school_program_sites
+description: 'Taxonomy for content publishing to district websites'
+weight: 0
