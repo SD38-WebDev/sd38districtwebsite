@@ -54,15 +54,14 @@ third_party_settings:
       left:
         - field_image
         - node_post_date
-        - 'dynamic_block_field:node-attachments_block'
-        - field_page_assignment
       right:
         - body
         - field_image_gallery
+        - 'dynamic_block_field:node-attachments_block'
     fields:
       'dynamic_block_field:node-attachments_block':
         plugin_id: 'dynamic_block_field:node-attachments_block'
-        weight: 2
+        weight: 4
         label: hidden
         formatter: default
         ft:
@@ -122,7 +121,7 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    weight: 4
+    weight: 2
     region: right
   field_image:
     type: image
@@ -148,28 +147,14 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    weight: 5
-    region: right
-  field_page_assignment:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
     weight: 3
-    region: left
-  field_publish_to:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 6
-    region: content
+    region: right
 hidden:
   field_attachments: true
   field_carousel_content_link: true
   field_carousel_image: true
+  field_page_assignment: true
+  field_publish_to: true
   field_tags: true
   field_to_home_page_carousel: true
   links: true
