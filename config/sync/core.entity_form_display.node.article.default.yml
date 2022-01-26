@@ -44,6 +44,7 @@ third_party_settings:
     group_publish_to:
       children:
         - field_publish_to
+        - field_hide_from_district_news
       label: 'Publish to (BETA)'
       region: content
       parent_name: ''
@@ -129,7 +130,7 @@ content:
     third_party_settings: {  }
   field_publish_to:
     type: options_select
-    weight: 6
+    weight: 27
     region: content
     settings: {  }
     third_party_settings: {  }
