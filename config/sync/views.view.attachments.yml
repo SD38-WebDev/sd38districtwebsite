@@ -6,6 +6,7 @@ dependencies:
     - field.storage.media.field_media_file
     - media.type.file
     - node.type.article
+    - node.type.distributed_article
   module:
     - file
     - media
@@ -283,6 +284,7 @@ display:
           validate_options:
             bundles:
               article: article
+              distributed_article: distributed_article
             access: false
             operation: view
             multiple: 0

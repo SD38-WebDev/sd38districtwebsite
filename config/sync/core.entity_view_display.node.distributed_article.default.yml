@@ -1,0 +1,158 @@
+uuid: 23e32865-fe1f-49e1-b6db-b85773bd2e91
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.distributed_article.body
+    - field.field.node.distributed_article.field_attachments
+    - field.field.node.distributed_article.field_image
+    - field.field.node.distributed_article.field_publish_to
+    - node.type.distributed_article
+  module:
+    - ds
+    - image
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: bs_2col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          left:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+              col-md-4: col-md-4
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+              col-md-8: col-md-8
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      left:
+        - field_image
+        - node_post_date
+        - field_publish_to
+      right:
+        - body
+        - 'dynamic_block_field:node-attachments_block'
+        - 'dynamic_token_field:node-attachment_urls'
+    fields:
+      'dynamic_block_field:node-attachments_block':
+        plugin_id: 'dynamic_block_field:node-attachments_block'
+        weight: 4
+        label: hidden
+        formatter: default
+      'dynamic_token_field:node-attachment_urls':
+        plugin_id: 'dynamic_token_field:node-attachment_urls'
+        weight: 5
+        label: hidden
+        formatter: default
+      node_post_date:
+        plugin_id: node_post_date
+        weight: 1
+        label: inline
+        formatter: ds_post_date_friendly_date
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: true
+            lbw-el: strong
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: true
+            ow: false
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: '<div class="mb-2">'
+            suffix: '</div>'
+id: node.distributed_article.default
+targetEntityType: node
+bundle: distributed_article
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: right
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 0
+    region: left
+  field_publish_to:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: 'Published to'
+            lbw: true
+            lbw-el: strong
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: true
+            ow: false
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: true
+            fis-el: ul
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: li
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 2
+    region: left
+hidden:
+  field_attachments: true
+  links: true

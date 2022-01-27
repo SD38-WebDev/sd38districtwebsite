@@ -1,0 +1,17 @@
+uuid: 063a7d09-48fa-42b1-b459-f1d297e92aff
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Distributed Article'
+type: distributed_article
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

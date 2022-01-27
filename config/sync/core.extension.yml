@@ -65,6 +65,7 @@ module:
   history: 0
   honeypot: 0
   image: 0
+  image_url_formatter: 0
   inline_entity_form: 0
   jsonapi: 0
   layout_builder: 0

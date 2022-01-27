@@ -94,6 +94,7 @@
         "drupal/google_analytics": "^2.4",
         "drupal/gtranslate": "^1.13",
         "drupal/honeypot": "^2.0",
+        "drupal/image_url_formatter": "^1.0",
         "drupal/inline_entity_form": "^1.0",
         "drupal/json_feed": "^1.2",
         "drupal/link_field_autocomplete_filter": "^1.11",

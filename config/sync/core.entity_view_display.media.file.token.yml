@@ -14,37 +14,61 @@ dependencies:
     - media.type.file
   module:
     - ds
-    - file
     - layout_builder
 third_party_settings:
   layout_builder:
     enabled: false
     allow_custom: false
+  ds:
+    layout:
+      id: bs_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          main:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      main:
+        - 'dynamic_token_field:media-file_url'
+    fields:
+      'dynamic_token_field:media-file_url':
+        plugin_id: 'dynamic_token_field:media-file_url'
+        weight: 0
+        label: hidden
+        formatter: default
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
 _core:
   default_config_hash: 9s0lWIanCnW5Xrrkmedxohs9F0yk4LO8ZcmVQ9xyuu4
 id: media.file.token
 targetEntityType: media
 bundle: file
 mode: token
-content:
-  field_media_file:
-    type: file_url_plain
-    label: hidden
-    settings: {  }
-    third_party_settings:
-      ds:
-        ft:
-          id: reset
-          settings:
-            lb: ''
-    weight: 0
-    region: content
+content: {  }
 hidden:
   created: true
   field_board_policy: true
   field_board_policy_type: true
   field_file_date: true
   field_file_name: true
+  field_media_file: true
   field_page_reference: true
   field_tags: true
   name: true

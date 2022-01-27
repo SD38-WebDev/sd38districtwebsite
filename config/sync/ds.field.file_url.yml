@@ -1,0 +1,11 @@
+id: file_url
+label: 'File URL'
+ui_limit: ''
+type: token
+type_label: 'Token field'
+entities:
+  media: media
+properties:
+  content:
+    value: '[media:field_media_file:target_id][media:field_media_file:entity:url][media:field_media_file:entity:path][media:field_media_file:entity:owner][media:field_media_file:entity:original][media:field_media_file:entity:mime][media:field_media_file:entity:language][media:field_media_file:entity:size][media:field_media_file:entity:name][media:field_media_file:entity:fid][media:field_media_file:entity:size-raw][media:field_media_file:entity:extension][media:field_media_file:entity:created][media:field_media_file:entity:changed][media:field_media_file:entity:basename]'
+    format: plain_text
