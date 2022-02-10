@@ -4,12 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.distributed_article.body
-    - field.field.node.distributed_article.field_attachments
+    - field.field.node.distributed_article.field_da_attachments
     - field.field.node.distributed_article.field_image
     - field.field.node.distributed_article.field_publish_to
     - node.type.distributed_article
   module:
     - ds
+    - file
     - image
     - text
     - user
@@ -107,6 +108,14 @@ content:
     third_party_settings: {  }
     weight: 3
     region: right
+  field_da_attachments:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
   field_image:
     type: image
     label: hidden
@@ -154,5 +163,4 @@ content:
     weight: 2
     region: left
 hidden:
-  field_attachments: true
   links: true

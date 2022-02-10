@@ -4,15 +4,15 @@ status: true
 dependencies:
   config:
     - field.field.node.distributed_article.body
-    - field.field.node.distributed_article.field_attachments
+    - field.field.node.distributed_article.field_da_attachments
     - field.field.node.distributed_article.field_image
     - field.field.node.distributed_article.field_publish_to
     - image.style.thumbnail
     - node.type.distributed_article
   module:
     - field_group
+    - file
     - image
-    - media_library
     - path
     - text
 third_party_settings:
@@ -23,7 +23,7 @@ third_party_settings:
       label: 'Publish to (BETA)'
       region: content
       parent_name: ''
-      weight: 4
+      weight: 3
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -62,12 +62,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_attachments:
-    type: media_library_widget
-    weight: 3
+  field_da_attachments:
+    type: file_generic
+    weight: 4
     region: content
     settings:
-      media_types: {  }
+      progress_indicator: throbber
     third_party_settings: {  }
   field_image:
     type: image_image
