@@ -52,16 +52,11 @@ third_party_settings:
       right:
         - body
         - 'dynamic_block_field:node-attachments_block'
-        - 'dynamic_token_field:node-attachment_urls'
+        - field_da_attachments
     fields:
       'dynamic_block_field:node-attachments_block':
         plugin_id: 'dynamic_block_field:node-attachments_block'
         weight: 4
-        label: hidden
-        formatter: default
-      'dynamic_token_field:node-attachment_urls':
-        plugin_id: 'dynamic_token_field:node-attachment_urls'
-        weight: 5
         label: hidden
         formatter: default
       node_post_date:
@@ -113,9 +108,38 @@ content:
     label: above
     settings:
       use_description_as_link_text: true
-    third_party_settings: {  }
-    weight: 4
-    region: content
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: true
+            lbw-el: h2
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: false
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 5
+    region: right
   field_image:
     type: image
     label: hidden
