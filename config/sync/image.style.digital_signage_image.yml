@@ -1,0 +1,15 @@
+uuid: 5c585675-a2b4-4942-9087-3b50f3aeb1f3
+langcode: en
+status: true
+dependencies: {  }
+name: digital_signage_image
+label: 'Digital Signage Image'
+effects:
+  5e947063-5273-4d89-b08f-c2dbbb1e7fc8:
+    uuid: 5e947063-5273-4d89-b08f-c2dbbb1e7fc8
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 3840
+      height: 2160
+      anchor: center-center

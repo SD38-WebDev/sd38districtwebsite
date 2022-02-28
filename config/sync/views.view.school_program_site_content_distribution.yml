@@ -4,21 +4,17 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
-    - field.storage.node.field_da_attachments
     - field.storage.node.field_image
     - field.storage.node.field_publish_to
     - node.type.distributed_article
   module:
     - csv_serialization
-    - file
     - image_url_formatter
     - node
     - rest
     - serialization
     - taxonomy
     - text
-    - user
-    - views_base_url
     - views_data_export
 id: school_program_site_content_distribution
 label: 'School/Program Site Content Distribution'
@@ -45,7 +41,7 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: field
-          label: ''
+          label: title
           exclude: false
           alter:
             alter_text: false
@@ -85,7 +81,7 @@ display:
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: true
+          hide_alter_empty: false
           click_sort_column: value
           type: string
           settings:
@@ -155,7 +151,7 @@ display:
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: true
+          hide_alter_empty: false
           click_sort_column: target_id
           type: image_url
           settings:
@@ -216,11 +212,11 @@ display:
           element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: true
+          hide_alter_empty: false
           click_sort_column: value
           type: text_default
           settings: {  }
@@ -282,7 +278,7 @@ display:
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: true
+          hide_alter_empty: false
           click_sort_column: target_id
           type: entity_reference_entity_view
           settings:
@@ -496,127 +492,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        base_url:
-          id: base_url
-          table: views
-          field: base_url
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: base_url
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          show_link: false
-          show_link_options:
-            link_path: ''
-            link_text: ''
-            link_class: ''
-            link_title: ''
-            link_rel: ''
-            link_fragment: ''
-            link_query: ''
-            link_target: ''
-        field_da_attachments:
-          id: field_da_attachments
-          table: node__field_da_attachments
-          field: field_da_attachments
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: Attachments
-          exclude: false
-          alter:
-            alter_text: true
-            text: '{{ base_url }}{{ field_da_attachments }}'
-            make_link: false
-            path: ''
-            absolute: true
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-          click_sort_column: target_id
-          type: file_url_plain
-          settings: {  }
-          group_column: entity_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
       pager:
         type: mini
         options:
@@ -646,11 +521,10 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: perm
-        options:
-          perm: 'access content'
+        type: none
+        options: {  }
       cache:
-        type: tag
+        type: none
         options: {  }
       empty: {  }
       sorts:
@@ -758,7 +632,7 @@ display:
           group_type: group
           admin_label: 'field_publish_to: Taxonomy term'
           plugin_id: standard
-          required: true
+          required: false
       group_by: true
       header: {  }
       footer: {  }
@@ -770,10 +644,8 @@ display:
         - 'languages:language_interface'
         - url.query_args
         - 'user.node_grants:view'
-        - user.permissions
       tags:
         - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_da_attachments'
         - 'config:field.storage.node.field_image'
         - 'config:field.storage.node.field_publish_to'
   data_export_1:
@@ -796,8 +668,8 @@ display:
             delimiter: ','
             enclosure: '"'
             escape_char: \
-            strip_tags: true
-            trim: true
+            strip_tags: false
+            trim: false
             encoding: utf8
             utf8_bom: '0'
             use_serializer_encode_only: false
@@ -808,17 +680,37 @@ display:
             title:
               alias: ''
               raw_output: false
-            body:
+            field_image:
               alias: ''
               raw_output: false
+            body:
+              alias: ''
+              raw_output: true
             field_publish_to:
+              alias: ''
+              raw_output: false
+            uuid:
+              alias: ''
+              raw_output: false
+            status:
+              alias: ''
+              raw_output: false
+            sticky:
+              alias: ''
+              raw_output: false
+            field_da_attachments:
               alias: ''
               raw_output: false
       display_description: ''
       display_extenders: {  }
       path: 6D597133743677397A24432646294A404D635166546A576E5A7234753778214125442A472D4B6150645267556B58703273357638792F423F4528482B4D625165/test.csv
+      displays:
+        default: '0'
       filename: ''
       automatic_download: false
+      export_method: standard
+      export_batch_size: 1000
+      export_limit: 0
       store_in_public_file_directory: false
       custom_redirect_path: false
       redirect_to_display: none
@@ -830,9 +722,7 @@ display:
         - 'languages:language_interface'
         - request_format
         - 'user.node_grants:view'
-        - user.permissions
       tags:
         - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_da_attachments'
         - 'config:field.storage.node.field_image'
         - 'config:field.storage.node.field_publish_to'

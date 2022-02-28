@@ -3,3 +3,5 @@ _core:
 ignored_config_entities:
   - rsd_district.settings
   - color.theme.rsd_district
+  - block.block.ourdistrictstorybranding
+  - block.block.mainnavigation_8

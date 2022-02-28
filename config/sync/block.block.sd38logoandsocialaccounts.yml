@@ -1,0 +1,29 @@
+uuid: fdef1a76-ec64-4620-98b1-f0f94f10980c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:390d4e90-81ab-4a82-a505-3b66bd95287b'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - rsd_district
+third_party_settings:
+  block_class:
+    classes: ds-footer-branding
+id: sd38logoandsocialaccounts
+theme: rsd_district
+region: ds_footer
+weight: 0
+provider: null
+plugin: 'block_content:390d4e90-81ab-4a82-a505-3b66bd95287b'
+settings:
+  id: 'block_content:390d4e90-81ab-4a82-a505-3b66bd95287b'
+  label: 'SD38 Logo and Social Accounts'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

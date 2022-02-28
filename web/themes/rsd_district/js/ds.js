@@ -2,20 +2,39 @@
   Drupal.behaviors.myModuleBehavior = {
     attach: function (context, settings) {
 		function startTime() {
-		  var today = new Date();
-		  var h = today.getHours();
-		  var m = today.getMinutes();
-		  var s = today.getSeconds();
-		  m = checkTime(m);
-		  s = checkTime(s);
-		  document.getElementById('txt').innerHTML =
-		  h + ":" + m + ":" + s;
-		  var t = setTimeout(startTime, 500);
-		}
-		function checkTime(i) {
-		  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-		  return i;
-		}
+      var date = new Date(),
+            hour = date.getHours(),
+            minute = checkTime(date.getMinutes()),
+            ss = checkTime(date.getSeconds());
+            hour = hour % 12;
+            hour = hour ? hour : 12; // the hour '0' should be '12'
+
+            const d = new Date();
+            document.getElementById("ds-date").innerHTML = d.toDateString();
+
+        function checkTime(i) {
+          if( i < 10 ) {
+            i = "0" + i;
+          }
+          return i;
+        }
+
+      if ( hour > 12 ) {
+        hour = hour - 12;
+        if ( hour == 12 ) {
+          hour = checkTime(hour);
+        document.getElementById("ds-time").innerHTML = hour+":"+minute+" PM";
+        }
+        else {
+          hour = checkTime(hour);
+          document.getElementById("ds-time").innerHTML = hour+":"+minute+" AM";
+        }
+      }
+      else {
+        document.getElementById("ds-time").innerHTML = hour+":"+minute+" PM";;
+      }
+      var time = setTimeout(startTime,1000);
+      }
 		startTime();
     }
   };

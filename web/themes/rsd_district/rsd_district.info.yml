@@ -38,5 +38,4 @@ regions:
   footer_fourth: 'Footer fourth'
   footer_fifth: 'Footer fifth'
   ds_viewer: 'Digital Signage Viewer'
-  ds_sidebar: 'Digital Signage Sidebar'
-  ds_ticker: 'Digital Signage Ticker'
+  ds_footer: 'Digital Signage Footer'

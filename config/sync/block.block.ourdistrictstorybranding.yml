@@ -28,4 +28,4 @@ visibility:
     id: request_path
     negate: false
     context_mapping: {  }
-    pages: "/our-district/about-us\r\n/our-district/about-us/*\r\n/our-district/our-story\r\n/our-district/our-district-story\r\n/our-district/our-district-story/*"
+    pages: "/our-story\r\n/our-story/*\r\n/our-district/about-us\r\n/our-district/about-us/*\r\n/our-district/our-story\r\n/our-district/our-district-story\r\n/our-district/our-district-story/*"

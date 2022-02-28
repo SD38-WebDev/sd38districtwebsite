@@ -5,19 +5,23 @@ dependencies:
   content:
     - 'block_content:basic:df3ca853-dc9b-4e4f-9570-8fb3e0aa7443'
   module:
+    - block_class
     - block_content
   theme:
     - rsd_district
+third_party_settings:
+  block_class:
+    classes: ds-clock
 id: clock
 theme: rsd_district
-region: ds_ticker
-weight: 0
+region: ds_footer
+weight: -19
 provider: null
 plugin: 'block_content:df3ca853-dc9b-4e4f-9570-8fb3e0aa7443'
 settings:
   id: 'block_content:df3ca853-dc9b-4e4f-9570-8fb3e0aa7443'
   label: Clock
-  label_display: visible
+  label_display: '0'
   provider: block_content
   status: true
   info: ''

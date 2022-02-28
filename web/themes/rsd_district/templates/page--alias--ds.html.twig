@@ -69,7 +69,13 @@
 #}
 {{ attach_library('rsd_district/ds-scripts') }}
 <div id="ds-page-wrapper">
-<div id="ds-mainviewer">{{ page.ds_viewer }}</div>
-<div id="ds-sidebar">{{ page.ds_sidebar }}</div>
-<div id="ds-ticker">{{ page.ds_ticker }}</div>
+<div id="ds-mainviewer"><div class="container-fluid">{{ page.ds_viewer }}</div></div>
+<div id="ds-footer">
+  <div class="container-fluid">
+  <div id="ds-date-time">
+    <div id="ds-time"></div>
+    <div id="ds-date"></div>
+  </div>
+  </div>
+</div>
 </div>
