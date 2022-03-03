@@ -1151,20 +1151,29 @@ body.user-logged-in .event:hover .ops-links {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	height: 100vh;
+	position: absolute;
 }
 
 #ds-mainviewer {
 	width: 100vw;
-	height: 80vh;
+	height: 100vh;
 	overflow: hidden;
+	position: relative;
 }
 
 #ds-footer {
-	background: url('../images/ds-footer-bg.png') no-repeat;
-	background-size: cover;
-	background-position: left;
-	width: 100vw;
-	height: 20vh;
+	position: relative;
+top: -13vh;
+background: rgb(255,255,255, 0.65);
+background: linear-gradient(90deg, rgba(255,255,255,0.65) 98%, rgba(0,92,185,1) 100%);
+border-radius: 2vw;
+width: 96vw;
+height: 10vh;
+z-index: 99999;
+left: 2vw;
+-webkit-backdrop-filter: blur(7px);
+overflow: hidden;
+box-shadow: 0 1vw 2vw rgba(0, 0, 0, 0.5);
 }
 
 #ds-footer  .region-ds-footer {
@@ -1173,21 +1182,43 @@ body.user-logged-in .event:hover .ops-links {
 }
 
 #ds-date-time {
-		top: 4.25vh;
-		left: 3.5vw;
-		width: 20vw;
-		position: relative;
-		color: white;
+	top: 2.5vh;
+left: 2vw;
+width: 50vw;
+position: absolute;
+color: #005CB9;
+font-size: 3.5vh;
 }
 
 #ds-time {
-	font-size: 5vh;
-	font-weight: bold;
+	font-weight: 800;
 }
 
 #ds-date {
-	font-size: 2.5vh;
-	margin-top: -1vh;
+	font-weight: 400;
+}
+
+#ds-logo {
+	position: absolute;
+background: #005CB9 url(/themes/rsd_district/images/sd38-logo-white.png);
+width: 16vw;
+position: absolute;
+right: 0vw;
+height: 10vh;
+background-repeat: no-repeat;
+background-size: 12vw;
+background-position: 50% 50%;
+}
+
+#ds-social {
+position: absolute;
+background: url(/themes/rsd_district/images/sd38-social-blue.png);
+	right: 16vw;
+	height: 10vh;
+	width: 18vw;
+	background-repeat: no-repeat;
+	background-size: 14vw;
+	background-position: 50% 50%;
 }
 
 /******************/
