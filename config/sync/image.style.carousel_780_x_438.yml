@@ -1,0 +1,15 @@
+uuid: 3fb74f8d-3ee8-4ecb-9ec4-e63bda43e84c
+langcode: en
+status: true
+dependencies: {  }
+name: carousel_780_x_438
+label: 'Carousel (780 x 438)'
+effects:
+  3833f9b5-ce50-4b4c-98b8-724956f58d76:
+    uuid: 3833f9b5-ce50-4b4c-98b8-724956f58d76
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 780
+      height: 438
+      anchor: center-center

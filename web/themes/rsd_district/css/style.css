@@ -1235,7 +1235,7 @@ background: url(/themes/rsd_district/images/sd38-social-blue.png);
 
 
 #sd38-news-panel {
-	height: 500px;
+	height: 438px;
 	display: flex;
 	background: white;
 	overflow: hidden !important;
@@ -1248,7 +1248,7 @@ background: url(/themes/rsd_district/images/sd38-social-blue.png);
 
 @media (max-width: 1199.98px) {
 	#sd38-news-panel {
-		height: 375px;
+		height: 348px;
 	}
 }
 
@@ -1272,9 +1272,10 @@ background: url(/themes/rsd_district/images/sd38-social-blue.png);
 
 #sd38-news-panel .carousel-caption {
 	position: unset;
+	display: none;
 }
 
-#sd38-news-panel .carousel-caption .caption-content {
+/* #sd38-news-panel .carousel-caption .caption-content {
 	position: absolute;
 	right: 0;
 	bottom: 2px;
@@ -1286,9 +1287,9 @@ background: url(/themes/rsd_district/images/sd38-social-blue.png);
 	background: linear-gradient(0deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.82) 55%, rgba(255,255,255,0) 100%);
 	border-radius: 0 0 0 0.625rem;
 	overflow: hidden;
-}
+} */
 
-@media (max-width: 991.98px) {
+/* @media (max-width: 991.98px) {
 	#sd38-news-panel .carousel-caption .caption-content {
 		border-radius: 0;
 	}
@@ -1299,7 +1300,7 @@ background: url(/themes/rsd_district/images/sd38-social-blue.png);
 	color: black;
 	padding: 0 1rem;
 	margin: 0;
-}
+} */
 
 #sd38-news-panel a,
 #sd38-news-panel h2,
@@ -1347,6 +1348,7 @@ background: url(/themes/rsd_district/images/sd38-social-blue.png);
 @media (max-width: 991.98px) {
 	.news-item {
 		height: auto;
+		width: 100%;
 	}
 }
 
@@ -1433,11 +1435,11 @@ background: url(/themes/rsd_district/images/sd38-social-blue.png);
 #sd38-news-panel .carousel,
 #sd38-news-panel .views-element-container {
 	width: 100%;
-	height: 500px;
+	height: 438px;
 }
 
 #sd38-news-panel .carousel .carousel-item {
-	height: 500px;
+	height: 438px;
 }
 
 @media (max-width: 1199.98px) {
@@ -1450,32 +1452,39 @@ background: url(/themes/rsd_district/images/sd38-social-blue.png);
 	}
 
 	#sd38-news-panel .carousel .carousel-item {
-		height: 375px;
+		height: 348px;
 	}
 }
 
 @media (max-width: 991.98px) {
 
 	#sd38-news-panel .carousel .carousel-item {
-		height: 375px;
+		height: auto;
+	}
+}
+
+@media (max-width: 767.98px) {
+	#sd38-news-panel .carousel .carousel-item {
+		height: auto;
 	}
 }
 
 #sd38-news-panel .view-content.row {
 	margin: 0px;
-	height: 500px;
+	height: 438px;
 }
 
 @media (max-width: 1199.98px) {
 	#sd38-news-panel .view-content.row {
 		margin: 0px;
-		height: 375px;
+		height: auto;
 	}
 }
 
 @media (max-width: 991.98px) {
 	#sd38-news-panel .view-content.row {
 		height: auto;
+		width: 100%;
 	}
 	#sd38-news-panel .news-panel-2 .views-element-container {
 		height: auto;
