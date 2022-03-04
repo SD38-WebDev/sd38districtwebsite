@@ -175,7 +175,7 @@ display:
         type: some
         options:
           offset: 0
-          items_per_page: 4
+          items_per_page: 10
       exposed_form:
         type: basic
         options:
@@ -296,7 +296,12 @@ display:
           query_tags: {  }
       relationships: {  }
       header: {  }
-      footer: {  }
+      footer:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          plugin_id: text_custom
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -1551,7 +1556,22 @@ display:
         sorts: false
         filters: false
         filter_groups: false
+        header: false
+        footer: false
       css_class: ''
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: false
+          content: '<div id="latest-news">Lastest News</div>'
+          tokenize: false
+      footer: {  }
       display_extenders: {  }
       block_description: 'News Panel Articles Block'
     cache_metadata:
