@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.article.field_image
     - field.field.node.article.field_image_gallery
     - field.field.node.article.field_page_assignment
+    - field.field.node.article.field_promote_to_digital_signage
     - field.field.node.article.field_publish_to
     - field.field.node.article.field_tags
     - field.field.node.article.field_to_home_page_carousel
@@ -27,24 +28,25 @@ third_party_settings:
     group_home_page_carousel:
       children:
         - field_to_home_page_carousel
+        - field_promote_to_digital_signage
         - field_carousel_image
         - field_carousel_content_link
-      label: 'Home Page Carousel'
+      label: 'Carousel & Digital Signage'
       region: content
       parent_name: ''
       weight: 3
       format_type: details_sidebar
       format_settings:
         classes: ''
+        show_empty_fields: false
         id: ''
         open: false
+        description: ''
         required_fields: true
         weight: 0
-        direction: vertical
     group_publish_to:
       children:
         - field_publish_to
-        - field_hide_from_district_news
       label: 'Publish to (BETA)'
       region: content
       parent_name: ''
@@ -98,7 +100,7 @@ content:
     third_party_settings: {  }
   field_carousel_content_link:
     type: link_default
-    weight: 7
+    weight: 11
     region: content
     settings:
       placeholder_url: ''
@@ -106,12 +108,27 @@ content:
     third_party_settings: {  }
   field_carousel_image:
     type: image_image
-    weight: 6
+    weight: 10
     region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+    third_party_settings:
+      filefield_sources:
+        filefield_sources:
+          sources:
+            upload: true
+            remote: false
+            clipboard: false
+            reference: false
+            attach: false
+          source_reference:
+            autocomplete: '0'
+            search_all_fields: '0'
+          source_attach:
+            path: file_attach
+            absolute: 0
+            attach_mode: move
   field_image:
     type: image_image
     weight: 1
@@ -128,6 +145,13 @@ content:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
+  field_promote_to_digital_signage:
+    type: boolean_checkbox
+    weight: 9
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_publish_to:
     type: options_select
     weight: 27
@@ -136,7 +160,7 @@ content:
     third_party_settings: {  }
   field_to_home_page_carousel:
     type: boolean_checkbox
-    weight: 5
+    weight: 8
     region: content
     settings:
       display_label: true

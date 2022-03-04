@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.article.field_image
     - field.field.node.article.field_image_gallery
     - field.field.node.article.field_page_assignment
+    - field.field.node.article.field_promote_to_digital_signage
     - field.field.node.article.field_publish_to
     - field.field.node.article.field_tags
     - field.field.node.article.field_to_home_page_carousel
@@ -50,6 +51,7 @@ hidden:
   field_carousel_image: true
   field_image_gallery: true
   field_page_assignment: true
+  field_promote_to_digital_signage: true
   field_publish_to: true
   field_tags: true
   field_to_home_page_carousel: true

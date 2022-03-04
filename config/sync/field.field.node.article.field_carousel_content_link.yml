@@ -16,15 +16,18 @@ third_party_settings:
       event: event
       page: page
       accordion_content: '0'
+      blog_post: '0'
       carousel_item: '0'
+      digital_signage: '0'
+      distributed_article: '0'
+      news_alert: '0'
       staff_member: '0'
-      test: '0'
 id: node.article.field_carousel_content_link
 field_name: field_carousel_content_link
 entity_type: node
 bundle: article
 label: 'Content Link'
-description: ''
+description: 'This only applies to the Home Page Carousel'
 required: false
 translatable: false
 default_value: {  }

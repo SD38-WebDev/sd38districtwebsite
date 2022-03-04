@@ -1,16 +1,14 @@
-uuid: 44bb7a56-a2bc-4708-aa68-47732d150da7
+uuid: 56ce4d95-19eb-423e-8251-8cd7b3464281
 langcode: en
 status: true
 dependencies:
   module:
-    - media
     - node
-id: node.field_digital_signage_image
-field_name: field_digital_signage_image
+id: node.field_promote_to_digital_signage
+field_name: field_promote_to_digital_signage
 entity_type: node
-type: entity_reference
-settings:
-  target_type: media
+type: boolean
+settings: {  }
 module: core
 locked: false
 cardinality: 1

@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.digital_signage.field_digital_signage_image
+    - field.field.node.digital_signage.field_carousel_image
     - node.type.digital_signage
   module:
     - user
@@ -19,4 +19,4 @@ content:
     weight: 100
     region: content
 hidden:
-  field_digital_signage_image: true
+  field_carousel_image: true

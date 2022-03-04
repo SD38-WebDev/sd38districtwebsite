@@ -282,7 +282,7 @@ display:
           wrap: 1
           effect: 'slide carousel-fade'
           image: field_carousel_image
-          title: title
+          title: ''
           description: nothing
       row:
         type: fields

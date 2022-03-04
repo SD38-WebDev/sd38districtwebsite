@@ -1,20 +1,20 @@
-uuid: 7b515d47-bc4a-4f2d-8ee3-9be87749512a
+uuid: b84fe743-91c6-419b-b62d-4ba2cfe509da
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_carousel_image
-    - node.type.article
+    - node.type.digital_signage
   module:
     - image
-id: node.article.field_carousel_image
+id: node.digital_signage.field_carousel_image
 field_name: field_carousel_image
 entity_type: node
-bundle: article
+bundle: digital_signage
 label: Image
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

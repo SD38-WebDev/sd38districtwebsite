@@ -1,0 +1,23 @@
+uuid: 214db4fd-8d02-43fb-8f52-26aadd6bd30c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_promote_to_digital_signage
+    - node.type.article
+id: node.article.field_promote_to_digital_signage
+field_name: field_promote_to_digital_signage
+entity_type: node
+bundle: article
+label: 'Promote to Digital Signage'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
