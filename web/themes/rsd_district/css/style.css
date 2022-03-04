@@ -1163,17 +1163,17 @@ body.user-logged-in .event:hover .ops-links {
 
 #ds-footer {
 	position: relative;
-top: -13vh;
-background: rgb(255,255,255, 0.65);
-background: linear-gradient(90deg, rgba(255,255,255,0.65) 98%, rgba(0,92,185,1) 100%);
-border-radius: 2vw;
-width: 96vw;
-height: 10vh;
-z-index: 99999;
-left: 2vw;
--webkit-backdrop-filter: blur(7px);
-overflow: hidden;
-box-shadow: 0 1vw 2vw rgba(0, 0, 0, 0.5);
+	top: -10vh;
+	background: rgb(255,255,255,0.45);
+	background: linear-gradient(90deg,rgba(255,255,255,0.45) 98%,rgba(0,92,185,1) 100%);
+	border-radius: 2vw 2vw 0vw 0vw;
+	width: 92vw;
+	height: 10vh;
+	z-index: 99999;
+	left: 4vw;
+	-webkit-backdrop-filter: blur(10px);
+	overflow: hidden;
+	box-shadow: 0 0.5vh 1.75vw rgba(0,0,0,0.2);
 }
 
 #ds-footer  .region-ds-footer {
@@ -1182,12 +1182,12 @@ box-shadow: 0 1vw 2vw rgba(0, 0, 0, 0.5);
 }
 
 #ds-date-time {
-	top: 2.5vh;
-left: 2vw;
-width: 50vw;
-position: absolute;
-color: #005CB9;
-font-size: 3.5vh;
+	top: 2.25vh;
+	left: 2vw;
+	width: 50vw;
+	position: absolute;
+	color: #005CB9;
+	font-size: 3.5vh;
 }
 
 #ds-time {
@@ -1200,25 +1200,25 @@ font-size: 3.5vh;
 
 #ds-logo {
 	position: absolute;
-background: #005CB9 url(/themes/rsd_district/images/sd38-logo-white.png);
-width: 16vw;
-position: absolute;
-right: 0vw;
-height: 10vh;
-background-repeat: no-repeat;
-background-size: 12vw;
-background-position: 50% 50%;
+	background: #005CB9 url(/themes/rsd_district/images/sd38-logo-white.png);
+	width: 15vw;
+	position: absolute;
+	right: 0vw;
+	height: 10vh;
+	background-repeat: no-repeat;
+	background-size: 11vw;
+	background-position: 50% 50%;
 }
 
 #ds-social {
-position: absolute;
+	position: absolute;
 background: url(/themes/rsd_district/images/sd38-social-blue.png);
-	right: 16vw;
-	height: 10vh;
-	width: 18vw;
-	background-repeat: no-repeat;
-	background-size: 14vw;
-	background-position: 50% 50%;
+right: 16vw;
+height: 10vh;
+width: 17vw;
+background-repeat: no-repeat;
+background-size: 15vw;
+background-position: 50% 50%;
 }
 
 /******************/
@@ -1272,7 +1272,11 @@ background: url(/themes/rsd_district/images/sd38-social-blue.png);
 
 #sd38-news-panel .carousel-caption {
 	position: unset;
-	display: none;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	z-index: 10;
+	padding: 0px !important;
 }
 
 /* #sd38-news-panel .carousel-caption .caption-content {
