@@ -7,7 +7,6 @@ dependencies:
     - node.type.accordion_content
     - node.type.page
   module:
-    - draggableviews
     - node
     - semanticviews
     - text
@@ -378,18 +377,20 @@ display:
         options: {  }
       empty: {  }
       sorts:
-        weight:
-          id: weight
-          table: draggableviews_structure
-          field: weight
+        title:
+          id: title
+          table: node_field_data
+          field: title
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: title
           plugin_id: standard
           order: ASC
           expose:
             label: ''
-            field_identifier: weight
+            field_identifier: ''
           exposed: false
       arguments:
         field_page_assignment_target_id:
