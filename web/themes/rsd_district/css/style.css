@@ -1724,7 +1724,7 @@ body.edweek .edweek.day5 .event-title {
 	border-radius: 1rem;
 }
 
-.paragraph.bg-on .container {
+.paragraph.bg-on .bs-region {
 	padding: 1rem 0;
 }
 
