@@ -1,0 +1,33 @@
+uuid: 98201a7a-6380-4a32-b74e-266ccaa14a21
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.multi_column_image_block
+    - field.field.block_content.multi_column_image_block.body
+    - field.field.block_content.multi_column_image_block.field_block_image
+  module:
+    - image
+    - text
+id: block_content.multi_column_image_block.default
+targetEntityType: block_content
+bundle: multi_column_image_block
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_block_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

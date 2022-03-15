@@ -553,7 +553,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: '<p class="hero-text text-center p-2">No events scheduled at this time.</p>'
+          content: '<div class="hero-text text-center p-2">No events scheduled at this time.</div>'
           tokenize: false
       sorts:
         field_event_date_value:
@@ -703,7 +703,7 @@ display:
           admin_label: 'Calendar Link'
           plugin_id: text_custom
           empty: false
-          content: '<div class="float-right p-3"><a href="calendar">View Calendar</a></div>'
+          content: '<div class="text-right mb-3"><a href="calendar">View Calendar…</a></div>'
           tokenize: false
       display_extenders: {  }
     cache_metadata:

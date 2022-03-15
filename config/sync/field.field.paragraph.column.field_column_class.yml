@@ -1,0 +1,19 @@
+uuid: eaefdaa0-181b-4a7d-a8b3-da1f92a13b33
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_column_class
+    - paragraphs.paragraphs_type.column
+id: paragraph.column.field_column_class
+field_name: field_column_class
+entity_type: paragraph
+bundle: column
+label: 'Column Class'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

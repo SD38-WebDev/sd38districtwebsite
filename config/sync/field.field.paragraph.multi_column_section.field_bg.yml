@@ -1,0 +1,23 @@
+uuid: 063fa845-d9cb-40ba-bbb9-ddb0ff018f35
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bg
+    - paragraphs.paragraphs_type.multi_column_section
+id: paragraph.multi_column_section.field_bg
+field_name: field_bg
+entity_type: paragraph
+bundle: multi_column_section
+label: 'Background Colour'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: bg-on
+  off_label: bg-off
+field_type: boolean

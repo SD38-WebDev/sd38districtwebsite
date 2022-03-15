@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.basic_text_section.field_bg
     - field.field.paragraph.basic_text_section.field_bgcolour
+    - field.field.paragraph.basic_text_section.field_css_id
     - field.field.paragraph.basic_text_section.field_section_content
     - field.field.paragraph.basic_text_section.field_section_title
     - paragraphs.paragraphs_type.basic_text_section
@@ -82,6 +83,14 @@ content:
       cancel_text: Cancel
       choose_text: Choose
       allow_empty: '1'
+    third_party_settings: {  }
+  field_css_id:
+    type: string_textfield
+    weight: 14
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_section_content:
     type: text_textarea

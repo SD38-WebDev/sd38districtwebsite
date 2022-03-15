@@ -1,0 +1,48 @@
+uuid: b766cfe2-6746-4c57-9293-c8502b5efea6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.column.field_column_class
+    - field.field.paragraph.column.field_column_content
+    - paragraphs.paragraphs_type.column
+  module:
+    - ds
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: bs_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes: {  }
+          add_layout_class: 0
+          attributes: ' class|col [paragraph:field_column_class:value]'
+        regions:
+          main:
+            wrapper: div
+            classes: {  }
+            add_region_classes: 0
+            attributes: ''
+    regions:
+      main:
+        - field_column_content
+id: paragraph.column.default
+targetEntityType: paragraph
+bundle: column
+mode: default
+content:
+  field_column_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: main
+hidden:
+  field_column_class: true

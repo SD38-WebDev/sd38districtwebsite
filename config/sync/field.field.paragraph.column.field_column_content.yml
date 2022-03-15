@@ -1,0 +1,21 @@
+uuid: c8a90593-f6fc-4ead-ba60-29ec6382079e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_column_content
+    - paragraphs.paragraphs_type.column
+  module:
+    - text
+id: paragraph.column.field_column_content
+field_name: field_column_content
+entity_type: paragraph
+bundle: column
+label: 'Column Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

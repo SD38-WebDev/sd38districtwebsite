@@ -1,0 +1,8 @@
+uuid: 33d0fb5f-46fa-4daf-b2e5-d3427c561220
+langcode: en
+status: true
+dependencies: {  }
+id: multi_column_image_block
+label: 'Multi-column Image Block'
+revision: 0
+description: 'Created for the use of displaying social media icons. Could be used for other purposes.'

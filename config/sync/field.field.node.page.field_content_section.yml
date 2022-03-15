@@ -8,6 +8,7 @@ dependencies:
     - paragraphs.paragraphs_type.basic_text_section
     - paragraphs.paragraphs_type.blog_feed
     - paragraphs.paragraphs_type.image_text_section
+    - paragraphs.paragraphs_type.multi_column_section
     - paragraphs.paragraphs_type.navigation_panel
   module:
     - entity_reference_revisions
@@ -29,6 +30,7 @@ settings:
       image_text_section: image_text_section
       blog_feed: blog_feed
       navigation_panel: navigation_panel
+      multi_column_section: multi_column_section
     negate: 0
     target_bundles_drag_drop:
       basic_text_section:
@@ -37,8 +39,14 @@ settings:
       blog_feed:
         weight: 6
         enabled: true
+      column:
+        weight: 9
+        enabled: false
       image_text_section:
         weight: 4
+        enabled: true
+      multi_column_section:
+        weight: 11
         enabled: true
       navigation_panel:
         weight: 6

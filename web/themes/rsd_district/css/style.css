@@ -209,6 +209,12 @@ body .site-section-branding,
 	color: #0063a6;
 }
 
+#sd38socialmedia .col-md {
+	border: 1px solid red;
+	display: flex;
+  align-items: center;
+}
+
 .main-content .content .nav-item {
 	line-height: 1.65rem;
 }

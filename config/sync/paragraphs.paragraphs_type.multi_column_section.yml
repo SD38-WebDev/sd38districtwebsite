@@ -1,0 +1,10 @@
+uuid: ff7f96a9-ab9d-4f09-b443-7e4022f3a031
+langcode: en
+status: true
+dependencies: {  }
+id: multi_column_section
+label: 'Multi-Column Section'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

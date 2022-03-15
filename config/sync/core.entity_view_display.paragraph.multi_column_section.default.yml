@@ -1,16 +1,16 @@
-uuid: c23249be-17ba-4c40-a61e-d08081d60b51
+uuid: 937fb900-10cd-49c6-ab6b-f2c2aee9d569
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.basic_text_section.field_bg
-    - field.field.paragraph.basic_text_section.field_bgcolour
-    - field.field.paragraph.basic_text_section.field_css_id
-    - field.field.paragraph.basic_text_section.field_section_content
-    - field.field.paragraph.basic_text_section.field_section_title
-    - paragraphs.paragraphs_type.basic_text_section
+    - field.field.paragraph.multi_column_section.field_bg
+    - field.field.paragraph.multi_column_section.field_bgcolour
+    - field.field.paragraph.multi_column_section.field_column
+    - field.field.paragraph.multi_column_section.field_intro_content
+    - paragraphs.paragraphs_type.multi_column_section
   module:
     - ds
+    - entity_reference_revisions
     - field_group
     - text
 third_party_settings:
@@ -31,24 +31,43 @@ third_party_settings:
         regions:
           main:
             wrapper: div
-            classes:
-              col-sm-12: col-sm-12
+            classes: {  }
             add_region_classes: 1
             attributes: 'style|background-color:[paragraph:field_bgcolour:color];'
     regions:
       main:
+        - group_row
         - group_container
-        - field_section_title
-        - field_section_content
+        - group_row2
+        - field_intro_content
+        - field_column
   field_group:
-    group_container:
+    group_row:
       children:
-        - field_section_title
-        - field_section_content
-      label: Container
+        - group_container
+      label: Row
       parent_name: ''
       region: main
       weight: 0
+      format_type: html_element
+      format_settings:
+        classes: row
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_container:
+      children:
+        - group_row2
+      label: Container
+      parent_name: group_row
+      region: main
+      weight: 20
       format_type: html_element
       format_settings:
         classes: container
@@ -61,15 +80,37 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
-id: paragraph.basic_text_section.default
+    group_row2:
+      children:
+        - field_intro_content
+        - field_column
+      label: Row
+      parent_name: group_container
+      region: main
+      weight: 20
+      format_type: html_element
+      format_settings:
+        classes: 'row align-items-center'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+id: paragraph.multi_column_section.default
 targetEntityType: paragraph
-bundle: basic_text_section
+bundle: multi_column_section
 mode: default
 content:
-  field_section_content:
-    type: text_default
+  field_column:
+    type: entity_reference_revisions_entity_view
     label: hidden
-    settings: {  }
+    settings:
+      view_mode: default
+      link: ''
     third_party_settings:
       ds:
         ds_limit: ''
@@ -84,29 +125,28 @@ content:
             lb-col: false
             ow: true
             ow-el: div
-            ow-cl: row
+            ow-cl: 'col-12 col-lg-7'
             ow-at: ''
             ow-def-at: false
             ow-def-cl: false
-            fis: false
-            fis-el: ''
-            fis-cl: ''
+            fis: true
+            fis-el: div
+            fis-cl: row
             fis-at: ''
             fis-def-at: false
-            fi: true
+            fi: false
             fi-el: div
-            fi-cl: col-md
+            fi-cl: 'Cunningham [paragraph:field_column_class:value]'
             fi-at: ''
             fi-def-at: false
             prefix: ''
             suffix: ''
-    weight: 1
+    weight: 22
     region: main
-  field_section_title:
-    type: string
+  field_intro_content:
+    type: text_default
     label: hidden
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings:
       ds:
         ft:
@@ -120,7 +160,7 @@ content:
             lb-col: false
             ow: true
             ow-el: div
-            ow-cl: row
+            ow-cl: 'col-12 col-lg-5'
             ow-at: ''
             ow-def-at: false
             ow-def-cl: false
@@ -130,15 +170,14 @@ content:
             fis-at: ''
             fis-def-at: false
             fi: true
-            fi-el: h2
-            fi-cl: col-12
+            fi-el: div
+            fi-cl: container
             fi-at: ''
             fi-def-at: false
             prefix: ''
             suffix: ''
-    weight: 0
+    weight: 21
     region: main
 hidden:
   field_bg: true
   field_bgcolour: true
-  field_css_id: true

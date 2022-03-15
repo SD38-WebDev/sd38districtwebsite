@@ -1,0 +1,22 @@
+uuid: 48d70ed1-ef5e-41d1-b7e7-d0b5eba4c0e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bgcolour
+    - paragraphs.paragraphs_type.multi_column_section
+  module:
+    - color_field
+id: paragraph.multi_column_section.field_bgcolour
+field_name: field_bgcolour
+entity_type: paragraph
+bundle: multi_column_section
+label: Colour
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  opacity: 1
+field_type: color_field_type

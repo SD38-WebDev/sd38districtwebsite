@@ -11,7 +11,7 @@ _core:
 id: rsd_district_help
 theme: rsd_district
 region: content
-weight: -17
+weight: -18
 provider: null
 plugin: help_block
 settings:
