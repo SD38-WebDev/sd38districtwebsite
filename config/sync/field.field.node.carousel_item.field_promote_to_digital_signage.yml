@@ -1,0 +1,23 @@
+uuid: 3cdaae8c-d83e-4af2-a7ea-35b36b7acc15
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_promote_to_digital_signage
+    - node.type.carousel_item
+id: node.carousel_item.field_promote_to_digital_signage
+field_name: field_promote_to_digital_signage
+entity_type: node
+bundle: carousel_item
+label: 'Promote to Digital Signage'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

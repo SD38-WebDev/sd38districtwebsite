@@ -703,7 +703,7 @@ display:
           admin_label: 'Calendar Link'
           plugin_id: text_custom
           empty: false
-          content: '<div class="text-right mb-3"><a href="calendar">View Calendar…</a></div>'
+          content: '<div class="text-right mb-3"><a href="calendar">View Calendar</a></div>'
           tokenize: false
       display_extenders: {  }
     cache_metadata:

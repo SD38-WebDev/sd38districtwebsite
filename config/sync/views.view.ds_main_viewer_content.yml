@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_carousel_image
     - image.style.digital_signage_image
     - node.type.article
+    - node.type.carousel_item
     - node.type.digital_signage
   module:
     - image
@@ -96,7 +97,7 @@ display:
         type: some
         options:
           offset: 0
-          items_per_page: 5
+          items_per_page: 0
       exposed_form:
         type: basic
         options:
@@ -269,6 +270,7 @@ display:
           operator: in
           value:
             article: article
+            carousel_item: carousel_item
           group: 2
           exposed: false
           expose:
@@ -345,7 +347,7 @@ display:
         type: views_bootstrap_carousel
         options:
           grouping: {  }
-          interval: '5000'
+          interval: '6000'
           keyboard: 0
           ride: 1
           navigation: 0

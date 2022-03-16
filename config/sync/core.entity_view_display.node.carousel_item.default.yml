@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.carousel_item.body
     - field.field.node.carousel_item.field_carousel_content_link
     - field.field.node.carousel_item.field_carousel_image
+    - field.field.node.carousel_item.field_promote_to_digital_signage
     - field.field.node.carousel_item.field_title_caption_background
     - node.type.carousel_item
   module:
@@ -46,6 +47,16 @@ content:
       image_style: ''
     third_party_settings: {  }
     weight: 102
+    region: content
+  field_promote_to_digital_signage:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 105
     region: content
   field_title_caption_background:
     type: list_default

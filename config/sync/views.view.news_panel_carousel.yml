@@ -949,6 +949,8 @@ display:
         sorts: false
         filters: false
         filter_groups: false
+        footer: false
+      footer: {  }
       display_extenders: {  }
       block_description: 'News Panel Carousel Block'
     cache_metadata:
