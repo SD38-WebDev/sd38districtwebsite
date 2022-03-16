@@ -113,8 +113,12 @@ display:
         options:
           perm: 'access content'
       cache:
-        type: tag
-        options: {  }
+        type: time
+        options:
+          results_lifespan: 0
+          results_lifespan_custom: 0
+          output_lifespan: 0
+          output_lifespan_custom: 0
       empty: {  }
       sorts:
         created:
@@ -350,12 +354,12 @@ display:
           interval: '6000'
           keyboard: 0
           ride: 1
-          navigation: 0
+          navigation: 1
           indicators: 0
           pause: 0
           use_caption: 0
           wrap: 1
-          effect: 'slide carousel-fade'
+          effect: ''
           image: field_carousel_image
           title: ''
           description: ''
@@ -370,6 +374,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
+      use_ajax: true
       header: {  }
       footer: {  }
       display_extenders: {  }
