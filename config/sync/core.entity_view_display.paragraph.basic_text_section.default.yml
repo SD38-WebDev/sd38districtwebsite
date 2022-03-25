@@ -95,7 +95,7 @@ content:
             fis-def-at: false
             fi: true
             fi-el: div
-            fi-cl: col-md
+            fi-cl: col-lg
             fi-at: ''
             fi-def-at: false
             prefix: ''
