@@ -1,7 +1,13 @@
 uuid: 4506f076-289a-42aa-9736-6950daab89ca
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - paragraph_view_mode
+third_party_settings:
+  paragraph_view_mode:
+    enabled: true
+    label: Columns
 id: basic_text_section
 label: 'Basic Text Section'
 icon_uuid: null

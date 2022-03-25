@@ -8,10 +8,12 @@ dependencies:
     - field.field.paragraph.basic_text_section.field_css_id
     - field.field.paragraph.basic_text_section.field_section_content
     - field.field.paragraph.basic_text_section.field_section_title
+    - field.field.paragraph.basic_text_section.paragraph_view_mode
     - paragraphs.paragraphs_type.basic_text_section
   module:
     - color_field
     - field_group
+    - paragraph_view_mode
     - text
 third_party_settings:
   field_group:
@@ -30,6 +32,7 @@ third_party_settings:
         direction: horizontal
     group_text:
       children:
+        - paragraph_view_mode
         - field_section_title
         - field_section_content
       label: Text
@@ -94,7 +97,7 @@ content:
     third_party_settings: {  }
   field_section_content:
     type: text_textarea
-    weight: 13
+    weight: -98
     region: content
     settings:
       rows: 5
@@ -102,11 +105,24 @@ content:
     third_party_settings: {  }
   field_section_title:
     type: string_textfield
-    weight: 12
+    weight: -99
     region: content
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  paragraph_view_mode:
+    type: paragraph_view_mode
+    weight: -100
+    region: content
+    settings:
+      view_modes:
+        text_1_col: text_1_col
+        text_2_col: text_2_col
+        text_3_col: text_3_col
+        text_4_col: text_4_col
+        default: '0'
+      default_view_mode: text_1_col
     third_party_settings: {  }
 hidden:
   created: true

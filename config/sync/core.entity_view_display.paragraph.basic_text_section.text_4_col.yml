@@ -1,8 +1,9 @@
-uuid: c23249be-17ba-4c40-a61e-d08081d60b51
+uuid: 8493ba99-3147-40bb-bfce-0973f9f515fc
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.paragraph.text_4_col
     - field.field.paragraph.basic_text_section.field_bg
     - field.field.paragraph.basic_text_section.field_bgcolour
     - field.field.paragraph.basic_text_section.field_css_id
@@ -13,6 +14,7 @@ dependencies:
   module:
     - ds
     - field_group
+    - layout_builder
     - text
 third_party_settings:
   ds:
@@ -62,10 +64,13 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
-id: paragraph.basic_text_section.default
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.basic_text_section.text_4_col
 targetEntityType: paragraph
 bundle: basic_text_section
-mode: default
+mode: text_4_col
 content:
   field_section_content:
     type: text_default

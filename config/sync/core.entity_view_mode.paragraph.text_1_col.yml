@@ -1,0 +1,10 @@
+uuid: 99636e57-0751-4831-8a4e-2a98c2b56a55
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.text_1_col
+label: 'Text 1 Col'
+targetEntityType: paragraph
+cache: true

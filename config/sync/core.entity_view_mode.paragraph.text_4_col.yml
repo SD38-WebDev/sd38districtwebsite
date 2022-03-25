@@ -1,0 +1,10 @@
+uuid: 629b70a3-d75b-44e8-a285-4e86f155a3e0
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.text_4_col
+label: 'Text 4 Col'
+targetEntityType: paragraph
+cache: true

@@ -1,0 +1,21 @@
+uuid: 14569da6-ce1b-447a-9b72-644f52038f60
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.paragraph_view_mode
+    - paragraphs.paragraphs_type.basic_text_section
+  module:
+    - paragraph_view_mode
+id: paragraph.basic_text_section.paragraph_view_mode
+field_name: paragraph_view_mode
+entity_type: paragraph
+bundle: basic_text_section
+label: Columns
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: paragraph_view_mode

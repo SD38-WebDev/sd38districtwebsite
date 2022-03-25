@@ -1,0 +1,10 @@
+uuid: ef35421c-bfc6-4297-bacf-dcc6c656561a
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.text_3_col
+label: 'Text 3 Col'
+targetEntityType: paragraph
+cache: true
