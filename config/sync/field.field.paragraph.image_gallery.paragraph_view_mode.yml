@@ -1,0 +1,21 @@
+uuid: 889cf3a9-81d1-46b8-9f67-83279ea800c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.paragraph_view_mode
+    - paragraphs.paragraphs_type.image_gallery
+  module:
+    - paragraph_view_mode
+id: paragraph.image_gallery.paragraph_view_mode
+field_name: paragraph_view_mode
+entity_type: paragraph
+bundle: image_gallery
+label: 'Columns (Grid)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: paragraph_view_mode

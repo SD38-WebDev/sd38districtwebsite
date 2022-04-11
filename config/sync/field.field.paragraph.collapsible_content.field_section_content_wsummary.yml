@@ -1,0 +1,23 @@
+uuid: ef3a99f4-9f48-47e8-be67-4aff59db39a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_content_wsummary
+    - paragraphs.paragraphs_type.collapsible_content
+  module:
+    - text
+id: paragraph.collapsible_content.field_section_content_wsummary
+field_name: field_section_content_wsummary
+entity_type: paragraph
+bundle: collapsible_content
+label: 'Section Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

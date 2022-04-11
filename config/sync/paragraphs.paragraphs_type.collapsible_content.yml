@@ -1,0 +1,10 @@
+uuid: b7c9fa09-f59f-4084-acb7-b3fa0d974821
+langcode: en
+status: true
+dependencies: {  }
+id: collapsible_content
+label: 'Collapsible Content'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

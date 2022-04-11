@@ -1,0 +1,16 @@
+uuid: 5536fefc-cffd-4c03-aa0d-3912f6adbe4d
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraph_view_mode
+third_party_settings:
+  paragraph_view_mode:
+    enabled: true
+    label: 'Columns (Grid)'
+id: image_gallery
+label: 'Image Gallery'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,11 @@
+id: section_content_summary
+label: 'Section Content Summary'
+ui_limit: ''
+type: token
+type_label: 'Token field'
+entities:
+  paragraph: paragraph
+properties:
+  content:
+    value: '[paragraph:field_section_content_wsummary:summary]'
+    format: plain_text

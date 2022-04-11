@@ -1,0 +1,183 @@
+uuid: e7ae3ae6-5fc8-4a02-92ac-1a9a83c38008
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.collapsible_content.field_image
+    - field.field.paragraph.collapsible_content.field_images
+    - field.field.paragraph.collapsible_content.field_section_content_wsummary
+    - field.field.paragraph.collapsible_content.field_section_title
+    - paragraphs.paragraphs_type.collapsible_content
+  module:
+    - ds
+    - field_group
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: bs_2col_stacked
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+          left:
+            wrapper: div
+            classes:
+              col-sm-4: col-sm-4
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes: {  }
+            add_region_classes: 1
+            attributes: class|col
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      top:
+        - field_section_title
+      bottom:
+        - field_section_content_wsummary
+        - field_images
+        - group_show_more_
+      left:
+        - field_image
+      right:
+        - 'dynamic_token_field:paragraph-section_content_summary'
+    fields:
+      'dynamic_token_field:paragraph-section_content_summary':
+        plugin_id: 'dynamic_token_field:paragraph-section_content_summary'
+        weight: 2
+        label: hidden
+        formatter: default
+  field_group:
+    group_show_more_:
+      children:
+        - field_section_content_wsummary
+        - field_images
+      label: 'Show more…'
+      parent_name: ''
+      region: bottom
+      weight: 3
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: false
+id: paragraph.collapsible_content.default
+targetEntityType: paragraph
+bundle: collapsible_content
+mode: default
+content:
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: left
+  field_images:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: false
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: true
+            fis-el: div
+            fis-cl: 'row row-cols-4'
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: div
+            fi-cl: 'col mb-4'
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 1
+    region: bottom
+  field_section_content_wsummary:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: bottom
+  field_section_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: false
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: h2
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 0
+    region: top
+hidden: {  }

@@ -7,6 +7,8 @@ dependencies:
     - node.type.page
     - paragraphs.paragraphs_type.basic_text_section
     - paragraphs.paragraphs_type.blog_feed
+    - paragraphs.paragraphs_type.collapsible_content
+    - paragraphs.paragraphs_type.image_gallery
     - paragraphs.paragraphs_type.image_text_section
     - paragraphs.paragraphs_type.multi_column_section
     - paragraphs.paragraphs_type.navigation_panel
@@ -30,7 +32,9 @@ settings:
       image_text_section: image_text_section
       blog_feed: blog_feed
       navigation_panel: navigation_panel
+      image_gallery: image_gallery
       multi_column_section: multi_column_section
+      collapsible_content: collapsible_content
     negate: 0
     target_bundles_drag_drop:
       basic_text_section:
@@ -39,9 +43,18 @@ settings:
       blog_feed:
         weight: 6
         enabled: true
+      coillapsible_content:
+        weight: 11
+        enabled: false
+      collapsible_content:
+        weight: 13
+        enabled: true
       column:
         weight: 9
         enabled: false
+      image_gallery:
+        weight: 11
+        enabled: true
       image_text_section:
         weight: 4
         enabled: true

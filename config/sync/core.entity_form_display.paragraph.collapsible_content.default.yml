@@ -1,0 +1,53 @@
+uuid: 4f0578d0-d479-4155-bfb9-1ee3dba55d4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.collapsible_content.field_image
+    - field.field.paragraph.collapsible_content.field_images
+    - field.field.paragraph.collapsible_content.field_section_content_wsummary
+    - field.field.paragraph.collapsible_content.field_section_title
+    - paragraphs.paragraphs_type.collapsible_content
+  module:
+    - media_library
+    - text
+id: paragraph.collapsible_content.default
+targetEntityType: paragraph
+bundle: collapsible_content
+mode: default
+content:
+  field_image:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_images:
+    type: media_library_widget
+    weight: 3
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_section_content_wsummary:
+    type: text_textarea_with_summary
+    weight: 2
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_section_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

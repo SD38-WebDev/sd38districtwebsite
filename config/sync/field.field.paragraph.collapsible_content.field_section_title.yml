@@ -1,0 +1,19 @@
+uuid: 9dc2975e-0270-4670-8d56-ae0dfb56476b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_title
+    - paragraphs.paragraphs_type.collapsible_content
+id: paragraph.collapsible_content.field_section_title
+field_name: field_section_title
+entity_type: paragraph
+bundle: collapsible_content
+label: 'Section Title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
