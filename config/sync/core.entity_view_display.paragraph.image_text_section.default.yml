@@ -7,6 +7,7 @@ dependencies:
     - field.field.paragraph.image_text_section.field_col_order
     - field.field.paragraph.image_text_section.field_image
     - field.field.paragraph.image_text_section.field_section_content
+    - field.field.paragraph.image_text_section.field_section_title
     - field.field.paragraph.image_text_section.paragraph_view_mode
     - paragraphs.paragraphs_type.image_text_section
   module:
@@ -40,12 +41,14 @@ third_party_settings:
         - group_container
         - field_section_content
         - field_image
-        - group_row
         - group_column_1
         - group_column_2
+        - field_section_title
+        - group_row
   field_group:
     group_container:
       children:
+        - field_section_title
         - group_row
       label: Container
       parent_name: ''
@@ -107,7 +110,7 @@ third_party_settings:
       label: Row
       parent_name: group_container
       region: main
-      weight: 20
+      weight: 24
       format_type: html_element
       format_settings:
         classes: row
@@ -139,6 +142,42 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 1
+    region: main
+  field_section_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: false
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: h2
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 23
     region: main
 hidden:
   field_bgcolour: true
