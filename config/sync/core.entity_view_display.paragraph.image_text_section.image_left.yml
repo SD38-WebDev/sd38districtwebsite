@@ -50,7 +50,6 @@ third_party_settings:
   field_group:
     group_container:
       children:
-        - field_section_title
         - group_row
       label: Container
       parent_name: ''
@@ -88,6 +87,7 @@ third_party_settings:
         speed: fast
     group_column_2:
       children:
+        - field_section_title
         - field_section_content
       label: 'Column 2'
       parent_name: group_row
@@ -139,14 +139,14 @@ content:
       view_mode: default
       link: true
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: main
   field_section_content:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 1
     region: main
   field_section_title:
     type: string

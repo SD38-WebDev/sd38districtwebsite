@@ -1557,9 +1557,9 @@ li:hover .edit-link {
 	color: #66a144;
 }
 
-/*************************/
-/** Education Week 2021 **/
-/*************************/
+/********************/
+/** Education Week **/
+/********************/
 
 #block-rsd-district-content .block-layout-builder {
 	margin: 0 0 2.5rem 0;
@@ -1576,6 +1576,12 @@ li:hover .edit-link {
 .edweek.day-header h2,
 .edweek.day-header p {
 	margin: 0 !important;
+}
+
+.edweek.edweek-nav {
+	border-radius: 0.3125rem;
+	overflow: hidden;
+	margin-bottom: 2rem;
 }
 
 .edweek.edweek-nav .nav-item {
@@ -1606,62 +1612,71 @@ li:hover .edit-link {
 	color: #bcbcbc !important;
 }
 
+body.edweek .content-section .paragraph {
+	border-radius: 0.3125rem;
+	padding: 1rem;
+}
 
-body.edweek .edweek.edweek-nav .day1,
+body.edweek-main .edweek.edweek-nav .day1,
 body.edweek-day1 .edweek-nav .day1,
-body.edweek .edweek.day-header.day1 {
+body.edweek .edweek.day-header.day1,
+body.edweek-day1 .content-section:nth-child(even) .paragraph {
 	background-color: #edf2fa;
 }
 
-body.edweek .edweek.edweek-nav .day2,
+body.edweek-main .edweek.edweek-nav .day2,
 body.edweek-day2 .edweek-nav .day2,
-body.edweek .edweek.day-header.day2 {
+body.edweek .edweek.day-header.day2,
+body.edweek-day2 .content-section:nth-child(even) .paragraph {
 	background-color: #edf9f8;
 }
 
-body.edweek .edweek.edweek-nav .day3,
+body.edweek-main .edweek.edweek-nav .day3,
 body.edweek-day3 .edweek-nav .day3,
-body.edweek .edweek.day-header.day3 {
+body.edweek .edweek.day-header.day3,
+body.edweek-day3 .content-section:nth-child(even) .paragraph {
 	background-color: #fef2f9;
 }
 
-body.edweek .edweek.edweek-nav .day4,
+body.edweek-main .edweek.edweek-nav .day4,
 body.edweek-day4 .edweek-nav .day4,
-body.edweek .edweek.day-header.day4 {
+body.edweek .edweek.day-header.day4,
+body.edweek-day4 .content-section:nth-child(even) .paragraph {
 	background-color: #fffee3;
 }
 
-body.edweek .edweek.edweek-nav .day5,
+body.edweek-main .edweek.edweek-nav .day5,
 body.edweek-day5 .edweek-nav .day5,
-body.edweek .edweek.day-header.day5 {
+body.edweek .edweek.day-header.day5,
+body.edweek-day5 .content-section:nth-child(even) .paragraph {
 	background-color: #edf9fe;
 }
 
-body.edweek .edweek.edweek-nav .day1 .event-title,
+body.edweek-main .edweek.edweek-nav .day1 .event-title,
 body.edweek-day1 .edweek.edweek-nav .day1 .event-title,
 body.edweek .edweek.day1 .event-title {
 	color: #0047ba !important;
 }
 
-body.edweek .edweek.edweek-nav .day2 .event-title,
+body.edweek-main .edweek.edweek-nav .day2 .event-title,
 body.edweek-day2 .edweek.edweek-nav .day2 .event-title,
 body.edweek .edweek.day2 .event-title {
 	color: #00af9a !important;
 }
 
-body.edweek .edweek.edweek-nav .day3 .event-title,
+body.edweek-main .edweek.edweek-nav .day3 .event-title,
 body.edweek-day3 .edweek.edweek-nav .day3 .event-title,
 body.edweek .edweek.day3 .event-title {
 	color: #ec008c !important;
 }
 
-body.edweek .edweek.edweek-nav .day4 .event-title,
+body.edweek-main .edweek.edweek-nav .day4 .event-title,
 body.edweek-day4 .edweek.edweek-nav .day4 .event-title,
 body.edweek .edweek.day4 .event-title {
 	color: #fcb316 !important;
 }
 
-body.edweek .edweek.edweek-nav .day5 .event-title,
+body.edweek-main .edweek.edweek-nav .day5 .event-title,
 body.edweek-day5 .edweek.edweek-nav .day5 .event-title,
 body.edweek .edweek.day5 .event-title {
 	color: #00aeef !important;

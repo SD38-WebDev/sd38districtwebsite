@@ -50,7 +50,6 @@ third_party_settings:
   field_group:
     group_container:
       children:
-        - field_section_title
         - group_row
       label: Container
       parent_name: ''
@@ -69,6 +68,7 @@ third_party_settings:
         speed: fast
     group_column_1:
       children:
+        - field_section_title
         - field_section_content
       label: 'Column 1'
       parent_name: group_row

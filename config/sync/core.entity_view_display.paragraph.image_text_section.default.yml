@@ -39,16 +39,15 @@ third_party_settings:
     regions:
       main:
         - group_container
-        - field_section_content
         - field_image
         - group_column_1
         - group_column_2
         - field_section_title
         - group_row
+        - field_section_content
   field_group:
     group_container:
       children:
-        - field_section_title
         - group_row
       label: Container
       parent_name: ''
@@ -67,6 +66,7 @@ third_party_settings:
         speed: fast
     group_column_1:
       children:
+        - field_section_title
         - field_section_content
       label: 'Column 1'
       parent_name: group_row
@@ -141,7 +141,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 24
     region: main
   field_section_title:
     type: string

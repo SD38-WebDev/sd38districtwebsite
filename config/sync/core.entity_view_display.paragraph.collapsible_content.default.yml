@@ -52,15 +52,14 @@ third_party_settings:
             add_region_classes: 1
             attributes: ''
     regions:
-      top:
-        - field_section_title
+      left:
+        - field_image
       bottom:
         - field_section_content_wsummary
         - field_images
         - group_show_more_
-      left:
-        - field_image
       right:
+        - field_section_title
         - 'dynamic_token_field:paragraph-section_content_summary'
     fields:
       'dynamic_token_field:paragraph-section_content_summary':
@@ -97,7 +96,7 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: left
   field_images:
     type: entity_reference_entity_view
@@ -178,6 +177,6 @@ content:
             fi-def-at: false
             prefix: ''
             suffix: ''
-    weight: 0
-    region: top
+    weight: 1
+    region: right
 hidden: {  }
