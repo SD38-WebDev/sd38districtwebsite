@@ -7,6 +7,10 @@ dependencies:
     - node.type.page
   module:
     - image
+    - simple_image_rotate
+third_party_settings:
+  simple_image_rotate:
+    enable_rotate: 0
 id: node.page.field_image
 field_name: field_image
 entity_type: node

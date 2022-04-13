@@ -7,9 +7,13 @@ dependencies:
     - media.type.image
   module:
     - image
+    - simple_image_rotate
   enforced:
     module:
       - media
+third_party_settings:
+  simple_image_rotate:
+    enable_rotate: 1
 _core:
   default_config_hash: pzPA-2JwyxlJ3qMb4L9viAnhNhbEhl2couH8A3FO020
 id: media.image.field_media_image
@@ -35,7 +39,7 @@ settings:
   title_field: false
   title_field_required: false
   default_image:
-    uuid: null
+    uuid: ''
     alt: ''
     title: ''
     width: null
