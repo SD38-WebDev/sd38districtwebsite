@@ -117,6 +117,7 @@
         "drupal/redirect": "^1.7",
         "drupal/search_exclude": "^2.0@beta",
         "drupal/semanticviews": "^2.2",
+        "drupal/simple_image_rotate": "2.1.x-dev@dev",
         "drupal/slick": "^2.6",
         "drupal/slick_views": "^2.6",
         "drupal/smart_date": "^3.5",

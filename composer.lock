@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f22d827d43647311eac57d3f245d8c0",
+    "content-hash": "5936cd5e55c2a4a38682789f4457165c",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -6703,6 +6703,55 @@
             "homepage": "https://www.drupal.org/project/semanticviews",
             "support": {
                 "source": "https://git.drupalcode.org/project/semanticviews"
+            }
+        },
+        {
+            "name": "drupal/simple_image_rotate",
+            "version": "dev-2.1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/simple_image_rotate.git",
+                "reference": "94e2400e7f0c2e5b2d687b598f198f4aed3669ee"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.1.x": "2.1.x-dev"
+                },
+                "drupal": {
+                    "version": "2.1.1+1-dev",
+                    "datestamp": "1648556442",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "afagioli",
+                    "homepage": "https://www.drupal.org/user/50680"
+                },
+                {
+                    "name": "khoomy",
+                    "homepage": "https://www.drupal.org/user/135921"
+                },
+                {
+                    "name": "leevh",
+                    "homepage": "https://www.drupal.org/user/426580"
+                }
+            ],
+            "description": "Simple image rotation",
+            "homepage": "https://www.drupal.org/project/simple_image_rotate",
+            "support": {
+                "source": "https://git.drupalcode.org/project/simple_image_rotate"
             }
         },
         {
@@ -17437,6 +17486,7 @@
         "drupal/inline_entity_form": 5,
         "drupal/menu_block": 20,
         "drupal/search_exclude": 10,
+        "drupal/simple_image_rotate": 20,
         "drupal/template_whisperer": 15,
         "drupal/views_base_url": 10
     },
