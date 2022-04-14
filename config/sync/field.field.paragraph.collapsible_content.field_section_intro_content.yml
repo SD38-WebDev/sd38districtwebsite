@@ -1,0 +1,21 @@
+uuid: 2148063b-fd9a-4571-adf3-ff77354e0c6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_intro_content
+    - paragraphs.paragraphs_type.collapsible_content
+  module:
+    - text
+id: paragraph.collapsible_content.field_section_intro_content
+field_name: field_section_intro_content
+entity_type: paragraph
+bundle: collapsible_content
+label: 'Section Intro Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

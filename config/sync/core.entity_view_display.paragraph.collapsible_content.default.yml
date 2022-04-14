@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.collapsible_content.field_image
     - field.field.paragraph.collapsible_content.field_images
     - field.field.paragraph.collapsible_content.field_section_content_wsummary
+    - field.field.paragraph.collapsible_content.field_section_intro_content
     - field.field.paragraph.collapsible_content.field_section_title
     - paragraphs.paragraphs_type.collapsible_content
   module:
@@ -60,11 +61,12 @@ third_party_settings:
         - group_show_more_
       right:
         - field_section_title
+        - field_section_intro_content
         - 'dynamic_token_field:paragraph-section_content_summary'
     fields:
       'dynamic_token_field:paragraph-section_content_summary':
         plugin_id: 'dynamic_token_field:paragraph-section_content_summary'
-        weight: 2
+        weight: 3
         label: hidden
         formatter: default
   field_group:
@@ -75,7 +77,7 @@ third_party_settings:
       label: 'Show more…'
       parent_name: ''
       region: bottom
-      weight: 3
+      weight: 4
       format_type: details
       format_settings:
         classes: ''
@@ -143,6 +145,13 @@ content:
     third_party_settings: {  }
     weight: 0
     region: bottom
+  field_section_intro_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: right
   field_section_title:
     type: string
     label: hidden
