@@ -1635,14 +1635,14 @@ body.edweek-main .edweek.edweek-nav .day3,
 body.edweek-day3 .edweek-nav .day3,
 body.edweek .edweek.day-header.day3,
 body.edweek-day3 .content-section:nth-child(even) .paragraph {
-	background-color: #fef2f9;
+	background-color: #fff4e3;
 }
 
 body.edweek-main .edweek.edweek-nav .day4,
 body.edweek-day4 .edweek-nav .day4,
 body.edweek .edweek.day-header.day4,
 body.edweek-day4 .content-section:nth-child(even) .paragraph {
-	background-color: #fffee3;
+	background-color: #f8e5dc;
 }
 
 body.edweek-main .edweek.edweek-nav .day5,
@@ -1667,13 +1667,13 @@ body.edweek .edweek.day2 .event-title {
 body.edweek-main .edweek.edweek-nav .day3 .event-title,
 body.edweek-day3 .edweek.edweek-nav .day3 .event-title,
 body.edweek .edweek.day3 .event-title {
-	color: #ec008c !important;
+	color: #eaa30b !important;
 }
 
 body.edweek-main .edweek.edweek-nav .day4 .event-title,
 body.edweek-day4 .edweek.edweek-nav .day4 .event-title,
 body.edweek .edweek.day4 .event-title {
-	color: #fcb316 !important;
+	color: #d1252a !important;
 }
 
 body.edweek-main .edweek.edweek-nav .day5 .event-title,
