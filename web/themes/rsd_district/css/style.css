@@ -12,6 +12,10 @@
 	flex: auto;
 }
 
+main.main-content {
+	width:100%;
+}
+
 body.pink-shirt-day #main-wrapper,
 body.pink-shirt-day #page,
 body.pink-shirt-day #navbar-main,
@@ -1735,7 +1739,8 @@ body.edweek .edweek.day5 .event-title {
 	background-color: unset !important;
 }
 
-.paragraph.bg-on .bs-region {
+.paragraph.bg-on .bs-region,
+.paragraph--type-image-text-section .bs-region {
 	border-radius: 1rem;
 }
 
@@ -1746,6 +1751,10 @@ body.edweek .edweek.day5 .event-title {
 .paragraph.bg-none .bs-region,
 .paragraph--type-image-text-section .bs-region {
 	padding: 0;
+}
+
+.paragraph .field--type-image img {
+	margin: 0;
 }
 
 .paragraph--type-navigation-panel .list-group {

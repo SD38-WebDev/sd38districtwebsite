@@ -5,6 +5,6 @@ dependencies:
   module:
     - paragraphs
 id: paragraph.image_left
-label: 'Image Left'
+label: 'Image Left 50/50'
 targetEntityType: paragraph
 cache: true

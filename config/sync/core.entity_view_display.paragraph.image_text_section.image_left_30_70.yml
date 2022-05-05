@@ -1,9 +1,9 @@
-uuid: 78b9ecb0-ae6c-40cf-b51e-90a83daec779
+uuid: d793e5b7-b97e-4b4c-8452-f6f8d84b4f7b
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.paragraph.image_left
+    - core.entity_view_mode.paragraph.image_left_30_70
     - field.field.paragraph.image_text_section.field_bg
     - field.field.paragraph.image_text_section.field_bgcolour
     - field.field.paragraph.image_text_section.field_col_order
@@ -42,12 +42,12 @@ third_party_settings:
     regions:
       main:
         - group_container
-        - field_section_title
-        - group_row
         - field_image
+        - field_section_title
         - field_section_content
         - group_column_1
         - group_column_2
+        - group_row
   field_group:
     group_container:
       children:
@@ -76,7 +76,7 @@ third_party_settings:
       weight: 21
       format_type: html_element
       format_settings:
-        classes: col-md-6
+        classes: 'col-12 col-md-3'
         show_empty_fields: false
         id: ''
         element: div
@@ -96,7 +96,7 @@ third_party_settings:
       weight: 22
       format_type: html_element
       format_settings:
-        classes: col-md-6
+        classes: 'col-12 col-md-9'
         show_empty_fields: false
         id: ''
         element: div
@@ -113,7 +113,7 @@ third_party_settings:
       label: Row
       parent_name: group_container
       region: main
-      weight: 1
+      weight: 24
       format_type: html_element
       format_settings:
         classes: row
@@ -128,10 +128,10 @@ third_party_settings:
   layout_builder:
     enabled: false
     allow_custom: false
-id: paragraph.image_text_section.image_left
+id: paragraph.image_text_section.image_left_30_70
 targetEntityType: paragraph
 bundle: image_text_section
-mode: image_left
+mode: image_left_30_70
 content:
   field_image:
     type: entity_reference_entity_view
@@ -140,14 +140,14 @@ content:
       view_mode: default
       link: true
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: main
   field_section_content:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 4
     region: main
   field_section_title:
     type: string
@@ -183,7 +183,7 @@ content:
             fi-def-at: false
             prefix: ''
             suffix: ''
-    weight: 0
+    weight: 3
     region: main
 hidden:
   field_bg: true

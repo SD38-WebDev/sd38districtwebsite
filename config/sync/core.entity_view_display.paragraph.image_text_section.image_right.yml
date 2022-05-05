@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.image_right
+    - field.field.paragraph.image_text_section.field_bg
     - field.field.paragraph.image_text_section.field_bgcolour
     - field.field.paragraph.image_text_section.field_col_order
     - field.field.paragraph.image_text_section.field_image
@@ -30,7 +31,7 @@ third_party_settings:
           classes:
             row: row
           add_layout_class: 1
-          attributes: ''
+          attributes: ' class|[paragraph:field_bg] paragraph'
         regions:
           main:
             wrapper: div
@@ -185,6 +186,7 @@ content:
     weight: 0
     region: main
 hidden:
+  field_bg: true
   field_bgcolour: true
   field_col_order: true
   paragraph_view_mode: true

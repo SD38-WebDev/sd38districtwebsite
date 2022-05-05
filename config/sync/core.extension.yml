@@ -19,6 +19,7 @@ module:
   captcha: 0
   ckeditor: 0
   ckeditor_bootstrap_table: 0
+  ckeditor_font: 0
   ckwordcount: 0
   color: 0
   color_field: 0

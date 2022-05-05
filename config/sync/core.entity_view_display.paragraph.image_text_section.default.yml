@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.image_text_section.field_bg
     - field.field.paragraph.image_text_section.field_bgcolour
     - field.field.paragraph.image_text_section.field_col_order
     - field.field.paragraph.image_text_section.field_image
@@ -127,6 +128,16 @@ targetEntityType: paragraph
 bundle: image_text_section
 mode: default
 content:
+  field_bg:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 25
+    region: content
   field_image:
     type: entity_reference_entity_view
     label: hidden

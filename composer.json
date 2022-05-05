@@ -61,6 +61,7 @@
         "drupal/calendar": "^1.0",
         "drupal/captcha": "^1.0",
         "drupal/ckeditor_bootstrap_table": "^1.2",
+        "drupal/ckeditor_font": "^1.2",
         "drupal/ckwordcount": "^1.0",
         "drupal/color_field": "^2.5",
         "drupal/colorbox": "^1.10",

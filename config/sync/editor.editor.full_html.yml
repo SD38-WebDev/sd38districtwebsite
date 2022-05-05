@@ -30,7 +30,8 @@ settings:
             - Strike
             - TextColor
             - BGColor
-            - Styles
+            - Font
+            - FontSize
             - Superscript
             - Subscript
             - '-'
@@ -70,13 +71,16 @@ settings:
             - Source
             - Table
   plugins:
-    drupallink:
-      linkit_enabled: true
-      linkit_profile: default
     language:
       language_list: un
     stylescombo:
       styles: "p|Plain text\r\np.small-text|Small text"
+    drupallink:
+      linkit_enabled: true
+      linkit_profile: default
+    font:
+      font_names: ''
+      font_sizes: ''
     wordcount:
       enable: true
       show_remaining: false

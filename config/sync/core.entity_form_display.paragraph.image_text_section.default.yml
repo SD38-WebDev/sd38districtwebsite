@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.image_text_section.field_bg
     - field.field.paragraph.image_text_section.field_bgcolour
     - field.field.paragraph.image_text_section.field_col_order
     - field.field.paragraph.image_text_section.field_image
@@ -49,6 +50,7 @@ third_party_settings:
         required_fields: true
     group_background_colour:
       children:
+        - field_bg
         - field_bgcolour
       label: 'Background Colour'
       region: content
@@ -95,9 +97,16 @@ targetEntityType: paragraph
 bundle: image_text_section
 mode: default
 content:
+  field_bg:
+    type: boolean_checkbox
+    weight: 16
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_bgcolour:
     type: color_field_widget_spectrum
-    weight: 2
+    weight: 17
     region: content
     settings:
       show_input: '1'
@@ -139,7 +148,9 @@ content:
     settings:
       view_modes:
         image_left: image_left
+        image_left_30_70: image_left_30_70
         image_right: image_right
+        image_right_70_30: image_right_70_30
         default: '0'
       default_view_mode: image_left
     third_party_settings: {  }

@@ -1,10 +1,10 @@
-uuid: f6a014b4-f4e8-4915-9aa6-d859c50259b1
+uuid: 4839f89b-0d16-427b-9ece-ca9e04832d9c
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
-id: paragraph.image_right
-label: 'Image Right 50/50'
+id: paragraph.image_left_30_70
+label: 'Image Left 30/70'
 targetEntityType: paragraph
 cache: true
