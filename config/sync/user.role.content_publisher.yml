@@ -27,6 +27,7 @@ permissions:
   - 'access draggableviews'
   - 'access media overview'
   - 'access toolbar'
+  - 'administer media'
   - 'create event content'
   - 'create file media'
   - 'create media'

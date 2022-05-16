@@ -39,6 +39,7 @@ permissions:
   - 'access media overview'
   - 'access media_asset_library entity browser pages'
   - 'access toolbar'
+  - 'administer media'
   - 'administer menu'
   - 'administer nodes'
   - 'configure editable 3_column_block block_content layout overrides'
