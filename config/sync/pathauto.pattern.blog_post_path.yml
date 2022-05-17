@@ -10,7 +10,7 @@ type: 'canonical_entities:node'
 pattern: '[node:field_page_assignment:0:entity:menu-link:parents:join-path]/[node:field_page_assignment:0:entity:menu-link]/[node:title]'
 selection_criteria:
   cbc6709a-f369-4520-9164-4d513f22f9da:
-    id: node_type
+    id: 'entity_bundle:node'
     negate: false
     uuid: cbc6709a-f369-4520-9164-4d513f22f9da
     context_mapping:
