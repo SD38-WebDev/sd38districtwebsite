@@ -16,6 +16,7 @@ button:
   digital_signage: true
   distributed_article: true
   news_carousel: false
+  test_123: true
 message:
   staff_member: true
   event: true
@@ -28,6 +29,7 @@ message:
   digital_signage: true
   distributed_article: true
   news_carousel: false
+  test_123: true
 tab:
   staff_member: true
   event: true
@@ -40,6 +42,7 @@ tab:
   digital_signage: true
   distributed_article: true
   news_carousel: false
+  test_123: true
 tab_edit:
   staff_member: true
   event: true
@@ -52,3 +55,4 @@ tab_edit:
   digital_signage: true
   distributed_article: true
   news_carousel: false
+  test_123: true
