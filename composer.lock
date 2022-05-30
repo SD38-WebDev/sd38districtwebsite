@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d777a97bcbbd3fdd30e814d706e1b6ba",
+    "content-hash": "a82761beccc00abe3e6a960e7bb22a58",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -6152,6 +6152,50 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/menu_link_attributes",
                 "issues": "http://drupal.org/project/issues/menu_link_attributes"
+            }
+        },
+        {
+            "name": "drupal/node_type_class",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/node_type_class.git",
+                "reference": "2.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/node_type_class-2.0.1.zip",
+                "reference": "2.0.1",
+                "shasum": "3c86f9a18f290a75c67e9532ca578ba800818bdc"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.1",
+                    "datestamp": "1635167390",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Pravin Ajaaz",
+                    "homepage": "https://www.drupal.org/user/2910049"
+                }
+            ],
+            "description": "Adds classes specific to content types",
+            "homepage": "https://www.drupal.org/project/node_type_class",
+            "support": {
+                "source": "https://git.drupalcode.org/project/node_type_class"
             }
         },
         {
