@@ -1,0 +1,10 @@
+uuid: 28b5b1bd-2154-427f-af48-93bd733499cc
+langcode: en
+status: true
+dependencies: {  }
+id: news_carousel_item
+label: 'News Carousel Item'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

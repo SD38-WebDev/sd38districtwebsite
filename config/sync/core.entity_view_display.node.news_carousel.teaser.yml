@@ -1,0 +1,22 @@
+uuid: 26d9aa30-9a45-4672-9209-bf9222dca640
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.news_carousel.field_carousel_items
+    - node.type.news_carousel
+  module:
+    - user
+id: node.news_carousel.teaser
+targetEntityType: node
+bundle: news_carousel
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_carousel_items: true

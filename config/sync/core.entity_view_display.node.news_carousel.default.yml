@@ -1,0 +1,54 @@
+uuid: 9e9bc4d4-6688-4db9-8376-c4749ef7c1da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.news_carousel.field_carousel_items
+    - node.type.news_carousel
+  module:
+    - ds
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: bs_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          main:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      main:
+        - links
+        - 'dynamic_block_field:node-sd38_news_carousel'
+    fields:
+      'dynamic_block_field:node-sd38_news_carousel':
+        plugin_id: 'dynamic_block_field:node-sd38_news_carousel'
+        weight: 1
+        label: hidden
+        formatter: default
+id: node.news_carousel.default
+targetEntityType: node
+bundle: news_carousel
+mode: default
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: main
+hidden:
+  field_carousel_items: true

@@ -1,0 +1,55 @@
+uuid: facb1299-d1e8-4f60-8a95-cea5acab50e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_carousel_items
+    - node.type.news_carousel
+    - paragraphs.paragraphs_type.news_carousel_item
+  module:
+    - entity_reference_revisions
+id: node.news_carousel.field_carousel_items
+field_name: field_carousel_items
+entity_type: node
+bundle: news_carousel
+label: 'Carousel Items'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      news_carousel_item: news_carousel_item
+    negate: 0
+    target_bundles_drag_drop:
+      basic_text_section:
+        weight: 10
+        enabled: false
+      blog_feed:
+        weight: 11
+        enabled: false
+      collapsible_content:
+        weight: 12
+        enabled: false
+      column:
+        weight: 13
+        enabled: false
+      image_gallery:
+        weight: 14
+        enabled: false
+      image_text_section:
+        weight: 15
+        enabled: false
+      multi_column_section:
+        weight: 16
+        enabled: false
+      navigation_panel:
+        weight: 17
+        enabled: false
+      news_carousel_item:
+        weight: 18
+        enabled: true
+field_type: entity_reference_revisions

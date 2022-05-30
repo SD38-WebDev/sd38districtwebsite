@@ -1,0 +1,37 @@
+uuid: 98196819-019a-4ee5-b755-9bed55cac4e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.news_carousel_item.field_content_link
+    - field.field.paragraph.news_carousel_item.field_image
+    - paragraphs.paragraphs_type.news_carousel_item
+  module:
+    - link
+id: paragraph.news_carousel_item.default
+targetEntityType: paragraph
+bundle: news_carousel_item
+mode: default
+content:
+  field_content_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

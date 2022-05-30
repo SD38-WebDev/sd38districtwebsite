@@ -15,6 +15,7 @@ button:
   news_alert: true
   digital_signage: true
   distributed_article: true
+  news_carousel: false
 message:
   staff_member: true
   event: true
@@ -26,6 +27,7 @@ message:
   news_alert: true
   digital_signage: true
   distributed_article: true
+  news_carousel: false
 tab:
   staff_member: true
   event: true
@@ -37,6 +39,7 @@ tab:
   news_alert: true
   digital_signage: true
   distributed_article: true
+  news_carousel: false
 tab_edit:
   staff_member: true
   event: true
@@ -48,3 +51,4 @@ tab_edit:
   news_alert: true
   digital_signage: true
   distributed_article: true
+  news_carousel: false

@@ -1,0 +1,17 @@
+uuid: 7f7a9a89-a0d9-445b-ba16-40d6a09f63f1
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'News Carousel'
+type: news_carousel
+description: ''
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

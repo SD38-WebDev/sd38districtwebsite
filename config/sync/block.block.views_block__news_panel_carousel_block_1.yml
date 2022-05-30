@@ -1,6 +1,6 @@
 uuid: 1626b671-86ea-4c1c-9b70-fc8891742250
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.news_panel_carousel
