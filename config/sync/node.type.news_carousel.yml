@@ -3,11 +3,37 @@ langcode: en
 status: true
 dependencies:
   module:
+    - entity_redirect
     - menu_ui
+    - node_type_class
 third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
+  node_type_class:
+    classes: ''
+  entity_redirect:
+    redirect:
+      anonymous:
+        active: false
+        destination: default
+        url: ''
+        external: ''
+      add:
+        active: true
+        destination: url
+        url: /
+        external: ''
+      edit:
+        active: true
+        destination: url
+        url: /
+        external: ''
+      delete:
+        active: false
+        destination: default
+        url: ''
+        external: ''
 name: 'News Carousel'
 type: news_carousel
 description: ''

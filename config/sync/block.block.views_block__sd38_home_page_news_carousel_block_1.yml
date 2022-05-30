@@ -1,21 +1,21 @@
-uuid: 1d6b1af3-4294-45bd-95a1-cbab66110f52
+uuid: 47a39168-fab1-4d5e-ac25-592971a8c76a
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.sd38_news_carousel
+    - views.view.sd38_home_page_news_carousel
   module:
     - views
   theme:
     - rsd_district
-id: views_block__sd38_news_carousel_block_1
+id: views_block__sd38_home_page_news_carousel_block_1
 theme: rsd_district
 region: news_panel_carousel
 weight: 0
 provider: null
-plugin: 'views_block:sd38_news_carousel-block_1'
+plugin: 'views_block:sd38_home_page_news_carousel-block_1'
 settings:
-  id: 'views_block:sd38_news_carousel-block_1'
+  id: 'views_block:sd38_home_page_news_carousel-block_1'
   label: ''
   label_display: '0'
   provider: views

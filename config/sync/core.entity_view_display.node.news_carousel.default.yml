@@ -33,13 +33,6 @@ third_party_settings:
     regions:
       main:
         - links
-        - 'dynamic_block_field:node-sd38_news_carousel'
-    fields:
-      'dynamic_block_field:node-sd38_news_carousel':
-        plugin_id: 'dynamic_block_field:node-sd38_news_carousel'
-        weight: 1
-        label: hidden
-        formatter: default
 id: node.news_carousel.default
 targetEntityType: node
 bundle: news_carousel

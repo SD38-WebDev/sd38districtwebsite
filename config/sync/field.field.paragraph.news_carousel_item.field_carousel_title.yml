@@ -1,0 +1,19 @@
+uuid: 7ebffabe-e4ed-4473-ba82-6cfb30023024
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_carousel_title
+    - paragraphs.paragraphs_type.news_carousel_item
+id: paragraph.news_carousel_item.field_carousel_title
+field_name: field_carousel_title
+entity_type: paragraph
+bundle: news_carousel_item
+label: 'Carousel Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
