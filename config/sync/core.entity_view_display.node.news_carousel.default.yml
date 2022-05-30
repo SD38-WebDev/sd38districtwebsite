@@ -6,33 +6,7 @@ dependencies:
     - field.field.node.news_carousel.field_carousel_items
     - node.type.news_carousel
   module:
-    - ds
     - user
-third_party_settings:
-  ds:
-    layout:
-      id: bs_1col
-      library: null
-      disable_css: false
-      entity_classes: all_classes
-      settings:
-        label: ''
-        layout:
-          wrapper: div
-          classes:
-            row: row
-          add_layout_class: 1
-          attributes: ''
-        regions:
-          main:
-            wrapper: div
-            classes:
-              col-sm-12: col-sm-12
-            add_region_classes: 1
-            attributes: ''
-    regions:
-      main:
-        - links
 id: node.news_carousel.default
 targetEntityType: node
 bundle: news_carousel
@@ -42,6 +16,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
-    region: main
+    region: content
 hidden:
   field_carousel_items: true
