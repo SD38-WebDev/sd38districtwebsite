@@ -5,6 +5,7 @@ dependencies:
   config:
     - views.view.sd38_home_page_news_carousel
   module:
+    - system
     - views
   theme:
     - rsd_district
@@ -21,4 +22,8 @@ settings:
   provider: views
   views_label: ''
   items_per_page: none
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'
