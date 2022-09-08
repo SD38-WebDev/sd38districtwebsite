@@ -262,7 +262,7 @@ display:
         type: some
         options:
           offset: 0
-          items_per_page: 3
+          items_per_page: 4
       exposed_form:
         type: basic
         options:
@@ -356,10 +356,10 @@ display:
             attributes: class|title
           list:
             element_type: div
-            attributes: 'class|flex-grid col-12'
+            attributes: class|row
           row:
             element_type: div
-            attributes: class|card
+            attributes: 'class|col-12 col-md-3'
             last_every_nth: ''
             first_class: ''
             last_class: ''

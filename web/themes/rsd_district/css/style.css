@@ -368,11 +368,12 @@ button.navbar-toggler {
 	width: 100%;
 }
 
-.view-sd38-feature-pages .card {
+.view-sd38-feature-pages img {
 	border-radius: 0.625rem !important;
 	overflow: hidden;
 	box-shadow: 0 7px 25px 0 rgba(0,0,0,0.03),0 4px 12px 0 rgba(0,0,0,0.03);
-	border: 1px solid rgba(0, 0, 0, 0.15) !important;
+	border: none !important;
+	margin-bottom: 30px;
 }
 
 .view-sd38-feature-pages .card .card-link-text {
@@ -387,15 +388,15 @@ button.navbar-toggler {
 	background: linear-gradient(45deg, rgba(37,63,142,0.89) 0%, rgba(55,168,154,0.97) 100%);
 }
 
-.view-sd38-feature-pages .card:hover .card-link-text {
+.view-sd38-feature-pages img:hover .card-link-text {
 	background: linear-gradient(45deg, rgba(37,63,142,1) 0%, rgba(55,168,154,1) 100%);
 }
 
-.view-sd38-feature-pages .card img {
+.view-sd38-feature-pages img {
 	opacity: 0.85;
 }
 
-.view-sd38-feature-pages .card:hover img {
+.view-sd38-feature-pages img:hover {
 	opacity: 1;
 }
 
@@ -792,8 +793,8 @@ body.our-district-story .featured-top {
 
 .featured-bottom {
 	padding-top: 30px;
-	padding-bottom: 30px;
-	background: #edf2fb;
+	padding-bottom: 0px;
+	background: #edf2fb80;
 }
 
 .ods-header-row {
