@@ -23,15 +23,15 @@
         hour = hour - 12;
         if ( hour == 12 ) {
           hour = checkTime(hour);
-        document.getElementById("ds-time").innerHTML = hour+":"+minute+" pm";
+        document.getElementById("ds-time").innerHTML = hour+":"+minute;
         }
         else {
           hour = checkTime(hour);
-          document.getElementById("ds-time").innerHTML = hour+":"+minute+" am";
+          document.getElementById("ds-time").innerHTML = hour+":"+minute;
         }
       }
       else {
-        document.getElementById("ds-time").innerHTML = hour+":"+minute+" am";;
+        document.getElementById("ds-time").innerHTML = hour+":"+minute;;
       }
       var time = setTimeout(startTime,1000);
       }
