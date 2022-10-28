@@ -1,0 +1,41 @@
+uuid: 9f782ca1-b4c0-49e1-83cd-a1b31adfb16e
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_redirect
+    - menu_ui
+third_party_settings:
+  entity_redirect:
+    redirect:
+      anonymous:
+        active: false
+        destination: default
+        url: ''
+        external: ''
+      add:
+        active: false
+        destination: default
+        url: ''
+        external: ''
+      edit:
+        active: false
+        destination: default
+        url: ''
+        external: ''
+      delete:
+        active: false
+        destination: default
+        url: ''
+        external: ''
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Slick
+type: slick
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

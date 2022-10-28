@@ -109,6 +109,8 @@ module:
   shortcut: 0
   simple_image_rotate: 0
   slick: 0
+  slick_example: 0
+  slick_extras: 0
   slick_ui: 0
   slick_views: 0
   smart_date: 0

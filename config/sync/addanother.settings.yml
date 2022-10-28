@@ -17,6 +17,8 @@ button:
   distributed_article: true
   news_carousel: false
   test_123: true
+  slick_temp: true
+  slick: true
 message:
   staff_member: true
   event: true
@@ -30,6 +32,8 @@ message:
   distributed_article: true
   news_carousel: false
   test_123: true
+  slick_temp: true
+  slick: true
 tab:
   staff_member: true
   event: true
@@ -43,6 +47,8 @@ tab:
   distributed_article: true
   news_carousel: false
   test_123: true
+  slick_temp: true
+  slick: true
 tab_edit:
   staff_member: true
   event: true
@@ -56,3 +62,5 @@ tab_edit:
   distributed_article: true
   news_carousel: false
   test_123: true
+  slick_temp: true
+  slick: true

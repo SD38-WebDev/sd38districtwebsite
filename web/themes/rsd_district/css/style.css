@@ -1777,3 +1777,11 @@ body.edweek .edweek.day5 .event-title {
 .paragraph--type-navigation-panel .list-group .list-group-item .nav-link {
 	background: none;
 }
+
+
+/** Slick Carousel **/
+
+#slick-grid-slider .list-group-item {
+	background: unset !important;
+	border: unset !important;
+}

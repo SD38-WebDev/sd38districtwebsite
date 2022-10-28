@@ -1,0 +1,21 @@
+uuid: d8af4871-a1f9-42ca-8853-3390539c72a3
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - slick_example
+_core:
+  default_config_hash: _deDkahfjV9NszaQW6RW4eKDn06MPhF1bytpFm0KZDk
+id: x_split
+name: x_split
+weight: 0
+label: 'X Split'
+group: main
+skin: split
+breakpoints: 0
+optimized: true
+options:
+  settings:
+    lazyLoad: ondemand
+    slidesToShow: 1

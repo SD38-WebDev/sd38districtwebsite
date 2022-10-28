@@ -1,0 +1,23 @@
+uuid: ed006726-69cc-404d-ad94-4682dcec4e27
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.slick
+  module:
+    - text
+id: node.slick.body
+field_name: body
+entity_type: node
+bundle: slick
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary
