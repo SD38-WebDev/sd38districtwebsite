@@ -156,6 +156,8 @@ display:
           settings:
             image_link: ''
             image_style: max_650x650
+            image_loading:
+              attribute: lazy
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -621,6 +623,8 @@ display:
           settings:
             image_link: ''
             image_style: carousel_780_x_438
+            image_loading:
+              attribute: lazy
           group_column: ''
           group_columns: {  }
           group_rows: true

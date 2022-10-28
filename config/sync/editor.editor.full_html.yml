@@ -71,10 +71,6 @@ settings:
             - Source
             - Table
   plugins:
-    language:
-      language_list: un
-    stylescombo:
-      styles: "p|Plain text\r\np.small-text|Small text"
     drupallink:
       linkit_enabled: true
       linkit_profile: default

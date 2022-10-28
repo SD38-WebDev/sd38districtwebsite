@@ -4,4 +4,4 @@ status: false
 dependencies: {  }
 formId: node_accordion_content_form
 captchaType: default
-label: null
+label: node_accordion_content_form

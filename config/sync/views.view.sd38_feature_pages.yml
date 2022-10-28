@@ -81,6 +81,8 @@ display:
           settings:
             image_link: ''
             image_style: large
+            image_loading:
+              attribute: lazy
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -380,7 +382,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
-      css_class: ''
+      css_class: col
       header: {  }
       footer: {  }
       display_extenders: {  }

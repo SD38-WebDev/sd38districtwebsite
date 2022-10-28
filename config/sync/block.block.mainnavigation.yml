@@ -16,7 +16,7 @@ third_party_settings:
 id: mainnavigation
 theme: rsd_district
 region: content
-weight: -14
+weight: -16
 provider: null
 plugin: 'menu_block:main'
 settings:

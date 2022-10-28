@@ -130,6 +130,8 @@ content:
     settings:
       image_link: ''
       image_style: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
     weight: 0
     region: left
@@ -139,6 +141,8 @@ content:
     settings:
       image_link: ''
       image_style: max_650x650
+      image_loading:
+        attribute: lazy
     third_party_settings:
       ds:
         ds_limit: ''

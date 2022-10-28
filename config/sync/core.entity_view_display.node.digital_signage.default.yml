@@ -21,6 +21,8 @@ content:
     settings:
       image_link: ''
       image_style: carousel_780_x_438
+      image_loading:
+        attribute: lazy
     third_party_settings:
       ds:
         ft:

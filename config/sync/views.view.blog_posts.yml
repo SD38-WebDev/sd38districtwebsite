@@ -88,6 +88,8 @@ display:
           settings:
             image_link: content
             image_style: card_image
+            image_loading:
+              attribute: lazy
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -536,6 +538,8 @@ display:
           settings:
             image_link: ''
             image_style: square_image_thumbnail_220x220
+            image_loading:
+              attribute: lazy
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -973,6 +977,8 @@ display:
           settings:
             image_link: ''
             image_style: square_image_thumbnail_220x220
+            image_loading:
+              attribute: lazy
           group_column: ''
           group_columns: {  }
           group_rows: true

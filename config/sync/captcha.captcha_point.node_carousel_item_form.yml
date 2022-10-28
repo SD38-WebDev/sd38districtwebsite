@@ -4,4 +4,4 @@ status: false
 dependencies: {  }
 formId: node_carousel_item_form
 captchaType: default
-label: null
+label: node_carousel_item_form
