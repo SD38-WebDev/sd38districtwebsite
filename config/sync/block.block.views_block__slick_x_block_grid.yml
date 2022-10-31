@@ -1,4 +1,4 @@
-uuid: e3f0df0a-3bbf-483b-89b2-75fcd121fbf8
+uuid: 0b2873c8-78d1-46af-984c-927652445c40
 langcode: en
 status: true
 dependencies:
@@ -7,17 +7,17 @@ dependencies:
   module:
     - views
   theme:
-    - rsd_district
+    - bartik
 id: views_block__slick_x_block_grid
-theme: rsd_district
-region: featured_bottom_third
+theme: bartik
+region: content
 weight: 0
 provider: null
 plugin: 'views_block:slick_x-block_grid'
 settings:
   id: 'views_block:slick_x-block_grid'
   label: ''
-  label_display: '0'
+  label_display: visible
   provider: views
   views_label: ''
   items_per_page: none

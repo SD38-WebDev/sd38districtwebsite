@@ -1765,7 +1765,6 @@ display:
             title: '0'
             field_page_thumbnail_image: '0'
             edit_node: '0'
-            view_node: '0'
           optionset: x_grid
           class: ''
           id: slick-grid
@@ -1777,16 +1776,16 @@ display:
           layout: ''
           cache: 0
           skin: grid
-          style: grid
+          style: flex
           grid: '4'
           grid_medium: '3'
           grid_small: '2'
           overridables:
             arrows: arrows
             dots: dots
-            infinite: infinite
             autoplay: '0'
             draggable: '0'
+            infinite: '0'
             mouseWheel: '0'
             randomize: '0'
             variableWidth: '0'
