@@ -1,21 +1,21 @@
-uuid: b759cb43-1466-4ebe-bda6-d1a8ce2fa04d
+uuid: 8ed41960-c153-495d-847c-59227cea35f0
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.ds_main_viewer_content
+    - views.view.digital_signage_viewer_v2
   module:
     - views
   theme:
     - rsd_district
-id: views_block__ds_main_viewer_content_block_1
+id: views_block__digital_signage_viewer_v2_block_1
 theme: rsd_district
 region: ds_viewer
-weight: -20
+weight: 0
 provider: null
-plugin: 'views_block:ds_main_viewer_content-block_1'
+plugin: 'views_block:digital_signage_viewer_v2-block_1'
 settings:
-  id: 'views_block:ds_main_viewer_content-block_1'
+  id: 'views_block:digital_signage_viewer_v2-block_1'
   label: ''
   label_display: '0'
   provider: views

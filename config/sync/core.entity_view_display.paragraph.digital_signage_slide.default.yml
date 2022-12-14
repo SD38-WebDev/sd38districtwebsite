@@ -1,0 +1,95 @@
+uuid: bd2ee3e2-ac00-43af-888d-761b3d1ce8ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.digital_signage_slide.field_slide_image
+    - field.field.paragraph.digital_signage_slide.field_slide_title
+    - image.style.carousel_780_x_438
+    - paragraphs.paragraphs_type.digital_signage_slide
+  module:
+    - ds
+    - field_group
+    - media
+third_party_settings:
+  field_group:
+    group_group:
+      children:
+        - field_slide_image
+        - field_slide_title
+      label: Group
+      parent_name: ''
+      region: content
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+id: paragraph.digital_signage_slide.default
+targetEntityType: paragraph
+bundle: digital_signage_slide
+mode: default
+content:
+  field_slide_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: carousel_780_x_438
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 1
+    region: content
+  field_slide_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: true
+            ow-el: div
+            ow-cl: ''
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 2
+    region: content
+hidden: {  }

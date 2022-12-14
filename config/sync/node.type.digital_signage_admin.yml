@@ -1,10 +1,10 @@
-uuid: 28b5b1bd-2154-427f-af48-93bd733499cc
+uuid: c35cbc42-316e-4533-a95a-9b3ec7341ce5
 langcode: en
 status: true
 dependencies:
   module:
     - entity_redirect
-    - paragraph_view_mode
+    - menu_ui
 third_party_settings:
   entity_redirect:
     redirect:
@@ -28,11 +28,13 @@ third_party_settings:
         destination: default
         url: ''
         external: ''
-  paragraph_view_mode:
-    enabled: false
-id: news_carousel_item
-label: 'News Carousel Item'
-icon_uuid: null
-icon_default: null
-description: 'Used for the populating the home page news carousel.'
-behavior_plugins: {  }
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Digital Signage Admin'
+type: digital_signage_admin
+description: 'Page for editing the slides featured on our digital signage. (Board Office Lobby)'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

@@ -1,10 +1,9 @@
-uuid: 28b5b1bd-2154-427f-af48-93bd733499cc
+uuid: e966abed-5967-4b25-a5f8-717e3991ff79
 langcode: en
 status: true
 dependencies:
   module:
     - entity_redirect
-    - paragraph_view_mode
 third_party_settings:
   entity_redirect:
     redirect:
@@ -28,11 +27,9 @@ third_party_settings:
         destination: default
         url: ''
         external: ''
-  paragraph_view_mode:
-    enabled: false
-id: news_carousel_item
-label: 'News Carousel Item'
+id: digital_signage_slide
+label: 'Digital Signage Slide'
 icon_uuid: null
 icon_default: null
-description: 'Used for the populating the home page news carousel.'
+description: 'Used for the populating the digital signage. (Board Office Lobby)'
 behavior_plugins: {  }

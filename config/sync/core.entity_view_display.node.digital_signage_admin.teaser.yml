@@ -1,0 +1,22 @@
+uuid: 92cffdcd-e9eb-4aaf-a253-96a40b6cb638
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.digital_signage_admin.field_digital_signage_slides
+    - node.type.digital_signage_admin
+  module:
+    - user
+id: node.digital_signage_admin.teaser
+targetEntityType: node
+bundle: digital_signage_admin
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_digital_signage_slides: true

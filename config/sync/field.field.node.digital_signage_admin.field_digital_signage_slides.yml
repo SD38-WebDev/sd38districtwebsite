@@ -1,0 +1,58 @@
+uuid: be6ed7a9-d373-44d7-a7dc-4b9883cb50dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_digital_signage_slides
+    - node.type.digital_signage_admin
+    - paragraphs.paragraphs_type.digital_signage_slide
+  module:
+    - entity_reference_revisions
+id: node.digital_signage_admin.field_digital_signage_slides
+field_name: field_digital_signage_slides
+entity_type: node
+bundle: digital_signage_admin
+label: 'Digital Signage Slides'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      digital_signage_slide: digital_signage_slide
+    negate: 0
+    target_bundles_drag_drop:
+      basic_text_section:
+        weight: 11
+        enabled: false
+      blog_feed:
+        weight: 12
+        enabled: false
+      collapsible_content:
+        weight: 13
+        enabled: false
+      column:
+        weight: 14
+        enabled: false
+      digital_signage_slide:
+        weight: 15
+        enabled: true
+      image_gallery:
+        weight: 16
+        enabled: false
+      image_text_section:
+        weight: 17
+        enabled: false
+      multi_column_section:
+        weight: 18
+        enabled: false
+      navigation_panel:
+        weight: 19
+        enabled: false
+      news_carousel_item:
+        weight: 20
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,19 @@
+uuid: a1a80601-15f3-4d86-bfd8-aab6c37bc72c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_slide_title
+    - paragraphs.paragraphs_type.digital_signage_slide
+id: paragraph.digital_signage_slide.field_slide_title
+field_name: field_slide_title
+entity_type: paragraph
+bundle: digital_signage_slide
+label: 'Slide Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

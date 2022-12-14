@@ -1,0 +1,22 @@
+uuid: f6187e97-e136-4262-b949-41c99398f287
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.digital_signage_admin
+id: node.digital_signage_admin.promote
+field_name: promote
+entity_type: node
+bundle: digital_signage_admin
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

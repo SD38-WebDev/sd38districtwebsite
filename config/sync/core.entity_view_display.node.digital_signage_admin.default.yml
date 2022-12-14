@@ -1,0 +1,30 @@
+uuid: 8f44a7a9-d0f1-4b9a-bb85-3b6f89d408be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.digital_signage_admin.field_digital_signage_slides
+    - node.type.digital_signage_admin
+  module:
+    - entity_reference_revisions
+    - user
+id: node.digital_signage_admin.default
+targetEntityType: node
+bundle: digital_signage_admin
+mode: default
+content:
+  field_digital_signage_slides:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

@@ -1,0 +1,33 @@
+uuid: 1be9f4a4-b333-4c2b-ba56-c445483345c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.digital_signage_slide.field_slide_image
+    - field.field.paragraph.digital_signage_slide.field_slide_title
+    - paragraphs.paragraphs_type.digital_signage_slide
+  module:
+    - media_library
+id: paragraph.digital_signage_slide.default
+targetEntityType: paragraph
+bundle: digital_signage_slide
+mode: default
+content:
+  field_slide_image:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_slide_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
