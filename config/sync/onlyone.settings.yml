@@ -1,6 +1,7 @@
 _core:
   default_config_hash: UoV6qv_r_-7TBFZaqKvIg8vI5QF55m-tuIR_LcmtfSw
 onlyone_node_types:
+  digital_signage_admin: digital_signage_admin
   news_carousel: news_carousel
 onlyone_new_menu_entry: false
 onlyone_redirect: true
