@@ -1,0 +1,15 @@
+uuid: 78400a57-7b81-462a-bd2f-6dcb90eeee39
+langcode: en
+status: true
+dependencies: {  }
+name: carousel_image
+label: 'Carousel Image'
+effects:
+  b9b838fd-28d1-4ad8-8bcd-73108a985e6a:
+    uuid: b9b838fd-28d1-4ad8-8bcd-73108a985e6a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 675
+      anchor: center-center

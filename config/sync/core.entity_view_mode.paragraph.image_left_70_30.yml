@@ -1,0 +1,10 @@
+uuid: aec9c254-93e5-460a-a4bd-a896bae84caa
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.image_left_70_30
+label: 'Image Left 70/30'
+targetEntityType: paragraph
+cache: true

@@ -1,9 +1,9 @@
-uuid: d793e5b7-b97e-4b4c-8452-f6f8d84b4f7b
+uuid: 12b3255f-c9c9-4347-87e2-4cb3727ded36
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.paragraph.image_left_30_70
+    - core.entity_view_mode.paragraph.image_right_30_70
     - field.field.paragraph.image_text_section.field_bg
     - field.field.paragraph.image_text_section.field_bgcolour
     - field.field.paragraph.image_text_section.field_col_order
@@ -11,7 +11,7 @@ dependencies:
     - field.field.paragraph.image_text_section.field_section_content
     - field.field.paragraph.image_text_section.field_section_title
     - field.field.paragraph.image_text_section.paragraph_view_mode
-    - image.style.medium
+    - image.style.x_large
     - paragraphs.paragraphs_type.image_text_section
   module:
     - ds
@@ -33,23 +33,23 @@ third_party_settings:
           classes:
             row: row
           add_layout_class: 1
-          attributes: ' class|[paragraph:field_bg] paragraph'
+          attributes: ''
         regions:
           main:
             wrapper: div
             classes:
               col-sm-12: col-sm-12
             add_region_classes: 1
-            attributes: 'style|background-color:[paragraph:field_bgcolour:color];'
+            attributes: ''
     regions:
       main:
         - group_container
         - field_image
-        - field_section_title
-        - field_section_content
         - group_column_1
         - group_column_2
+        - field_section_title
         - group_row
+        - field_section_content
   field_group:
     group_container:
       children:
@@ -71,7 +71,8 @@ third_party_settings:
         speed: fast
     group_column_1:
       children:
-        - field_image
+        - field_section_title
+        - field_section_content
       label: 'Column 1'
       parent_name: group_row
       region: main
@@ -90,8 +91,7 @@ third_party_settings:
         speed: fast
     group_column_2:
       children:
-        - field_section_title
-        - field_section_content
+        - field_image
       label: 'Column 2'
       parent_name: group_row
       region: main
@@ -130,17 +130,17 @@ third_party_settings:
   layout_builder:
     enabled: false
     allow_custom: false
-id: paragraph.image_text_section.image_left_30_70
+id: paragraph.image_text_section.image_right_30_70
 targetEntityType: paragraph
 bundle: image_text_section
-mode: image_left_30_70
+mode: image_right_30_70
 content:
   field_image:
     type: media_thumbnail
     label: hidden
     settings:
       image_link: ''
-      image_style: medium
+      image_style: x_large
       image_loading:
         attribute: lazy
     third_party_settings:
@@ -158,7 +158,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 24
     region: main
   field_section_title:
     type: string
@@ -194,7 +194,7 @@ content:
             fi-def-at: false
             prefix: ''
             suffix: ''
-    weight: 3
+    weight: 23
     region: main
 hidden:
   field_bg: true

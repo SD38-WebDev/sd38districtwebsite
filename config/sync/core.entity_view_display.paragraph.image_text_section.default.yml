@@ -46,6 +46,7 @@ third_party_settings:
         - field_section_title
         - group_row
         - field_section_content
+        - field_bg
   field_group:
     group_container:
       children:
@@ -137,7 +138,7 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 25
-    region: content
+    region: main
   field_image:
     type: entity_reference_entity_view
     label: hidden

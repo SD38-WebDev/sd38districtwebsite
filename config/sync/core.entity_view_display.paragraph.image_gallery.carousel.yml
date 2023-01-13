@@ -1,9 +1,9 @@
-uuid: 24e8fab8-4cbe-464f-9af0-f0d6c13a66de
+uuid: af650739-9ce8-4a33-a5c3-bb5695989bfa
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.paragraph.1_column
+    - core.entity_view_mode.paragraph.carousel
     - field.field.paragraph.image_gallery.field_images
     - field.field.paragraph.image_gallery.field_section_content
     - field.field.paragraph.image_gallery.field_section_title
@@ -39,53 +39,15 @@ third_party_settings:
       main:
         - field_section_title
         - field_section_content
-        - field_images
+        - image_gallery_carousel_entity_view_1
   layout_builder:
     enabled: false
     allow_custom: false
-id: paragraph.image_gallery.1_column
+id: paragraph.image_gallery.carousel
 targetEntityType: paragraph
 bundle: image_gallery
-mode: 1_column
+mode: carousel
 content:
-  field_images:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings:
-      ds:
-        ds_limit: ''
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            lbw: false
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            lb-col: false
-            ow: false
-            ow-el: ''
-            ow-cl: ''
-            ow-at: ''
-            ow-def-at: false
-            ow-def-cl: false
-            fis: true
-            fis-el: div
-            fis-cl: 'row row-cols-1'
-            fis-at: ''
-            fis-def-at: false
-            fi: true
-            fi-el: div
-            fi-cl: 'col mb-4'
-            fi-at: ''
-            fi-def-at: false
-            prefix: ''
-            suffix: ''
-    weight: 2
-    region: main
   field_section_content:
     type: text_default
     label: hidden
@@ -129,7 +91,12 @@ content:
             suffix: ''
     weight: 0
     region: main
+  image_gallery_carousel_entity_view_1:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: main
 hidden:
-  image_gallery_carousel_entity_view_1: true
+  field_images: true
   paragraph_view_mode: true
   paragraphs_carousel_entity_view_1: true

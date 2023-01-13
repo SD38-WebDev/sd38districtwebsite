@@ -149,7 +149,9 @@ content:
       view_modes:
         image_left: image_left
         image_left_30_70: image_left_30_70
+        image_left_70_30: image_left_70_30
         image_right: image_right
+        image_right_30_70: image_right_30_70
         image_right_70_30: image_right_70_30
         default: '0'
       default_view_mode: image_left

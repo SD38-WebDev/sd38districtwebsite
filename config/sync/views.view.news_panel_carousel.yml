@@ -1575,7 +1575,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: false
-          content: '<div id="latest-news">Lastest News</div>'
+          content: '<div id="latest-news">Latest News</div>'
           tokenize: false
       footer: {  }
       display_extenders: {  }

@@ -52,6 +52,7 @@ content:
         4_columns: 4_columns
         5_columns: 5_columns
         6_columns: 6_columns
+        carousel: carousel
         default: '0'
       default_view_mode: 1_column
     third_party_settings: {  }

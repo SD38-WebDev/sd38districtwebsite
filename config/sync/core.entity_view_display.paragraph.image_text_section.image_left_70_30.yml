@@ -1,9 +1,9 @@
-uuid: d793e5b7-b97e-4b4c-8452-f6f8d84b4f7b
+uuid: cf18454f-e2f0-4b44-8a36-8be46bb17e06
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.paragraph.image_left_30_70
+    - core.entity_view_mode.paragraph.image_left_70_30
     - field.field.paragraph.image_text_section.field_bg
     - field.field.paragraph.image_text_section.field_bgcolour
     - field.field.paragraph.image_text_section.field_col_order
@@ -11,7 +11,7 @@ dependencies:
     - field.field.paragraph.image_text_section.field_section_content
     - field.field.paragraph.image_text_section.field_section_title
     - field.field.paragraph.image_text_section.paragraph_view_mode
-    - image.style.medium
+    - image.style.x_large
     - paragraphs.paragraphs_type.image_text_section
   module:
     - ds
@@ -33,14 +33,14 @@ third_party_settings:
           classes:
             row: row
           add_layout_class: 1
-          attributes: ' class|[paragraph:field_bg] paragraph'
+          attributes: ''
         regions:
           main:
             wrapper: div
             classes:
               col-sm-12: col-sm-12
             add_region_classes: 1
-            attributes: 'style|background-color:[paragraph:field_bgcolour:color];'
+            attributes: ''
     regions:
       main:
         - group_container
@@ -50,6 +50,7 @@ third_party_settings:
         - group_column_1
         - group_column_2
         - group_row
+        - field_bg
   field_group:
     group_container:
       children:
@@ -78,7 +79,7 @@ third_party_settings:
       weight: 21
       format_type: html_element
       format_settings:
-        classes: 'col-12 col-md-3'
+        classes: 'col-12 col-md-9'
         show_empty_fields: false
         id: ''
         element: div
@@ -98,7 +99,7 @@ third_party_settings:
       weight: 22
       format_type: html_element
       format_settings:
-        classes: 'col-12 col-md-9'
+        classes: 'col-12 col-md-3'
         show_empty_fields: false
         id: ''
         element: div
@@ -130,17 +131,27 @@ third_party_settings:
   layout_builder:
     enabled: false
     allow_custom: false
-id: paragraph.image_text_section.image_left_30_70
+id: paragraph.image_text_section.image_left_70_30
 targetEntityType: paragraph
 bundle: image_text_section
-mode: image_left_30_70
+mode: image_left_70_30
 content:
+  field_bg:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 25
+    region: main
   field_image:
     type: media_thumbnail
     label: hidden
     settings:
       image_link: ''
-      image_style: medium
+      image_style: x_large
       image_loading:
         attribute: lazy
     third_party_settings:
@@ -197,7 +208,6 @@ content:
     weight: 3
     region: main
 hidden:
-  field_bg: true
   field_bgcolour: true
   field_col_order: true
   paragraph_view_mode: true

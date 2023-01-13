@@ -11,11 +11,13 @@ dependencies:
     - field.field.paragraph.image_text_section.field_section_content
     - field.field.paragraph.image_text_section.field_section_title
     - field.field.paragraph.image_text_section.paragraph_view_mode
+    - image.style.x_large
     - paragraphs.paragraphs_type.image_text_section
   module:
     - ds
     - field_group
     - layout_builder
+    - media
     - text
 third_party_settings:
   ds:
@@ -134,12 +136,21 @@ bundle: image_text_section
 mode: image_right
 content:
   field_image:
-    type: entity_reference_entity_view
+    type: media_thumbnail
     label: hidden
     settings:
-      view_mode: default
-      link: true
-    third_party_settings: {  }
+      image_link: ''
+      image_style: x_large
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     weight: 2
     region: main
   field_section_content:
