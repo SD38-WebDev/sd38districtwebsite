@@ -1786,7 +1786,7 @@ body.edweek .edweek.day5 .event-title {
 	border: unset !important;
 }
 
-/** Bootstrap Carousel Styles **/
+/*** Bootstrap Carousel Styles ***/
 
 .paragraph--view-mode-carousel img {
 	overflow: hidden;
