@@ -134,6 +134,7 @@ module:
   views_bootstrap: 0
   views_bulk_edit: 0
   views_bulk_operations: 0
+  views_conditional: 0
   views_data_export: 0
   views_ui: 0
   ds: 1

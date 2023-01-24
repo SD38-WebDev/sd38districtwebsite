@@ -99,14 +99,14 @@ content:
     third_party_settings: {  }
   name:
     type: string_textfield
-    weight: 2
+    weight: 1
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   replace_file:
-    weight: 1
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
