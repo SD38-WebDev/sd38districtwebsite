@@ -367,7 +367,7 @@ display:
           vanilla: false
           layout: ''
           cache: 0
-          skin: ''
+          skin: default
           style: grid
           grid: ''
           grid_medium: ''
