@@ -1,0 +1,18 @@
+uuid: de31ddaa-3c1e-479e-babf-b3bbf2151429
+langcode: en
+status: true
+dependencies: {  }
+id: 4_thumbnails
+name: 4_thumbnails
+weight: 0
+label: '4 thumbnails'
+group: main
+skin: grid
+breakpoints: 0
+optimized: true
+options:
+  options__active_tab: edit-options-settings
+  settings:
+    lazyLoad: ondemand
+    slidesPerRow: 4
+    slidesToShow: 4
