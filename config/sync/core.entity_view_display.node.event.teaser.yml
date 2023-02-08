@@ -29,4 +29,6 @@ hidden:
   field_image: true
   field_location_reference: true
   field_meeting_type: true
+  langcode: true
   links: true
+  search_api_excerpt: true

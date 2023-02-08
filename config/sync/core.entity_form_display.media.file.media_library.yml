@@ -18,7 +18,14 @@ id: media.file.media_library
 targetEntityType: media
 bundle: file
 mode: media_library
-content: {  }
+content:
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
 hidden:
   created: true
   field_board_policy: true
@@ -30,5 +37,6 @@ hidden:
   field_tags: true
   name: true
   path: true
+  replace_file: true
   status: true
   uid: true

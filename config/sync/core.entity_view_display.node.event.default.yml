@@ -253,4 +253,6 @@ content:
 hidden:
   field_event_location: true
   field_meeting_type: true
+  langcode: true
   links: true
+  search_api_excerpt: true

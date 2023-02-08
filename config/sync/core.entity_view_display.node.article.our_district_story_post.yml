@@ -92,7 +92,6 @@ content:
       layout: ''
       view_mode: ''
       cache: 0
-      current_view_mode: our_district_story_post
       skin: ''
       style: ''
       background: false
@@ -105,7 +104,6 @@ content:
       media_switch: ''
       ratio: ''
       thumbnail_style: ''
-      grid_header: ''
       grid: null
       grid_medium: null
       grid_small: null
@@ -125,8 +123,10 @@ content:
         xl:
           width: ''
           image_style: ''
+      current_view_mode: our_district_story_post
       icon: ''
       sizes: ''
+      grid_header: ''
       overridables:
         arrows: '0'
         autoplay: '0'
@@ -167,4 +167,6 @@ hidden:
   field_publish_to: true
   field_tags: true
   field_to_home_page_carousel: true
+  langcode: true
   links: true
+  search_api_excerpt: true

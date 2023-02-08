@@ -181,3 +181,4 @@ content:
 hidden:
   field_bg: true
   field_bgcolour: true
+  search_api_excerpt: true

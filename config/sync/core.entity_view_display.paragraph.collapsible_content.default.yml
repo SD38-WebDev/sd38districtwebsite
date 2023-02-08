@@ -188,4 +188,5 @@ content:
             suffix: ''
     weight: 1
     region: right
-hidden: {  }
+hidden:
+  search_api_excerpt: true

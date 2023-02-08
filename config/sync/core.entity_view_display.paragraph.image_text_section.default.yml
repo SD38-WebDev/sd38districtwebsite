@@ -195,3 +195,4 @@ hidden:
   field_bgcolour: true
   field_col_order: true
   paragraph_view_mode: true
+  search_api_excerpt: true
