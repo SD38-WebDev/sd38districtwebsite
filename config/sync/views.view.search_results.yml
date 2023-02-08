@@ -163,7 +163,7 @@ display:
         type: none
         options: {  }
       cache:
-        type: none
+        type: search_api_tag
         options: {  }
       empty: {  }
       sorts: {  }
@@ -228,7 +228,7 @@ display:
                 title: ''
                 operator: or
                 value: ''
-          parse_mode: terms
+          parse_mode: direct
           min_length: null
           fields: {  }
       filter_groups:
