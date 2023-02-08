@@ -1,0 +1,285 @@
+uuid: fbc50f3c-a01c-4591-a69f-1217c96630f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - field.storage.node.field_body_2
+    - field.storage.node.field_digital_signage_slides
+    - field.storage.media.field_file_name
+    - field.storage.paragraph.field_section_title
+    - field.storage.paragraph.field_section_content
+    - field.storage.paragraph.field_section_intro_content
+    - search_api.server.solr_search
+  module:
+    - search_api_solr
+    - media
+    - file
+    - node
+    - paragraphs
+    - search_api
+    - search_api_attachments
+third_party_settings:
+  search_api_solr:
+    finalize: false
+    commit_before_finalize: false
+    commit_after_finalize: false
+    debug_finalize: false
+    highlighter:
+      maxAnalyzedChars: 51200
+      fragmenter: gap
+      usePhraseHighlighter: true
+      highlightMultiTerm: true
+      preserveMulti: false
+      regex:
+        slop: 0.5
+        pattern: blank
+        maxAnalyzedChars: 10000
+      highlight:
+        mergeContiguous: false
+        requireFieldMatch: false
+        snippets: 3
+        fragsize: 0
+    mlt:
+      mintf: 1
+      mindf: 1
+      maxdf: 0
+      maxdfpct: 0
+      minwl: 0
+      maxwl: 0
+      maxqt: 100
+      maxntp: 2000
+      boost: false
+      interestingTerms: none
+    term_modifiers:
+      slop: 3
+      fuzzy: 1
+    advanced:
+      index_prefix: ''
+      collection: ''
+      timezone: ''
+    multilingual:
+      limit_to_content_language: false
+      include_language_independent: true
+      use_language_undefined_as_fallback_language: false
+      specific_languages:
+        en: '0'
+      use_universal_collation: false
+id: site_search_index
+name: 'Site Search Index'
+description: ''
+read_only: false
+field_settings:
+  body:
+    label: Body
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.body
+  bundle:
+    label: 'Media type'
+    datasource_id: 'entity:media'
+    property_path: bundle
+    type: string
+    dependencies:
+      module:
+        - media
+  entity_type:
+    label: 'Entity type'
+    property_path: search_api_entity_type
+    type: string
+  field_body_2:
+    label: 'Body 2'
+    datasource_id: 'entity:node'
+    property_path: field_body_2
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_body_2
+  field_digital_signage_slides:
+    label: 'Digital Signage Slides'
+    datasource_id: 'entity:node'
+    property_path: field_digital_signage_slides
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_digital_signage_slides
+  field_file_name:
+    label: 'File Name'
+    datasource_id: 'entity:media'
+    property_path: field_file_name
+    type: string
+    dependencies:
+      config:
+        - field.storage.media.field_file_name
+  field_section_title:
+    label: 'Section Title'
+    datasource_id: 'entity:paragraph'
+    property_path: field_section_title
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_section_title
+  filename:
+    label: Filename
+    datasource_id: 'entity:file'
+    property_path: filename
+    type: string
+    dependencies:
+      module:
+        - file
+  name:
+    label: Name
+    datasource_id: 'entity:media'
+    property_path: name
+    type: string
+    dependencies:
+      module:
+        - media
+  node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
+  processed:
+    label: 'Section Content » Processed text'
+    datasource_id: 'entity:paragraph'
+    property_path: 'field_section_content:processed'
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_section_content
+  processed_1:
+    label: 'Section Intro Content » Processed text'
+    datasource_id: 'entity:paragraph'
+    property_path: 'field_section_intro_content:processed'
+    type: string
+    dependencies:
+      config:
+        - field.storage.paragraph.field_section_intro_content
+  status:
+    label: Status
+    datasource_id: 'entity:file'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - file
+  status_2:
+    label: Published
+    datasource_id: 'entity:media'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - media
+  status_3:
+    label: Published
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    indexed_locked: true
+    type_locked: true
+    dependencies:
+      module:
+        - node
+  status_4:
+    label: Published
+    datasource_id: 'entity:paragraph'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - paragraphs
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+    dependencies:
+      module:
+        - node
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+    dependencies:
+      module:
+        - node
+  uid:
+    label: 'Authored by'
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    indexed_locked: true
+    type_locked: true
+    dependencies:
+      module:
+        - node
+datasource_settings:
+  'entity:file': {  }
+  'entity:media':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+  'entity:node':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+  'entity:paragraph':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  auto_aggregated_fulltext_field: {  }
+  content_access:
+    weights:
+      preprocess_query: -30
+  entity_type: {  }
+  file_attachments:
+    excluded_extensions: 'aif art avi bmp gif ico mov oga ogv png psd ra ram rgb flv'
+    number_indexed: 0
+    number_first_bytes: '1 MB'
+    max_filesize: '0'
+    excluded_private: 1
+    excluded_mimes: 'audio/x-aiff image/x-jg video/x-msvideo image/x-ms-bmp image/gif image/vnd.microsoft.icon video/quicktime audio/ogg video/ogg image/png image/x-photoshop audio/x-realaudio audio/x-pn-realaudio image/x-rgb video/x-flv'
+  highlight:
+    weights:
+      postprocess_query: 0
+    prefix: '<strong>'
+    suffix: '</strong>'
+    excerpt: true
+    excerpt_always: false
+    excerpt_length: 256
+    exclude_fields: {  }
+    highlight: always
+    highlight_partial: false
+  language_with_fallback: {  }
+  rendered_item: {  }
+  solr_date_range:
+    weights:
+      preprocess_index: 0
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  index_directly: true
+  track_changes_in_references: true
+server: solr_search
