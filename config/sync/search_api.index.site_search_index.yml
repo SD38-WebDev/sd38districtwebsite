@@ -90,23 +90,10 @@ field_settings:
           news_alert: search_index
           page: search_index
           staff_member: search_index
-  entity_type:
-    label: 'Entity type'
-    property_path: search_api_entity_type
-    type: string
   saa_field_media_file:
     label: 'Search api attachments: File'
     property_path: saa_field_media_file
     type: text
-  status:
-    label: Status
-    property_path: aggregated_field
-    type: boolean
-    configuration:
-      type: union
-      fields:
-        - 'entity:media/status'
-        - 'entity:node/status'
   title:
     label: Title
     property_path: aggregated_field
@@ -186,7 +173,6 @@ processor_settings:
     fields:
       - bundle
       - content
-      - entity_type
       - saa_field_media_file
       - title
       - url
