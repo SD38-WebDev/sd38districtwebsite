@@ -63,13 +63,10 @@ content:
     settings:
       caption: {  }
       optionset: default
-      icon: ''
       layout: ''
       view_mode: ''
       cache: 0
-      current_view_mode: ''
       skin: ''
-      fx: ''
       style: ''
       background: false
       box_caption: ''
@@ -81,13 +78,15 @@ content:
       media_switch: ''
       ratio: ''
       thumbnail_style: ''
-      _uri: ''
-      breakpoints: {  }
-      sizes: ''
-      grid_header: ''
       grid: ''
       grid_medium: ''
       grid_small: ''
+      breakpoints: {  }
+      current_view_mode: ''
+      fx: ''
+      icon: ''
+      sizes: ''
+      grid_header: ''
       overridables: {  }
       optionset_thumbnail: ''
       skin_thumbnail: ''
@@ -100,6 +99,7 @@ content:
       use_theme_field: false
       preserve_keys: false
       visible_items: 0
+      _uri: ''
     third_party_settings: {  }
     weight: 1
     region: main
@@ -107,4 +107,6 @@ hidden:
   field_blog_post_tags: true
   field_page_assignment: true
   field_tags: true
+  langcode: true
   links: true
+  search_api_excerpt: true

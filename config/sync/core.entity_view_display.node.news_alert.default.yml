@@ -65,3 +65,5 @@ content:
 hidden:
   field_alert_type: true
   field_content_link: true
+  langcode: true
+  search_api_excerpt: true
