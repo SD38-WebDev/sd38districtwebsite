@@ -1,0 +1,34 @@
+uuid: de31ddaa-3c1e-479e-babf-b3bbf2151429
+langcode: en
+status: true
+dependencies: {  }
+id: 4_thumbnails
+name: 4_thumbnails
+weight: 0
+label: '4 thumbnails'
+group: main
+skin: grid
+breakpoints: 2
+optimized: true
+options:
+  options__active_tab: edit-options-responsives
+  settings:
+    lazyLoad: ondemand
+    slidesPerRow: 4
+    slidesToShow: 4
+  responsives:
+    responsive:
+      -
+        breakpoint: 480
+        unslick: false
+        settings:
+          slidesPerRow: 2
+          slidesToShow: 2
+          waitForAnimate: false
+      -
+        breakpoint: 768
+        unslick: false
+        settings:
+          slidesPerRow: 3
+          slidesToShow: 3
+          waitForAnimate: false
