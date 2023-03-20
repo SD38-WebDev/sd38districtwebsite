@@ -91,10 +91,10 @@ third_party_settings:
             uuid: b15e7cfd-e6e0-486f-ac90-7a55832be598
             region: top
             configuration:
+              id: 'field_block:node:page:field_image'
               label_display: '0'
               context_mapping:
                 entity: layout_builder.entity
-              id: 'field_block:node:page:field_image'
               formatter:
                 type: image
                 label: hidden
