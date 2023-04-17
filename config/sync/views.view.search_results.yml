@@ -205,7 +205,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Search
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
@@ -329,6 +329,7 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      exposed_block: true
       display_extenders: {  }
       path: search-results
     cache_metadata:
