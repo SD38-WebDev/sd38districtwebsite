@@ -11,6 +11,7 @@ dependencies:
     - node
     - search_api
     - search_api_attachments
+    - file
     - media
 third_party_settings:
   search_api_solr:
@@ -90,10 +91,22 @@ field_settings:
           news_alert: search_index
           page: search_index
           staff_member: search_index
+  saa_field_attachments:
+    label: 'Search api attachments: Attachments'
+    property_path: saa_field_attachments
+    type: string
+  saa_field_da_attachments:
+    label: 'Search api attachments: Attachments'
+    property_path: saa_field_da_attachments
+    type: string
   saa_field_media_file:
     label: 'Search api attachments: File'
     property_path: saa_field_media_file
     type: text
+  saa_saa_file_entity:
+    label: 'Search api attachments: File entity'
+    property_path: saa_saa_file_entity
+    type: string
   title:
     label: Title
     property_path: aggregated_field
@@ -119,6 +132,7 @@ field_settings:
     configuration:
       absolute: false
 datasource_settings:
+  'entity:file': {  }
   'entity:media':
     bundles:
       default: false
@@ -173,7 +187,10 @@ processor_settings:
     fields:
       - bundle
       - content
+      - saa_field_attachments
+      - saa_field_da_attachments
       - saa_field_media_file
+      - saa_saa_file_entity
       - title
       - url
     ignorable: '[''¿¡!?,.:;]'
