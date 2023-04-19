@@ -19,4 +19,4 @@ python_pdf2txt_extractor_configuration:
 pdftotext_extractor_configuration:
   pdftotext_path: pdftotext
 preserve_cache: true
-read_text_files_directly: false
+read_text_files_directly: true
