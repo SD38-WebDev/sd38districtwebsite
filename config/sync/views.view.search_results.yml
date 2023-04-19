@@ -146,7 +146,7 @@ display:
             external: false
             replace_spaces: false
             path_case: none
-            trim_whitespace: false
+            trim_whitespace: true
             alt: ''
             rel: ''
             link_class: ''
@@ -160,7 +160,7 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
+            strip_tags: true
             trim: false
             preserve_tags: ''
             html: false
@@ -210,8 +210,8 @@ display:
             alter_text: false
             text: ''
             make_link: true
-            path: '{{ field_media_file ? field_media_file : url }}'
-            absolute: false
+            path: '{% set filepath = field_media_file|replace({''%20'': " "}) %}{{ field_media_file?filepath : url }}'
+            absolute: true
             external: false
             replace_spaces: false
             path_case: none
@@ -229,7 +229,7 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
+            strip_tags: true
             trim: false
             preserve_tags: ''
             html: false
