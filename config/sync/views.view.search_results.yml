@@ -281,8 +281,8 @@ display:
                 title: ''
                 operator: or
                 value: ''
-          parse_mode: direct
-          min_length: null
+          parse_mode: fuzzy_terms
+          min_length: 3
           fields: {  }
       filter_groups:
         operator: AND
