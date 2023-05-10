@@ -9,6 +9,7 @@ dependencies:
     - contact
     - filter
     - media
+    - media_entity_download
     - system
 _core:
   default_config_hash: pq_mEIu_B4widZN7Ap81iCJSjShFFdcL0jEiCi8VrDk
@@ -20,5 +21,6 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'download media'
   - 'use text format restricted_html'
   - 'view media'
