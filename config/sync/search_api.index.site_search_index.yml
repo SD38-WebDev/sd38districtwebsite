@@ -133,7 +133,7 @@ field_settings:
     configuration:
       field_data:
         media:
-          file: '[media:url:relative]'
+          file: '[media:url:relative]?inline'
         node:
           article: '[node:url:relative]'
           blog_post: '[node:url:relative]'
