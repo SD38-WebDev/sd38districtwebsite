@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71c052e52cec0c2c3b3d78ac379d3eda",
+    "content-hash": "b725cd26d9902784eb3e13fd0ae32bfc",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -7049,6 +7049,75 @@
             }
         },
         {
+            "name": "drupal/search_api_field_map",
+            "version": "3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/search_api_field_map.git",
+                "reference": "8.x-3.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/search_api_field_map-8.x-3.2.zip",
+                "reference": "8.x-3.2",
+                "shasum": "8f04648b3d7afdcc463fdea1010d5ac1a98cb828"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "drupal/search_api": "^1.0",
+                "drupal/token": "^1.1"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-3.2",
+                    "datestamp": "1610382643",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "MalakDesai",
+                    "homepage": "https://www.drupal.org/user/3584087"
+                },
+                {
+                    "name": "agentrickard",
+                    "homepage": "https://www.drupal.org/user/20975"
+                },
+                {
+                    "name": "becw",
+                    "homepage": "https://www.drupal.org/user/81067"
+                },
+                {
+                    "name": "byrond",
+                    "homepage": "https://www.drupal.org/user/1279040"
+                },
+                {
+                    "name": "jesconstantine",
+                    "homepage": "https://www.drupal.org/user/3455145"
+                },
+                {
+                    "name": "mcarmichael21",
+                    "homepage": "https://www.drupal.org/user/3224074"
+                }
+            ],
+            "description": "Allows indexing multiple Drupal sites into a single search index by field.",
+            "homepage": "https://www.drupal.org/project/search_api_field_map",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/search_api_field_map"
+            }
+        },
+        {
             "name": "drupal/search_api_solr",
             "version": "4.2.10",
             "source": {
@@ -7750,6 +7819,55 @@
             "homepage": "https://www.drupal.org/project/token",
             "support": {
                 "source": "https://git.drupalcode.org/project/token"
+            }
+        },
+        {
+            "name": "drupal/token_or",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/token_or.git",
+                "reference": "2.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/token_or-2.1.0.zip",
+                "reference": "2.1.0",
+                "shasum": "5025350ee3835cd6786094aa8a441f2e04d17c6c"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10",
+                "drupal/token": "^1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.1.0",
+                    "datestamp": "1673019171",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "danielbeeke",
+                    "homepage": "https://www.drupal.org/user/2484978"
+                },
+                {
+                    "name": "pianomansam",
+                    "homepage": "https://www.drupal.org/user/407020"
+                }
+            ],
+            "description": "Provides an 'or-able' token.",
+            "homepage": "https://www.drupal.org/project/token_or",
+            "support": {
+                "source": "https://git.drupalcode.org/project/token_or"
             }
         },
         {

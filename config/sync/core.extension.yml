@@ -106,6 +106,7 @@ module:
   rest: 0
   search_api: 0
   search_api_attachments: 0
+  search_api_field_map: 0
   search_api_solr: 0
   semanticviews: 0
   serialization: 0
@@ -128,6 +129,7 @@ module:
   template_whisperer: 0
   text: 0
   token: 0
+  token_or: 0
   toolbar: 0
   tour: 0
   twig_tweak: 0
