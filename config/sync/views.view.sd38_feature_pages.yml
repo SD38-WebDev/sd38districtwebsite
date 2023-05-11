@@ -9,7 +9,7 @@ dependencies:
   module:
     - image
     - node
-    - semanticviews
+    - slick_views
     - user
 id: sd38_feature_pages
 label: 'SD38 Feature Pages'
@@ -210,7 +210,7 @@ display:
           hide_alter_empty: true
           text: view
           output_url_as_text: true
-          absolute: false
+          absolute: true
         nothing:
           id: nothing
           table: views
@@ -225,7 +225,7 @@ display:
             alter_text: true
             text: '<div><a href="{{ view_node }}" title="{{ title }}">{{ field_page_thumbnail_image }}</a></div>'
             make_link: false
-            path: ''
+            path: view_node
             absolute: false
             external: false
             replace_spaces: false
@@ -264,7 +264,7 @@ display:
         type: some
         options:
           offset: 0
-          items_per_page: 4
+          items_per_page: 0
       exposed_form:
         type: basic
         options:
@@ -350,27 +350,52 @@ display:
             default_group_multiple: {  }
             group_items: {  }
       style:
-        type: semanticviews_style
+        type: slick
         options:
-          grouping: {  }
-          group:
-            element_type: h2
-            attributes: class|title
-          list:
-            element_type: div
-            attributes: class|row
-          row:
-            element_type: div
-            attributes: 'class|col-12 col-md-3'
-            last_every_nth: ''
-            first_class: ''
-            last_class: ''
-            striping_classes: ''
+          caption:
+            nothing: nothing
+            field_page_thumbnail_image: '0'
+            title: '0'
+            view_node: '0'
+          optionset: 4_thumbnails
+          class: ''
+          id: ''
+          image: ''
+          link: ''
+          overlay: ''
+          title: ''
+          vanilla: false
+          layout: ''
+          cache: 0
+          skin: default
+          style: grid
+          grid: ''
+          grid_medium: ''
+          grid_small: ''
+          overridables:
+            arrows: '0'
+            autoplay: '0'
+            dots: '0'
+            draggable: '0'
+            infinite: '0'
+            mouseWheel: '0'
+            randomize: '0'
+            variableWidth: '0'
+          thumbnail: ''
+          optionset_thumbnail: ''
+          skin_thumbnail: ''
+          thumbnail_caption: ''
+          thumbnail_effect: ''
+          thumbnail_position: ''
+          override: false
+          preserve_keys: false
+          visible_items: null
       row:
         type: fields
         options:
           default_field_elements: true
-          inline: {  }
+          inline:
+            nothing: nothing
           separator: ''
           hide_empty: false
       query:
