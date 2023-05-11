@@ -11,7 +11,7 @@ dependencies:
 id: secondarynavigation_2
 theme: rsd_district
 region: footer_fourth
-weight: -11
+weight: -17
 provider: null
 plugin: 'menu_block:secondary-navigation'
 settings:

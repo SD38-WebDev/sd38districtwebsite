@@ -33,12 +33,12 @@ description: 'This Apache Solr server provides advanced content indexing and sea
 backend: search_api_solr
 backend_config:
   retrieve_data: false
-  highlight_data: false
+  highlight_data: true
   site_hash: false
   server_prefix: ''
   domain: generic
   environment: default
-  connector: standard
+  connector: basic_auth
   connector_config:
     scheme: http
     host: solr
@@ -56,6 +56,8 @@ backend_config:
     jmx: false
     jts: false
     solr_install_dir: /opt/solr
+    username: solr
+    password: SolrRocks
   optimize: false
   fallback_multiple: false
   disabled_field_types: {  }

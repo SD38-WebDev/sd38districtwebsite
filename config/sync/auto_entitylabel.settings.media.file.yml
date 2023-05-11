@@ -1,5 +1,5 @@
 status: 1
-pattern: '[media:field_media_file:description]'
+pattern: '[media:field_media_file:description|media:field_media_file:entity:name]'
 escape: false
 preserve_titles: false
 dependencies:

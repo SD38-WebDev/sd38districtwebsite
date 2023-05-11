@@ -682,19 +682,6 @@ body.path-frontpage #navbar-main {
 	background-color: #bacff2;
 }
 
-.header .block-search .form-search.form-control,
-.site-footer .block-search .form-search.form-control {
-	background-color: rgba(255, 255, 255, 0.3);
-	border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.header .block-search .form-control.btn-primary,
-.site-footer .block-search .form-control.btn-primary {
-	background-color: rgba(255, 255, 255, 0.3);
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	color: rgba(0, 0, 0, 0.45);
-}
-
 [class^="file"] {
 	background-position: 0px;
 	padding: 0.25rem 0 0.25rem 2rem;
@@ -1832,4 +1819,52 @@ body.edweek .edweek.day5 .event-title {
 
 .paragraph--view-mode-carousel .carousel-control-next-icon {
 	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e");
+}
+
+
+/* Search results */
+.view-search-results .row {
+	display: block;
+	margin: 0;
+}
+
+.view-search-results .views-row {
+	padding-bottom: 1.5rem;
+	padding-top: 1.5rem;
+	border-bottom: 1px solid #d0e4f3;
+}
+
+.view-search-results .views-row:last-child {
+	margin-bottom: 2rem;
+}
+
+.views-exposed-form .form-row>.form-item-search-api-fulltext {
+	padding-right: 0;
+}
+
+.views-exposed-form .form-row>.form-actions {
+	padding-left: 0;
+}
+
+.form-item-search-api-fulltext label {
+	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;	
+}
+
+.header .form-item-search-api-fulltext [type="text"],
+.site-footer .form-item-search-api-fulltext [type="text"] {
+	background-color: rgba(255, 255, 255, 0.3);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	width: 9.7rem;
+}
+
+.header .views-exposed-form .form-control.btn-primary,
+.site-footer .views-exposed-form .form-control.btn-primary {
+	background-color: rgba(255, 255, 255, 0.3);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	color: rgba(0, 0, 0, 0.45);
 }

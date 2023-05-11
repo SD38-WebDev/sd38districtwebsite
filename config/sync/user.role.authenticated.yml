@@ -10,6 +10,7 @@ dependencies:
     - filter
     - google_analytics
     - media
+    - media_entity_download
     - shortcut
     - system
 _core:
@@ -23,6 +24,7 @@ permissions:
   - 'access content'
   - 'access shortcuts'
   - 'access site-wide contact form'
+  - 'download media'
   - 'opt-in or out of google analytics tracking'
   - 'post comments'
   - 'skip comment approval'
