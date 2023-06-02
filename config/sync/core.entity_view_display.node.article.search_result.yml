@@ -19,7 +19,7 @@ dependencies:
   module:
     - ds
     - layout_builder
-    - text
+    - search_api_solr
     - user
 third_party_settings:
   ds:
@@ -57,10 +57,11 @@ bundle: article
 mode: search_result
 content:
   body:
-    type: text_summary_or_trimmed
+    type: solr_highlighted_text_default
     label: hidden
     settings:
-      trim_length: 6000
+      prefix: '<strong>'
+      suffix: '</strong>'
     third_party_settings:
       ds:
         ft:
@@ -68,7 +69,8 @@ content:
           settings:
             lb: ''
             lb-col: false
-            classes: {  }
+            classes:
+              - test
     weight: 0
     region: main
 hidden:
@@ -82,4 +84,6 @@ hidden:
   field_publish_to: true
   field_tags: true
   field_to_home_page_carousel: true
+  langcode: true
   links: true
+  search_api_excerpt: true

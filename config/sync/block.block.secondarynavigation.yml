@@ -15,7 +15,7 @@ third_party_settings:
 id: secondarynavigation
 theme: rsd_district
 region: top_header
-weight: -14
+weight: -17
 provider: null
 plugin: 'menu_block:secondary-navigation'
 settings:

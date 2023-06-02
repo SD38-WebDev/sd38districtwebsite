@@ -36,6 +36,8 @@ hidden:
   field_file_name: true
   field_page_reference: true
   field_tags: true
+  langcode: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true

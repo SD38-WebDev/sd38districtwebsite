@@ -46,3 +46,4 @@ content:
     region: main
 hidden:
   field_column_class: true
+  search_api_excerpt: true

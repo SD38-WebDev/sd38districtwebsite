@@ -40,6 +40,13 @@ content:
             path: file_attach
             absolute: 0
             attach_mode: move
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
 hidden:
   created: true
   name: true

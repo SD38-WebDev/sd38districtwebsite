@@ -92,3 +92,4 @@ content:
     region: main
 hidden:
   field_referenced_tags: true
+  search_api_excerpt: true
