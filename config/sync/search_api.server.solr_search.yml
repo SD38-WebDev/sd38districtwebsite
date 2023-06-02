@@ -45,9 +45,9 @@ backend_config:
     port: 8080
     path: /
     core: maincore
-    timeout: 10
-    index_timeout: 10
-    optimize_timeout: 10
+    timeout: 20
+    index_timeout: 20
+    optimize_timeout: 20
     finalize_timeout: 30
     skip_schema_check: false
     solr_version: ''
