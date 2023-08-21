@@ -1,0 +1,25 @@
+uuid: 6e749a5e-71c8-4307-b0e8-5ece85a01690
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:43b3e12a-271c-4302-b800-2ceb2ed5006c'
+  module:
+    - block_content
+  theme:
+    - rsd_district
+id: accessibilitybuttonblock
+theme: rsd_district
+region: top_header
+weight: -17
+provider: null
+plugin: 'block_content:43b3e12a-271c-4302-b800-2ceb2ed5006c'
+settings:
+  id: 'block_content:43b3e12a-271c-4302-b800-2ceb2ed5006c'
+  label: 'Accessibility Button Block'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

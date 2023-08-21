@@ -281,7 +281,7 @@ display:
               content_administrator: '0'
               administrator: '0'
             expose_fields: false
-            placeholder: 'Enter text to search for'
+            placeholder: Search…
             searched_fields_id: search_api_fulltext_searched_fields
           is_grouped: false
           group_info:

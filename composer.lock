@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6ba983ac80de8611ae8743930d063e8a",
+    "content-hash": "01339b8b0d2d7c107051155a605ce4fc",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1721,6 +1721,54 @@
             "time": "2021-01-27T09:16:36+00:00"
         },
         {
+            "name": "drupal/a11y",
+            "version": "2.0.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/a11y.git",
+                "reference": "2.0.0-beta2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/a11y-2.0.0-beta2.zip",
+                "reference": "2.0.0-beta2",
+                "shasum": "c744abb7ffdb0d42f5d18cc5529ac038897f1dce"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-beta2",
+                    "datestamp": "1651149071",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "btopro",
+                    "homepage": "https://www.drupal.org/user/24286"
+                },
+                {
+                    "name": "dcimorra",
+                    "homepage": "https://www.drupal.org/user/3623423"
+                }
+            ],
+            "description": "Provides accessibility enhancements useful for any website",
+            "homepage": "https://www.drupal.org/project/a11y",
+            "support": {
+                "source": "https://git.drupalcode.org/project/a11y"
+            }
+        },
+        {
             "name": "drupal/addanother",
             "version": "1.2.0",
             "source": {
@@ -1934,6 +1982,50 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/admin_toolbar",
                 "issues": "https://www.drupal.org/project/issues/admin_toolbar"
+            }
+        },
+        {
+            "name": "drupal/all_in_one_accessibility",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/all_in_one_accessibility.git",
+                "reference": "1.5.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/all_in_one_accessibility-1.5.1.zip",
+                "reference": "1.5.1",
+                "shasum": "9cc0cf3c48b0c3b9b6449239a868473c4b729678"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.5.1",
+                    "datestamp": "1667800887",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Rajesh Bhimani",
+                    "homepage": "https://www.drupal.org/user/3479403"
+                }
+            ],
+            "description": "Web Accessibility Solution for WCAG & ADA Compliance.",
+            "homepage": "https://www.drupal.org/project/all_in_one_accessibility",
+            "support": {
+                "source": "https://git.drupalcode.org/project/all_in_one_accessibility"
             }
         },
         {
@@ -19123,6 +19215,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/a11y": 10,
         "drupal/entity_reference_revisions": 20,
         "drupal/filefield_sources": 20,
         "drupal/google_analytics": 20,

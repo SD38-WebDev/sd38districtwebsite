@@ -1,0 +1,16 @@
+uuid: 5e02cbf7-d44e-4451-9be1-5c2c8789bc10
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Gx3NAlJkSTsq7w7h-bLefoEPgQIB3383JLeSp4fScec
+id: keyboard_navigation
+label: 'Keyboard navigation'
+plugin_type: keyboard
+plugin_configuration:
+  border:
+    type: solid
+    outline_color: '#ffffff'
+    color: '#000000'
+    size: '2'
+    box_size: '20'

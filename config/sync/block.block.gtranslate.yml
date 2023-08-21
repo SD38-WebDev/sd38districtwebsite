@@ -9,7 +9,7 @@ dependencies:
 id: gtranslate
 theme: rsd_district
 region: top_header
-weight: -19
+weight: -18
 provider: null
 plugin: gtranslate_block
 settings:

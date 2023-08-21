@@ -1,0 +1,25 @@
+uuid: f36758fd-edfc-4c74-b690-6b418bcc5cfb
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:bd312293-4431-4072-9d72-def13b76fcf3'
+  module:
+    - block_content
+  theme:
+    - rsd_district
+id: accessibilitypagelink
+theme: rsd_district
+region: accessibility_dropdown
+weight: -20
+provider: null
+plugin: 'block_content:bd312293-4431-4072-9d72-def13b76fcf3'
+settings:
+  id: 'block_content:bd312293-4431-4072-9d72-def13b76fcf3'
+  label: 'Accessibility Page Link'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

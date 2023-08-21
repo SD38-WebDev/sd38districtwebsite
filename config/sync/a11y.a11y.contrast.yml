@@ -1,0 +1,10 @@
+uuid: a58f2f88-bea3-4357-8973-ae0561b339f0
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: B6HpTi2CHDGW5_4Mig_NtFIvDXSCmG3YyTIU9u_Bl4g
+id: contrast
+label: Contrast
+plugin_type: contrast
+plugin_configuration: null
