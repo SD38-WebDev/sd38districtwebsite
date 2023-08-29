@@ -1799,6 +1799,10 @@ body.edweek .edweek.day5 .event-title {
 	right: -10px;
 }
 
+.slick-arrow::before {
+  color: #0063a6;
+}
+
 /*** Bootstrap Carousel Styles ***/
 
 .paragraph--view-mode-carousel img {
