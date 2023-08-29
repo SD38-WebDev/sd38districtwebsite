@@ -1,0 +1,10 @@
+uuid: fddff1a6-9a56-4d5e-a127-f6cbe79bbf63
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: rYc_SvEyyAYn1Zd1DwKlx45of1HMTqHASGcMhAZ2WfE
+id: opendyslexic
+label: Dyslexic
+plugin_type: dyslexic
+plugin_configuration: null

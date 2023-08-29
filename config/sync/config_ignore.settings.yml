@@ -6,3 +6,5 @@ ignored_config_entities:
   - color.theme.rsd_district
   - block.block.ourdistrictstorybranding
   - block.block.mainnavigation_8
+  - block.block.accessibilitypagelink
+  - block.block.accessibilitybuttonblock

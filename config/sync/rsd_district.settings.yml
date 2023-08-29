@@ -27,7 +27,7 @@ bootstrap_barrio_navbar_color: null
 bootstrap_barrio_navbar_background: ''
 bootstrap_barrio_library: cdn
 bootstrap_barrio_region_clean_top_header: 0
-bootstrap_barrio_region_class_top_header: row
+bootstrap_barrio_region_class_top_header: 'row justify-content-end'
 bootstrap_barrio_region_clean_top_header_form: 0
 bootstrap_barrio_region_class_top_header_form: row
 bootstrap_barrio_region_clean_header: 1
@@ -110,3 +110,11 @@ bootstrap_barrio_region_clean_news_panel_carousel: 0
 bootstrap_barrio_region_class_news_panel_carousel: row
 bootstrap_barrio_region_clean_news_panel_articles: 0
 bootstrap_barrio_region_class_news_panel_articles: row
+bootstrap_barrio_region_clean_ds_footer: 0
+bootstrap_barrio_region_class_ds_footer: row
+bootstrap_barrio_region_clean_accessibility_dropdown: 0
+bootstrap_barrio_region_class_accessibility_dropdown: row
+bootstrap_barrio_image_fluid: 0
+bootstrap_barrio_navbar_flyout: 0
+bootstrap_barrio_navbar_slide: 0
+bootstrap_barrio_tabs_style: ''

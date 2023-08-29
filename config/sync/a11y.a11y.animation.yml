@@ -1,0 +1,10 @@
+uuid: c5abbfd4-a46b-49f1-bb2e-b62b08687f6c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 9TajN8se2c735C0oBcmuateN1OhzPfUUkvA0kLQb37Y
+id: animation
+label: Animation
+plugin_type: animation
+plugin_configuration: null

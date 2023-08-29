@@ -42,13 +42,15 @@
             }
     ],
     "require": {
-        "php": ">=7.0.8",
+        "php": ">=8.1.13",
         "bgrins/spectrum": "^1.8",
         "composer/installers": "^1.7",
         "cweagans/composer-patches": "^1.7",
+        "drupal/a11y": "^2.0@beta",
         "drupal/addanother": "^1.2",
         "drupal/address": "^1.11",
         "drupal/admin_toolbar": "^3.2",
+        "drupal/all_in_one_accessibility": "^1.5",
         "drupal/auto_entitylabel": "^3.0",
         "drupal/backup_migrate": "^5.0",
         "drupal/better_search": "^1.5",

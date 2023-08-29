@@ -1,0 +1,10 @@
+uuid: 3aba05ae-128b-43be-aeb2-2c802b669b16
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ZDwb3Ti-iJqTY6sF544FJyPnKxln-bK_fe7nhZAMcyo
+id: invert
+label: Invert
+plugin_type: invert
+plugin_configuration: null

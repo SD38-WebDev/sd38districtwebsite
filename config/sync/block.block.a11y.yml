@@ -1,0 +1,25 @@
+uuid: 49b7ec9d-2cb4-4fe9-a1ac-4eb343ba153b
+langcode: en
+status: true
+dependencies:
+  module:
+    - a11y
+  theme:
+    - rsd_district
+id: a11y
+theme: rsd_district
+region: accessibility_dropdown
+weight: -21
+provider: null
+plugin: a11y_block
+settings:
+  id: a11y_block
+  label: A11y
+  label_display: '0'
+  provider: a11y
+  plugins:
+    contrast: contrast
+    invert: invert
+    textsize: textsize
+  wrapper_classes: ''
+visibility: {  }

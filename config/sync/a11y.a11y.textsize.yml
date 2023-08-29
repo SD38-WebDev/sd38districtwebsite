@@ -1,0 +1,10 @@
+uuid: 6b839bb5-ba53-46ed-8153-2e9d9d1c4d2f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: tIgR_oA3X6rWtEHfNLXsNtYzUfkZYyuzw6C5jYIOM84
+id: textsize
+label: 'Text size'
+plugin_type: textsize
+plugin_configuration: null
