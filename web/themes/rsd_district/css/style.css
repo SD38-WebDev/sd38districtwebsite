@@ -302,8 +302,10 @@ body.our-district-story #page-wrapper .block-page-title-block h1 {
 
 #navbar-top .row {
 	flex-grow: 1;
+/*
 	justify-content: space-between;
-	align-items: center;
+ */
+	align-items: right;
 }
 
 #block-accessibilitybuttonblock p {
@@ -312,6 +314,10 @@ body.our-district-story #page-wrapper .block-page-title-block h1 {
 
 #navbar-top .container > .row {
 
+}
+
+#navbar-top .row > div {
+  padding-left: 15px;
 }
 
 .navbar-brand {
