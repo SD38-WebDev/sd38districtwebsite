@@ -1,9 +1,9 @@
-uuid: 47008d48-4968-42b5-9e6d-cbf979a77018
+uuid: 982b348d-600e-4c26-a76a-69f53c5e6b0a
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.teaser_full_body
     - field.field.node.article.body
     - field.field.node.article.field_attachments
     - field.field.node.article.field_carousel_content_link
@@ -20,7 +20,7 @@ dependencies:
   module:
     - blazy
     - ds
-    - field_group
+    - layout_builder
     - text
     - user
 third_party_settings:
@@ -41,21 +41,18 @@ third_party_settings:
         regions:
           main:
             wrapper: div
-            classes:
-              row: row
-            add_region_classes: 1
+            classes: {  }
+            add_region_classes: 0
             attributes: ''
     regions:
       main:
-        - group_left_col
-        - field_image
-        - group_right_col
         - node_title
+        - field_image
         - body
     fields:
       node_title:
         plugin_id: node_title
-        weight: 2
+        weight: 0
         label: hidden
         formatter: default
         settings:
@@ -69,60 +66,50 @@ third_party_settings:
             lb: ''
             lb-col: false
             classes: {  }
-  field_group:
-    group_left_col:
-      children:
-        - field_image
-      label: 'Left Col'
-      parent_name: ''
-      region: main
-      weight: 0
-      format_type: html_element
-      format_settings:
-        classes: 'col col-md-3'
-        show_empty_fields: false
-        id: ''
-        element: div
-        show_label: false
-        label_element: h3
-        label_element_classes: ''
-        attributes: ''
-        effect: none
-        speed: fast
-    group_right_col:
-      children:
-        - node_title
-        - body
-      label: 'Right Col'
-      parent_name: ''
-      region: main
-      weight: 1
-      format_type: html_element
-      format_settings:
-        classes: col
-        show_empty_fields: false
-        id: ''
-        element: div
-        show_label: false
-        label_element: h3
-        label_element_classes: ''
-        attributes: ''
-        effect: none
-        speed: fast
+  layout_builder:
+    enabled: false
+    allow_custom: false
 _core:
-  default_config_hash: 4NcL2hSQZBpJbYtNuh5jC6kyQTcAc1m5bQpTegEWEso
-id: node.article.teaser
+  default_config_hash: ChmU3AVqDKU32A_fyChG0W9dTRKmVBR58B6OClCLvZI
+id: node.article.teaser_full_body
 targetEntityType: node
 bundle: article
-mode: teaser
+mode: teaser_full_body
 content:
   body:
-    type: text_summary_or_trimmed
+    type: text_default
     label: hidden
-    settings:
-      trim_length: 300
-    third_party_settings: {  }
-    weight: 3
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: true
+            ow-el: div
+            ow-cl: mb-5
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 2
     region: main
   field_image:
     type: blazy
@@ -150,7 +137,35 @@ content:
       grid: ''
       grid_medium: ''
       grid_small: ''
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: false
+            ow-el: div
+            ow-cl: ''
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: ''
+            fi-cl: 'rounded overflow-hidden'
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
     weight: 1
     region: main
 hidden:

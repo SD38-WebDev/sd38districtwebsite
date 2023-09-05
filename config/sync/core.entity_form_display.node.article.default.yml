@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.article.field_attachments
     - field.field.node.article.field_carousel_content_link
     - field.field.node.article.field_carousel_image
+    - field.field.node.article.field_embedded_articles
     - field.field.node.article.field_image
     - field.field.node.article.field_image_gallery
     - field.field.node.article.field_page_assignment
@@ -32,21 +33,6 @@ third_party_settings:
       region: content
       parent_name: ''
       weight: 3
-      format_type: details_sidebar
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: true
-        weight: 0
-    group_publish_to:
-      children: {  }
-      label: 'Publish to (BETA)'
-      region: hidden
-      parent_name: ''
-      weight: 15
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -117,6 +103,16 @@ content:
             path: file_attach
             absolute: 0
             attach_mode: move
+  field_embedded_articles:
+    type: entity_reference_autocomplete
+    weight: 26
+    region: content
+    settings:
+      match_operator: STARTS_WITH
+      match_limit: null
+      size: 128
+      placeholder: ''
+    third_party_settings: {  }
   field_image:
     type: image_image
     weight: 1

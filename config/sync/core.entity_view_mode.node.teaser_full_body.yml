@@ -1,0 +1,10 @@
+uuid: 1d98d5fc-2ce6-4b78-b491-705ea56af494
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.teaser_full_body
+label: 'Teaser - Full Body'
+targetEntityType: node
+cache: true
