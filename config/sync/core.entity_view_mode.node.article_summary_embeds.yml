@@ -1,0 +1,10 @@
+uuid: a3ccd2a8-675a-4729-8820-cdb2122f9d15
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.article_summary_embeds
+label: 'Article - Summary Embeds'
+targetEntityType: node
+cache: true
