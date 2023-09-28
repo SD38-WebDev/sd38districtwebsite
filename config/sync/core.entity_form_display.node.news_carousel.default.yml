@@ -35,11 +35,11 @@ content:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: closed_expand_nested
-      closed_mode: summary
+      closed_mode: preview
       autocollapse: none
       closed_mode_threshold: 0
       add_mode: button
-      form_display_mode: default
+      form_display_mode: paragraph_preview
       default_paragraph_type: news_carousel_item
       features:
         add_above: '0'

@@ -6,9 +6,11 @@ dependencies:
     - field.field.paragraph.news_carousel_item.field_carousel_title
     - field.field.paragraph.news_carousel_item.field_content_link
     - field.field.paragraph.news_carousel_item.field_image
+    - image.style.thumbnail
     - paragraphs.paragraphs_type.news_carousel_item
   module:
-    - link
+    - ds
+    - media
 id: paragraph.news_carousel_item.default
 targetEntityType: paragraph
 bundle: news_carousel_item
@@ -16,32 +18,58 @@ mode: default
 content:
   field_carousel_title:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_content_link:
-    type: link
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  field_image:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: true
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: false
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: '[paragraph:status]'
     weight: 1
     region: content
+  field_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: thumbnail
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 0
+    region: content
 hidden:
+  field_content_link: true
   search_api_excerpt: true

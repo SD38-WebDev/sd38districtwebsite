@@ -341,7 +341,7 @@ display:
         type: mini
         options:
           offset: 0
-          items_per_page: 10
+          items_per_page: 8
           total_pages: null
           id: 0
           tags:
@@ -383,7 +383,7 @@ display:
           entity_type: paragraph
           entity_field: revision_id
           plugin_id: standard
-          order: DESC
+          order: ASC
           expose:
             label: ''
             field_identifier: ''
