@@ -1,0 +1,50 @@
+uuid: 623d59ca-789e-4748-8e88-baaaefb5e85b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.paragraph.paragraph_preview
+    - field.field.paragraph.news_carousel_item.field_carousel_title
+    - field.field.paragraph.news_carousel_item.field_content_link
+    - field.field.paragraph.news_carousel_item.field_image
+    - paragraphs.paragraphs_type.news_carousel_item
+  module:
+    - link
+    - media_library
+id: paragraph.news_carousel_item.paragraph_preview
+targetEntityType: paragraph
+bundle: news_carousel_item
+mode: paragraph_preview
+content:
+  field_carousel_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_content_link:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  created: true

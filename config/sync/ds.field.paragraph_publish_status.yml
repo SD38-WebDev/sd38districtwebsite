@@ -1,0 +1,12 @@
+id: paragraph_publish_status
+label: 'Paragraph Publish Status'
+ui_limit: ''
+type: token
+type_label: 'Token field'
+entities:
+  node: node
+  paragraph: paragraph
+properties:
+  content:
+    value: 'Publish Status: [paragraph:status]'
+    format: plain_text

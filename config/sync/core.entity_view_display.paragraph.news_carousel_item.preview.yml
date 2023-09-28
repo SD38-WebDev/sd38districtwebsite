@@ -1,0 +1,135 @@
+uuid: 0ff4f2c4-c478-4f12-a53f-99107b6b0dcf
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.news_carousel_item.field_carousel_title
+    - field.field.paragraph.news_carousel_item.field_content_link
+    - field.field.paragraph.news_carousel_item.field_image
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.news_carousel_item
+  module:
+    - blazy
+    - ds
+    - layout_builder
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col_fluid
+      library: ds/ds_2col_fluid
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class: {  }
+        wrappers:
+          left: div
+          right: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        label: ''
+    regions:
+      left:
+        - field_carousel_title
+        - field_image
+      right:
+        - 'dynamic_token_field:paragraph-paragraph_publish_status'
+    fields:
+      'dynamic_token_field:paragraph-paragraph_publish_status':
+        plugin_id: 'dynamic_token_field:paragraph-paragraph_publish_status'
+        weight: 2
+        label: hidden
+        formatter: default
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.news_carousel_item.preview
+targetEntityType: paragraph
+bundle: news_carousel_item
+mode: preview
+content:
+  field_carousel_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: false
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: strong
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 0
+    region: left
+  field_image:
+    type: blazy_media
+    label: hidden
+    settings:
+      caption: {  }
+      class: ''
+      id: ''
+      image: ''
+      link: ''
+      overlay: ''
+      title: ''
+      vanilla: false
+      layout: ''
+      view_mode: ''
+      cache: 0
+      skin: ''
+      lazy: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      loading: lazy
+      preload: false
+      responsive_image_style: ''
+      box_style: ''
+      image_style: thumbnail
+      media_switch: ''
+      ratio: ''
+      thumbnail_style: ''
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 1
+    region: left
+hidden:
+  field_content_link: true
+  search_api_excerpt: true
