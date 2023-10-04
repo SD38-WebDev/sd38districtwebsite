@@ -16,10 +16,12 @@ dependencies:
     - field.field.node.article.field_publish_to
     - field.field.node.article.field_tags
     - field.field.node.article.field_to_home_page_carousel
+    - image.style.x_large
     - node.type.article
   module:
     - blazy
     - ds
+    - image
     - layout_builder
     - text
     - user
@@ -49,6 +51,7 @@ third_party_settings:
         - node_title
         - field_image
         - body
+        - field_image_gallery
     fields:
       node_title:
         plugin_id: node_title
@@ -93,7 +96,7 @@ content:
             lb-col: false
             ow: true
             ow-el: div
-            ow-cl: mb-5
+            ow-cl: mb-2
             ow-at: ''
             ow-def-at: false
             ow-def-cl: false
@@ -168,12 +171,51 @@ content:
             suffix: ''
     weight: 1
     region: main
+  field_image_gallery:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: x_large
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: false
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: ''
+            fi-cl: mb-2
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 3
+    region: main
 hidden:
   field_attachments: true
   field_carousel_content_link: true
   field_carousel_image: true
   field_embedded_articles: true
-  field_image_gallery: true
   field_page_assignment: true
   field_promote_to_digital_signage: true
   field_publish_to: true
