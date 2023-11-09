@@ -1,0 +1,30 @@
+uuid: 3b263234-2252-485d-84d8-d7aac7c0671e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: G-44CD1H496L.654d2f641f6800.37886265
+label: G-44CD1H496L
+weight: 0
+tag_container_ids:
+  - G-44CD1H496L
+  - UA-3989760-2
+  - GTM-TKTWWV77
+advanced_settings: {  }
+dimensions_metrics: {  }
+conditions:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/admin\r\n/admin/*\r\n/batch\r\n/node/add*\r\n/node/*/*\r\n/user/*/*"
+events:
+  login:
+    method: CMS
+  sign_up:
+    method: CMS
+  generate_lead:
+    value: ''
+    currency: ''
+  search: {  }
+  custom: {  }
