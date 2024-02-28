@@ -1,19 +1,35 @@
-uuid: 7c177874-ae62-4cf8-b640-c61346a62f7a
+uuid: dd1ad392-a80c-43ec-8395-16c2556cba05
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - taxonomy
+    - options
 id: node.field_staff_type
 field_name: field_staff_type
 entity_type: node
-type: entity_reference
+type: list_string
 settings:
-  target_type: taxonomy_term
-module: core
+  allowed_values:
+    -
+      value: 'School Trustee'
+      label: 'School Trustee'
+    -
+      value: Superintendent
+      label: Superintendent
+    -
+      value: 'Assistant Superintendent'
+      label: 'Assistant Superintendent'
+    -
+      value: 'Deputy Superintendent'
+      label: 'Deputy Superintendent'
+    -
+      value: 'District Administrator'
+      label: 'District Administrator'
+  allowed_values_function: ''
+module: options
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

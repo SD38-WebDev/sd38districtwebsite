@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.staff_member.field_first_name
     - field.field.node.staff_member.field_image
     - field.field.node.staff_member.field_last_name
+    - field.field.node.staff_member.field_school_assignments
+    - field.field.node.staff_member.field_staff_member_role_title
     - field.field.node.staff_member.field_staff_type
     - image.style.thumbnail
     - node.type.staff_member
@@ -76,15 +78,27 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_staff_type:
-    type: entity_reference_autocomplete
-    weight: 11
+  field_school_assignments:
+    type: string_textfield
+    weight: 28
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_staff_member_role_title:
+    type: string_textfield
+    weight: 29
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_staff_type:
+    type: options_select
+    weight: 27
+    region: content
+    settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select

@@ -9,6 +9,8 @@ dependencies:
     - field.field.node.staff_member.field_first_name
     - field.field.node.staff_member.field_image
     - field.field.node.staff_member.field_last_name
+    - field.field.node.staff_member.field_school_assignments
+    - field.field.node.staff_member.field_staff_member_role_title
     - field.field.node.staff_member.field_staff_type
     - image.style.large
     - node.type.staff_member
@@ -80,6 +82,8 @@ hidden:
   body: true
   field_first_name: true
   field_last_name: true
+  field_school_assignments: true
+  field_staff_member_role_title: true
   field_staff_type: true
   langcode: true
   links: true
