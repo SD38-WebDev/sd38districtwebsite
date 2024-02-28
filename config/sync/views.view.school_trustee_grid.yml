@@ -399,7 +399,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="{{ view_node }}">Learn more about {{ field_first_name }}…</a>'
+            text: '<a href="{{ view_node }}" class="small">Learn about {{ field_first_name }}…</a>'
             make_link: false
             path: ''
             absolute: false
