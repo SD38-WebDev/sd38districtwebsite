@@ -1888,3 +1888,21 @@ body.edweek .edweek.day5 .event-title {
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	color: rgba(0, 0, 0, 0.45);
 }
+
+
+/* Staff Grid */
+
+#page-wrapper .staff-grid H2 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+#page-wrapper .staff-grid .staff-title {
+/*
+  margin-bottom: 1rem;
+ */
+}
+
+#page-wrapper .staff-grid .assignments ul li {
+  font-size: 1rem;
+}

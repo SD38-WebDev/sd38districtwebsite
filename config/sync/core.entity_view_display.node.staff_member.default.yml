@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.staff_member.field_first_name
     - field.field.node.staff_member.field_image
     - field.field.node.staff_member.field_last_name
+    - field.field.node.staff_member.field_school_assignments
+    - field.field.node.staff_member.field_staff_member_role_title
     - field.field.node.staff_member.field_staff_type
     - node.type.staff_member
   module:
@@ -58,6 +60,8 @@ third_party_settings:
     regions:
       left:
         - field_image
+        - field_staff_member_role_title
+        - field_school_assignments
       right:
         - body
 id: node.staff_member.default
@@ -70,7 +74,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 3
     region: right
   field_image:
     type: image
@@ -82,6 +86,79 @@ content:
         attribute: lazy
     third_party_settings: {  }
     weight: 0
+    region: left
+  field_school_assignments:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: 'School Liason'
+            lbw: true
+            lbw-el: h2
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: true
+            ow-el: ''
+            ow-cl: mb-5
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: true
+            fis-el: ul
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: li
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 2
+    region: left
+  field_staff_member_role_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: true
+            ow-el: ''
+            ow-cl: mb-3
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: strong
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 1
     region: left
 hidden:
   field_additional_notes: true
