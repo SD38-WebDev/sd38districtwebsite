@@ -1742,6 +1742,10 @@ body.edweek .edweek.day5 .event-title {
 	margin-right: -15px;
 }
 
+.mediatext-section .field--type-image {
+  margin-bottom: 1rem;
+}
+
 .paragraph.bg-none .bs-region {
 	background-color: unset !important;
 }
