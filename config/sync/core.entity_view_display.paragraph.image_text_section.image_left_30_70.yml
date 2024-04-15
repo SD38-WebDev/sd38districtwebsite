@@ -7,17 +7,17 @@ dependencies:
     - field.field.paragraph.image_text_section.field_bg
     - field.field.paragraph.image_text_section.field_bgcolour
     - field.field.paragraph.image_text_section.field_col_order
+    - field.field.paragraph.image_text_section.field_cta_link
     - field.field.paragraph.image_text_section.field_image
     - field.field.paragraph.image_text_section.field_section_content
     - field.field.paragraph.image_text_section.field_section_title
     - field.field.paragraph.image_text_section.paragraph_view_mode
-    - image.style.medium
     - paragraphs.paragraphs_type.image_text_section
   module:
     - ds
     - field_group
     - layout_builder
-    - media
+    - link
     - text
 third_party_settings:
   ds:
@@ -33,7 +33,7 @@ third_party_settings:
           classes:
             row: row
           add_layout_class: 1
-          attributes: ' class|[paragraph:field_bg] paragraph'
+          attributes: ' class|[paragraph:field_bg] paragraph mediatext-section'
         regions:
           main:
             wrapper: div
@@ -45,6 +45,7 @@ third_party_settings:
       main:
         - group_container
         - field_image
+        - field_cta_link
         - field_section_title
         - field_section_content
         - group_column_1
@@ -72,6 +73,7 @@ third_party_settings:
     group_column_1:
       children:
         - field_image
+        - field_cta_link
       label: 'Column 1'
       parent_name: group_row
       region: main
@@ -135,14 +137,24 @@ targetEntityType: paragraph
 bundle: image_text_section
 mode: image_left_30_70
 content:
-  field_image:
-    type: media_thumbnail
+  field_cta_link:
+    type: link
     label: hidden
     settings:
-      image_link: ''
-      image_style: medium
-      image_loading:
-        attribute: lazy
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: main
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
     third_party_settings:
       ds:
         ft:
