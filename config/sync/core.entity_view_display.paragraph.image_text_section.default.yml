@@ -9,13 +9,13 @@ dependencies:
     - field.field.paragraph.image_text_section.field_cta_link
     - field.field.paragraph.image_text_section.field_image
     - field.field.paragraph.image_text_section.field_section_content
+    - field.field.paragraph.image_text_section.field_section_content_2
     - field.field.paragraph.image_text_section.field_section_title
     - field.field.paragraph.image_text_section.paragraph_view_mode
     - paragraphs.paragraphs_type.image_text_section
   module:
     - ds
     - field_group
-    - link
     - text
 third_party_settings:
   ds:
@@ -42,14 +42,14 @@ third_party_settings:
     regions:
       main:
         - group_container
+        - field_bg
         - field_image
-        - field_cta_link
+        - field_section_content_2
         - group_column_1
         - group_column_2
         - field_section_title
         - group_row
         - field_section_content
-        - field_bg
   field_group:
     group_container:
       children:
@@ -92,7 +92,7 @@ third_party_settings:
     group_column_2:
       children:
         - field_image
-        - field_cta_link
+        - field_section_content_2
       label: 'Column 2'
       parent_name: group_row
       region: main
@@ -141,27 +141,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 25
-    region: main
-  field_cta_link:
-    type: link
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: '0'
-      target: '0'
-    third_party_settings:
-      ds:
-        ds_limit: ''
-        ft:
-          id: default
-          settings:
-            lb: ''
-            lb-col: false
-            classes: {  }
-    weight: 3
+    weight: 1
     region: main
   field_image:
     type: entity_reference_entity_view
@@ -178,6 +158,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 24
+    region: main
+  field_section_content_2:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
     region: main
   field_section_title:
     type: string
@@ -218,5 +205,6 @@ content:
 hidden:
   field_bgcolour: true
   field_col_order: true
+  field_cta_link: true
   paragraph_view_mode: true
   search_api_excerpt: true

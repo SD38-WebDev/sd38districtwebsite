@@ -10,6 +10,7 @@ dependencies:
     - field.field.paragraph.image_text_section.field_cta_link
     - field.field.paragraph.image_text_section.field_image
     - field.field.paragraph.image_text_section.field_section_content
+    - field.field.paragraph.image_text_section.field_section_content_2
     - field.field.paragraph.image_text_section.field_section_title
     - field.field.paragraph.image_text_section.paragraph_view_mode
     - paragraphs.paragraphs_type.image_text_section
@@ -17,7 +18,6 @@ dependencies:
     - ds
     - field_group
     - layout_builder
-    - link
     - text
 third_party_settings:
   ds:
@@ -48,7 +48,7 @@ third_party_settings:
         - group_row
         - field_image
         - field_section_content
-        - field_cta_link
+        - field_section_content_2
         - group_column_1
         - group_column_2
   field_group:
@@ -73,7 +73,7 @@ third_party_settings:
     group_column_1:
       children:
         - field_image
-        - field_cta_link
+        - field_section_content_2
       label: 'Column 1'
       parent_name: group_row
       region: main
@@ -137,18 +137,6 @@ targetEntityType: paragraph
 bundle: image_text_section
 mode: image_left
 content:
-  field_cta_link:
-    type: link
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 2
-    region: main
   field_image:
     type: entity_reference_entity_view
     label: hidden
@@ -193,6 +181,13 @@ content:
     third_party_settings: {  }
     weight: 1
     region: main
+  field_section_content_2:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: main
   field_section_title:
     type: string
     label: hidden
@@ -233,5 +228,6 @@ hidden:
   field_bg: true
   field_bgcolour: true
   field_col_order: true
+  field_cta_link: true
   paragraph_view_mode: true
   search_api_excerpt: true
