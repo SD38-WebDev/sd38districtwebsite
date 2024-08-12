@@ -108,10 +108,10 @@ filters:
       optionset: default
       layout: ''
       skin: ''
-      loading: ''
-      preload: false
       background: false
       box_media_style: ''
+      loading: ''
+      preload: false
       responsive_image_style: ''
       box_style: ''
       image_style: ''

@@ -66,6 +66,8 @@ settings:
     drupallink:
       linkit_enabled: true
       linkit_profile: default
+    blockimagepaste:
+      block_image_paste_enabled: true
     wordcount:
       enable: true
       show_remaining: false

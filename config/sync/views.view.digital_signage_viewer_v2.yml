@@ -319,7 +319,7 @@ display:
         type: views_bootstrap_carousel
         options:
           grouping: {  }
-          interval: '4000'
+          interval: '8000'
           keyboard: 1
           ride: 1
           navigation: 1

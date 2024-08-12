@@ -20,7 +20,7 @@ filters:
     status: true
     weight: -50
     settings:
-      allowed_html: '<p class="small-text"> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <br> <span> <img src alt height width data-entity-type data-entity-uuid data-align data-caption> <a href hreflang target title data-entity-substitution data-entity-type data-entity-uuid> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title> <table class=""> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <s>'
+      allowed_html: '<p class="small-text"> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <br> <span> <img src alt height width data-entity-type data-entity-uuid data-align data-caption> <a href hreflang target title data-entity-substitution data-entity-type data-entity-uuid> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title> <table class> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <s>'
       filter_html_help: false
       filter_html_nofollow: false
   filter_align:
@@ -108,10 +108,10 @@ filters:
       optionset: default
       layout: ''
       skin: ''
-      loading: ''
-      preload: false
       background: false
       box_media_style: ''
+      loading: ''
+      preload: false
       responsive_image_style: ''
       box_style: ''
       image_style: ''
