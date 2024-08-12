@@ -5,13 +5,10 @@ dependencies:
   module:
     - entity_redirect
     - menu_ui
-    - node_type_class
 third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-  node_type_class:
-    classes: ''
   entity_redirect:
     redirect:
       anonymous:

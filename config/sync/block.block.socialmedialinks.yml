@@ -22,6 +22,10 @@ settings:
   label_display: '0'
   provider: social_media_links
   platforms:
+    glassdoor:
+      value: ''
+      description: ''
+      weight: '-10'
     gitlab:
       value: ''
       description: ''
@@ -30,6 +34,10 @@ settings:
       value: ''
       description: ''
       weight: '-10'
+    whatsapp_channel:
+      value: ''
+      description: ''
+      weight: '-9'
     email:
       value: ''
       description: ''
@@ -38,6 +46,10 @@ settings:
       value: ''
       description: ''
       weight: '-9'
+    patreon:
+      value: ''
+      description: ''
+      weight: '-8'
     youtube_channel:
       value: ''
       description: ''
@@ -46,7 +58,7 @@ settings:
       value: ''
       description: ''
       weight: '-8'
-    xing:
+    telegram:
       value: ''
       description: ''
       weight: '-7'
@@ -54,10 +66,22 @@ settings:
       value: ''
       description: ''
       weight: '-7'
+    xing:
+      value: ''
+      description: ''
+      weight: '-7'
+    tiktok:
+      value: ''
+      description: ''
+      weight: '-6'
     vimeo:
       value: ''
       description: ''
       weight: '-6'
+    goodreads:
+      value: ''
+      description: ''
+      weight: '-5'
     github:
       value: ''
       description: ''
@@ -66,7 +90,15 @@ settings:
       value: ''
       description: ''
       weight: '-4'
+    mastodon:
+      value: ''
+      description: ''
+      weight: '-4'
     drupal:
+      value: ''
+      description: ''
+      weight: '-3'
+    meetup:
       value: ''
       description: ''
       weight: '-3'
@@ -74,7 +106,15 @@ settings:
       value: ''
       description: ''
       weight: '-2'
+    amazon:
+      value: ''
+      description: ''
+      weight: '-2'
     contact:
+      value: ''
+      description: ''
+      weight: '-1'
+    googleplay:
       value: ''
       description: ''
       weight: '-1'
