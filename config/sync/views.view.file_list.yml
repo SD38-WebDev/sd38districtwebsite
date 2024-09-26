@@ -506,6 +506,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
@@ -939,6 +943,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
@@ -1124,6 +1132,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
@@ -1309,6 +1321,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
@@ -1494,6 +1510,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
@@ -1679,6 +1699,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
@@ -1864,6 +1888,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
@@ -2049,6 +2077,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
@@ -2234,6 +2266,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
@@ -2419,6 +2455,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
@@ -2604,6 +2644,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
@@ -2939,6 +2983,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
@@ -3124,6 +3172,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
@@ -3309,6 +3361,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
@@ -3522,6 +3578,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
@@ -3707,6 +3767,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
@@ -3892,6 +3956,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
@@ -4077,6 +4145,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
@@ -4262,6 +4334,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
@@ -4447,6 +4523,10 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              authenticated_guest: '0'
+              our_district_story_publisher: '0'
+              content_publisher: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: Search
           is_grouped: false
