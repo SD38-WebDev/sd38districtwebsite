@@ -1910,3 +1910,10 @@ body.edweek .edweek.day5 .event-title {
 #page-wrapper .staff-grid .assignments ul li {
   font-size: 1rem;
 }
+
+/* Shading */
+.district-shaded .block-content {
+	background-color: #d0e4f350;
+	border-radius: 0.625rem;
+	padding: 0.5rem;
+}
