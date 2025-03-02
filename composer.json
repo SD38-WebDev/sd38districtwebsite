@@ -109,6 +109,7 @@
         "drupal/image_url_formatter": "^1.0",
         "drupal/inline_entity_form": "^1.0@RC",
         "drupal/json_feed": "^1.2",
+        "drupal/jsonapi_extras": "^3.26",
         "drupal/link_field_autocomplete_filter": "^1.11",
         "drupal/linkit": "^5.0",
         "drupal/media_bulk_upload": "^1.0@alpha",
@@ -227,6 +228,11 @@
           }
         },
         "patches": {
+            "drupal/core": {
+                "3391461: Harden the use of unserialize in InlineBlock via allowed classes": "https://git.drupalcode.org/project/drupal/-/merge_requests/4926.patch",
+                "3293908: Expose Layout Builder Sections to entity view displays": "https://www.drupal.org/files/issues/2022-09-22/3293908-5.patch",
+                "2942975: [PP-1] Expose Layout Builder data to REST and JSON:API": "https://www.drupal.org/files/issues/2023-02-07/2942975-228.patch"
+            },
             "drupal/custom_body_class:^1.2": {
                 "Patch to fix fatal errors on node revisions": "https://www.drupal.org/files/issues/2019-01-05/get-error-when-revert-node-2997700-3.patch"
             },
