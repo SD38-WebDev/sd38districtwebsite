@@ -1,0 +1,29 @@
+<?php
+
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+
+/**
+ * Add a ContentSynced field.
+ */
+function sd38_content_sync_update_9001() {
+  $content_types = \Drupal::entityTypeManager()
+    ->getStorage('node_type')
+    ->loadMultiple();
+
+  foreach ($content_types as $type) {
+
+    if (in_array($type->id(), ['page', 'article', 'news_alert']) &&
+      !FieldStorageConfig::loadByName('node','field_content_synced')) {
+
+      $field = FieldStorageConfig::create([
+        'field_name'  => 'field_district_school',
+        'entity_type' => 'node',
+        'type'        => 'string',
+        'cardinality' => 1,
+        'label'       => '38 District School',
+      ]);
+      $field->save();
+    }
+  }
+}
