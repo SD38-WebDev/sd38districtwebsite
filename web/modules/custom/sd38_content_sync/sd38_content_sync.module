@@ -1,1 +1,40 @@
 <?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function sd38_content_sync_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  $mainContentTypes = [
+    'article',
+    'page',
+    'news_alert',
+  ];
+  $entityForms = [];
+  foreach ($mainContentTypes as $entityName) {
+    $entityForms[] = 'node_' . $entityName . '_form';
+    $entityForms[] = 'node_' . $entityName . '_edit_form';
+  };
+
+  if (in_array($form_id, $entityForms)) {
+
+    $config = \Drupal::config('sd38_content_sync.settings');
+    $schools = $config->get('d38_schools') ?? [];
+
+    if (isset($form['field_district_school_list'])) {
+      $form['field_schools']['widget']['#options'] = $schools;
+    }
+
+//    $schools = explode(PHP_EOL, $schoolList);
+//
+//    $form['field_sd38_district_school'] = [];
+//    $options = ['' => '- Any -'];
+//    foreach ($schools as $key=>$item) {
+//      $options[$key] = $item;
+//    }
+//    $form['field_sd38_district_school']['#type'] = 'checkboxes';
+//    $form['field_sd38_district_school']['#options'] = $options;
+  }
+}

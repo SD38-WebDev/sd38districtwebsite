@@ -2,6 +2,7 @@
 
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
 
 /**
  * Add a ContentSynced field.
@@ -14,16 +15,48 @@ function sd38_content_sync_update_9001() {
   foreach ($content_types as $type) {
 
     if (in_array($type->id(), ['page', 'article', 'news_alert']) &&
-      !FieldStorageConfig::loadByName('node','field_content_synced')) {
+      !FieldStorageConfig::loadByName('node','field_district_school_list')) {
 
-      $field = FieldStorageConfig::create([
-        'field_name'  => 'field_district_school',
-        'entity_type' => 'node',
-        'type'        => 'string',
-        'cardinality' => 1,
-        'label'       => '38 District School',
-      ]);
-      $field->save();
+      $field_name = 'field_district_school_list';
+      $entity_type = 'node';
+      $bundle = $type->id();
+
+      // Create the field storage.
+      \Drupal::service('entity_type.manager')->getStorage('field_storage_config')->create([
+        'field_name' => $field_name,
+        'entity_type' => $entity_type,
+        'type' => 'list_string',
+        'settings' => ['allowed_values' => []],
+      ])->save();
+
+      // Create the field instance.
+      \Drupal::service('entity_type.manager')->getStorage('field_config')->create([
+        'field_name' => $field_name,
+        'entity_type' => $entity_type,
+        'bundle' => $bundle,
+        'cardinality' => FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED,
+        'label' => '38 District School',
+        'settings' => [],
+      ])->save();
+
+      // Create the form display configuration.
+      \Drupal::service('entity_type.manager')->getStorage('entity_form_display')->load($entity_type . '.' . $bundle . '.default')
+        ->setComponent($field_name, [
+          'type' => 'options_buttons',
+        ])
+        ->save();
+
+      // Create the view display configuration.
+      \Drupal::service('entity_type.manager')->getStorage('entity_view_display')->load($entity_type . '.' . $bundle . '.default')
+        ->setComponent($field_name, [
+          'label' => 'above',
+          'type' => 'string',
+        ])
+        ->save();
+
     }
+
   }
 }
+
+
