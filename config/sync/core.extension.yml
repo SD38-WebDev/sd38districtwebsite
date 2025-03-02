@@ -41,6 +41,7 @@ module:
   datetime: 0
   dblog: 0
   delete_files: 0
+  devel: 0
   draggableviews: 0
   dropzonejs: 0
   dropzonejs_eb_widget: 0
@@ -75,6 +76,8 @@ module:
   image_url_formatter: 0
   inline_entity_form: 0
   jsonapi: 0
+  jsonapi_extras: 0
+  jsonapi_include: 0
   language: 0
   layout_builder: 0
   layout_discovery: 0
@@ -108,6 +111,7 @@ module:
   responsive_image: 0
   rest: 0
   scheduler: 0
+  sd38_content_sync: 0
   search_api: 0
   search_api_attachments: 0
   search_api_field_map: 0
