@@ -58,7 +58,7 @@ class SyncQueueWorker extends QueueWorkerBase implements ContainerFactoryPluginI
     $client = \Drupal::httpClient();
     foreach ($data['school'] as $school) {
       try {
-        $url = $school['value'] . 'api/district-import';
+        $url = $school['value'] . '/api/district-import';
         $response = $client->request('POST', $url, [
           'auth' => ['rest', '671597Xx6802!'], // Basic Authentication
           'json' => [
@@ -80,7 +80,7 @@ class SyncQueueWorker extends QueueWorkerBase implements ContainerFactoryPluginI
             '@code' => $e->getCode(),
             '@error' => $e->getMessage(),
           ]);
-        return NULL;
+        throw new SuspendQueueException('Failed to execute POST request.');
       }
     }
   }

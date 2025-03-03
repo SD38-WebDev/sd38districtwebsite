@@ -76,3 +76,25 @@ function getAllowedD38Schools() {
   $schools = $config->get('d38_schools') ?? [];
   return parseSchoolList($schools);
 }
+
+/**
+ * Implements hook_cron().
+ */
+function sd38_content_sync_cron() {
+
+  $queue = \Drupal::service('queue')->get('sync_queue_worker');
+  $queue_worker = \Drupal::service('plugin.manager.queue_worker')
+    ->createInstance('sync_queue_worker');
+
+  if ($item = $queue->claimItem()) {
+    try {
+      $queue_worker->processItem($item->data);
+      $queue->deleteItem($item);
+    }
+    catch (Exception $e) {
+      $queue->releaseItem($item);
+      watchdog_exception('sd38_content_sync', $e);
+    }
+  }
+
+}
