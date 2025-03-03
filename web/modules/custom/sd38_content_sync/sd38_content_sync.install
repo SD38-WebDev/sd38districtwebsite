@@ -7,7 +7,7 @@ use Drupal\Core\Field\FieldStorageDefinitionInterface;
 /**
  * Add a ContentSynced field.
  */
-function sd38_content_sync_update_9002() {
+function sd38_content_sync_install() {
   $content_types = \Drupal::entityTypeManager()
     ->getStorage('node_type')
     ->loadMultiple();
