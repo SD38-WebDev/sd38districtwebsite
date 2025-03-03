@@ -37,7 +37,7 @@ class SettingsForm extends ConfigFormBase {
       '#title' => $this->t('D38 Schools'),
       '#type' => 'textarea',
       '#description' => $this->t('Enter schools in "key|Label" format, one per line.'),
-      '#default_value' => $this->formatSchoolList($config->get('d38_schools') ?? [])
+      '#default_value' => $config->get('d38_schools') ?? []
     ];
 
     return parent::buildForm($form, $form_state);
@@ -59,11 +59,8 @@ class SettingsForm extends ConfigFormBase {
       if (!in_array($name, $ignored_values)) {
         if (isset($value['value'])) {
           $value = $value['value'];
-
-          if ($name == 'd38_schools') {
-            $values = $this->parseSchoolList($form_state->getValue('schools'));
-          }
         }
+
         $this->config('sd38_content_sync.settings')
           ->set($name, $value);
       }
@@ -82,18 +79,4 @@ class SettingsForm extends ConfigFormBase {
     return implode("\n", $lines);
   }
 
-  /**
-   * Convert form input back to array format.
-   */
-  private function parseSchoolList($input) {
-    $schools = [];
-    $lines = explode("\n", trim($input));
-    foreach ($lines as $line) {
-      $parts = explode('|', trim($line), 2);
-      if (count($parts) === 2) {
-        $schools[$parts[0]] = $parts[1];
-      }
-    }
-    return $schools;
-  }
 }

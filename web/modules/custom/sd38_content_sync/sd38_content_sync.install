@@ -7,7 +7,7 @@ use Drupal\Core\Field\FieldStorageDefinitionInterface;
 /**
  * Add a ContentSynced field.
  */
-function sd38_content_sync_update_9001() {
+function sd38_content_sync_update_9002() {
   $content_types = \Drupal::entityTypeManager()
     ->getStorage('node_type')
     ->loadMultiple();
@@ -15,9 +15,9 @@ function sd38_content_sync_update_9001() {
   foreach ($content_types as $type) {
 
     if (in_array($type->id(), ['page', 'article', 'news_alert']) &&
-      !FieldStorageConfig::loadByName('node','field_district_school_list')) {
+      !FieldStorageConfig::loadByName('node','field_district_school')) {
 
-      $field_name = 'field_district_school_list';
+      $field_name = 'field_district_school';
       $entity_type = 'node';
       $bundle = $type->id();
 
@@ -25,8 +25,10 @@ function sd38_content_sync_update_9001() {
       \Drupal::service('entity_type.manager')->getStorage('field_storage_config')->create([
         'field_name' => $field_name,
         'entity_type' => $entity_type,
+        'cardinality' => FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED,
         'type' => 'list_string',
-        'settings' => ['allowed_values' => []],
+        'settings' => ['allowed_values' => [], 'allowed_values_function' => 'getAllowedD38Schools'
+          ],
       ])->save();
 
       // Create the field instance.
@@ -34,7 +36,6 @@ function sd38_content_sync_update_9001() {
         'field_name' => $field_name,
         'entity_type' => $entity_type,
         'bundle' => $bundle,
-        'cardinality' => FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED,
         'label' => '38 District School',
         'settings' => [],
       ])->save();
@@ -42,15 +43,7 @@ function sd38_content_sync_update_9001() {
       // Create the form display configuration.
       \Drupal::service('entity_type.manager')->getStorage('entity_form_display')->load($entity_type . '.' . $bundle . '.default')
         ->setComponent($field_name, [
-          'type' => 'options_buttons',
-        ])
-        ->save();
-
-      // Create the view display configuration.
-      \Drupal::service('entity_type.manager')->getStorage('entity_view_display')->load($entity_type . '.' . $bundle . '.default')
-        ->setComponent($field_name, [
-          'label' => 'above',
-          'type' => 'string',
+          'type' => 'options_select',
         ])
         ->save();
 

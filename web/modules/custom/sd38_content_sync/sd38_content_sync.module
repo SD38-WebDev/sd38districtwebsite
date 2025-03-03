@@ -6,7 +6,6 @@ use Drupal\Core\Form\FormStateInterface;
  * Implements hook_form_alter().
  */
 function sd38_content_sync_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-
   $mainContentTypes = [
     'article',
     'page',
@@ -19,22 +18,61 @@ function sd38_content_sync_form_alter(&$form, FormStateInterface $form_state, $f
   };
 
   if (in_array($form_id, $entityForms)) {
-
     $config = \Drupal::config('sd38_content_sync.settings');
     $schools = $config->get('d38_schools') ?? [];
 
-    if (isset($form['field_district_school_list'])) {
-      $form['field_schools']['widget']['#options'] = $schools;
+    if (isset($form['field_district_school'])) {
+      $form['field_district_school']['widget']['#options'] = parseSchoolList($schools);
+      $form['field_district_school']['widget']['#type'] = 'checkboxes';
     }
-
-//    $schools = explode(PHP_EOL, $schoolList);
-//
-//    $form['field_sd38_district_school'] = [];
-//    $options = ['' => '- Any -'];
-//    foreach ($schools as $key=>$item) {
-//      $options[$key] = $item;
-//    }
-//    $form['field_sd38_district_school']['#type'] = 'checkboxes';
-//    $form['field_sd38_district_school']['#options'] = $options;
   }
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+function sd38_content_sync_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity instanceof \Drupal\node\NodeInterface && in_array($entity->bundle(), ['article', 'page', 'news_alert'])) {
+    $queue = \Drupal::service('queue')->get('sync_queue_worker');
+    $queue->createItem([
+      'bundle' => $entity->bundle(),
+      'nid' => $entity->id(),
+      'school' => $entity->field_district_school->getValue()
+    ]);
+  }
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function sd38_content_sync_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity instanceof \Drupal\node\NodeInterface && in_array($entity->bundle(), ['article', 'page', 'news_alert'])) {
+    $queue = \Drupal::service('queue')->get('sync_queue_worker');
+    $queue->createItem([
+      'bundle' => $entity->bundle(),
+      'nid' => $entity->id(),
+      'school' => $entity->field_district_school->getValue()
+    ]);
+  }
+}
+
+/**
+ * Convert form input back to array format.
+ */
+function parseSchoolList($input) {
+  $schools = [];
+  $lines = explode(";", trim($input));
+  foreach ($lines as $line) {
+    $parts = explode('|', trim($line), 2);
+    if (count($parts) === 2) {
+      $schools[$parts[0]] = $parts[1];
+    }
+  }
+  return $schools;
+}
+
+function getAllowedD38Schools() {
+  $config = \Drupal::config('sd38_content_sync.settings');
+  $schools = $config->get('d38_schools') ?? [];
+  return parseSchoolList($schools);
 }
