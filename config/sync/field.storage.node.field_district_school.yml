@@ -1,0 +1,21 @@
+uuid: c6f221fa-b029-4af6-94cb-7585ec295bf9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_district_school
+field_name: field_district_school
+entity_type: node
+type: list_string
+settings:
+  allowed_values: {  }
+  allowed_values_function: getAllowedD38Schools
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

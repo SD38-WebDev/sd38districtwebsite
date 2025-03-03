@@ -1,0 +1,21 @@
+uuid: 332aff55-e8a4-4268-9fa6-8321c6919906
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_district_school
+    - node.type.article
+  module:
+    - options
+id: node.article.field_district_school
+field_name: field_district_school
+entity_type: node
+bundle: article
+label: '38 District School'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
