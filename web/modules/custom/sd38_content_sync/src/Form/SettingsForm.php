@@ -36,8 +36,22 @@ class SettingsForm extends ConfigFormBase {
     $form['d38_schools'] = [
       '#title' => $this->t('D38 Schools'),
       '#type' => 'textarea',
-      '#description' => $this->t('Enter schools in "key|Label" format, one per line.'),
-      '#default_value' => $config->get('d38_schools') ?? []
+      '#description' => $this->t('Enter schools in "key|Label" format, separated by ";"'),
+      '#default_value' => $config->get('d38_schools') ?? ''
+    ];
+
+    $form['d38_rest_username'] = [
+      '#title' => $this->t('D38 Rest Username'),
+      '#type' => 'textfield',
+      '#description' => $this->t('Enter a rest username'),
+      '#default_value' => $config->get('d38_rest_username') ?? ''
+    ];
+
+    $form['d38_rest_password'] = [
+      '#title' => $this->t('D38 Rest Password'),
+      '#type' => 'textfield',
+      '#description' => $this->t('Enter a rest password'),
+      '#default_value' => $config->get('d38_rest_password') ?? ''
     ];
 
     return parent::buildForm($form, $form_state);

@@ -56,11 +56,16 @@ class SyncQueueWorker extends QueueWorkerBase implements ContainerFactoryPluginI
    */
   public function processItem($data) {
     $client = \Drupal::httpClient();
+    $config = \Drupal::config('sd38_content_sync.settings');
+    $username = $config->get('d38_rest_username') ?? '';
+    $password = $config->get('d38_rest_password') ?? '';
+
     foreach ($data['school'] as $school) {
       try {
         $url = $school['value'] . '/api/district-import';
+
         $response = $client->request('POST', $url, [
-          'auth' => ['rest', '671597Xx6802!'], // Basic Authentication
+          'auth' => [$username, $password], // Basic Authentication
           'json' => [
             'bundle' => $data['bundle'],
             'nid' => $data['nid']
