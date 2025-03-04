@@ -1,16 +1,16 @@
-uuid: 5cf599ed-dc8b-4144-aea7-973325d11cbf
+uuid: e79425e8-091a-4851-860e-2161d3688974
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_district_school
-    - node.type.article
+    - node.type.news_alert
   module:
     - options
-id: node.article.field_district_school
+id: node.news_alert.field_district_school
 field_name: field_district_school
 entity_type: node
-bundle: article
+bundle: news_alert
 label: '38 District School'
 description: ''
 required: false

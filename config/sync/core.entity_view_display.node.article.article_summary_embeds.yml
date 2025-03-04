@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.article.field_attachments
     - field.field.node.article.field_carousel_content_link
     - field.field.node.article.field_carousel_image
+    - field.field.node.article.field_district_school
     - field.field.node.article.field_embedded_articles
     - field.field.node.article.field_image
     - field.field.node.article.field_image_gallery
@@ -243,6 +244,7 @@ hidden:
   field_attachments: true
   field_carousel_content_link: true
   field_carousel_image: true
+  field_district_school: true
   field_page_assignment: true
   field_promote_to_digital_signage: true
   field_publish_to: true

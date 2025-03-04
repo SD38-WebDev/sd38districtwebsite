@@ -19,10 +19,10 @@ function sd38_content_sync_form_alter(&$form, FormStateInterface $form_state, $f
 
   if (in_array($form_id, $entityForms)) {
     $config = \Drupal::config('sd38_content_sync.settings');
-    $schools = $config->get('d38_schools') ?? [];
+    $schools = $config->get('d38_schools') ?? '';
 
     if (isset($form['field_district_school'])) {
-      $form['field_district_school']['widget']['#options'] = parseSchoolList($schools);
+      //$form['field_district_school']['widget']['#options'] = parseSchoolList($schools);
       $form['field_district_school']['widget']['#type'] = 'checkboxes';
     }
   }
@@ -73,7 +73,7 @@ function parseSchoolList($input) {
 
 function getAllowedD38Schools() {
   $config = \Drupal::config('sd38_content_sync.settings');
-  $schools = $config->get('d38_schools') ?? [];
+  $schools = $config->get('d38_schools') ?? '';
   return parseSchoolList($schools);
 }
 
