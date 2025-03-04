@@ -2,22 +2,14 @@
 
 namespace Drupal\sd38_content_sync\Plugin\QueueWorker;
 
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\File\FileUrlGenerator;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Queue\QueueWorkerBase;
-use Drupal\Core\Queue\QueueWorkerInterface;
 use Drupal\Core\Queue\SuspendQueueException;
-use Drupal\file\Entity\File;
-use Drupal\file\FileInterface;
-use Drupal\node\Entity\Node;
-use Drupal\sd38_content_sync\ImporterPreprocessManager;
-use Drupal\taxonomy\Entity\Term;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\ConnectException;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Exception\ServerException;
-use Drupal\Core\File\FileSystemInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -31,15 +23,50 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class SyncQueueWorker extends QueueWorkerBase implements ContainerFactoryPluginInterface {
 
+  /**
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   *
+   * The Entity Type Manager.
+   *
+   */
   protected $em;
+
+  /**
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   *
+   * The Config Factory.
+   *
+   */
+  protected $configFactory;
+
+  /**
+   * @var \Drupal\Core\Logger\LoggerChannelFactoryInterface
+   *
+   * The Logger Factory.
+   */
+  protected $loggerFactory;
+
+  /**
+   * @var \GuzzleHttp\ClientInterface
+   *
+   * The HTTP Client.
+   *
+   */
+  protected $httpClient;
 
   /**
    * Creates a new NodePublishBase object.
    */
   public function __construct(
     EntityTypeManagerInterface $em,
+    ConfigFactoryInterface $configFactory,
+    LoggerChannelFactoryInterface $loggerFactory,
+    ClientInterface $httpClient
   ) {
     $this->em = $em;
+    $this->configFactory = $configFactory;
+    $this->loggerFactory = $loggerFactory;
+    $this->httpClient = $httpClient;
   }
 
   /**
@@ -48,6 +75,9 @@ class SyncQueueWorker extends QueueWorkerBase implements ContainerFactoryPluginI
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
       $container->get('entity_type.manager'),
+      $container->get('config.factory'),
+      $container->get('logger.factory'),
+      $container->get('http_client'),
     );
   }
 
@@ -55,8 +85,8 @@ class SyncQueueWorker extends QueueWorkerBase implements ContainerFactoryPluginI
    * {@inheritdoc}
    */
   public function processItem($data) {
-    $client = \Drupal::httpClient();
-    $config = \Drupal::config('sd38_content_sync.settings');
+    $client = $this->httpClient;
+    $config = $this->configFactory->get('sd38_content_sync.settings');
     $username = $config->get('d38_rest_username') ?? '';
     $password = $config->get('d38_rest_password') ?? '';
 
@@ -80,7 +110,7 @@ class SyncQueueWorker extends QueueWorkerBase implements ContainerFactoryPluginI
         }
       }
       catch (RequestException $e) {
-        \Drupal::logger('sd38_content_sync')
+        $this->loggerFactory->get('sd38_content_sync')
           ->error('Failed to execute POST request: @code. Error: @error', [
             '@code' => $e->getCode(),
             '@error' => $e->getMessage(),
