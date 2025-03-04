@@ -22,8 +22,21 @@ function sd38_content_sync_form_alter(&$form, FormStateInterface $form_state, $f
     $schools = $config->get('d38_schools') ?? '';
 
     if (isset($form['field_district_school'])) {
+
+      $form['content_sync_settings'] = [
+        "#title" => t('@title', ['@title' => 'Content Sync Setting']),
+        "#type" => "details",
+        "#group" => "advanced",
+        "#weight" => 50,
+      ];
+
       $form['field_district_school']['widget']['#options'] = parseSchoolList($schools);
       $form['field_district_school']['widget']['#type'] = 'checkboxes';
+
+      // Add fields to the group.
+      $form['content_sync_settings']['field_district_school'] = $form['field_district_school'];
+      unset($form['field_district_school']);
+
     }
   }
 }
