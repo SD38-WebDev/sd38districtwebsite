@@ -94,8 +94,6 @@ content:
       layout: ''
       view_mode: ''
       cache: 0
-      skin: ''
-      style: ''
       background: false
       box_caption: ''
       box_caption_custom: ''
@@ -109,6 +107,7 @@ content:
       grid: null
       grid_medium: null
       grid_small: null
+      style: ''
       breakpoints:
         xs:
           width: ''
@@ -126,9 +125,10 @@ content:
           width: ''
           image_style: ''
       current_view_mode: our_district_story_post
+      grid_header: ''
       icon: ''
       sizes: ''
-      grid_header: ''
+      skin: ''
       overridables:
         arrows: '0'
         autoplay: '0'

@@ -11,7 +11,7 @@ entity_type: node
 type: list_string
 settings:
   allowed_values: {  }
-  allowed_values_function: getAllowedD38Schools
+  allowed_values_function: sd38_content_sync_get_schools_list_names
 module: options
 locked: false
 cardinality: -1

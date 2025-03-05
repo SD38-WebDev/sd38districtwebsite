@@ -146,3 +146,8 @@ crons:
     drupal:
         spec: '*/19 * * * *'
         cmd: 'cd web ; drush core-cron'
+    # Run pending queue tasks every 3 minutes.
+    drush-queue:
+      spec: '*/3 * * * *'
+      commands:
+        start: 'cd web ; drush queue-run sync_queue_worker'

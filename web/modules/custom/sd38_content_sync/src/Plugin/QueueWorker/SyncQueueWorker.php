@@ -55,7 +55,7 @@ class SyncQueueWorker extends QueueWorkerBase implements ContainerFactoryPluginI
   protected $httpClient;
 
   /**
-   * Creates a new NodePublishBase object.
+   * Creates a new SyncQueueWorker object.
    */
   public function __construct(
     EntityTypeManagerInterface $em,
@@ -85,14 +85,15 @@ class SyncQueueWorker extends QueueWorkerBase implements ContainerFactoryPluginI
    * {@inheritdoc}
    */
   public function processItem($data) {
+    $schools = sd38_content_sync_get_schools_list_domains();
     $client = $this->httpClient;
     $config = $this->configFactory->get('sd38_content_sync.settings');
     $username = $config->get('d38_rest_username') ?? '';
     $password = $config->get('d38_rest_password') ?? '';
 
-    foreach ($data['school'] as $school) {
+    foreach ($data['schools'] as $school) {
       try {
-        $url = $school['value'] . '/api/district-import';
+        $url = 'https://' . $schools[$school] . '/api/district-import';
 
         $response = $client->request('POST', $url, [
           'auth' => [$username, $password], // Basic Authentication

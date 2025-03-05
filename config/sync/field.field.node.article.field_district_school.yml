@@ -11,7 +11,7 @@ id: node.article.field_district_school
 field_name: field_district_school
 entity_type: node
 bundle: article
-label: '38 District School'
+label: 'District 38 Schools'
 description: ''
 required: false
 translatable: true

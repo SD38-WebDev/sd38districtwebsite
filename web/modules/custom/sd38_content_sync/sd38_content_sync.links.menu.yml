@@ -1,7 +1,5 @@
 sd38_content_sync.admin_settings:
-  title: 'SD38 District Settings'
-  description: 'SD38 District Settings'
-  parent: system.admin_config
+  title: 'SD38 Content Sync Settings'
+  description: 'SD38 Content Sync Settings'
+  parent: system.admin_config_system
   route_name: 'sd38_content_sync.admin_settings'
-  weight: -100
-

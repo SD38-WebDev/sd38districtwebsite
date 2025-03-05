@@ -36,7 +36,7 @@ class SettingsForm extends ConfigFormBase {
     $form['d38_schools'] = [
       '#title' => $this->t('D38 Schools'),
       '#type' => 'textarea',
-      '#description' => $this->t('Enter schools in "key|Label" format, separated by ";"'),
+      '#description' => $this->t('Enter school sites in "site_alias|domain|school_name" format, one in a row.'),
       '#default_value' => $config->get('d38_schools') ?? ''
     ];
 
@@ -80,17 +80,6 @@ class SettingsForm extends ConfigFormBase {
       }
     }
     $this->config('sd38_content_sync.settings')->save();
-  }
-
-  /**
-   * Convert array to formatted string for the form field.
-   */
-  private function formatSchoolList(array $schools) {
-    $lines = [];
-    foreach ($schools as $key => $label) {
-      $lines[] = "{$key}|{$label}";
-    }
-    return implode("\n", $lines);
   }
 
 }

@@ -1,36 +1,31 @@
 <?php
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeInterface;
+
+const SD38_CONTENT_SYNC_TYPES = ['article', 'page', 'news_alert'];
 
 /**
  * Implements hook_form_alter().
  */
 function sd38_content_sync_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  $mainContentTypes = [
-    'article',
-    'page',
-    'news_alert',
-  ];
   $entityForms = [];
-  foreach ($mainContentTypes as $entityName) {
+  foreach (SD38_CONTENT_SYNC_TYPES as $entityName) {
     $entityForms[] = 'node_' . $entityName . '_form';
     $entityForms[] = 'node_' . $entityName . '_edit_form';
   };
 
   if (in_array($form_id, $entityForms)) {
-    $config = \Drupal::config('sd38_content_sync.settings');
-    $schools = $config->get('d38_schools') ?? '';
-
     if (isset($form['field_district_school'])) {
 
       $form['content_sync_settings'] = [
-        "#title" => t('@title', ['@title' => 'Content Sync Setting']),
+        "#title" => t('@title', ['@title' => 'Content Sync Schools']),
         "#type" => "details",
         "#group" => "advanced",
         "#weight" => 50,
       ];
 
-      $form['field_district_school']['widget']['#options'] = parseSchoolList($schools);
+      $form['field_district_school']['widget']['#options'] = sd38_content_sync_get_schools_list_names();
       $form['field_district_school']['widget']['#type'] = 'checkboxes';
 
       // Add fields to the group.
@@ -45,56 +40,82 @@ function sd38_content_sync_form_alter(&$form, FormStateInterface $form_state, $f
  * Implements hook_entity_insert().
  */
 function sd38_content_sync_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
-  if ($entity instanceof \Drupal\node\NodeInterface && in_array($entity->bundle(), ['article', 'page', 'news_alert'])) {
-    $queue = \Drupal::service('queue')->get('sync_queue_worker');
-    $queue->createItem([
-      'bundle' => $entity->bundle(),
-      'nid' => $entity->id(),
-      'school' => $entity->field_district_school->getValue()
-    ]);
-  }
+  sd38_content_sync_add_entity_into_the_queue($entity);
 }
 
 /**
  * Implements hook_entity_update().
  */
 function sd38_content_sync_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
-  if ($entity instanceof \Drupal\node\NodeInterface && in_array($entity->bundle(), ['article', 'page', 'news_alert'])) {
-    $queue = \Drupal::service('queue')->get('sync_queue_worker');
-    $queue->createItem([
-      'bundle' => $entity->bundle(),
-      'nid' => $entity->id(),
-      'school' => $entity->field_district_school->getValue()
-    ]);
+  sd38_content_sync_add_entity_into_the_queue($entity);
+}
+
+function sd38_content_sync_add_entity_into_the_queue($entity) {
+  if (!($entity instanceof NodeInterface) || !in_array($entity->bundle(), SD38_CONTENT_SYNC_TYPES)) {
+    return;
   }
+  $schools = $entity->field_district_school->getValue();
+  if (empty($schools)) {
+    return;
+  }
+  $schools = array_map(function ($school) {
+    return $school['value'];
+  }, $schools);
+
+  $queue = \Drupal::service('queue')->get('sync_queue_worker');
+  $queue->createItem([
+    'bundle' => $entity->bundle(),
+    'nid' => $entity->id(),
+    'schools' => $schools,
+  ]);
+
 }
 
 /**
  * Convert form input back to array format.
  */
-function parseSchoolList($input) {
+function sd38_content_sync_get_schools_list() {
+  $config = \Drupal::config('sd38_content_sync.settings');
+  $schoolsData = $config->get('d38_schools') ?? '';
+  $lines = array_map('trim', explode("\n", trim($schoolsData)));
+
   $schools = [];
-  $lines = explode(";", trim($input));
+  if (empty($lines)) {
+    return $schools;
+  }
   foreach ($lines as $line) {
-    $parts = explode('|', trim($line), 2);
-    if (count($parts) === 2) {
-      $schools[$parts[0]] = $parts[1];
+    if (empty($line)) {
+      continue;
     }
+    [$key, $domain, $schoolName] = array_map('trim', explode('|', $line));
+    $domain = trim($domain,'/');
+    $domain = str_replace(['http://', 'https://'], '', $domain);
+
+    $schools[$key] = [
+      'domain' => $domain,
+      'school_name' => $schoolName,
+    ];
   }
   return $schools;
 }
 
-function getAllowedD38Schools() {
-  $config = \Drupal::config('sd38_content_sync.settings');
-  $schools = $config->get('d38_schools') ?? '';
-  return parseSchoolList($schools);
+function sd38_content_sync_get_schools_list_names(): array {
+  return array_map(function ($school) {
+    return $school['school_name'];
+  }, sd38_content_sync_get_schools_list());
+}
+
+function sd38_content_sync_get_schools_list_domains(): array {
+  print_r(sd38_content_sync_get_schools_list());
+  return array_map(function ($school) {
+    return $school['domain'];
+  }, sd38_content_sync_get_schools_list());
 }
 
 /**
  * Implements hook_cron().
  */
 function sd38_content_sync_cron() {
-
   $queue = \Drupal::service('queue')->get('sync_queue_worker');
   $queue_worker = \Drupal::service('plugin.manager.queue_worker')
     ->createInstance('sync_queue_worker');
