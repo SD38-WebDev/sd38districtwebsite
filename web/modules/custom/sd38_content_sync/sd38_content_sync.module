@@ -106,7 +106,6 @@ function sd38_content_sync_get_schools_list_names(): array {
 }
 
 function sd38_content_sync_get_schools_list_domains(): array {
-  print_r(sd38_content_sync_get_schools_list());
   return array_map(function ($school) {
     return $school['domain'];
   }, sd38_content_sync_get_schools_list());

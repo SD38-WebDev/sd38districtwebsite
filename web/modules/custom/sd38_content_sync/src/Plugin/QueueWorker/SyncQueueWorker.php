@@ -97,6 +97,7 @@ class SyncQueueWorker extends QueueWorkerBase implements ContainerFactoryPluginI
 
         $response = $client->request('POST', $url, [
           'auth' => [$username, $password], // Basic Authentication
+          'verify' => FALSE, // Disable SSL verification
           'json' => [
             'bundle' => $data['bundle'],
             'nid' => $data['nid']
