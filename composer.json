@@ -124,6 +124,8 @@
         "drupal/notification": "^1.2",
         "drupal/oembed_providers": "^1.1",
         "drupal/onlyone": "^1.10",
+        "drupal/openid_connect": "^2.0",
+        "drupal/openid_connect_windows_aad": "^2.0@beta",
         "drupal/panelbutton": "^1.5",
         "drupal/paragraph_view_mode": "^2.0",
         "drupal/paragraphs": "^1.15",
@@ -244,6 +246,14 @@
             },
             "drupal/entity_reference_revisions": {
                 "Views doesn't recognize relationship to host": "https://www.drupal.org/files/issues/2021-11-12/2799479-163-relationship-host-id.patch"
+            },
+            "drupal/openid_connect": {
+                "3332759: Use getRedirectUrl() method when building authorize query string": "https://www.drupal.org/files/issues/2023-01-11/openid-connect-use-getredirecturl.patch",
+                "3355330: Trying to access array offset on value of type null": "https://git.drupalcode.org/project/openid_connect/-/merge_requests/82.diff"
+            },
+            "drupal/openid_connect_windows_aad": {
+                "3400940: Warning: Undefined array key \"end_session_endpoint\" since 3322786": "https://www.drupal.org/files/issues/2023-11-11/3400940-03.patch",
+                "3124961: Enforce HTTPS": "https://git.drupalcode.org/project/openid_connect_windows_aad/-/merge_requests/26.patch"
             }
         }
     }

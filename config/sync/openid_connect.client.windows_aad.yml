@@ -1,0 +1,28 @@
+uuid: 9b93b9af-10cc-4eea-a43f-f813447ac539
+langcode: en
+status: true
+dependencies:
+  module:
+    - openid_connect_windows_aad
+id: windows_aad
+label: 'Windows Azure AD'
+plugin: windows_aad
+settings:
+  client_id: 9dfaa710-a840-470e-9b96-c38b178dc8d2
+  client_secret: openid_connect_windows_aad_key
+  authorization_endpoint_wa: 'https://login.microsoftonline.com/8ff36f9a-72d8-4526-8fce-92719091a6ec/oauth2/authorize'
+  token_endpoint_wa: 'https://login.microsoftonline.com/8ff36f9a-72d8-4526-8fce-92719091a6ec/oauth2/token'
+  userinfo_endpoint_wa: ''
+  map_ad_groups_to_roles: false
+  group_mapping:
+    method: 0
+    mappings: ''
+    strict: false
+  userinfo_graph_api_wa: 0
+  userinfo_graph_api_use_other_mails: false
+  userinfo_update_email: false
+  hide_email_address_warning: false
+  subject_key: sub
+  end_session_endpoint: ''
+  iss_allowed_domains: ''
+  front_channel_logout_url: ''

@@ -78,6 +78,7 @@ module:
   jsonapi: 0
   jsonapi_extras: 0
   jsonapi_include: 0
+  key: 0
   language: 0
   layout_builder: 0
   layout_discovery: 0
@@ -97,6 +98,8 @@ module:
   node: 0
   notification: 0
   onlyone: 0
+  openid_connect: 0
+  openid_connect_windows_aad: 0
   options: 0
   page_cache: 0
   panelbutton: 0
@@ -113,6 +116,7 @@ module:
   rest: 0
   scheduler: 0
   sd38_content_sync: 0
+  sd38_sso: 0
   search_api: 0
   search_api_attachments: 0
   search_api_field_map: 0
@@ -160,6 +164,7 @@ module:
   menu_link_content: 1
   pathauto: 1
   ds_extras: 2
+  externalauth: 10
   google_fonts_api: 10
   views: 10
   paragraphs: 11

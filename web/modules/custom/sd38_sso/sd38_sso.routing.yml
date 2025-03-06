@@ -1,0 +1,7 @@
+sd38_sso.settings:
+  path: "/admin/config/system/sd38_sso"
+  defaults:
+    _form: '\Drupal\sd38_sso\Form\SsoSettingsForm'
+    _title: "SD38 SSO Config"
+  requirements:
+    _permission: "administer site configuration"
