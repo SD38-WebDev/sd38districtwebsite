@@ -90,12 +90,11 @@ class SyncQueueWorker extends QueueWorkerBase implements ContainerFactoryPluginI
     $config = $this->configFactory->get('sd38_content_sync.settings');
     $username = $config->get('d38_rest_username') ?? '';
     $password = $config->get('d38_rest_password') ?? '';
-
-    foreach ($data['schools'] as $school) {
+    if (array_key_exists($data['school'], $schools)) {
+      $schoolDomain = $schools[$data['school']];
       try {
-        $url = 'https://' . $schools[$school] . '/api/district-import';
-
-        $response = $client->request('POST', $url, [
+        $url = 'https://' . $schoolDomain . '/api/district-import';
+        $client->request('POST', $url, [
           'auth' => [$username, $password], // Basic Authentication
           'verify' => FALSE, // Disable SSL verification
           'json' => [
@@ -107,17 +106,9 @@ class SyncQueueWorker extends QueueWorkerBase implements ContainerFactoryPluginI
             'Content-Type' => 'application/json',
           ],
         ]);
-        if ($response->getStatusCode() !== 200) {
-          throw new SuspendQueueException('The school website is not responding.');
-        }
       }
       catch (RequestException $e) {
-        $this->loggerFactory->get('sd38_content_sync')
-          ->error('Failed to execute POST request: @code. Error: @error', [
-            '@code' => $e->getCode(),
-            '@error' => $e->getMessage(),
-          ]);
-        throw new SuspendQueueException('Failed to execute POST request.');
+        throw new RequestException('Failed to execute POST request.', $e->getRequest());
       }
     }
   }

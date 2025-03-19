@@ -17,7 +17,6 @@ function sd38_content_sync_form_alter(&$form, FormStateInterface $form_state, $f
 
   if (in_array($form_id, $entityForms)) {
     if (isset($form['field_district_school'])) {
-
       $form['content_sync_settings'] = [
         "#title" => t('@title', ['@title' => 'Content Sync Schools']),
         "#type" => "details",
@@ -25,15 +24,35 @@ function sd38_content_sync_form_alter(&$form, FormStateInterface $form_state, $f
         "#weight" => 50,
       ];
 
-      $form['field_district_school']['widget']['#options'] = sd38_content_sync_get_schools_list_names();
+      $options = ['all' => 'Select/Un-select All'];
+      $form['field_district_school']['widget']['#options'] = $options + sd38_content_sync_get_schools_list_names();
       $form['field_district_school']['widget']['#type'] = 'checkboxes';
 
       // Add fields to the group.
       $form['content_sync_settings']['field_district_school'] = $form['field_district_school'];
       unset($form['field_district_school']);
 
+      $form['#attached']['library'][] = 'sd38_content_sync/sd38_content_sync.form_alter';
+      array_unshift($form['#validate'],  'sd38_content_sync_form_validate');
+
     }
   }
+}
+
+/**
+ * Validate the form.
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *
+ * @return void
+ */
+function sd38_content_sync_form_validate(&$form, FormStateInterface $form_state) {
+  // Remove 'all' if present
+  $values = array_filter($form_state->getValue('field_district_school'), function($item) {
+    return $item['value'] !== 'all';
+  });
+  $form_state->setValue('field_district_school', array_values($values));
 }
 
 /**
@@ -58,17 +77,15 @@ function sd38_content_sync_add_entity_into_the_queue($entity) {
   if (empty($schools)) {
     return;
   }
-  $schools = array_map(function ($school) {
-    return $school['value'];
-  }, $schools);
 
   $queue = \Drupal::service('queue')->get('sync_queue_worker');
-  $queue->createItem([
-    'bundle' => $entity->bundle(),
-    'nid' => $entity->id(),
-    'schools' => $schools,
-  ]);
-
+  foreach ($schools as $school) {
+    $queue->createItem([
+      'bundle' => $entity->bundle(),
+      'nid' => $entity->id(),
+      'school' => $school['value'],
+    ]);
+  }
 }
 
 /**
@@ -88,7 +105,7 @@ function sd38_content_sync_get_schools_list() {
       continue;
     }
     [$key, $domain, $schoolName] = array_map('trim', explode('|', $line));
-    $domain = trim($domain,'/');
+    $domain = trim($domain, '/');
     $domain = str_replace(['http://', 'https://'], '', $domain);
 
     $schools[$key] = [
@@ -100,13 +117,13 @@ function sd38_content_sync_get_schools_list() {
 }
 
 function sd38_content_sync_get_schools_list_names(): array {
-  return array_map(function ($school) {
+  return array_map(function($school) {
     return $school['school_name'];
   }, sd38_content_sync_get_schools_list());
 }
 
 function sd38_content_sync_get_schools_list_domains(): array {
-  return array_map(function ($school) {
+  return array_map(function($school) {
     return $school['domain'];
   }, sd38_content_sync_get_schools_list());
 }
@@ -126,8 +143,11 @@ function sd38_content_sync_cron() {
     }
     catch (Exception $e) {
       $queue->releaseItem($item);
-      watchdog_exception('sd38_content_sync', $e);
+      \Drupal::logger('sd38_content_sync')
+        ->error('Failed to execute POST request: @code. Error: @error', [
+          '@code' => $e->getCode(),
+          '@error' => $e->getMessage(),
+        ]);
     }
   }
-
 }
