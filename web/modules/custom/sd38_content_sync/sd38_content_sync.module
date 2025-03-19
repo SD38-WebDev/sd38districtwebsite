@@ -24,7 +24,7 @@ function sd38_content_sync_form_alter(&$form, FormStateInterface $form_state, $f
         "#weight" => 50,
       ];
 
-      $options = ['all' => 'Select/Un-select All'];
+      $options = ['all' => 'Select/Deselect All'];
       $form['field_district_school']['widget']['#options'] = $options + sd38_content_sync_get_schools_list_names();
       $form['field_district_school']['widget']['#type'] = 'checkboxes';
 
