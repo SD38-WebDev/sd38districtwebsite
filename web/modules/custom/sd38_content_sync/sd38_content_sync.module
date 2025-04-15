@@ -66,10 +66,10 @@ function sd38_content_sync_entity_insert(Drupal\Core\Entity\EntityInterface $ent
  * Implements hook_entity_update().
  */
 function sd38_content_sync_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
-  sd38_content_sync_add_entity_into_the_queue($entity);
+  sd38_content_sync_add_entity_into_the_queue($entity, 'update');
 }
 
-function sd38_content_sync_add_entity_into_the_queue($entity) {
+function sd38_content_sync_add_entity_into_the_queue($entity, $operation = 'add') {
   if (!($entity instanceof NodeInterface) || !in_array($entity->bundle(), SD38_CONTENT_SYNC_TYPES)) {
     return;
   }
@@ -78,13 +78,39 @@ function sd38_content_sync_add_entity_into_the_queue($entity) {
     return;
   }
 
+  $schools = array_map(function($school) {
+    return $school['value'];
+  }, $schools);
+
   $queue = \Drupal::service('queue')->get('sync_queue_worker');
   foreach ($schools as $school) {
     $queue->createItem([
       'bundle' => $entity->bundle(),
       'nid' => $entity->id(),
-      'school' => $school['value'],
+      'school' => $school,
     ]);
+  }
+
+  if ($operation == 'update') {
+    $prevSchools = array_map(function($prevSchool) {
+      return $prevSchool['value'];
+    }, $entity->original->field_district_school->getValue());
+
+    if (empty($prevSchools)) {
+      return;
+    }
+
+    $unpublishedWorker = \Drupal::service('queue')->get('unpublish_queue_worker');
+
+    if ($unpublishedSchools = array_diff($prevSchools, $schools)) {
+      foreach ($unpublishedSchools as $unpublishedSchool) {
+        $unpublishedWorker->createItem([
+          'bundle' => $entity->bundle(),
+          'nid' => $entity->id(),
+          'school' => $unpublishedSchool,
+        ]);
+      }
+    }
   }
 }
 

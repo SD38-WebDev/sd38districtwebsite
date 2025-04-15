@@ -152,3 +152,7 @@ crons:
       spec: '*/3 * * * *'
       commands:
         start: 'cd web ; drush queue-run sync_queue_worker'
+    drush-queue-unpublisher:
+      spec: '*/3 * * * *'
+      commands:
+        start: 'cd web ; drush queue-run unpublish_queue_worker'
