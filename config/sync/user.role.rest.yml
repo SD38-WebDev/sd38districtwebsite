@@ -1,0 +1,45 @@
+uuid: fc184c6d-915e-4f49-b7a0-0895380db872
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.accordion_content
+    - node.type.article
+    - node.type.blog_post
+    - node.type.carousel_item
+    - node.type.digital_signage
+    - node.type.digital_signage_admin
+    - node.type.distributed_article
+    - node.type.event
+    - node.type.news_alert
+    - node.type.news_carousel
+    - node.type.page
+    - node.type.slick
+    - node.type.staff_member
+  module:
+    - node
+    - paragraphs
+    - system
+    - view_unpublished
+id: rest
+label: REST
+weight: -3
+is_admin: null
+permissions:
+  - 'access content'
+  - 'view any unpublished accordion_content content'
+  - 'view any unpublished article content'
+  - 'view any unpublished blog_post content'
+  - 'view any unpublished carousel_item content'
+  - 'view any unpublished content'
+  - 'view any unpublished digital_signage content'
+  - 'view any unpublished digital_signage_admin content'
+  - 'view any unpublished distributed_article content'
+  - 'view any unpublished event content'
+  - 'view any unpublished news_alert content'
+  - 'view any unpublished news_carousel content'
+  - 'view any unpublished page content'
+  - 'view any unpublished slick content'
+  - 'view any unpublished staff_member content'
+  - 'view own unpublished content'
+  - 'view unpublished paragraphs'

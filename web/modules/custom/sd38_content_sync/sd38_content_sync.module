@@ -2,6 +2,9 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\NodeInterface;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Session\AccountInterface;
 
 const SD38_CONTENT_SYNC_TYPES = ['article', 'page', 'news_alert'];
 
@@ -176,4 +179,13 @@ function sd38_content_sync_cron() {
         ]);
     }
   }
+}
+
+/**
+ * Implements hook_jsonapi_entity_filter_access().
+ */
+function sd38_content_sync_jsonapi_entity_filter_access(EntityTypeInterface $entity_type, AccountInterface $account) {
+  return ([
+    JSONAPI_FILTER_AMONG_ALL => AccessResult::allowed(),
+  ]);
 }
