@@ -28,4 +28,4 @@ visibility:
     id: request_path
     negate: true
     context_mapping: {  }
-    pages: "<front>\r\n/*/strategic-plan*\r\n/*/strategic-plan*/*\r\n/our-district/education-week-2021\r\n/our-district/education-week-2021*\r\n/our-district/education-week-2021*/*"
+    pages: '<front>'

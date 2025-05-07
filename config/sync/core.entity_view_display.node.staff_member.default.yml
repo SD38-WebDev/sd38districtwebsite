@@ -98,7 +98,7 @@ content:
         ft:
           id: expert
           settings:
-            lb: 'School Liason'
+            lb: 'School Liaison'
             lbw: true
             lbw-el: h2
             lbw-cl: ''
