@@ -1,9 +1,9 @@
-uuid: f36758fd-edfc-4c74-b690-6b418bcc5cfb
+uuid: be26b32a-e906-4e69-9e91-91a579b333f6
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:bd312293-4431-4072-9d72-def13b76fcf3'
+    - 'block_content:basic:7ff50357-793d-4982-9234-e618a034a416'
   module:
     - block_content
   theme:
@@ -11,11 +11,11 @@ dependencies:
 id: accessibilitypagelink
 theme: rsd_district
 region: accessibility_dropdown
-weight: -20
+weight: 0
 provider: null
-plugin: 'block_content:bd312293-4431-4072-9d72-def13b76fcf3'
+plugin: 'block_content:7ff50357-793d-4982-9234-e618a034a416'
 settings:
-  id: 'block_content:bd312293-4431-4072-9d72-def13b76fcf3'
+  id: 'block_content:7ff50357-793d-4982-9234-e618a034a416'
   label: 'Accessibility Page Link'
   label_display: '0'
   provider: block_content

@@ -1,0 +1,7 @@
+sd38_content_sync.admin_settings:
+  path: "/admin/config/system/sd38-settings"
+  defaults:
+    _form: '\Drupal\sd38_content_sync\Form\SettingsForm'
+    _title: "SD38 District Settings"
+  requirements:
+    _permission: "administer site configuration"

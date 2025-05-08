@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.page.field_body_2
     - field.field.node.page.field_content_section
     - field.field.node.page.field_custom_template
+    - field.field.node.page.field_district_school
     - field.field.node.page.field_feature_page
     - field.field.node.page.field_image
     - field.field.node.page.field_image_gallery
@@ -144,6 +145,7 @@ content:
     weight: 4
     region: main
 hidden:
+  field_district_school: true
   langcode: true
   layout_builder__layout: true
   links: true

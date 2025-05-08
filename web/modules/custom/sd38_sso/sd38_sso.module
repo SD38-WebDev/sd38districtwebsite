@@ -1,0 +1,55 @@
+<?php
+
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_openid_connect_userinfo_alter().
+ */
+function sd38_sso_openid_connect_userinfo_alter(array &$userinfo, array $context) {
+  if ($context['plugin_id'] != 'windows_aad') {
+    return;
+  }
+
+  // Get additional user data.
+  //$userinfo['groups'] = $userinfo['groups'] ?? $context['user_data']['groups'];
+  $userinfo['email'] = $userinfo['email'] ?? $context['user_data']['upn'];
+  $userinfo['given_name'] = $userinfo['given_name'] ?? $context['user_data']['given_name'];
+  $userinfo['family_name'] = $userinfo['family_name'] ?? $context['user_data']['family_name'];
+
+  \Drupal::logger('openid_userinfo')->warning(json_encode($userinfo));
+}
+
+/**
+ * Implements hook_openid_connect_userinfo_save()
+ */
+function sd38_sso_openid_connect_userinfo_save(UserInterface $account, array $context) {
+  // Set AzureAD users data.
+  if ($context['plugin_id'] != 'windows_aad') {
+    return;
+  }
+  $userinfo = $context['userinfo'];
+
+  // Fill the user values manually, since the mapping does not work properly.
+  $account->set('name', $userinfo['name']);
+  $account->set('mail', $userinfo['email']);
+
+  \Drupal::logger('openid_context')->warning(json_encode($context));
+}
+
+/**
+ * Implements hook_openid_connect_pre_authorize().
+ */
+function sd38_sso_openid_connect_pre_authorize($account, array $context) {
+  $ssoSettings = \Drupal::config('sd38_sso.settings')->get('site_azure_groups');
+  $ssoGroups = array_map('trim', explode(',', $ssoSettings));
+
+  if (!empty($context['userinfo']['groups']) && !empty($ssoGroups)) {
+    if (!array_intersect($context['userinfo']['groups'], $ssoGroups)) {
+      $noAccessErr = t('You do not have permission to access this system. Please contact your SSO administrator for access.');
+      \Drupal::messenger()->addError($noAccessErr);
+      return FALSE;
+    }
+  }
+
+  return TRUE;
+}

@@ -9,6 +9,7 @@ module:
   auto_entitylabel: 0
   automated_cron: 0
   backup_migrate: 0
+  basic_auth: 0
   better_exposed_filters: 0
   big_pipe: 0
   blazy: 0
@@ -41,6 +42,7 @@ module:
   datetime: 0
   dblog: 0
   delete_files: 0
+  devel: 0
   draggableviews: 0
   dropzonejs: 0
   dropzonejs_eb_widget: 0
@@ -75,6 +77,9 @@ module:
   image_url_formatter: 0
   inline_entity_form: 0
   jsonapi: 0
+  jsonapi_extras: 0
+  jsonapi_include: 0
+  key: 0
   language: 0
   layout_builder: 0
   layout_discovery: 0
@@ -94,6 +99,8 @@ module:
   node: 0
   notification: 0
   onlyone: 0
+  openid_connect: 0
+  openid_connect_windows_aad: 0
   options: 0
   page_cache: 0
   panelbutton: 0
@@ -101,6 +108,7 @@ module:
   path: 0
   path_alias: 0
   path_redirect_import: 0
+  queue_ui: 0
   quickedit: 0
   rdf: 0
   recaptcha: 0
@@ -108,6 +116,8 @@ module:
   responsive_image: 0
   rest: 0
   scheduler: 0
+  sd38_content_sync: 0
+  sd38_sso: 0
   search_api: 0
   search_api_attachments: 0
   search_api_field_map: 0
@@ -155,6 +165,7 @@ module:
   menu_link_content: 1
   pathauto: 1
   ds_extras: 2
+  externalauth: 10
   google_fonts_api: 10
   views: 10
   paragraphs: 11

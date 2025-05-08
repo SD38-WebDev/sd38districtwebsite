@@ -1,0 +1,5 @@
+name: SD38 Content Sync
+description: SD38
+package: Custom
+type: module
+core_version_requirement: ^9.4 || ^10

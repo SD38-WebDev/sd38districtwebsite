@@ -1,0 +1,9 @@
+name: SD38 SSO
+description: SSO
+package: Custom
+type: module
+dependencies:
+  - openid_connect_windows_aad:openid_connect_windows_aad
+
+core_version_requirement: ^9.4 || ^10 || ^11
+

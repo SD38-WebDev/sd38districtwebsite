@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.news_alert.body
     - field.field.node.news_alert.field_alert_type
     - field.field.node.news_alert.field_content_link
+    - field.field.node.news_alert.field_district_school
     - field.field.node.news_alert.field_news_alert_description
     - node.type.news_alert
   module:
@@ -65,5 +66,6 @@ content:
 hidden:
   field_alert_type: true
   field_content_link: true
+  field_district_school: true
   langcode: true
   search_api_excerpt: true

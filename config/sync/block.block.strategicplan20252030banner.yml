@@ -1,0 +1,34 @@
+uuid: 51f55593-8bca-49eb-b0f8-8c5b66c9d0f0
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:6c7e7291-d49e-46aa-898e-37e687ade503'
+  module:
+    - block_class
+    - block_content
+    - system
+  theme:
+    - rsd_district
+third_party_settings:
+  block_class:
+    classes: col
+id: strategicplan20252030banner
+theme: rsd_district
+region: content
+weight: -18
+provider: null
+plugin: 'block_content:6c7e7291-d49e-46aa-898e-37e687ade503'
+settings:
+  id: 'block_content:6c7e7291-d49e-46aa-898e-37e687ade503'
+  label: 'Strategic Plan 2025–2030 Banner'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

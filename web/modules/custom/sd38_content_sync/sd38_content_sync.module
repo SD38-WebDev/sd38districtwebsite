@@ -1,0 +1,214 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Session\AccountInterface;
+
+const SD38_CONTENT_SYNC_TYPES = ['article', 'page', 'news_alert'];
+
+/**
+ * Implements hook_form_alter().
+ */
+function sd38_content_sync_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $entityForms = [];
+  foreach (SD38_CONTENT_SYNC_TYPES as $entityName) {
+    $entityForms[] = 'node_' . $entityName . '_form';
+    $entityForms[] = 'node_' . $entityName . '_edit_form';
+  };
+
+  if (in_array($form_id, $entityForms)) {
+    if (isset($form['field_district_school'])) {
+      $form['content_sync_settings'] = [
+        "#title" => t('@title', ['@title' => 'Content Sync Schools']),
+        "#type" => "details",
+        "#group" => "advanced",
+        "#weight" => 50,
+      ];
+
+      $options = ['all' => 'Select/Deselect All'];
+      $form['field_district_school']['widget']['#options'] = $options + sd38_content_sync_get_schools_list_names();
+      $form['field_district_school']['widget']['#type'] = 'checkboxes';
+
+      // Add fields to the group.
+      $form['content_sync_settings']['field_district_school'] = $form['field_district_school'];
+      unset($form['field_district_school']);
+
+      $form['#attached']['library'][] = 'sd38_content_sync/sd38_content_sync.form_alter';
+      array_unshift($form['#validate'],  'sd38_content_sync_form_validate');
+
+    }
+  }
+}
+
+/**
+ * Validate the form.
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *
+ * @return void
+ */
+function sd38_content_sync_form_validate(&$form, FormStateInterface $form_state) {
+  // Remove 'all' if present
+  $values = array_filter($form_state->getValue('field_district_school'), function($item) {
+    return $item['value'] !== 'all';
+  });
+  $form_state->setValue('field_district_school', array_values($values));
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+function sd38_content_sync_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  sd38_content_sync_add_entity_into_the_sync_queue($entity);
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function sd38_content_sync_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
+  sd38_content_sync_add_entity_into_the_sync_queue($entity);
+  sd38_content_sync_add_entity_into_the_unpublish_queue($entity);
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+function sd38_content_sync_entity_delete(Drupal\Core\Entity\EntityInterface $entity) {
+  sd38_content_sync_add_entity_into_the_unpublish_queue($entity, TRUE);
+}
+
+function sd38_content_sync_add_entity_into_the_sync_queue($entity) {
+  if (!($entity instanceof NodeInterface) || !in_array($entity->bundle(), SD38_CONTENT_SYNC_TYPES)) {
+    return;
+  }
+  $schools = $entity->field_district_school->getValue();
+  if (empty($schools)) {
+    return;
+  }
+
+  $schools = array_map(function($school) {
+    return $school['value'];
+  }, $schools);
+
+  $queue = \Drupal::service('queue')->get('sync_queue_worker');
+  foreach ($schools as $school) {
+    $queue->createItem([
+      'bundle' => $entity->bundle(),
+      'nid' => $entity->id(),
+      'school' => $school,
+    ]);
+  }
+
+}
+
+function sd38_content_sync_add_entity_into_the_unpublish_queue($entity, $unpublishAll = FALSE) {
+  if (!($entity instanceof NodeInterface) || !in_array($entity->bundle(), SD38_CONTENT_SYNC_TYPES)) {
+    return;
+  }
+
+  $schools = array_map(function($school) {
+    return $school['value'];
+  }, $entity->field_district_school->getValue());
+
+  if (!$unpublishAll) {
+    $prevSchools = array_map(function($prevSchool) {
+      return $prevSchool['value'];
+    }, $entity->original->field_district_school->getValue());
+
+    $unpublishedSchools = array_diff($prevSchools, $schools);
+  } else {
+    $unpublishedSchools = $schools;
+  }
+
+  if (empty($unpublishedSchools)) {
+    return;
+  }
+
+  $unpublishedWorker = \Drupal::service('queue')->get('unpublish_queue_worker');
+
+  foreach ($unpublishedSchools as $unpublishedSchool) {
+    $unpublishedWorker->createItem([
+      'bundle' => $entity->bundle(),
+      'nid' => $entity->id(),
+      'school' => $unpublishedSchool,
+    ]);
+  }
+
+}
+
+
+/**
+ * Convert form input back to array format.
+ */
+function sd38_content_sync_get_schools_list() {
+  $config = \Drupal::config('sd38_content_sync.settings');
+  $schoolsData = $config->get('d38_schools') ?? '';
+  $lines = array_map('trim', explode("\n", trim($schoolsData)));
+
+  $schools = [];
+  if (empty($lines)) {
+    return $schools;
+  }
+  foreach ($lines as $line) {
+    if (empty($line)) {
+      continue;
+    }
+    [$key, $domain, $schoolName] = array_map('trim', explode('|', $line));
+    $domain = trim($domain, '/');
+    $domain = str_replace(['http://', 'https://'], '', $domain);
+
+    $schools[$key] = [
+      'domain' => $domain,
+      'school_name' => $schoolName,
+    ];
+  }
+  return $schools;
+}
+
+function sd38_content_sync_get_schools_list_names(): array {
+  return array_map(function($school) {
+    return $school['school_name'];
+  }, sd38_content_sync_get_schools_list());
+}
+
+function sd38_content_sync_get_schools_list_domains(): array {
+  return array_map(function($school) {
+    return $school['domain'];
+  }, sd38_content_sync_get_schools_list());
+}
+
+/**
+ * Implements hook_cron().
+ */
+function sd38_content_sync_cron() {
+  $queue = \Drupal::service('queue')->get('sync_queue_worker');
+  $queue_worker = \Drupal::service('plugin.manager.queue_worker')
+    ->createInstance('sync_queue_worker');
+
+  if ($item = $queue->claimItem()) {
+    try {
+      $queue_worker->processItem($item->data);
+      $queue->deleteItem($item);
+    }
+    catch (Exception $e) {
+      $queue->releaseItem($item);
+      \Drupal::logger('sd38_content_sync')
+        ->error('Failed to execute POST request: @code. Error: @error', [
+          '@code' => $e->getCode(),
+          '@error' => $e->getMessage(),
+        ]);
+    }
+  }
+}
+
+/**
+ * Implements hook_jsonapi_entity_filter_access().
+ */
+function sd38_content_sync_jsonapi_entity_filter_access(EntityTypeInterface $entity_type, AccountInterface $account) {
+  return ([
+    JSONAPI_FILTER_AMONG_ALL => AccessResult::allowed(),
+  ]);
+}

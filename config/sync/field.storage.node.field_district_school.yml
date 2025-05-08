@@ -1,0 +1,21 @@
+uuid: 790009bf-6125-4cd8-9baf-1f07ad941452
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_district_school
+field_name: field_district_school
+entity_type: node
+type: list_string
+settings:
+  allowed_values: {  }
+  allowed_values_function: sd38_content_sync_get_schools_list_names
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

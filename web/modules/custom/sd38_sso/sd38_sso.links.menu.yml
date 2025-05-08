@@ -1,0 +1,5 @@
+sd38_sso.settings:
+  title: "SD38 SSO Settings"
+  parent: system.admin_config_system
+  description: "SD38 SSO Settings."
+  route_name: sd38_sso.settings

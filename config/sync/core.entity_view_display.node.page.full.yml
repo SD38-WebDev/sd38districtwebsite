@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.page.field_body_2
     - field.field.node.page.field_content_section
     - field.field.node.page.field_custom_template
+    - field.field.node.page.field_district_school
     - field.field.node.page.field_feature_page
     - field.field.node.page.field_image
     - field.field.node.page.field_image_gallery
@@ -51,7 +52,7 @@ third_party_settings:
               add_region_classes: 1
               attributes: ''
         components:
-          39b2c06b-9fe6-494a-aa03-f261ebc8d695:
+          -
             uuid: 39b2c06b-9fe6-494a-aa03-f261ebc8d695
             region: right
             configuration:
@@ -70,7 +71,7 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 0
             additional: {  }
-          54623eac-69d4-49b0-80b3-31d87d1377f6:
+          -
             uuid: 54623eac-69d4-49b0-80b3-31d87d1377f6
             region: left
             configuration:
@@ -87,7 +88,7 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 0
             additional: {  }
-          b15e7cfd-e6e0-486f-ac90-7a55832be598:
+          -
             uuid: b15e7cfd-e6e0-486f-ac90-7a55832be598
             region: top
             configuration:
@@ -113,7 +114,7 @@ third_party_settings:
           label: ''
           context_mapping: {  }
         components:
-          d83b72b5-8cd3-42a6-9c98-67522a56efb7:
+          -
             uuid: d83b72b5-8cd3-42a6-9c98-67522a56efb7
             region: top
             configuration:
@@ -123,7 +124,7 @@ third_party_settings:
                 entity: layout_builder.entity
             weight: 0
             additional: {  }
-          c891e3d3-71a2-44b1-a12f-2c941cebe971:
+          -
             uuid: c891e3d3-71a2-44b1-a12f-2c941cebe971
             region: middle
             configuration:
@@ -138,7 +139,7 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 0
             additional: {  }
-          90f1ed9d-e61a-4d15-948c-fe5dfe8fcbd7:
+          -
             uuid: 90f1ed9d-e61a-4d15-948c-fe5dfe8fcbd7
             region: top
             configuration:
@@ -190,6 +191,7 @@ hidden:
   field_body_2: true
   field_content_section: true
   field_custom_template: true
+  field_district_school: true
   field_feature_page: true
   field_image_gallery: true
   field_page_thumbnail_image: true

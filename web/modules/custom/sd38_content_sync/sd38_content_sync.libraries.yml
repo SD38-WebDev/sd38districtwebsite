@@ -1,0 +1,7 @@
+sd38_content_sync.form_alter:
+  js:
+    js/sd38_content_sync.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once

@@ -11,7 +11,11 @@ tag_container_ids:
   - G-44CD1H496L
   - UA-3989760-2
   - GTM-TKTWWV77
-advanced_settings: {  }
+advanced_settings:
+  gtm:
+    GTM-TKTWWV77:
+      data_layer: dataLayer
+      include_environment: false
 dimensions_metrics: {  }
 conditions:
   request_path:

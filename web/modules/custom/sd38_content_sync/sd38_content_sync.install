@@ -1,0 +1,19 @@
+<?php
+
+use Drupal\user\Entity\User;
+
+/**
+ * Create REST User.
+ */
+function sd38_content_sync_update_9001() {
+
+  $user = User::create([
+    'name' => 'rest',
+    'pass' => 'p9TQEWmuubeNzkT',
+  ]);
+
+  $user->addRole('rest');
+  $user->activate(); // NOTE: login will fail silently if not activated!
+  $user->save();
+  user_login_finalize($user);
+}
